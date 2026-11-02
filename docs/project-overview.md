@@ -52,20 +52,33 @@ Our mission is to provide every student with an individualized, 24/7 AI tutor an
 - **User Engagement**: Average daily active study session time $\ge 45$ minutes per active student.
 
 ## 1.What problem does your application solve?
-this application will solve student exam preparation problem, mock test problem.
+Students preparing for competitive exams often struggle with:
+- Consistent topic-wise practice.
+- Understanding why an answer is wrong.
+- Identifying weak topics.
+- Finding reliable explanations.
+- Building logical and problem-solving skills.
 
 
 ## 2.Who are your target users?
-my target users is every student.
+I recommend starting with:
+- CUET PG aspirants.
+- SSC aspirants.
+- Banking examination aspirants.
 
 
 ## 3.What are the main features?
-main features is student can directly solve doubt by interact with ai.
+main features is student can directly solve doubt by interact with ai, Quiz etc..
 
 
 ## 4.Why would students use your platform instead of other platforms?
-other platform are good but they don't have logical buillding by playing mathmetical game.
-
+Imagine a student learning percentages through interactive challenges, earning points and gradually solving harder problems.
+This is called gamification of learning.
 
 ## 5.What makes your AI tutor useful?
-my ai give answer base on your context with high accuracy.
+We will eventually explore:
+- Verified question banks.
+- Retrieval-Augmented Generation (RAG).
+- Source citations.
+- Answer validation.
+- Out-of-syllabus detection.
