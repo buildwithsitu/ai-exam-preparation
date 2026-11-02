@@ -51,3 +51,21 @@ Our mission is to provide every student with an individualized, 24/7 AI tutor an
 - **Answer Grounding Rate**: $\ge 98\%$ retrieval citation accuracy with zero out-of-syllabus hallucinations on domain-specific benchmarks.
 - **User Engagement**: Average daily active study session time $\ge 45$ minutes per active student.
 
+## 1.What problem does your application solve?
+this application will solve student exam preparation problem, mock test problem.
+
+
+## 2.Who are your target users?
+my target users is every student.
+
+
+## 3.What are the main features?
+main features is student can directly solve doubt by interact with ai.
+
+
+## 4.Why would students use your platform instead of other platforms?
+other platform are good but they don't have logical buillding by playing mathmetical game.
+
+
+## 5.What makes your AI tutor useful?
+my ai give answer base on your context with high accuracy.
