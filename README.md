@@ -13,6 +13,7 @@ An intelligent, adaptive exam preparation platform engineered to personalize lea
 ai-exam-preparation/
 │
 ├── docs/                      # Architectural, requirement, and project documentation
+|   |── AI_requirments.md      # What the AI need.
 │   ├── project-overview.md    # Vision, problem statement, personas, and KPIs
 │   ├── requirements.md        # Functional and non-functional specifications (SRS)
 │   └── architecture.md        # System design, data flow, tech stack, and API specs
@@ -36,34 +37,19 @@ ai-exam-preparation/
 
 ---
 
-## 📚 Documentation Index
-
-- [Project Overview](file:///home/birendra/Documents/ai-exam-preparation/docs/project-overview.md) — Problem statement, target personas, and core objectives.
-- [Requirements Specification](file:///home/birendra/Documents/ai-exam-preparation/docs/requirements.md) — Comprehensive functional and non-functional requirements.
-- [Architecture & Design](file:///home/birendra/Documents/ai-exam-preparation/docs/architecture.md) — High-level system architecture, ER diagrams, sequence flows, and API specifications.
-
----
-
 ## 🛠️ Recommended Tech Stack
 
 | Tier | Technologies |
 | :--- | :--- |
-| **Frontend** | Next.js 15 (React 19), TypeScript, Tailwind CSS, shadcn/ui, KaTeX |
-| **Backend** | Python 3.12, FastAPI, Pydantic v2, LangChain / LlamaIndex |
-| **Database** | PostgreSQL 16 + pgvector, Redis 7 (Caching & Async Tasks) |
-| **AI / Embeddings** | Gemini 2.5 / OpenAI GPT-4o, Text-Embedding-3 / BGE |
-| **DevOps & Infra** | Docker, Docker Compose, GitHub Actions |
+| **Frontend** | Next.js 15 (React 19), TypeScript, Tailwind CSS, |
+| **Backend** | Python, FastAPI, LangChain / LlamaIndex |
+| **Database** | PostgreSQL, |
+| **AI / Embeddings** | Gemini 2.5  |
+| **DevOps & Infra** | Docker, GitHub Actions |
 
 ---
 
-## ⚡ Quick Start (Local Development)
-
-### 1. Prerequisites
-- **Node.js**: $\ge 20.x$ and `pnpm` or `npm`
-- **Python**: $\ge 3.11$
-- **Docker & Docker Compose**: For PostgreSQL, pgvector, and Redis
-
-### 2. Environment Setup
+## Environment Setup
 ```bash
 # Clone or navigate to the repository
 cd ai-exam-preparation
@@ -86,8 +72,3 @@ npm run dev
 ```
 
 ---
-
-## 📄 License
-This project is licensed under the MIT License.
-
->>>>>>> 9070fb1 (Initial commit)
