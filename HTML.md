@@ -1,15 +1,15 @@
-# HTML Learning Notes --- ExamMate AI
+# HTML Learning Notes
 
 **Phase:** 1 --- Frontend Foundations\
 **Module:** 1 --- HTML\
-**Coverage:** Days 1--10
+**Coverage:**
 
 These notes consolidate the HTML concepts covered so far. Use them as a
 revision reference while building the ExamMate AI website.
 
 ------------------------------------------------------------------------
 
-## Day 1 --- HTML Fundamentals
+## HTML Fundamentals
 
 ### What is HTML?
 
@@ -56,7 +56,7 @@ web pages. HTML is a markup language, not a programming language.
 
 ------------------------------------------------------------------------
 
-## Day 2 --- Text and Formatting Elements
+## Text and Formatting Elements
 
 ### Headings
 
@@ -111,7 +111,7 @@ attention without the same importance. - `<em>` adds stress emphasis;
 
 ------------------------------------------------------------------------
 
-## Day 3 --- Links, Images, and Lists
+## Links, Images, and Lists
 
 ### Links
 
@@ -203,7 +203,7 @@ decorative images, use `alt=""`.
 
 ------------------------------------------------------------------------
 
-## Day 4 --- HTML Tables
+##  HTML Tables
 
 Tables are for **tabular data**, not for designing the overall page
 layout.
@@ -271,7 +271,7 @@ row/column relationships for assistive technologies.
 
 ------------------------------------------------------------------------
 
-## Day 5 --- Forms and Input Elements
+## Forms and Input Elements
 
 Forms collect information from users.
 
@@ -353,7 +353,7 @@ make sensitive data secure.
 
 ------------------------------------------------------------------------
 
-## Day 6 --- Semantic HTML5
+## Semantic HTML5
 
 Semantic HTML uses elements that communicate the meaning and role of
 content.
@@ -423,7 +423,7 @@ does not automatically add styling.
 
 ------------------------------------------------------------------------
 
-## Day 7 --- Multimedia and Embedded Content
+## Multimedia and Embedded Content
 
 ### Audio
 
@@ -487,7 +487,7 @@ implications.
 
 ------------------------------------------------------------------------
 
-## Day 8 --- Metadata, Head Elements, and SEO Basics
+## Metadata, Head Elements, and SEO Basics
 
 The `<head>` contains document metadata and linked resources. The
 `<body>` contains the page's visible content.
@@ -539,7 +539,7 @@ A meta description does not guarantee a higher search ranking.
 
 ------------------------------------------------------------------------
 
-## Day 9 --- Advanced Forms, Validation, and Accessibility
+## Advanced Forms, Validation, and Accessibility
 
 ### Labels
 
@@ -670,7 +670,7 @@ server must validate submitted data independently.
 
 ------------------------------------------------------------------------
 
-## Day 10 --- Advanced HTML Elements and Data Attributes
+## Advanced HTML Elements and Data Attributes
 
 ### Details and summary
 
@@ -880,27 +880,6 @@ added in later modules.
 
 ------------------------------------------------------------------------
 
-# Revision Checklist
-
-Test whether you can apply these concepts without copying examples.
-
--   [ ] Explain how HTML differs from CSS and JavaScript.
--   [ ] Write a complete HTML document from memory.
--   [ ] Use headings, paragraphs, and text formatting correctly.
--   [ ] Create internal and external links.
--   [ ] Add images with appropriate `alt` text.
--   [ ] Create ordered, unordered, and description lists.
--   [ ] Build a semantic table with a caption and header.
--   [ ] Build a form with suitable input types.
--   [ ] Explain GET vs POST.
--   [ ] Use semantic HTML5 layout elements.
--   [ ] Embed audio, video, and external content.
--   [ ] Add metadata, a title, and a favicon.
--   [ ] Apply HTML form validation attributes.
--   [ ] Explain disabled vs readonly.
--   [ ] Use details, summary, progress, and meter.
--   [ ] Access `data-*` attributes using JavaScript's `dataset`.
-
 ## Recommended documentation
 
 -   [MDN --- HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -909,11 +888,3 @@ Test whether you can apply these concepts without copying examples.
 -   [MDN --- Forms
     guide](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms)
 -   [WHATWG --- HTML Living Standard](https://html.spec.whatwg.org/)
-
-------------------------------------------------------------------------
-
-**Learning rule:** Reading these notes is not the same as mastering
-HTML. Build the pages from memory, inspect them in a browser, debug
-errors, and explain why you chose each element. Move to CSS after you
-can complete the revision checklist and the HTML mini-project
-independently.
