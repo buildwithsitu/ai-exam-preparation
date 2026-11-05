@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Authentic online mock examination interface simulating official competitive exam formats, timers, question palettes, and negative marking schemes.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Live Mock Test Simulator — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. EXAM CONSOLE HEADER (STATIC SIMULATION)                             -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Exam Actions">
+                        <a href="dashboard.html"><strong>&times; Exit to Dashboard</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <h1>CUET PG MCA &mdash; Full Mock Examination Simulator</h1>
+        <p>Candidate: <strong>Birendra Kumar (Roll: CUET-2026-8841)</strong></p>
+        
+        <!-- TEST METADATA BAR -->
+        <section aria-label="Test Information Bar">
+            <p>
+                <strong>Test Name:</strong> CUET PG MCA Full Mock Test #1 | 
+                <strong>Language:</strong> English | 
+                <strong>Status:</strong> <mark>In Progress</mark>
+            </p>
+            <p>
+                <strong>Time Remaining:</strong> 
+                <time datetime="PT1H44M30S"><strong>01 Hour : 44 Mins : 30 Secs</strong></time>
+            </p>
+        </section>
+        <hr>
+
+        <!-- SECTION SWITCHER -->
+        <nav aria-label="Test Sections">
+            <p>Sections:</p>
+            <ul>
+                <li><a href="#section-math"><strong>[Active] Section A: Mathematics &amp; Statistics</strong> (25 Questions)</a></li>
+                <li><a href="#section-cs">Section B: Computer Science &amp; DSA (50 Questions)</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN EXAMINATION WORKSPACE                                          -->
+    <!-- ====================================================================== -->
+    <main>
+
+        <!-- ACTIVE QUESTION CONTAINER -->
+        <section id="active-question-console">
+            
+            <header>
+                <h2>Question No. 1</h2>
+                <p>
+                    <strong>Marking:</strong> Correct: <mark>+4.00</mark> | Incorrect: <del>-1.00</del> | Difficulty: Medium
+                </p>
+            </header>
+
+            <article>
+                <h3>Problem Statement:</h3>
+                <p>
+                    Consider a <strong>Max-Heap</strong> containing <em>n</em> distinct elements. 
+                    What is the worst-case time complexity required to locate the <strong>maximum element</strong> 
+                    and the <strong>minimum element</strong>, respectively?
+                </p>
+
+                <!-- QUESTION FORM WITH ACCESSIBLE RADIO GROUP -->
+                <form action="dashboard.html" method="post" id="mock-exam-form">
+                    
+                    <fieldset>
+                        <legend><strong>Select One Correct Option:</strong></legend>
+
+                        <p>
+                            <input type="radio" id="option-a" name="q1_answer" value="A">
+                            <label for="option-a">
+                                <strong>(A)</strong> Maximum: <em>O(1)</em> &amp; Minimum: <em>O(1)</em>
+                            </label>
+                        </p>
+
+                        <p>
+                            <input type="radio" id="option-b" name="q1_answer" value="B">
+                            <label for="option-b">
+                                <strong>(B)</strong> Maximum: <em>O(1)</em> &amp; Minimum: <em>O(n)</em>
+                            </label>
+                        </p>
+
+                        <p>
+                            <input type="radio" id="option-c" name="q1_answer" value="C">
+                            <label for="option-c">
+                                <strong>(C)</strong> Maximum: <em>O(log n)</em> &amp; Minimum: <em>O(n log n)</em>
+                            </label>
+                        </p>
+
+                        <p>
+                            <input type="radio" id="option-d" name="q1_answer" value="D">
+                            <label for="option-d">
+                                <strong>(D)</strong> Maximum: <em>O(log n)</em> &amp; Minimum: <em>O(log n)</em>
+                            </label>
+                        </p>
+
+                    </fieldset>
+
+                    <!-- QUESTION NAVIGATION BUTTONS -->
+                    <p>
+                        <button type="button" name="nav_prev" disabled>&larr; Previous Question</button>
+                        <button type="reset">Clear Response</button>
+                        <button type="button" name="nav_review">Mark for Review &amp; Next</button>
+                        <button type="button" name="nav_save"><strong>Save &amp; Next &rarr;</strong></button>
+                    </p>
+
+                </form>
+
+            </article>
+
+        </section>
+
+        <hr>
+
+        <!-- QUESTION PALETTE & TEST PROGRESS ASIDE -->
+        <aside id="question-palette-sidebar">
+            <h2>Question Palette &mdash; Section A</h2>
+            
+            <p><strong>Color Legend Summary:</strong></p>
+            <ul>
+                <li><strong>Answered:</strong> 3 Questions</li>
+                <li><strong>Not Answered:</strong> 1 Question (Current)</li>
+                <li><strong>Marked for Review:</strong> 2 Questions</li>
+                <li><strong>Not Visited:</strong> 19 Questions</li>
+            </ul>
+
+            <!-- ACCESSIBLE QUESTION GRID (SIMULATED NAVIGATION) -->
+            <nav aria-label="Question Jump Palette">
+                <p>Click a number to jump directly to that question:</p>
+                <ol>
+                    <li><a href="#q1"><strong>[1] Active</strong></a></li>
+                    <li><a href="#q2">2 (Answered)</a></li>
+                    <li><a href="#q3">3 (Marked Review)</a></li>
+                    <li><a href="#q4">4 (Answered)</a></li>
+                    <li><a href="#q5">5 (Answered)</a></li>
+                    <li><a href="#q6">6 (Not Visited)</a></li>
+                    <li><a href="#q7">7 (Not Visited)</a></li>
+                    <li><a href="#q8">8 (Not Visited)</a></li>
+                    <li><a href="#q9">9 (Not Visited)</a></li>
+                    <li><a href="#q10">10 (Not Visited)</a></li>
+                    <li><a href="#q11">11 (Not Visited)</a></li>
+                    <li><a href="#q12">12 (Not Visited)</a></li>
+                    <li><a href="#q13">13 (Not Visited)</a></li>
+                    <li><a href="#q14">14 (Not Visited)</a></li>
+                    <li><a href="#q15">15 (Not Visited)</a></li>
+                    <li><a href="#q16">16 (Not Visited)</a></li>
+                    <li><a href="#q17">17 (Not Visited)</a></li>
+                    <li><a href="#q18">18 (Not Visited)</a></li>
+                    <li><a href="#q19">19 (Not Visited)</a></li>
+                    <li><a href="#q20">20 (Not Visited)</a></li>
+                </ol>
+            </nav>
+
+            <!-- SUBMIT TEST SECTION -->
+            <section id="submit-test-block">
+                <h3>Finish Test Session</h3>
+                <p><em>Warning: Once submitted, answers cannot be edited. Your score and negative penalty deductions will be calculated immediately.</em></p>
+                <p>
+                    <button type="submit" form="mock-exam-form">
+                        <strong>&check; Submit Examination &rarr;</strong>
+                    </button>
+                </p>
+            </section>
+
+        </aside>
+
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Help">
+            <p>
+                &copy; 2026 ExamMate AI Assessment Engine. Confidential Examination Interface. &nbsp;|&nbsp;
+                <a href="dashboard.html">Exit to Dashboard</a> &nbsp;|&nbsp;
+                <a href="contact.html">Report Technical Glitch</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>

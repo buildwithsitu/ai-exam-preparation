@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reach out to the ExamMate AI support and academic editorial team. Report question discrepancies, request technical assistance, or share platform feedback.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Contact &amp; Student Support — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Account Access">
+                        <a href="login.html">Login</a> &nbsp;|&nbsp;
+                        <a href="register.html"><strong>Register Free</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <nav aria-label="Main Navigation">
+            <details>
+                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
+                <ul>
+                    <li><a href="exams.html">Exams</a></li>
+                    <li><a href="question-bank.html">Question Bank</a></li>
+                    <li><a href="mock-test.html">Mock Test</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" aria-current="page"><strong>Contact</strong></a></li>
+                </ul>
+            </details>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN CONTENT & SUPPORT FORM                                         -->
+    <!-- ====================================================================== -->
+    <main>
+
+        <section id="contact-intro">
+            <h1>Contact ExamMate AI Support</h1>
+            <p>
+                Have a doubt regarding a question explanation, found an erratum in our mock tests, or experiencing an issue? 
+                Our student support desk typically replies within 24 business hours.
+            </p>
+            <hr>
+        </section>
+
+        <!-- ACCESSIBLE CONTACT FORM -->
+        <section id="support-form-section">
+            <h2>Submit an Inquiry or Report an Issue</h2>
+
+            <form action="contact.html" method="post" aria-labelledby="contact-heading">
+
+                <fieldset>
+                    <legend><strong>1. Student Details</strong></legend>
+
+                    <p>
+                        <label for="contact-name">Your Full Name *:</label><br>
+                        <input 
+                            type="text" 
+                            id="contact-name" 
+                            name="name" 
+                            placeholder="e.g. Birendra Kumar" 
+                            required 
+                            autocomplete="name"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="contact-email">Email Address *:</label><br>
+                        <input 
+                            type="email" 
+                            id="contact-email" 
+                            name="email" 
+                            placeholder="student@example.com" 
+                            required 
+                            autocomplete="email"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="candidate-id">Student Roll ID (If enrolled):</label><br>
+                        <input 
+                            type="text" 
+                            id="candidate-id" 
+                            name="candidate_id" 
+                            placeholder="EM-2026-MCA-8841"
+                        >
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>2. Message Specifics</strong></legend>
+
+                    <p>
+                        <label for="inquiry-category">Category of Inquiry *:</label><br>
+                        <select id="inquiry-category" name="category" required>
+                            <option value="" disabled selected>-- Select an Inquiry Category --</option>
+                            <option value="question-errata">Question Key or Explanation Correction</option>
+                            <option value="test-glitch">Mock Test Simulator Technical Issue</option>
+                            <option value="account-help">Login / Password Reset Assistance</option>
+                            <option value="syllabus-request">Request Additional Exam Syllabus</option>
+                            <option value="feedback">General Platform Feedback &amp; Suggestions</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="subject-line">Subject Line *:</label><br>
+                        <input 
+                            type="text" 
+                            id="subject-line" 
+                            name="subject" 
+                            placeholder="Brief summary of your query" 
+                            required
+                        >
+                    </p>
+
+                    <p>
+                        <label for="message-body">Detailed Message or Question Description *:</label><br>
+                        <textarea 
+                            id="message-body" 
+                            name="message" 
+                            rows="6" 
+                            cols="50" 
+                            placeholder="Please provide full details, including question number and exam title if reporting an issue..." 
+                            required
+                        ></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="send-copy" name="send_copy" value="yes" checked>
+                        <label for="send-copy">Send a copy of this correspondence to my email address</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit"><strong>Transmit Support Inquiry &rarr;</strong></button>
+                    <button type="reset">Clear Form</button>
+                </p>
+
+            </form>
+            <hr>
+        </section>
+
+        <!-- DIRECT COMMUNICATION & PHYSICAL ADDRESS -->
+        <section id="office-coordinates">
+            <h2>Academic Editorial Desk Coordinates</h2>
+
+            <address>
+                <strong>ExamMate AI Platform</strong><br>
+                Department of Computer Applications &amp; Academic Systems<br>
+                Email Support: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                Editorial Inquiries: <a href="mailto:editor@exammate.ai">editor@exammate.ai</a><br>
+                Working Hours: Monday to Saturday, 09:00 AM &ndash; 06:00 PM IST
+            </address>
+        </section>
+
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Navigation">
+            <p>
+                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
+                <a href="index.html">Home</a> &nbsp;|&nbsp;
+                <a href="about.html">About Us</a> &nbsp;|&nbsp;
+                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
+                <a href="dashboard.html">Dashboard</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

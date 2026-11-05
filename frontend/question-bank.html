@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practice topic-wise competitive examination questions with step-by-step conceptual explanations and expandable answer keys for CUET PG MCA and Computer Science.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Question Bank &amp; Step-by-Step Explanations — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Account Access">
+                        <a href="login.html">Login</a> &nbsp;|&nbsp;
+                        <a href="register.html"><strong>Register Free</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <nav aria-label="Main Navigation">
+            <details>
+                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
+                <ul>
+                    <li><a href="exams.html">Exams</a></li>
+                    <li><a href="question-bank.html" aria-current="page"><strong>Question Bank</strong></a></li>
+                    <li><a href="mock-test.html">Mock Test</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </details>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN CONTENT                                                        -->
+    <!-- ====================================================================== -->
+    <main>
+
+        <!-- QUESTION BANK INTRO & SEARCH FILTER FORM -->
+        <section id="question-filter-section">
+            <h1>Comprehensive Practice Question Bank</h1>
+            <p>
+                Browse verified previous-year questions and high-probability practice sets. 
+                Use the expandable solution panels to study detailed step-by-step reasoning.
+            </p>
+
+            <!-- HTML FILTER FORM (GET METHOD) -->
+            <form action="question-bank.html" method="get" aria-label="Filter Question Bank">
+                <fieldset>
+                    <legend><strong>Filter Questions by Category:</strong></legend>
+
+                    <p>
+                        <label for="filter-exam">Select Exam:</label>
+                        <select id="filter-exam" name="exam">
+                            <option value="all">All Examinations</option>
+                            <option value="cuet" selected>CUET PG (MCA / Computer Science)</option>
+                        </select>
+                        &nbsp;&nbsp;
+
+                        <label for="filter-subject">Subject Domain:</label>
+                        <select id="filter-subject" name="subject">
+                            <option value="all">All Subjects</option>
+                            <option value="dsa" selected>Data Structures &amp; Algorithms</option>
+                            <option value="math">Mathematics &amp; Calculus</option>
+                            <option value="reasoning">Logical Reasoning</option>
+                            <option value="quant">Quantitative Aptitude</option>
+                        </select>
+                        &nbsp;&nbsp;
+
+                        <label for="filter-difficulty">Difficulty Level:</label>
+                        <select id="filter-difficulty" name="difficulty">
+                            <option value="all">All Levels</option>
+                            <option value="easy">Easy (Fundamentals)</option>
+                            <option value="medium" selected>Medium (Standard Mock Level)</option>
+                            <option value="hard">Hard (Advanced Problem Solving)</option>
+                        </select>
+                        &nbsp;&nbsp;
+
+                        <button type="submit">Filter Questions</button>
+                    </p>
+                </fieldset>
+            </form>
+            <hr>
+        </section>
+
+        <!-- QUESTIONS FEED -->
+        <section id="questions-feed">
+            <h2>Featured Topic Questions</h2>
+
+            <!-- QUESTION 1: DATA STRUCTURES (CUET PG) -->
+            <article id="cuet-q1">
+                <header>
+                    <p>
+                        <strong>Exam:</strong> CUET PG MCA | 
+                        <strong>Topic:</strong> Binary Search Trees &amp; Heaps | 
+                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
+                        <strong>Marks:</strong> +4 / &minus;1
+                    </p>
+                    <h3>Question 1: Inorder Traversal &amp; Min-Heap Properties</h3>
+                </header>
+
+                <p>
+                    Which of the following statements is <strong>strictly TRUE</strong> regarding Binary Search Trees (BST) 
+                    and Binary Heaps?
+                </p>
+
+                <ol type="A">
+                    <li>The Inorder traversal of any valid Binary Search Tree always produces values in strictly sorted (ascending) order.</li>
+                    <li>In a Min-Heap, the second smallest element must always reside at the right child of the root.</li>
+                    <li>Finding the maximum element in a Min-Heap of <em>n</em> nodes takes worst-case <em>O(1)</em> time.</li>
+                    <li>A Min-Heap is always a strictly balanced Binary Search Tree.</li>
+                </ol>
+
+                <!-- NATIVE HTML5 COLLAPSIBLE EXPLANATION (ZERO JAVASCRIPT REQUIRED!) -->
+                <details>
+                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
+                    <section>
+                        <p><strong>Correct Answer:</strong> <strong>(A)</strong> The Inorder traversal of any valid Binary Search Tree always produces values in strictly sorted order.</p>
+                        
+                        <h4>Conceptual Breakdown:</h4>
+                        <ul>
+                            <li>
+                                <strong>Why A is TRUE:</strong> By mathematical definition, for every node <em>X</em> in a BST, all keys in the left subtree are smaller than <em>X</em>, and all keys in the right subtree are greater than <em>X</em>. An Inorder traversal visits <code>Left &rarr; Root &rarr; Right</code>, which strictly guarantees non-decreasing sorted order.
+                            </li>
+                            <li>
+                                <strong>Why B is FALSE:</strong> In a Min-Heap, the second smallest element can be at <em>either</em> the left child (index 1) OR the right child (index 2) of the root node.
+                            </li>
+                            <li>
+                                <strong>Why C is FALSE:</strong> In a Min-Heap, the maximum element resides in one of the leaf nodes. There are &lceil;n/2&rceil; leaves, so finding the maximum requires a linear scan: <em>O(n)</em> time, not <em>O(1)</em>.
+                            </li>
+                            <li>
+                                <strong>Why D is FALSE:</strong> A Heap is a complete binary tree satisfying the heap-order property, whereas a BST satisfies the binary-search-order property. They are entirely different tree data structures.
+                            </li>
+                        </ul>
+                    </section>
+                </details>
+                <hr>
+            </article>
+
+            <!-- QUESTION 2: MATHEMATICS (CUET PG) -->
+            <article id="cuet-math">
+                <header>
+                    <p>
+                        <strong>Exam:</strong> CUET PG MCA | 
+                        <strong>Topic:</strong> Linear Algebra &amp; Matrices | 
+                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
+                        <strong>Marks:</strong> +4 / &minus;1
+                    </p>
+                    <h3>Question 2: Eigenvalues and Trace of a Matrix</h3>
+                </header>
+
+                <p>
+                    Let <strong>M</strong> be a 2&times;2 real matrix whose determinant is <strong>12</strong> 
+                    and whose trace is <strong>7</strong>. What are the eigenvalues (&lambda;<sub>1</sub>, &lambda;<sub>2</sub>) of matrix M?
+                </p>
+
+                <ol type="A">
+                    <li>&lambda;<sub>1</sub> = 2, &lambda;<sub>2</sub> = 6</li>
+                    <li>&lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</li>
+                    <li>&lambda;<sub>1</sub> = 1, &lambda;<sub>2</sub> = 12</li>
+                    <li>&lambda;<sub>1</sub> = &minus;3, &lambda;<sub>2</sub> = &minus;4</li>
+                </ol>
+
+                <details>
+                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
+                    <section>
+                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> &lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</p>
+                        
+                        <h4>Step-by-Step Mathematical Derivation:</h4>
+                        <ol>
+                            <li>
+                                <strong>Trace Property:</strong> The trace of any square matrix equals the sum of its eigenvalues:
+                                <br>
+                                <code>Trace(M) = &lambda;<sub>1</sub> + &lambda;<sub>2</sub> = 7</code>
+                            </li>
+                            <li>
+                                <strong>Determinant Property:</strong> The determinant of a square matrix equals the product of its eigenvalues:
+                                <br>
+                                <code>Det(M) = &lambda;<sub>1</sub> &times; &lambda;<sub>2</sub> = 12</code>
+                            </li>
+                            <li>
+                                <strong>Characteristic Equation:</strong>
+                                <br>
+                                <code>&lambda;<sup>2</sup> &minus; (Trace)&lambda; + Det = 0</code><br>
+                                <code>&lambda;<sup>2</sup> &minus; 7&lambda; + 12 = 0</code>
+                            </li>
+                            <li>
+                                <strong>Factoring:</strong>
+                                <br>
+                                <code>(&lambda; &minus; 3)(&lambda; &minus; 4) = 0</code> &rArr; <strong>&lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</strong>.
+                            </li>
+                        </ol>
+                    </section>
+                </details>
+                <hr>
+            </article>
+
+            <!-- QUESTION 3: QUANTITATIVE APTITUDE (CUET PG) -->
+            <article id="cuet-quant">
+                <header>
+                    <p>
+                        <strong>Exam:</strong> CUET PG | 
+                        <strong>Topic:</strong> Quantitative Aptitude (Percentages, Profit &amp; Loss) | 
+                        <strong>Difficulty:</strong> <mark>Easy</mark> | 
+                        <strong>Marks:</strong> +4 / &minus;1
+                    </p>
+                    <h3>Question 3: Successive Discounts Calculation</h3>
+                </header>
+
+                <p>
+                    A merchant marks a textbook at <strong>&#8377; 500</strong>. He offers two successive discounts of 
+                    <strong>20%</strong> and <strong>10%</strong>. What is the final selling price of the book?
+                </p>
+
+                <ol type="A">
+                    <li>&#8377; 350</li>
+                    <li>&#8377; 360</li>
+                    <li>&#8377; 375</li>
+                    <li>&#8377; 340</li>
+                </ol>
+
+                <details>
+                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
+                    <section>
+                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> &#8377; 360</p>
+                        
+                        <h4>Short-Cut Formula &amp; Step-by-Step Method:</h4>
+                        <p><strong>Method 1 (Equivalent Discount Formula):</strong></p>
+                        <p>
+                            <code>Net Discount = (d<sub>1</sub> + d<sub>2</sub>) &minus; (d<sub>1</sub> &times; d<sub>2</sub> / 100)</code><br>
+                            <code>Net Discount = (20 + 10) &minus; (20 &times; 10 / 100) = 30 &minus; 2 = 28%</code>
+                        </p>
+                        <p>
+                            Selling Price = Marked Price &times; (100 &minus; 28)%<br>
+                            Selling Price = 500 &times; 0.72 = <strong>&#8377; 360</strong>.
+                        </p>
+                    </section>
+                </details>
+                <hr>
+            </article>
+
+            <!-- QUESTION 4: OPERATING SYSTEMS (CUET PG) -->
+            <article id="cuet-os">
+                <header>
+                    <p>
+                        <strong>Exam:</strong> CUET PG MCA | 
+                        <strong>Topic:</strong> Operating Systems (CPU Scheduling) | 
+                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
+                        <strong>Marks:</strong> +4 / &minus;1
+                    </p>
+                    <h3>Question 4: Shortest Job First (SJF) and Starvation</h3>
+                </header>
+
+                <p>
+                    Which of the following CPU scheduling algorithms is susceptible to <strong>process starvation</strong> (indefinite blocking of longer burst processes)?
+                </p>
+
+                <ol type="A">
+                    <li>First-Come, First-Served (FCFS)</li>
+                    <li>Shortest Job First (SJF / Non-preemptive)</li>
+                    <li>Round Robin with an optimal time quantum</li>
+                    <li>First-In, First-Out (FIFO)</li>
+                </ol>
+
+                <details>
+                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
+                    <section>
+                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> Shortest Job First (SJF / Non-preemptive)</p>
+                        
+                        <h4>Conceptual Breakdown:</h4>
+                        <p>
+                            In <strong>Shortest Job First (SJF)</strong>, the CPU scheduler selects the process with the smallest anticipated CPU burst time. If shorter processes arrive continuously in the ready queue, longer processes may be indefinitely postponed. This condition is termed <strong>Starvation</strong>.
+                        </p>
+                        <p>
+                            <strong>Mitigation:</strong> Modern operating systems use the <em>Aging</em> technique, gradually increasing the priority of processes as they wait.
+                        </p>
+                    </section>
+                </details>
+                <hr>
+            </article>
+
+        </section>
+
+        <!-- PAGINATION NAVIGATION -->
+        <nav aria-label="Question Bank Pagination">
+            <p>Page 1 of 42:</p>
+            <ul>
+                <li><strong>[1]</strong></li>
+                <li><a href="question-bank.html?page=2">2</a></li>
+                <li><a href="question-bank.html?page=3">3</a></li>
+                <li><a href="question-bank.html?page=4">4</a></li>
+                <li><a href="question-bank.html?page=2">Next Page &rarr;</a></li>
+            </ul>
+        </nav>
+
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Navigation">
+            <p>
+                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
+                <a href="index.html">Home</a> &nbsp;|&nbsp;
+                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
+                <a href="mock-test.html">Mock Test</a> &nbsp;|&nbsp;
+                <a href="contact.html">Report Question Error</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

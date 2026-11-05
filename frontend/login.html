@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your ExamMate AI student dashboard to access scheduled mock exams, saved attempts, and personalized analytics.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Student Login — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Account Access">
+                        <a href="register.html"><strong>Register Free</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <nav aria-label="Main Navigation">
+            <details>
+                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
+                <ul>
+                    <li><a href="exams.html">Exams</a></li>
+                    <li><a href="question-bank.html">Question Bank</a></li>
+                    <li><a href="mock-test.html">Mock Test</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </details>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN CONTENT & LOGIN FORM                                           -->
+    <!-- ====================================================================== -->
+    <main>
+        <section id="login-section">
+            <h1>Sign In to ExamMate AI</h1>
+            <p>Enter your registered credentials to resume your exam preparation drills.</p>
+
+            <form action="dashboard.html" method="post" aria-labelledby="login-heading">
+                
+                <fieldset>
+                    <legend><strong>Student Credentials</strong></legend>
+
+                    <p>
+                        <label for="login-id">Registered Email Address or Mobile Number *:</label><br>
+                        <input 
+                            type="text" 
+                            id="login-id" 
+                            name="login_id" 
+                            placeholder="student@example.com" 
+                            required 
+                            autocomplete="username"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="login-password">Password *:</label><br>
+                        <input 
+                            type="password" 
+                            id="login-password" 
+                            name="password" 
+                            required 
+                            autocomplete="current-password"
+                        >
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="remember-me" name="remember_me" value="yes">
+                        <label for="remember-me">Keep me logged in on this browser for 30 days</label>
+                    </p>
+
+                </fieldset>
+
+                <p>
+                    <button type="submit"><strong>Sign In to Dashboard &rarr;</strong></button>
+                </p>
+
+                <p>
+                    <a href="contact.html#password-reset">Forgot your password? Request reset link &rarr;</a>
+                </p>
+
+            </form>
+
+            <hr>
+            <section id="new-user-prompt">
+                <h2>New to ExamMate AI?</h2>
+                <p>Create your free profile today to take authentic full-length CUET PG MCA mock tests and topic drills.</p>
+                <p>
+                    <a href="register.html"><strong>Create an Account Free &rarr;</strong></a>
+                </p>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Navigation">
+            <p>
+                &copy; 2026 ExamMate AI Platform. All rights reserved. &nbsp;|&nbsp;
+                <a href="index.html">Home</a> &nbsp;|&nbsp;
+                <a href="about.html">About Us</a> &nbsp;|&nbsp;
+                <a href="contact.html">Help &amp; Support</a> &nbsp;|&nbsp;
+                <a href="register.html">Register</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

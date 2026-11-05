@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View your personalized exam preparation dashboard, syllabus coverage progress, accuracy meters, and detailed mock test scorecards.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Student Dashboard &amp; Analytics — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Account Access">
+                        <span>Welcome, <strong>Birendra</strong></span> &nbsp;|&nbsp;
+                        <a href="index.html"><strong>Logout</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <nav aria-label="Main Navigation">
+            <details>
+                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
+                <ul>
+                    <li><a href="exams.html">Exams</a></li>
+                    <li><a href="question-bank.html">Question Bank</a></li>
+                    <li><a href="mock-test.html">Mock Test</a></li>
+                    <li><a href="dashboard.html" aria-current="page"><strong>Dashboard</strong></a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </details>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN DASHBOARD CONTENT                                              -->
+    <!-- ====================================================================== -->
+    <main>
+
+        <!-- STUDENT PROFILE SUMMARY -->
+        <section id="student-profile">
+            <h1>Student Performance Dashboard</h1>
+            
+            <article>
+                <h2>Welcome Back, Birendra Kumar!</h2>
+                <dl>
+                    <dt><strong>Student ID:</strong></dt>
+                    <dd>EM-2026-MCA-8841</dd>
+
+                    <dt><strong>Primary Target:</strong></dt>
+                    <dd>CUET PG (MCA / Computer Science Entrance 2026)</dd>
+
+                    <dt><strong>Subscription Status:</strong></dt>
+                    <dd><mark>Active Free Foundation Tier</mark></dd>
+
+                    <dt><strong>Overall Percentile Estimate:</strong></dt>
+                    <dd><strong>92.4th Percentile</strong> (Based on last 5 mock tests)</dd>
+                </dl>
+            </article>
+            <hr>
+        </section>
+
+        <!-- PREPARATION METRICS & HTML5 PROGRESS / METER ELEMENTS -->
+        <section id="preparation-metrics">
+            <h2>Preparation Progress &amp; Accuracy Meters</h2>
+            <p>Real-time visual telemetry calculated from your submitted mock exams and topic drills:</p>
+
+            <article id="syllabus-coverage">
+                <h3>1. Overall Syllabus Completion</h3>
+                <p>
+                    <label for="cuet-syllabus">CUET PG MCA Syllabus Covered:</label><br>
+                    <progress id="cuet-syllabus" value="68" max="100">68%</progress>
+                    <strong>68% Completed</strong> (51 of 75 Core Subtopics Mastered)
+                </p>
+
+                <p>
+                    <label for="mock-tests-taken">Target Mock Tests Completed:</label><br>
+                    <progress id="mock-tests-taken" value="12" max="25">12/25</progress>
+                    <strong>12 of 25 Tests Finished</strong> (48% Goal Achieved)
+                </p>
+            </article>
+
+            <article id="subject-accuracy-meters">
+                <h3>2. Domain Accuracy Diagnostics</h3>
+                <p><em>(Green represents high mastery; yellow indicates borderline accuracy needing revision)</em></p>
+
+                <p>
+                    <label for="cs-meter">Computer Science &amp; Data Structures:</label><br>
+                    <meter id="cs-meter" min="0" max="100" low="45" high="75" optimum="90" value="86">86%</meter>
+                    <strong>86% Accuracy</strong> (High Mastery &mdash; Strong in Binary Trees &amp; Stacks)
+                </p>
+
+                <p>
+                    <label for="math-meter">Mathematics &amp; Calculus:</label><br>
+                    <meter id="math-meter" min="0" max="100" low="45" high="75" optimum="90" value="64">64%</meter>
+                    <strong>64% Accuracy</strong> (Needs Revision &mdash; High error rate in Differential Equations)
+                </p>
+
+                <p>
+                    <label for="reasoning-meter">Logical Reasoning &amp; Analytical Aptitude:</label><br>
+                    <meter id="reasoning-meter" min="0" max="100" low="45" high="75" optimum="90" value="92">92%</meter>
+                    <strong>92% Accuracy</strong> (Excellent Mastery &mdash; Fast solve rates)
+                </p>
+            </article>
+            <hr>
+        </section>
+
+        <!-- RECENT MOCK TEST RESULTS (SEMANTIC TABLE) -->
+        <section id="recent-results">
+            <h2>Recent Mock Exam Scorecards</h2>
+            <p>Detailed performance records for your completed full-length test attempts:</p>
+
+            <table border="1" cellpadding="8" cellspacing="0">
+                <caption><strong>Completed Mock Test Attempts Log</strong></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Test Title</th>
+                        <th scope="col">Date Attempted</th>
+                        <th scope="col">Attempted / Total</th>
+                        <th scope="col">Correct</th>
+                        <th scope="col">Incorrect</th>
+                        <th scope="col">Penalty</th>
+                        <th scope="col">Score</th>
+                        <th scope="col">Accuracy</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CUET PG MCA Mock #1</strong></td>
+                        <td>04 Nov 2026</td>
+                        <td>68 / 75</td>
+                        <td>58</td>
+                        <td>10</td>
+                        <td>&minus;10.00</td>
+                        <td><strong>222 / 300</strong></td>
+                        <td>85.29%</td>
+                        <td><a href="question-bank.html#cuet-q1">Review Solutions &rarr;</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mathematics Sectional Drill #3</strong></td>
+                        <td>02 Nov 2026</td>
+                        <td>25 / 25</td>
+                        <td>17</td>
+                        <td>8</td>
+                        <td>&minus;8.00</td>
+                        <td><strong>60 / 100</strong></td>
+                        <td>68.00%</td>
+                        <td><a href="question-bank.html#cuet-math">Review Solutions &rarr;</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DSA &amp; Algorithms Speed Drill</strong></td>
+                        <td>30 Oct 2026</td>
+                        <td>30 / 30</td>
+                        <td>28</td>
+                        <td>2</td>
+                        <td>&minus;2.00</td>
+                        <td><strong>110 / 120</strong></td>
+                        <td>93.33%</td>
+                        <td><a href="question-bank.html#cuet-dsa">Review Solutions &rarr;</a></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6"><strong>Cumulative Average Performance</strong></td>
+                        <td><strong>392 / 520</strong></td>
+                        <td><strong>82.20%</strong></td>
+                        <td><a href="mock-test.html">Launch Next Mock</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <hr>
+        </section>
+
+        <!-- AVAILABLE & RECOMMENDED TESTS -->
+        <section id="available-tests">
+            <h2>Available Practice &amp; Mock Tests</h2>
+            <p>Recommended next drills based on your diagnostic accuracy meters:</p>
+
+            <ul>
+                <li>
+                    <strong>CUET PG MCA Full Mock #2:</strong> 
+                    75 Questions | 105 Minutes | Negative Marking: 1/4th. 
+                    <a href="mock-test.html"><strong>[Start Test Simulator]</strong></a>
+                </li>
+                <li>
+                    <strong>Mathematics High-Yield Drill (Calculus &amp; Algebra):</strong> 
+                    25 Questions | 35 Minutes. 
+                    <a href="mock-test.html">[Start Practice]</a>
+                </li>
+                <li>
+                    <strong>CUET PG Operating Systems &amp; Computer Architecture Drill:</strong> 
+                    25 Questions | 35 Minutes. 
+                    <a href="mock-test.html">[Start Practice]</a>
+                </li>
+            </ul>
+            <hr>
+        </section>
+
+        <!-- MISTAKE NOTEBOOK (WEAK TOPICS TO REVISE) -->
+        <section id="mistake-notebook">
+            <h2>Mistake Notebook &amp; Targeted Revision</h2>
+            <p>Questions you answered incorrectly during recent mocks have been logged for spaced recall:</p>
+
+            <article>
+                <h3>Weak Topic: Matrix Eigenvalues &amp; Diagonalization</h3>
+                <p>Missed in: <em>Mathematics Sectional Drill #3</em>. Frequency of error: 2 times.</p>
+                <p><a href="question-bank.html#math-eigenvalues">Practice 5 Revision Questions on Eigenvalues &rarr;</a></p>
+            </article>
+
+            <article>
+                <h3>Weak Topic: Worst-Case Complexity in Graph Traversal</h3>
+                <p>Missed in: <em>CUET PG MCA Mock #1</em>. Topic: BFS vs DFS queue overflow limits.</p>
+                <p><a href="question-bank.html#cuet-graphs">Practice 5 Revision Questions on Graph Complexity &rarr;</a></p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Navigation">
+            <p>
+                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
+                <a href="index.html">Home</a> &nbsp;|&nbsp;
+                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
+                <a href="question-bank.html">Question Bank</a> &nbsp;|&nbsp;
+                <a href="contact.html">Report Issue</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>
+

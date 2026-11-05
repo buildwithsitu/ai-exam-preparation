@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your free ExamMate AI student account to access authentic mock tests, topic quizzes, and preparation tracking.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Register Student Account — ExamMate AI</title>
+</head>
+<body>
+
+    <!-- ====================================================================== -->
+    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+    <header>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="middle">
+                    <a href="index.html">
+                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    </a>
+                </td>
+                <td align="right" valign="middle">
+                    <nav aria-label="Account Access">
+                        <a href="login.html"><strong>Login</strong></a>
+                    </nav>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <nav aria-label="Main Navigation">
+            <details>
+                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
+                <ul>
+                    <li><a href="exams.html">Exams</a></li>
+                    <li><a href="question-bank.html">Question Bank</a></li>
+                    <li><a href="mock-test.html">Mock Test</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </details>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN CONTENT & REGISTRATION FORM                                    -->
+    <!-- ====================================================================== -->
+    <main>
+        <section id="registration-section">
+            <h1>Create Your ExamMate AI Account</h1>
+            <p>Fill out the form below to begin customized practice and simulated mock examinations. All fields marked with an asterisk (<strong>*</strong>) are required.</p>
+
+            <form action="login.html" method="post" aria-labelledby="registration-heading">
+                
+                <!-- FIELDSET 1: PERSONAL DETAILS -->
+                <fieldset>
+                    <legend><strong>1. Personal Information</strong></legend>
+                    
+                    <p>
+                        <label for="fullname">Full Name *:</label><br>
+                        <input 
+                            type="text" 
+                            id="fullname" 
+                            name="fullname" 
+                            placeholder="e.g. Birendra Kumar" 
+                            minlength="3" 
+                            maxlength="60" 
+                            required 
+                            autocomplete="name"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address *:</label><br>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="student@example.com" 
+                            required 
+                            autocomplete="email"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="phone">Mobile Number (10 Digits) *:</label><br>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="9876543210" 
+                            pattern="[0-9]{10}" 
+                            title="Please enter a valid 10-digit Indian phone number" 
+                            required 
+                            autocomplete="tel"
+                        >
+                    </p>
+                </fieldset>
+
+                <!-- FIELDSET 2: TARGET EXAMINATION -->
+                <fieldset>
+                    <legend><strong>2. Examination Preference</strong></legend>
+                    <p>Select your primary target competitive exam *:</p>
+
+                    <p>
+                        <input type="radio" id="exam-cuet" name="target_exam" value="CUET_PG" required checked>
+                        <label for="exam-cuet">CUET PG (MCA / Computer Science / General)</label><br>
+
+                        <input type="radio" id="exam-other" name="target_exam" value="OTHER">
+                        <label for="exam-other">Other Competitive Exams</label>
+                    </p>
+
+                    <p>
+                        <label for="prep-level">Current Preparation Level:</label><br>
+                        <select id="prep-level" name="preparation_level">
+                            <option value="beginner">Beginner (Just started syllabus coverage)</option>
+                            <option value="intermediate" selected>Intermediate (Completed 50% syllabus, doing topic drills)</option>
+                            <option value="advanced">Advanced (Focused on full-length mock speed)</option>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <!-- FIELDSET 3: SECURITY CREDENTIALS -->
+                <fieldset>
+                    <legend><strong>3. Account Security</strong></legend>
+
+                    <p>
+                        <label for="password">Create Password (Minimum 8 Characters) *:</label><br>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            minlength="8" 
+                            required 
+                            autocomplete="new-password"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="confirm-password">Confirm Password *:</label><br>
+                        <input 
+                            type="password" 
+                            id="confirm-password" 
+                            name="confirm_password" 
+                            minlength="8" 
+                            required 
+                            autocomplete="new-password"
+                        >
+                    </p>
+                </fieldset>
+
+                <!-- FIELDSET 4: TERMS & AGREEMENTS -->
+                <fieldset>
+                    <legend><strong>4. Agreements & Verification</strong></legend>
+
+                    <p>
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to the ExamMate AI <a href="about.html#terms">Terms of Service</a> and <a href="about.html#privacy">Honor Code</a>. *
+                        </label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="newsletter" name="newsletter" value="yes" checked>
+                        <label for="newsletter">
+                            Receive notifications for upcoming mock exam schedules and PYQ updates.
+                        </label>
+                    </p>
+                </fieldset>
+
+                <!-- SUBMISSION BUTTONS -->
+                <p>
+                    <button type="submit"><strong>Complete Registration &rarr;</strong></button>
+                    <button type="reset">Reset Form</button>
+                </p>
+
+            </form>
+
+            <p>Already have an account? <a href="login.html">Log in to your student dashboard here &rarr;</a></p>
+        </section>
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer>
+        <hr>
+        <nav aria-label="Footer Navigation">
+            <p>
+                &copy; 2026 ExamMate AI Platform. All rights reserved. &nbsp;|&nbsp;
+                <a href="index.html">Home</a> &nbsp;|&nbsp;
+                <a href="about.html">About Us</a> &nbsp;|&nbsp;
+                <a href="contact.html">Support</a> &nbsp;|&nbsp;
+                <a href="login.html">Sign In</a>
+            </p>
+        </nav>
+    </footer>
+
+</body>
+</html>
+
