@@ -6,11 +6,15 @@
     <meta name="description" content="Sign in to your ExamMate AI student dashboard to access scheduled mock exams, saved attempts, and personalized analytics.">
     <meta name="author" content="ExamMate AI Team">
     <title>Student Login — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ====================================================================== -->
     <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- ====================================================================== -->
+        <!-- ====================================================================== -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
     <header>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -20,28 +24,23 @@
                         <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
                     </a>
                 </td>
+                <td align="center" valign="middle">
+                    <nav aria-label="Main Navigation">
+                        <a href="exams.html">Exams</a>
+                        <a href="question-bank.html">Question Bank</a>
+                        <a href="mock-test.html">Mock Test</a>
+                        <a href="dashboard.html">Dashboard</a>
+                        <a href="about.html">About</a>
+                        <a href="about.html#contact">Contact</a>
+                    </nav>
+                </td>
                 <td align="right" valign="middle">
                     <nav aria-label="Account Access">
-                        <a href="register.html"><strong>Register Free</strong></a>
+                        <a href="#auth-modal"><button type="button"><strong>Login / Register</strong></button></a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr>
-        <nav aria-label="Main Navigation">
-            <details>
-                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
-                <ul>
-                    <li><a href="exams.html">Exams</a></li>
-                    <li><a href="question-bank.html">Question Bank</a></li>
-                    <li><a href="mock-test.html">Mock Test</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </details>
-        </nav>
-        <hr>
     </header>
 
     <!-- ====================================================================== -->
@@ -92,7 +91,7 @@
                 </p>
 
                 <p>
-                    <a href="contact.html#password-reset">Forgot your password? Request reset link &rarr;</a>
+                    <a href="about.html#password-reset">Forgot your password? Request reset link &rarr;</a>
                 </p>
 
             </form>
@@ -112,18 +111,39 @@
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
+    
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
     <footer>
-        <hr>
-        <nav aria-label="Footer Navigation">
-            <p>
-                &copy; 2026 ExamMate AI Platform. All rights reserved. &nbsp;|&nbsp;
-                <a href="index.html">Home</a> &nbsp;|&nbsp;
-                <a href="about.html">About Us</a> &nbsp;|&nbsp;
-                <a href="contact.html">Help &amp; Support</a> &nbsp;|&nbsp;
-                <a href="register.html">Register</a>
-            </p>
-        </nav>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top">
+                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+                </td>
+                <td align="center" valign="top">
+                    <nav aria-label="Footer Quick Links">
+                        <p><strong>Quick Navigation:</strong></p>
+                        <a href="exams.html">Exams</a> |
+                        <a href="question-bank.html">Question Bank</a> |
+                        <a href="mock-test.html">Mock Test</a> |
+                        <a href="dashboard.html">Dashboard</a> |
+                        <a href="about.html">About Us</a> |
+                        <a href="about.html#contact">Contact Support</a>
+                    </nav>
+                </td>
+                <td align="right" valign="top">
+                    <address>
+                        <strong>Need Assistance?</strong><br>
+                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                        Location: New Delhi, India
+                    </address>
+                </td>
+            </tr>
+        </table>
     </footer>
+
 
 </body>
 </html>

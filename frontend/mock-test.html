@@ -6,11 +6,15 @@
     <meta name="description" content="Authentic online mock examination interface simulating official competitive exam formats, timers, question palettes, and negative marking schemes.">
     <meta name="author" content="ExamMate AI Team">
     <title>Live Mock Test Simulator — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ====================================================================== -->
     <!-- 1. EXAM CONSOLE HEADER (STATIC SIMULATION)                             -->
+    <!-- ====================================================================== -->
+        <!-- ====================================================================== -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
     <header>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -20,46 +24,58 @@
                         <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
                     </a>
                 </td>
+                <td align="center" valign="middle">
+                    <nav aria-label="Main Navigation">
+                        <a href="exams.html">Exams</a>
+                        <a href="question-bank.html">Question Bank</a>
+                        <a href="mock-test.html" aria-current="page">Mock Test</a>
+                        <a href="dashboard.html">Dashboard</a>
+                        <a href="about.html">About</a>
+                        <a href="about.html#contact">Contact</a>
+                    </nav>
+                </td>
                 <td align="right" valign="middle">
-                    <nav aria-label="Exam Actions">
-                        <a href="dashboard.html"><strong>&times; Exit to Dashboard</strong></a>
+                    <nav aria-label="Account Access">
+                        <a href="#auth-modal"><button type="button"><strong>Login / Register</strong></button></a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr>
-        <h1>CUET PG MCA &mdash; Full Mock Examination Simulator</h1>
-        <p>Candidate: <strong>Birendra Kumar (Roll: CUET-2026-8841)</strong></p>
-        
-        <!-- TEST METADATA BAR -->
-        <section aria-label="Test Information Bar">
-            <p>
-                <strong>Test Name:</strong> CUET PG MCA Full Mock Test #1 | 
-                <strong>Language:</strong> English | 
-                <strong>Status:</strong> <mark>In Progress</mark>
-            </p>
-            <p>
-                <strong>Time Remaining:</strong> 
-                <time datetime="PT1H44M30S"><strong>01 Hour : 44 Mins : 30 Secs</strong></time>
-            </p>
-        </section>
-        <hr>
-
-        <!-- SECTION SWITCHER -->
-        <nav aria-label="Test Sections">
-            <p>Sections:</p>
-            <ul>
-                <li><a href="#section-math"><strong>[Active] Section A: Mathematics &amp; Statistics</strong> (25 Questions)</a></li>
-                <li><a href="#section-cs">Section B: Computer Science &amp; DSA (50 Questions)</a></li>
-            </ul>
-        </nav>
-        <hr>
     </header>
 
     <!-- ====================================================================== -->
     <!-- 2. MAIN EXAMINATION WORKSPACE                                          -->
     <!-- ====================================================================== -->
     <main>
+        <!-- EXAM CONSOLE INTRO & TIMER METADATA -->
+        <section id="exam-console-meta">
+            <h1>CUET PG MCA &mdash; Full Mock Examination Simulator</h1>
+            <p>Candidate: <strong>Birendra Kumar (Roll: CUET-2026-8841)</strong> &nbsp;|&nbsp; <a href="dashboard.html"><strong>&times; Exit to Dashboard</strong></a></p>
+            
+            <!-- TEST METADATA BAR -->
+            <section aria-label="Test Information Bar">
+                <p>
+                    <strong>Test Name:</strong> CUET PG MCA Full Mock Test #1 | 
+                    <strong>Language:</strong> English | 
+                    <strong>Status:</strong> <mark>In Progress</mark>
+                </p>
+                <p>
+                    <strong>Time Remaining:</strong> 
+                    <time datetime="PT1H44M30S"><strong>01 Hour : 44 Mins : 30 Secs</strong></time>
+                </p>
+            </section>
+            <hr>
+
+            <!-- SECTION SWITCHER -->
+            <nav aria-label="Test Sections">
+                <p>Sections:</p>
+                <ul>
+                    <li><a href="#section-math"><strong>[Active] Section A: Mathematics &amp; Statistics</strong> (25 Questions)</a></li>
+                    <li><a href="#section-cs">Section B: Computer Science &amp; DSA (50 Questions)</a></li>
+                </ul>
+            </nav>
+            <hr>
+        </section>
 
         <!-- ACTIVE QUESTION CONTAINER -->
         <section id="active-question-console">
@@ -188,15 +204,36 @@
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
+        <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
     <footer>
-        <hr>
-        <nav aria-label="Footer Help">
-            <p>
-                &copy; 2026 ExamMate AI Assessment Engine. Confidential Examination Interface. &nbsp;|&nbsp;
-                <a href="dashboard.html">Exit to Dashboard</a> &nbsp;|&nbsp;
-                <a href="contact.html">Report Technical Glitch</a>
-            </p>
-        </nav>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top">
+                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+                </td>
+                <td align="center" valign="top">
+                    <nav aria-label="Footer Quick Links">
+                        <p><strong>Quick Navigation:</strong></p>
+                        <a href="exams.html">Exams</a> |
+                        <a href="question-bank.html">Question Bank</a> |
+                        <a href="mock-test.html">Mock Test</a> |
+                        <a href="dashboard.html">Dashboard</a> |
+                        <a href="about.html">About Us</a> |
+                        <a href="about.html#contact">Contact Support</a>
+                    </nav>
+                </td>
+                <td align="right" valign="top">
+                    <address>
+                        <strong>Need Assistance?</strong><br>
+                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                        Location: New Delhi, India
+                    </address>
+                </td>
+            </tr>
+        </table>
     </footer>
 
 </body>

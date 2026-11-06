@@ -3,309 +3,359 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Practice topic-wise competitive examination questions with step-by-step conceptual explanations and expandable answer keys for CUET PG MCA and Computer Science.">
+    <meta name="description" content="Explore CUET Question Bank with chapter-wise and topic-wise practice questions, detailed step-by-step solutions, and previous year papers.">
     <meta name="author" content="ExamMate AI Team">
-    <title>Question Bank &amp; Step-by-Step Explanations — ExamMate AI</title>
+    <title>CUET Question Bank — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ====================================================================== -->
-    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
     <header>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td align="left" valign="middle">
-                    <a href="index.html">
-                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    <a href="index.html" aria-label="ExamMate AI Home">
+                        <img src="images/logo.svg" alt="ExamMate AI" width="220" height="48">
                     </a>
                 </td>
+                <td align="center" valign="middle">
+                    <nav aria-label="Main Navigation">
+                        <a href="index.html">Home</a>
+                        <a href="exams.html">Exams &#9662;</a>
+                        <a href="mock-test.html">Mock Tests</a>
+                        <a href="question-bank.html" aria-current="page">Question Bank</a>
+                        <a href="about.html">About Us</a>
+                        <a href="about.html#contact">Contact</a>
+                    </nav>
+                </td>
                 <td align="right" valign="middle">
-                    <nav aria-label="Account Access">
-                        <a href="login.html">Login</a> &nbsp;|&nbsp;
-                        <a href="register.html"><strong>Register Free</strong></a>
+                    <nav aria-label="Account Access" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                        <a href="question-bank.html" class="btn btn-pill-outline btn-sm" aria-label="Search questions" style="padding: 0.45rem 0.65rem;">🔍</a>
+                        <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
+                        <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr>
-        <nav aria-label="Main Navigation">
-            <details>
-                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
-                <ul>
-                    <li><a href="exams.html">Exams</a></li>
-                    <li><a href="question-bank.html" aria-current="page"><strong>Question Bank</strong></a></li>
-                    <li><a href="mock-test.html">Mock Test</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </details>
-        </nav>
-        <hr>
     </header>
 
     <!-- ====================================================================== -->
-    <!-- 2. MAIN CONTENT                                                        -->
+    <!-- 2. MAIN QUESTION BANK WORKSPACE                                        -->
     <!-- ====================================================================== -->
-    <main>
+    <main class="qb-page-main">
 
-        <!-- QUESTION BANK INTRO & SEARCH FILTER FORM -->
-        <section id="question-filter-section">
-            <h1>Comprehensive Practice Question Bank</h1>
-            <p>
-                Browse verified previous-year questions and high-probability practice sets. 
-                Use the expandable solution panels to study detailed step-by-step reasoning.
-            </p>
+        <!-- ================================================================== -->
+        <!-- BANNER: PURPLE HERO HEADER WITH BREADCRUMB & GRAPHIC               -->
+        <!-- ================================================================== -->
+        <section class="qb-hero-banner" aria-label="Question Bank Overview">
+            <div class="qb-banner-left">
+                <!-- Breadcrumb -->
+                <nav class="qb-breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a> &rsaquo; 
+                    <a href="question-bank.html">Question Bank</a> &rsaquo; 
+                    <span>CUET</span>
+                </nav>
 
-            <!-- HTML FILTER FORM (GET METHOD) -->
-            <form action="question-bank.html" method="get" aria-label="Filter Question Bank">
-                <fieldset>
-                    <legend><strong>Filter Questions by Category:</strong></legend>
+                <div class="qb-banner-content-flex">
+                    <!-- Square Graduation Cap Emblem -->
+                    <div class="qb-cap-emblem-bubble" aria-hidden="true">🎓</div>
+                    
+                    <div class="qb-banner-text-stack">
+                        <h1>CUET Question Bank</h1>
+                        <p>
+                            Practice chapter-wise and topic-wise questions for CUET (UG/PG) with detailed solutions, previous year questions, and difficulty levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                    <p>
-                        <label for="filter-exam">Select Exam:</label>
-                        <select id="filter-exam" name="exam">
-                            <option value="all">All Examinations</option>
-                            <option value="cuet" selected>CUET PG (MCA / Computer Science)</option>
-                        </select>
-                        &nbsp;&nbsp;
+            <!-- Right Vector Graphic (Books, Laptop with test screen & pens) -->
+            <div class="qb-banner-graphic" aria-hidden="true">
+                <img src="images/qb-hero-graphic.svg" alt="" width="460" height="260">
+            </div>
+        </section>
 
-                        <label for="filter-subject">Subject Domain:</label>
-                        <select id="filter-subject" name="subject">
-                            <option value="all">All Subjects</option>
-                            <option value="dsa" selected>Data Structures &amp; Algorithms</option>
-                            <option value="math">Mathematics &amp; Calculus</option>
-                            <option value="reasoning">Logical Reasoning</option>
-                            <option value="quant">Quantitative Aptitude</option>
-                        </select>
-                        &nbsp;&nbsp;
+        <!-- ================================================================== -->
+        <!-- TOOLBAR: EXAM TOGGLE PILLS & GLOBAL SEARCH BAR                     -->
+        <!-- ================================================================== -->
+        <section class="qb-toolbar-row" aria-label="Exam Selection and Search">
+            <!-- Left: CUET UG / PG Toggle -->
+            <div class="qb-exam-toggle-group" role="tablist" aria-label="Select Target Stream">
+                <a href="question-bank.html" class="qb-toggle-pill active" role="tab" aria-selected="true">CUET (UG)</a>
+                <a href="question-bank.html" class="qb-toggle-pill inactive" role="tab" aria-selected="false">CUET (PG)</a>
+            </div>
 
-                        <label for="filter-difficulty">Difficulty Level:</label>
-                        <select id="filter-difficulty" name="difficulty">
-                            <option value="all">All Levels</option>
-                            <option value="easy">Easy (Fundamentals)</option>
-                            <option value="medium" selected>Medium (Standard Mock Level)</option>
-                            <option value="hard">Hard (Advanced Problem Solving)</option>
-                        </select>
-                        &nbsp;&nbsp;
-
-                        <button type="submit">Filter Questions</button>
-                    </p>
-                </fieldset>
+            <!-- Right: Search Input Box -->
+            <form class="qb-search-container-box" action="question-bank.html" method="get" role="search">
+                <span style="color: var(--color-text-muted); margin-right: 0.5rem;" aria-hidden="true">🔍</span>
+                <input 
+                    type="search" 
+                    id="qb-search-input" 
+                    name="q" 
+                    placeholder="Search questions, topics or chapters..." 
+                    aria-label="Search questions, topics or chapters"
+                >
+                <button type="submit" class="qb-search-submit-btn">Search</button>
             </form>
-            <hr>
         </section>
 
-        <!-- QUESTIONS FEED -->
-        <section id="questions-feed">
-            <h2>Featured Topic Questions</h2>
+        <!-- ================================================================== -->
+        <!-- MAIN CONTENT: FILTER SIDEBAR & SUBJECT CARDS GRID                  -->
+        <!-- ================================================================== -->
+        <div class="qb-content-layout">
 
-            <!-- QUESTION 1: DATA STRUCTURES (CUET PG) -->
-            <article id="cuet-q1">
-                <header>
-                    <p>
-                        <strong>Exam:</strong> CUET PG MCA | 
-                        <strong>Topic:</strong> Binary Search Trees &amp; Heaps | 
-                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
-                        <strong>Marks:</strong> +4 / &minus;1
-                    </p>
-                    <h3>Question 1: Inorder Traversal &amp; Min-Heap Properties</h3>
-                </header>
+            <!-- -------------------------------------------------------------- -->
+            <!-- LEFT: FILTER QUESTIONS SIDEBAR                                 -->
+            <!-- -------------------------------------------------------------- -->
+            <aside class="qb-filter-sidebar" aria-label="Filter Questions">
+                <div class="filter-sidebar-title">
+                    <span aria-hidden="true">⏚</span>
+                    <span>Filter Questions</span>
+                </div>
 
-                <p>
-                    Which of the following statements is <strong>strictly TRUE</strong> regarding Binary Search Trees (BST) 
-                    and Binary Heaps?
-                </p>
+                <form action="question-bank.html" method="get">
+                    <!-- Filter Group 1: Subject -->
+                    <div class="filter-group-block">
+                        <div class="filter-group-header-row">
+                            <strong>Subject</strong>
+                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
+                        </div>
+                        <div class="filter-items-stack">
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="all" checked>
+                                <span>All Subjects</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="general">
+                                <span>General Test</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="english">
+                                <span>English</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="domain">
+                                <span>Domain Subjects</span>
+                            </label>
+                        </div>
+                    </div>
 
-                <ol type="A">
-                    <li>The Inorder traversal of any valid Binary Search Tree always produces values in strictly sorted (ascending) order.</li>
-                    <li>In a Min-Heap, the second smallest element must always reside at the right child of the root.</li>
-                    <li>Finding the maximum element in a Min-Heap of <em>n</em> nodes takes worst-case <em>O(1)</em> time.</li>
-                    <li>A Min-Heap is always a strictly balanced Binary Search Tree.</li>
-                </ol>
+                    <!-- Filter Group 2: Difficulty Level -->
+                    <div class="filter-group-block">
+                        <div class="filter-group-header-row">
+                            <strong>Difficulty Level</strong>
+                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
+                        </div>
+                        <div class="filter-items-stack">
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="diff" value="easy">
+                                <span class="badge-diff easy">Easy</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="diff" value="medium">
+                                <span class="badge-diff medium">Medium</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="diff" value="hard">
+                                <span class="badge-diff hard">Hard</span>
+                            </label>
+                        </div>
+                    </div>
 
-                <!-- NATIVE HTML5 COLLAPSIBLE EXPLANATION (ZERO JAVASCRIPT REQUIRED!) -->
-                <details>
-                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
-                    <section>
-                        <p><strong>Correct Answer:</strong> <strong>(A)</strong> The Inorder traversal of any valid Binary Search Tree always produces values in strictly sorted order.</p>
-                        
-                        <h4>Conceptual Breakdown:</h4>
-                        <ul>
-                            <li>
-                                <strong>Why A is TRUE:</strong> By mathematical definition, for every node <em>X</em> in a BST, all keys in the left subtree are smaller than <em>X</em>, and all keys in the right subtree are greater than <em>X</em>. An Inorder traversal visits <code>Left &rarr; Root &rarr; Right</code>, which strictly guarantees non-decreasing sorted order.
-                            </li>
-                            <li>
-                                <strong>Why B is FALSE:</strong> In a Min-Heap, the second smallest element can be at <em>either</em> the left child (index 1) OR the right child (index 2) of the root node.
-                            </li>
-                            <li>
-                                <strong>Why C is FALSE:</strong> In a Min-Heap, the maximum element resides in one of the leaf nodes. There are &lceil;n/2&rceil; leaves, so finding the maximum requires a linear scan: <em>O(n)</em> time, not <em>O(1)</em>.
-                            </li>
-                            <li>
-                                <strong>Why D is FALSE:</strong> A Heap is a complete binary tree satisfying the heap-order property, whereas a BST satisfies the binary-search-order property. They are entirely different tree data structures.
-                            </li>
-                        </ul>
-                    </section>
-                </details>
-                <hr>
-            </article>
+                    <!-- Filter Group 3: Question Type -->
+                    <div class="filter-group-block">
+                        <div class="filter-group-header-row">
+                            <strong>Question Type</strong>
+                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
+                        </div>
+                        <div class="filter-items-stack">
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="type" value="all" checked>
+                                <span>All Types</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="type" value="mcq">
+                                <span>MCQ (Single Correct)</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </aside>
 
-            <!-- QUESTION 2: MATHEMATICS (CUET PG) -->
-            <article id="cuet-math">
-                <header>
-                    <p>
-                        <strong>Exam:</strong> CUET PG MCA | 
-                        <strong>Topic:</strong> Linear Algebra &amp; Matrices | 
-                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
-                        <strong>Marks:</strong> +4 / &minus;1
-                    </p>
-                    <h3>Question 2: Eigenvalues and Trace of a Matrix</h3>
-                </header>
+            <!-- -------------------------------------------------------------- -->
+            <!-- RIGHT: EXPLORE SUBJECTS CARDS GRID                             -->
+            <!-- -------------------------------------------------------------- -->
+            <section class="qb-cards-area" aria-label="Subject Question Banks">
+                
+                <div class="qb-section-intro">
+                    <h2>Explore CUET Question Bank (UG)</h2>
+                    <p>Practice from subject-wise question collections, chapter-wise sets, and CUET previous year papers.</p>
+                </div>
 
-                <p>
-                    Let <strong>M</strong> be a 2&times;2 real matrix whose determinant is <strong>12</strong> 
-                    and whose trace is <strong>7</strong>. What are the eigenvalues (&lambda;<sub>1</sub>, &lambda;<sub>2</sub>) of matrix M?
-                </p>
+                <!-- 8 Subject Cards Grid (4 Columns x 2 Rows) -->
+                <div class="qb-cards-grid">
 
-                <ol type="A">
-                    <li>&lambda;<sub>1</sub> = 2, &lambda;<sub>2</sub> = 6</li>
-                    <li>&lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</li>
-                    <li>&lambda;<sub>1</sub> = 1, &lambda;<sub>2</sub> = 12</li>
-                    <li>&lambda;<sub>1</sub> = &minus;3, &lambda;<sub>2</sub> = &minus;4</li>
-                </ol>
-
-                <details>
-                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
-                    <section>
-                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> &lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</p>
-                        
-                        <h4>Step-by-Step Mathematical Derivation:</h4>
-                        <ol>
-                            <li>
-                                <strong>Trace Property:</strong> The trace of any square matrix equals the sum of its eigenvalues:
-                                <br>
-                                <code>Trace(M) = &lambda;<sub>1</sub> + &lambda;<sub>2</sub> = 7</code>
-                            </li>
-                            <li>
-                                <strong>Determinant Property:</strong> The determinant of a square matrix equals the product of its eigenvalues:
-                                <br>
-                                <code>Det(M) = &lambda;<sub>1</sub> &times; &lambda;<sub>2</sub> = 12</code>
-                            </li>
-                            <li>
-                                <strong>Characteristic Equation:</strong>
-                                <br>
-                                <code>&lambda;<sup>2</sup> &minus; (Trace)&lambda; + Det = 0</code><br>
-                                <code>&lambda;<sup>2</sup> &minus; 7&lambda; + 12 = 0</code>
-                            </li>
-                            <li>
-                                <strong>Factoring:</strong>
-                                <br>
-                                <code>(&lambda; &minus; 3)(&lambda; &minus; 4) = 0</code> &rArr; <strong>&lambda;<sub>1</sub> = 3, &lambda;<sub>2</sub> = 4</strong>.
-                            </li>
-                        </ol>
-                    </section>
-                </details>
-                <hr>
-            </article>
-
-            <!-- QUESTION 3: QUANTITATIVE APTITUDE (CUET PG) -->
-            <article id="cuet-quant">
-                <header>
-                    <p>
-                        <strong>Exam:</strong> CUET PG | 
-                        <strong>Topic:</strong> Quantitative Aptitude (Percentages, Profit &amp; Loss) | 
-                        <strong>Difficulty:</strong> <mark>Easy</mark> | 
-                        <strong>Marks:</strong> +4 / &minus;1
-                    </p>
-                    <h3>Question 3: Successive Discounts Calculation</h3>
-                </header>
-
-                <p>
-                    A merchant marks a textbook at <strong>&#8377; 500</strong>. He offers two successive discounts of 
-                    <strong>20%</strong> and <strong>10%</strong>. What is the final selling price of the book?
-                </p>
-
-                <ol type="A">
-                    <li>&#8377; 350</li>
-                    <li>&#8377; 360</li>
-                    <li>&#8377; 375</li>
-                    <li>&#8377; 340</li>
-                </ol>
-
-                <details>
-                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
-                    <section>
-                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> &#8377; 360</p>
-                        
-                        <h4>Short-Cut Formula &amp; Step-by-Step Method:</h4>
-                        <p><strong>Method 1 (Equivalent Discount Formula):</strong></p>
-                        <p>
-                            <code>Net Discount = (d<sub>1</sub> + d<sub>2</sub>) &minus; (d<sub>1</sub> &times; d<sub>2</sub> / 100)</code><br>
-                            <code>Net Discount = (20 + 10) &minus; (20 &times; 10 / 100) = 30 &minus; 2 = 28%</code>
+                    <!-- Card 1: General Test -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble general" aria-hidden="true">📊</div>
+                            <div class="qb-card-title-group">
+                                <h3>General Test</h3>
+                                <span>5,200+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Reasoning &bull; GK &bull; Current Affairs &bull; Quantitative Aptitude &bull; Logic
                         </p>
-                        <p>
-                            Selling Price = Marked Price &times; (100 &minus; 28)%<br>
-                            Selling Price = 500 &times; 0.72 = <strong>&#8377; 360</strong>.
-                        </p>
-                    </section>
-                </details>
-                <hr>
-            </article>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
 
-            <!-- QUESTION 4: OPERATING SYSTEMS (CUET PG) -->
-            <article id="cuet-os">
-                <header>
+                    <!-- Card 2: English -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble english" aria-hidden="true">📖</div>
+                            <div class="qb-card-title-group">
+                                <h3>English</h3>
+                                <span>3,800+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Reading &bull; Grammar &bull; Vocabulary &bull; Comprehension &bull; Verbal Ability
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 3: Physics -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚛️</div>
+                            <div class="qb-card-title-group">
+                                <h3>Physics</h3>
+                                <span>4,500+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Mechanics &bull; Electricity &bull; Optics &bull; Thermodynamics &bull; Modern Physics
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 4: Chemistry -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble chemistry" aria-hidden="true">⚗️</div>
+                            <div class="qb-card-title-group">
+                                <h3>Chemistry</h3>
+                                <span>4,400+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Organic &bull; Inorganic &bull; Physical &bull; Coordination &bull; Biomolecules
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 5: Mathematics -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble math" aria-hidden="true">&#960;</div>
+                            <div class="qb-card-title-group">
+                                <h3>Mathematics</h3>
+                                <span>5,000+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Algebra &bull; Calculus &bull; Probability &bull; Vectors &bull; Coordinate Geometry
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 6: Biology -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble biology" aria-hidden="true">🍃</div>
+                            <div class="qb-card-title-group">
+                                <h3>Biology</h3>
+                                <span>4,200+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Cell Biology &bull; Genetics &bull; Ecology &bull; Human Physiology &bull; Biotechnology
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 7: Economics -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble economics" aria-hidden="true">📈</div>
+                            <div class="qb-card-title-group">
+                                <h3>Economics</h3>
+                                <span>3,600+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Microeconomics &bull; Macroeconomics &bull; Statistics &bull; Indian Economy
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                    <!-- Card 8: Accountancy -->
+                    <article class="qb-subject-card">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble accountancy" aria-hidden="true">🪙</div>
+                            <div class="qb-card-title-group">
+                                <h3>Accountancy</h3>
+                                <span>3,200+ Questions</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Accounting &bull; Financial Statements &bull; Management &bull; Analysis
+                        </p>
+                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                    </article>
+
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- ZERO-JS EXPANDABLE CONCEPTUAL PRACTICE DRILL               -->
+                <!-- ========================================================== -->
+                <section class="card" style="padding: var(--space-6); margin-top: var(--space-4);" aria-label="Sample Practice Question">
+                    <h3 style="margin-top: 0; font-size: 1.15rem; color: var(--color-text-primary);">
+                        Featured Conceptual Problem: Mathematics &amp; Calculus
+                    </h3>
+                    <p><strong>Question ID: CUET-MATH-2026-084</strong> &bull; Level: <span class="badge-diff medium">Medium</span></p>
                     <p>
-                        <strong>Exam:</strong> CUET PG MCA | 
-                        <strong>Topic:</strong> Operating Systems (CPU Scheduling) | 
-                        <strong>Difficulty:</strong> <mark>Medium</mark> | 
-                        <strong>Marks:</strong> +4 / &minus;1
+                        Evaluate the definite integral: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em> &middot; <em>e</em><sup>&minus;2x</sup> <em>dx</em>.
                     </p>
-                    <h3>Question 4: Shortest Job First (SJF) and Starvation</h3>
-                </header>
+                    <form action="mock-test.html" method="get">
+                        <p><label><input type="radio" name="math_q1" value="A"> A) 1/2</label></p>
+                        <p><label><input type="radio" name="math_q1" value="B"> B) 1/4</label></p>
+                        <p><label><input type="radio" name="math_q1" value="C"> C) 1/8</label></p>
+                        <p><label><input type="radio" name="math_q1" value="D"> D) Diverges</label></p>
+                    </form>
 
-                <p>
-                    Which of the following CPU scheduling algorithms is susceptible to <strong>process starvation</strong> (indefinite blocking of longer burst processes)?
-                </p>
+                    <details style="margin-top: var(--space-4); background-color: var(--color-brand-soft); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-brand-soft-border);">
+                        <summary style="font-weight: 700; color: var(--color-brand-primary); cursor: pointer;">
+                            Click to View Step-by-Step Derivation &amp; Correct Option
+                        </summary>
+                        <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--color-text-primary); line-height: 1.6;">
+                            <p><strong>Correct Answer: B) 1/4</strong></p>
+                            <p>
+                                <em>Derivation:</em> Using the standard Gamma function identity: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em><sup><em>n</em>&minus;1</sup> <em>e</em><sup>&minus;&alpha;<em>x</em></sup> <em>dx</em> = &Gamma;(<em>n</em>) / &alpha;<sup><em>n</em></sup>.
+                                Here <em>n</em> = 2 and &alpha; = 2.
+                                Therefore, &Gamma;(2) / 2<sup>2</sup> = 1! / 4 = <strong>1/4</strong>.
+                            </p>
+                        </div>
+                    </details>
+                </section>
 
-                <ol type="A">
-                    <li>First-Come, First-Served (FCFS)</li>
-                    <li>Shortest Job First (SJF / Non-preemptive)</li>
-                    <li>Round Robin with an optimal time quantum</li>
-                    <li>First-In, First-Out (FIFO)</li>
-                </ol>
+            </section>
 
-                <details>
-                    <summary><strong>Click to View Correct Option &amp; Detailed Explanation</strong></summary>
-                    <section>
-                        <p><strong>Correct Answer:</strong> <strong>(B)</strong> Shortest Job First (SJF / Non-preemptive)</p>
-                        
-                        <h4>Conceptual Breakdown:</h4>
-                        <p>
-                            In <strong>Shortest Job First (SJF)</strong>, the CPU scheduler selects the process with the smallest anticipated CPU burst time. If shorter processes arrive continuously in the ready queue, longer processes may be indefinitely postponed. This condition is termed <strong>Starvation</strong>.
-                        </p>
-                        <p>
-                            <strong>Mitigation:</strong> Modern operating systems use the <em>Aging</em> technique, gradually increasing the priority of processes as they wait.
-                        </p>
-                    </section>
-                </details>
-                <hr>
-            </article>
-
-        </section>
-
-        <!-- PAGINATION NAVIGATION -->
-        <nav aria-label="Question Bank Pagination">
-            <p>Page 1 of 42:</p>
-            <ul>
-                <li><strong>[1]</strong></li>
-                <li><a href="question-bank.html?page=2">2</a></li>
-                <li><a href="question-bank.html?page=3">3</a></li>
-                <li><a href="question-bank.html?page=4">4</a></li>
-                <li><a href="question-bank.html?page=2">Next Page &rarr;</a></li>
-            </ul>
-        </nav>
+        </div>
 
     </main>
 
@@ -313,18 +363,62 @@
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
     <footer>
-        <hr>
-        <nav aria-label="Footer Navigation">
-            <p>
-                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
-                <a href="index.html">Home</a> &nbsp;|&nbsp;
-                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
-                <a href="mock-test.html">Mock Test</a> &nbsp;|&nbsp;
-                <a href="contact.html">Report Question Error</a>
-            </p>
-        </nav>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top">
+                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+                </td>
+                <td align="center" valign="top">
+                    <nav aria-label="Footer Quick Links">
+                        <p><strong>Quick Navigation:</strong></p>
+                        <a href="exams.html">Exams</a> |
+                        <a href="question-bank.html">Question Bank</a> |
+                        <a href="mock-test.html">Mock Test</a> |
+                        <a href="dashboard.html">Dashboard</a> |
+                        <a href="about.html">About Us</a> |
+                        <a href="about.html#contact">Contact Support</a>
+                    </nav>
+                </td>
+                <td align="right" valign="top">
+                    <address>
+                        <strong>Need Assistance?</strong><br>
+                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                        Location: New Delhi, India
+                    </address>
+                </td>
+            </tr>
+        </table>
     </footer>
+
+    <!-- ====================================================================== -->
+    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
+    <!-- ====================================================================== -->
+    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
+        <div class="auth-modal-card">
+            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+            <div class="auth-modal-header">
+                <h2 id="modal-title">Sign In / Register</h2>
+                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
+            </div>
+            <form action="dashboard.html" method="get">
+                <div class="auth-form-group">
+                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
+                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
+                </div>
+                <div class="auth-form-group">
+                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
+                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
+                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
+                </div>
+                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
+                    <strong>Verify OTP &amp; Continue &rarr;</strong>
+                </button>
+                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
-

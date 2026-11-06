@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 110" width="140" height="110">
+    <!-- Soft background glow -->
+    <circle cx="70" cy="55" r="45" fill="#f5d0fe" opacity="0.7" />
+    <!-- Person Sitting -->
+    <circle cx="70" cy="35" r="16" fill="#fed7aa" />
+    <path d="M58 32 C 58 18, 82 18, 82 32 Z" fill="#1e1b4b" />
+    <path d="M52 65 C 52 50, 88 50, 88 65 Z" fill="#4338ca" />
+    <!-- Laptop -->
+    <polygon points="45,75 95,75 90,88 50,88" fill="#312e81" />
+    <rect x="50" y="62" width="40" height="22" rx="3" fill="#818cf8" />
+</svg>

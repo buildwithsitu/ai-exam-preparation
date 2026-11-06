@@ -1,0 +1,119 @@
+/* ==========================================================================
+   ExamMate AI — Design Tokens & Color Palette
+   Theme: Milky-White / Warm Ivory Canvas + Light Emerald Green Accents
+   Design Reference: Minimalist SaaS (SkillQuest aesthetic)
+   ========================================================================== */
+
+:root {
+    /* ----------------------------------------------------------------------
+       1. BRAND & PALETTE (ExamMate AI Royal Purple / Indigo Theme)
+       ---------------------------------------------------------------------- */
+    /* Primary Royal Purple / Indigo Accents (from reference image) */
+    --color-brand-primary: #5B3CE8;          /* Vibrant Royal Purple (Primary) */
+    --color-brand-primary-hover: #472BC6;    /* Deep Purple (Hover) */
+    --color-brand-light: #7C3AED;            /* Lighter Violet */
+    --color-brand-primary-shadow: #37209E;   /* Shadow accent */
+    --color-brand-soft: #F3F0FF;             /* Soft pastel lavender background */
+    --color-brand-soft-border: #DDD6FE;      /* Lavender hairline border */
+
+    /* Secondary Blue & Cyan Accents (Vision & AI cards) */
+    --color-brand-blue: #2563EB;             /* Vibrant Sky Blue */
+    --color-brand-blue-soft: #EBF5FF;        /* Soft Pastel Sky Blue background */
+    --color-brand-blue-border: #BFDBFE;      /* Sky Blue hairline border */
+
+    /* Secondary & Gamification Tokens */
+    --color-xp-gold: #F59E0B;                /* ⚡ XP & Coins (Amber Gold) */
+    --color-xp-gold-dark: #B45309;
+    --color-streak-fire: #EA580C;            /* 🔥 Daily Streak Flame */
+    --color-tier-purple: #5B3CE8;            /* 🏆 Rank Tier */
+
+    /* Evaluation Colors */
+    --color-correct: #10B981;                /* 🎯 Correct Answer (+4 Marks) */
+    --color-correct-dark: #047857;
+    --color-incorrect: #EF4444;              /* ❌ Negative Penalty (-1 Mark) */
+    --color-incorrect-dark: #B91C1C;
+
+    /* ----------------------------------------------------------------------
+       2. CANVAS & SURFACE TOKENS
+       ---------------------------------------------------------------------- */
+    --color-bg-app: #FAF9FE;                 /* Clean Canvas with Soft Purple Tint */
+    --color-bg-surface: #FFFFFF;             /* Pure White (Cards, Panels, Modals) */
+    --color-bg-subtle: #F5F3FF;              /* Subtle Lavender Surface */
+    --color-bg-mint: #F3F0FF;                /* Soft Brand Tint */
+
+    /* Dark Neutral & Button Tokens (Deep Navy from reference banner) */
+    --color-btn-dark: #1E1B4B;               /* Deep Navy CTA Banner & Buttons */
+    --color-btn-dark-hover: #2E2A72;
+
+    /* Text Contrast (WCAG 2.1 AAA Verified on Milky-White) */
+    --color-text-primary: #0f172a;           /* Deep Slate / Black Text (17:1 ratio) */
+    --color-text-secondary: #52525b;         /* Neutral Charcoal (Muted subtext) */
+    --color-text-muted: #71717a;             /* Subtle captions, metadata */
+    --color-text-inverted: #ffffff;          /* White text on dark/green buttons */
+
+    /* Borders & Hairlines */
+    --color-border-subtle: #e4e4e7;          /* Clean subtle border */
+    --color-border-strong: #d4d4d8;          /* Input border */
+    --color-border-focus: #10b981;           /* Light Green Focus Ring */
+
+    /* ----------------------------------------------------------------------
+       3. TYPOGRAPHY SYSTEM (Inter / Modern Sans)
+       ---------------------------------------------------------------------- */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 2rem;      /* 32px */
+    --font-size-4xl: 2.75rem;   /* 44px — Display Hero Title */
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    --line-height-tight: 1.15;
+    --line-height-snug: 1.35;
+    --line-height-relaxed: 1.6;
+
+    /* ----------------------------------------------------------------------
+       4. SPACING SCALE (8-Point Grid)
+       ---------------------------------------------------------------------- */
+    --space-1: 0.25rem;  /* 4px */
+    --space-2: 0.5rem;   /* 8px */
+    --space-3: 0.75rem;  /* 12px */
+    --space-4: 1rem;     /* 16px */
+    --space-6: 1.5rem;   /* 24px */
+    --space-8: 2rem;     /* 32px */
+    --space-10: 2.5rem;  /* 40px */
+    --space-12: 3rem;    /* 48px */
+    --space-16: 4rem;    /* 64px */
+    --space-20: 5rem;    /* 80px */
+
+    /* ----------------------------------------------------------------------
+       5. BORDER RADII (Soft & Pill Curves)
+       ---------------------------------------------------------------------- */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 9999px; /* Pill buttons matching reference design */
+
+    /* ----------------------------------------------------------------------
+       6. ELEVATION & SOFT WARM SHADOWS
+       ---------------------------------------------------------------------- */
+    --shadow-flat: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+    --shadow-floating: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+
+    /* ----------------------------------------------------------------------
+       7. MICRO-TRANSITIONS
+       ---------------------------------------------------------------------- */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}

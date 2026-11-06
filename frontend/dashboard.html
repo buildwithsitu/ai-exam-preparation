@@ -3,250 +3,535 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View your personalized exam preparation dashboard, syllabus coverage progress, accuracy meters, and detailed mock test scorecards.">
+    <meta name="description" content="Personalized student learning analytics, weekly study telemetry, syllabus completion progress, and interactive study schedule.">
     <meta name="author" content="ExamMate AI Team">
-    <title>Student Dashboard &amp; Analytics — ExamMate AI</title>
+    <title>Student Learning Dashboard — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="dashboard-body">
 
-    <!-- ====================================================================== -->
-    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
-    <!-- ====================================================================== -->
-    <header>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="middle">
-                    <a href="index.html">
-                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+    <div class="dashboard-app-wrapper">
+
+        <!-- ================================================================== -->
+        <!-- 1. LEFT SIDEBAR NAVIGATION                                         -->
+        <!-- ================================================================== -->
+        <aside class="dashboard-sidebar" aria-label="Dashboard Navigation">
+            <div>
+                <!-- Brand Logo -->
+                <div class="sidebar-brand">
+                    <a href="index.html" aria-label="ExamMate AI Home">
+                        <img src="images/logo.svg" alt="ExamMate AI" width="160" height="38">
                     </a>
-                </td>
-                <td align="right" valign="middle">
-                    <nav aria-label="Account Access">
-                        <span>Welcome, <strong>Birendra</strong></span> &nbsp;|&nbsp;
-                        <a href="index.html"><strong>Logout</strong></a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
-        <hr>
-        <nav aria-label="Main Navigation">
-            <details>
-                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
-                <ul>
-                    <li><a href="exams.html">Exams</a></li>
-                    <li><a href="question-bank.html">Question Bank</a></li>
-                    <li><a href="mock-test.html">Mock Test</a></li>
-                    <li><a href="dashboard.html" aria-current="page"><strong>Dashboard</strong></a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </details>
-        </nav>
-        <hr>
-    </header>
+                </div>
+
+                <!-- Main Menu Links -->
+                <nav class="sidebar-nav-menu" aria-label="Dashboard Main Navigation">
+                    <ul>
+                        <li>
+                            <a href="dashboard.html" class="active" aria-current="page">
+                                <span class="sidebar-menu-icon" aria-hidden="true">▦</span>
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mock-test.html">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📖</span>
+                                <span>My Learning</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#schedule">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📅</span>
+                                <span>Schedule</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="exams.html">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📚</span>
+                                <span>Courses</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="question-bank.html">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📝</span>
+                                <span>Assignments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#messages">
+                                <span class="sidebar-menu-icon" aria-hidden="true">💬</span>
+                                <span>Messages</span>
+                                <span class="sidebar-badge-count">4</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#achievements">
+                                <span class="sidebar-menu-icon" aria-hidden="true">🏆</span>
+                                <span>Achievements</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html">
+                                <span class="sidebar-menu-icon" aria-hidden="true">👥</span>
+                                <span>Community</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#settings">
+                                <span class="sidebar-menu-icon" aria-hidden="true">⚙️</span>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Bottom Go Premium Card -->
+            <div class="sidebar-premium-box">
+                <div class="premium-illustration-wrap" aria-hidden="true">
+                    <img src="images/premium-student.svg" alt="" width="80" height="65">
+                </div>
+                <h2 class="premium-heading">Go Premium</h2>
+                <p class="premium-caption">Unlock unlimited courses, certificates and more.</p>
+                <a href="#auth-modal" class="btn btn-pill-dark premium-btn">
+                    <strong>Upgrade Now 👑</strong>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ================================================================== -->
+        <!-- 2. MAIN VIEWPORT (TOPBAR & WORKSPACE GRID)                         -->
+        <!-- ================================================================== -->
+        <div class="dashboard-main-viewport">
+
+            <!-- Topbar Header -->
+            <header class="dashboard-topbar">
+                <div class="topbar-greeting">
+                    <h1>Good morning, Archie! 👋</h1>
+                    <p>Let's continue your learning journey.</p>
+                </div>
+
+                <!-- Global Search Form -->
+                <form class="topbar-search-form" action="question-bank.html" method="get" role="search">
+                    <div class="topbar-search-box">
+                        <span aria-hidden="true">🔍</span>
+                        <input type="search" name="q" placeholder="Search for courses, topics..." aria-label="Search courses and topics">
+                    </div>
+                </form>
+
+                <!-- Right Notifications & Profile Access -->
+                <div class="topbar-right-controls">
+                    <button type="button" class="bell-notification-btn" aria-label="Notifications (1 Unread)">
+                        🔔
+                        <span class="bell-dot-indicator" aria-hidden="true"></span>
+                    </button>
+                    <a href="#auth-modal" class="user-profile-summary-pill" aria-label="User Account">
+                        <div class="avatar-badge-wrap">
+                            <img src="images/avatar-user.svg" alt="Archie Schmidt Profile" width="40" height="40">
+                            <span class="online-green-dot" aria-hidden="true"></span>
+                        </div>
+                        <span class="chevron-down" aria-hidden="true">▾</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Workspace Grid (Primary Feed + Right Utility Panel) -->
+            <main class="dashboard-workspace-grid">
+
+                <!-- ---------------------------------------------------------- -->
+                <!-- LEFT FEED COLUMN                                           -->
+                <!-- ---------------------------------------------------------- -->
+                <div class="dashboard-feed-col">
+
+                    <!-- Row 1: Analytics (Activity Bar Chart + Progress Ring) -->
+                    <section class="analytics-cards-row" aria-label="Activity and Progress Analytics">
+
+                        <!-- Card 1: Your Learning Activity -->
+                        <article class="dash-card activity-card">
+                            <div class="dash-card-header">
+                                <h2>Your Learning Activity</h2>
+                                <select class="dash-dropdown-select" aria-label="Filter timeframe">
+                                    <option>This Week</option>
+                                    <option>Last Week</option>
+                                    <option>This Month</option>
+                                </select>
+                            </div>
+
+                            <div class="activity-metric-meta">
+                                <p class="trend-badge-green">↗ 12% more than last week</p>
+                                <p class="stat-headline">
+                                    <strong>18.6</strong>
+                                    <span>Hours spent</span>
+                                </p>
+                            </div>
+
+                            <!-- Pure CSS Bar Chart (Thu Highlighted) -->
+                            <div class="bar-chart-visual" aria-label="Hours spent per day this week">
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 32%;" title="Mon: 2.4 Hours"></div>
+                                    <span class="bar-day-label">Mon</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 42%;" title="Tue: 3.2 Hours"></div>
+                                    <span class="bar-day-label">Tue</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 52%;" title="Wed: 4.0 Hours"></div>
+                                    <span class="bar-day-label">Wed</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill highlight" style="height: 94%;" title="Thu: 7.2 Hours (Peak Activity)"></div>
+                                    <span class="bar-day-label">Thu</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 48%;" title="Fri: 3.6 Hours"></div>
+                                    <span class="bar-day-label">Fri</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 36%;" title="Sat: 2.8 Hours"></div>
+                                    <span class="bar-day-label">Sat</span>
+                                </div>
+                                <div class="bar-column">
+                                    <div class="bar-fill" style="height: 24%;" title="Sun: 1.8 Hours"></div>
+                                    <span class="bar-day-label">Sun</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2: Learning Progress Donut -->
+                        <article class="dash-card progress-card">
+                            <div class="dash-card-header">
+                                <h2>Learning Progress</h2>
+                                <select class="dash-dropdown-select" aria-label="Filter progress scope">
+                                    <option>Overall</option>
+                                    <option>Core MCA</option>
+                                    <option>Mock Tests</option>
+                                </select>
+                            </div>
+
+                            <!-- Circular Donut Ring -->
+                            <div class="donut-chart-container">
+                                <div class="donut-visual-ring" aria-label="68% of learning journey completed">
+                                    <div class="donut-inner-circle">
+                                        <span class="donut-percent-num">68%</span>
+                                        <span class="donut-percent-label">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Status Breakdown Counts -->
+                            <div class="progress-status-list">
+                                <div class="status-row">
+                                    <div class="status-info">
+                                        <span class="status-icon-bubble purple" aria-hidden="true">🔖</span>
+                                        <span><strong>24</strong> Completed</span>
+                                    </div>
+                                    <a href="question-bank.html" class="status-details-link">Details &rarr;</a>
+                                </div>
+
+                                <div class="status-row">
+                                    <div class="status-info">
+                                        <span class="status-icon-bubble orange" aria-hidden="true">♾️</span>
+                                        <span><strong>8</strong> In Progress</span>
+                                    </div>
+                                    <a href="mock-test.html" class="status-details-link">Details &rarr;</a>
+                                </div>
+
+                                <div class="status-row">
+                                    <div class="status-info">
+                                        <span class="status-icon-bubble green" aria-hidden="true">🎓</span>
+                                        <span><strong>6</strong> Upcoming</span>
+                                    </div>
+                                    <a href="exams.html" class="status-details-link">Details &rarr;</a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </section>
+
+                    <!-- Row 2: Continue Learning Section -->
+                    <section class="continue-learning-card" aria-label="Continue Learning Courses">
+                        <div class="continue-header-controls">
+                            <h2>Continue Learning</h2>
+                            <div class="pagination-controls-row">
+                                <a href="exams.html" class="view-all-link">View All</a>
+                                <div class="arrow-nav-group">
+                                    <button type="button" class="arrow-circle-btn" aria-label="Previous Courses">&lsaquo;</button>
+                                    <button type="button" class="arrow-circle-btn" aria-label="Next Courses">&rsaquo;</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab Filters -->
+                        <div class="filter-tab-pills" role="tablist">
+                            <button type="button" class="filter-tab-btn active" role="tab" aria-selected="true">All</button>
+                            <button type="button" class="filter-tab-btn" role="tab" aria-selected="false">In Progress</button>
+                            <button type="button" class="filter-tab-btn" role="tab" aria-selected="false">Completed</button>
+                        </div>
+
+                        <!-- 3 Course Cards -->
+                        <div class="course-cards-row">
+
+                            <!-- Course 1 -->
+                            <article class="course-card-item">
+                                <div class="course-banner-container">
+                                    <img src="images/course-uiux.svg" alt="UI/UX Design Fundamentals" width="320" height="180">
+                                    <span class="course-progress-badge">75%</span>
+                                </div>
+                                <div class="course-card-body">
+                                    <h3>UI/UX Design Fundamentals</h3>
+                                    <div class="course-instructor-meta">
+                                        <div class="instructor-portrait-info">
+                                            <img src="images/instructor-1.svg" alt="James Smith" width="22" height="22">
+                                            <span>James Smith</span>
+                                        </div>
+                                        <span>12 Lessons</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Course 2 -->
+                            <article class="course-card-item">
+                                <div class="course-banner-container">
+                                    <img src="images/course-js.svg" alt="JavaScript Essentials" width="320" height="180">
+                                    <span class="course-progress-badge">40%</span>
+                                </div>
+                                <div class="course-card-body">
+                                    <h3>JavaScript Essentials</h3>
+                                    <div class="course-instructor-meta">
+                                        <div class="instructor-portrait-info">
+                                            <img src="images/instructor-2.svg" alt="Olivia Brown" width="22" height="22">
+                                            <span>Olivia Brown</span>
+                                        </div>
+                                        <span>18 Lessons</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Course 3 -->
+                            <article class="course-card-item">
+                                <div class="course-banner-container">
+                                    <img src="images/course-dsa.svg" alt="Data Structures & Algorithms" width="320" height="180">
+                                    <span class="course-progress-badge">60%</span>
+                                </div>
+                                <div class="course-card-body">
+                                    <h3>Data Structures &amp; Algorithms</h3>
+                                    <div class="course-instructor-meta">
+                                        <div class="instructor-portrait-info">
+                                            <img src="images/instructor-3.svg" alt="Michael Lee" width="22" height="22">
+                                            <span>Michael Lee</span>
+                                        </div>
+                                        <span>20 Lessons</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </section>
+
+                    <!-- Row 3: Quick Stats (4 Horizontal Cards) -->
+                    <section class="quick-stats-row" aria-label="Student Quick Stats">
+                        <div class="quick-stat-box">
+                            <div class="stat-bubble-icon purple" aria-hidden="true">📚</div>
+                            <div class="stat-text-stack">
+                                <strong>12</strong>
+                                <span>Courses Enrolled</span>
+                            </div>
+                        </div>
+
+                        <div class="quick-stat-box">
+                            <div class="stat-bubble-icon green" aria-hidden="true">🎓</div>
+                            <div class="stat-text-stack">
+                                <strong>126</strong>
+                                <span>Lessons Completed</span>
+                            </div>
+                        </div>
+
+                        <div class="quick-stat-box">
+                            <div class="stat-bubble-icon orange" aria-hidden="true">🕒</div>
+                            <div class="stat-text-stack">
+                                <strong>48h</strong>
+                                <span>Total Learning Time</span>
+                            </div>
+                        </div>
+
+                        <div class="quick-stat-box">
+                            <div class="stat-bubble-icon blue" aria-hidden="true">🔥</div>
+                            <div class="stat-text-stack">
+                                <strong>7</strong>
+                                <span>Day Streak</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- ---------------------------------------------------------- -->
+                <!-- RIGHT UTILITY PANEL                                        -->
+                <!-- ---------------------------------------------------------- -->
+                <aside class="dashboard-right-panel" aria-label="Student Profile and Daily Schedule">
+
+                    <!-- 1. Student Profile Card -->
+                    <article class="user-profile-hero-card">
+                        <div class="user-profile-cover-banner" aria-hidden="true"></div>
+                        <div class="user-profile-avatar-anchor">
+                            <img src="images/avatar-user.svg" alt="Archie Schmidt Profile Photo" width="64" height="64">
+                        </div>
+                        <h3>Archie Schmidt</h3>
+                        <p class="user-academic-role">Computer Science Student</p>
+                        <span class="level-star-badge">⭐ Level 12</span>
+                    </article>
+
+                    <!-- 2. Mini Calendar Widget -->
+                    <article class="calendar-widget-card" aria-label="Study Calendar">
+                        <div class="calendar-month-header">
+                            <button type="button" class="calendar-arrow-btn" aria-label="Previous Month">&lsaquo;</button>
+                            <h4>May 2025</h4>
+                            <button type="button" class="calendar-arrow-btn" aria-label="Next Month">&rsaquo;</button>
+                        </div>
+
+                        <div class="calendar-days-grid">
+                            <span class="cal-weekday">M</span>
+                            <span class="cal-weekday">T</span>
+                            <span class="cal-weekday">W</span>
+                            <span class="cal-weekday">T</span>
+                            <span class="cal-weekday">F</span>
+                            <span class="cal-weekday">S</span>
+                            <span class="cal-weekday">S</span>
+
+                            <!-- Week 1 -->
+                            <span class="cal-date muted">28</span>
+                            <span class="cal-date muted">29</span>
+                            <span class="cal-date muted">30</span>
+                            <span class="cal-date">1</span>
+                            <span class="cal-date">2</span>
+                            <span class="cal-date">3</span>
+                            <span class="cal-date">4</span>
+
+                            <!-- Week 2 -->
+                            <span class="cal-date">5</span>
+                            <span class="cal-date">6</span>
+                            <span class="cal-date">7</span>
+                            <span class="cal-date">8</span>
+                            <span class="cal-date">9</span>
+                            <span class="cal-date">10</span>
+                            <span class="cal-date">11</span>
+
+                            <!-- Week 3 -->
+                            <span class="cal-date">12</span>
+                            <span class="cal-date">13</span>
+                            <span class="cal-date">14</span>
+                            <span class="cal-date">15</span>
+                            <span class="cal-date">16</span>
+                            <span class="cal-date">17</span>
+                            <span class="cal-date">18</span>
+
+                            <!-- Week 4 (Day 20 Highlighted) -->
+                            <span class="cal-date">19</span>
+                            <span class="cal-date active-day" aria-current="date">20</span>
+                            <span class="cal-date">21</span>
+                            <span class="cal-date">22</span>
+                            <span class="cal-date">23</span>
+                            <span class="cal-date">24</span>
+                            <span class="cal-date">25</span>
+                        </div>
+                    </article>
+
+                    <!-- 3. Today's Plan Checklist -->
+                    <article class="todays-plan-card">
+                        <div class="plan-header-row">
+                            <h3>Today's Plan</h3>
+                            <button type="button" class="add-plan-icon-btn" aria-label="Add new plan item">+</button>
+                        </div>
+
+                        <div class="plan-checklist">
+                            <label class="plan-check-item">
+                                <input type="checkbox" name="plan1">
+                                <span class="plan-item-label">
+                                    <strong>Complete React Basics</strong>
+                                    <span>10:00 AM &ndash; 11:30 AM</span>
+                                </span>
+                            </label>
+
+                            <label class="plan-check-item done">
+                                <input type="checkbox" name="plan2" checked>
+                                <span class="plan-item-label">
+                                    <strong>Data Structures Quiz</strong>
+                                    <span>01:00 PM &ndash; 02:00 PM</span>
+                                </span>
+                            </label>
+
+                            <label class="plan-check-item">
+                                <input type="checkbox" name="plan3">
+                                <span class="plan-item-label">
+                                    <strong>Read Chapter 4</strong>
+                                    <span>03:30 PM &ndash; 04:30 PM</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <a href="#schedule" class="full-schedule-link">View Full Schedule &rarr;</a>
+                    </article>
+
+                    <!-- 4. Achievements Card -->
+                    <article class="achievements-widget-card">
+                        <div class="achieve-header-row">
+                            <h3>Achievements</h3>
+                            <a href="#achievements" class="view-all-link">View All</a>
+                        </div>
+
+                        <div class="achieve-body-flex">
+                            <div class="achieve-medal-bubble" aria-hidden="true">🏅</div>
+                            <div class="achieve-meta-text">
+                                <strong>Top 10% Learner</strong>
+                                <p>Keep up the great work!</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-dots-indicator" aria-hidden="true">
+                            <span class="carousel-dot active"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                    </article>
+
+                </aside>
+
+            </main>
+
+        </div>
+
+    </div>
 
     <!-- ====================================================================== -->
-    <!-- 2. MAIN DASHBOARD CONTENT                                              -->
+    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
     <!-- ====================================================================== -->
-    <main>
-
-        <!-- STUDENT PROFILE SUMMARY -->
-        <section id="student-profile">
-            <h1>Student Performance Dashboard</h1>
-            
-            <article>
-                <h2>Welcome Back, Birendra Kumar!</h2>
-                <dl>
-                    <dt><strong>Student ID:</strong></dt>
-                    <dd>EM-2026-MCA-8841</dd>
-
-                    <dt><strong>Primary Target:</strong></dt>
-                    <dd>CUET PG (MCA / Computer Science Entrance 2026)</dd>
-
-                    <dt><strong>Subscription Status:</strong></dt>
-                    <dd><mark>Active Free Foundation Tier</mark></dd>
-
-                    <dt><strong>Overall Percentile Estimate:</strong></dt>
-                    <dd><strong>92.4th Percentile</strong> (Based on last 5 mock tests)</dd>
-                </dl>
-            </article>
-            <hr>
-        </section>
-
-        <!-- PREPARATION METRICS & HTML5 PROGRESS / METER ELEMENTS -->
-        <section id="preparation-metrics">
-            <h2>Preparation Progress &amp; Accuracy Meters</h2>
-            <p>Real-time visual telemetry calculated from your submitted mock exams and topic drills:</p>
-
-            <article id="syllabus-coverage">
-                <h3>1. Overall Syllabus Completion</h3>
-                <p>
-                    <label for="cuet-syllabus">CUET PG MCA Syllabus Covered:</label><br>
-                    <progress id="cuet-syllabus" value="68" max="100">68%</progress>
-                    <strong>68% Completed</strong> (51 of 75 Core Subtopics Mastered)
-                </p>
-
-                <p>
-                    <label for="mock-tests-taken">Target Mock Tests Completed:</label><br>
-                    <progress id="mock-tests-taken" value="12" max="25">12/25</progress>
-                    <strong>12 of 25 Tests Finished</strong> (48% Goal Achieved)
-                </p>
-            </article>
-
-            <article id="subject-accuracy-meters">
-                <h3>2. Domain Accuracy Diagnostics</h3>
-                <p><em>(Green represents high mastery; yellow indicates borderline accuracy needing revision)</em></p>
-
-                <p>
-                    <label for="cs-meter">Computer Science &amp; Data Structures:</label><br>
-                    <meter id="cs-meter" min="0" max="100" low="45" high="75" optimum="90" value="86">86%</meter>
-                    <strong>86% Accuracy</strong> (High Mastery &mdash; Strong in Binary Trees &amp; Stacks)
-                </p>
-
-                <p>
-                    <label for="math-meter">Mathematics &amp; Calculus:</label><br>
-                    <meter id="math-meter" min="0" max="100" low="45" high="75" optimum="90" value="64">64%</meter>
-                    <strong>64% Accuracy</strong> (Needs Revision &mdash; High error rate in Differential Equations)
-                </p>
-
-                <p>
-                    <label for="reasoning-meter">Logical Reasoning &amp; Analytical Aptitude:</label><br>
-                    <meter id="reasoning-meter" min="0" max="100" low="45" high="75" optimum="90" value="92">92%</meter>
-                    <strong>92% Accuracy</strong> (Excellent Mastery &mdash; Fast solve rates)
-                </p>
-            </article>
-            <hr>
-        </section>
-
-        <!-- RECENT MOCK TEST RESULTS (SEMANTIC TABLE) -->
-        <section id="recent-results">
-            <h2>Recent Mock Exam Scorecards</h2>
-            <p>Detailed performance records for your completed full-length test attempts:</p>
-
-            <table border="1" cellpadding="8" cellspacing="0">
-                <caption><strong>Completed Mock Test Attempts Log</strong></caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Test Title</th>
-                        <th scope="col">Date Attempted</th>
-                        <th scope="col">Attempted / Total</th>
-                        <th scope="col">Correct</th>
-                        <th scope="col">Incorrect</th>
-                        <th scope="col">Penalty</th>
-                        <th scope="col">Score</th>
-                        <th scope="col">Accuracy</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>CUET PG MCA Mock #1</strong></td>
-                        <td>04 Nov 2026</td>
-                        <td>68 / 75</td>
-                        <td>58</td>
-                        <td>10</td>
-                        <td>&minus;10.00</td>
-                        <td><strong>222 / 300</strong></td>
-                        <td>85.29%</td>
-                        <td><a href="question-bank.html#cuet-q1">Review Solutions &rarr;</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Mathematics Sectional Drill #3</strong></td>
-                        <td>02 Nov 2026</td>
-                        <td>25 / 25</td>
-                        <td>17</td>
-                        <td>8</td>
-                        <td>&minus;8.00</td>
-                        <td><strong>60 / 100</strong></td>
-                        <td>68.00%</td>
-                        <td><a href="question-bank.html#cuet-math">Review Solutions &rarr;</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>DSA &amp; Algorithms Speed Drill</strong></td>
-                        <td>30 Oct 2026</td>
-                        <td>30 / 30</td>
-                        <td>28</td>
-                        <td>2</td>
-                        <td>&minus;2.00</td>
-                        <td><strong>110 / 120</strong></td>
-                        <td>93.33%</td>
-                        <td><a href="question-bank.html#cuet-dsa">Review Solutions &rarr;</a></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6"><strong>Cumulative Average Performance</strong></td>
-                        <td><strong>392 / 520</strong></td>
-                        <td><strong>82.20%</strong></td>
-                        <td><a href="mock-test.html">Launch Next Mock</a></td>
-                    </tr>
-                </tfoot>
-            </table>
-            <hr>
-        </section>
-
-        <!-- AVAILABLE & RECOMMENDED TESTS -->
-        <section id="available-tests">
-            <h2>Available Practice &amp; Mock Tests</h2>
-            <p>Recommended next drills based on your diagnostic accuracy meters:</p>
-
-            <ul>
-                <li>
-                    <strong>CUET PG MCA Full Mock #2:</strong> 
-                    75 Questions | 105 Minutes | Negative Marking: 1/4th. 
-                    <a href="mock-test.html"><strong>[Start Test Simulator]</strong></a>
-                </li>
-                <li>
-                    <strong>Mathematics High-Yield Drill (Calculus &amp; Algebra):</strong> 
-                    25 Questions | 35 Minutes. 
-                    <a href="mock-test.html">[Start Practice]</a>
-                </li>
-                <li>
-                    <strong>CUET PG Operating Systems &amp; Computer Architecture Drill:</strong> 
-                    25 Questions | 35 Minutes. 
-                    <a href="mock-test.html">[Start Practice]</a>
-                </li>
-            </ul>
-            <hr>
-        </section>
-
-        <!-- MISTAKE NOTEBOOK (WEAK TOPICS TO REVISE) -->
-        <section id="mistake-notebook">
-            <h2>Mistake Notebook &amp; Targeted Revision</h2>
-            <p>Questions you answered incorrectly during recent mocks have been logged for spaced recall:</p>
-
-            <article>
-                <h3>Weak Topic: Matrix Eigenvalues &amp; Diagonalization</h3>
-                <p>Missed in: <em>Mathematics Sectional Drill #3</em>. Frequency of error: 2 times.</p>
-                <p><a href="question-bank.html#math-eigenvalues">Practice 5 Revision Questions on Eigenvalues &rarr;</a></p>
-            </article>
-
-            <article>
-                <h3>Weak Topic: Worst-Case Complexity in Graph Traversal</h3>
-                <p>Missed in: <em>CUET PG MCA Mock #1</em>. Topic: BFS vs DFS queue overflow limits.</p>
-                <p><a href="question-bank.html#cuet-graphs">Practice 5 Revision Questions on Graph Complexity &rarr;</a></p>
-            </article>
-
-        </section>
-
-    </main>
-
-    <!-- ====================================================================== -->
-    <!-- 3. FOOTER                                                              -->
-    <!-- ====================================================================== -->
-    <footer>
-        <hr>
-        <nav aria-label="Footer Navigation">
-            <p>
-                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
-                <a href="index.html">Home</a> &nbsp;|&nbsp;
-                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
-                <a href="question-bank.html">Question Bank</a> &nbsp;|&nbsp;
-                <a href="contact.html">Report Issue</a>
-            </p>
-        </nav>
-    </footer>
+    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
+        <div class="auth-modal-card">
+            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+            <div class="auth-modal-header">
+                <h2 id="modal-title">Sign In / Register</h2>
+                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
+            </div>
+            <form action="dashboard.html" method="get">
+                <div class="auth-form-group">
+                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
+                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
+                </div>
+                <div class="auth-form-group">
+                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
+                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
+                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
+                </div>
+                <button type="submit" class="btn btn-pill-green auth-submit-btn">
+                    <strong>Verify OTP &amp; Continue &rarr;</strong>
+                </button>
+                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
-

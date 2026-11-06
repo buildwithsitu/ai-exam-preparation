@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+    <rect width="320" height="180" rx="16" fill="#ffedd5" />
+    <rect x="50" y="30" width="220" height="120" rx="10" fill="#ffffff" opacity="0.9" />
+    <!-- Pie/Chart graphic -->
+    <circle cx="120" cy="90" r="32" fill="#fed7aa" />
+    <path d="M120 90 L120 58 A32 32 0 0 1 152 90 Z" fill="#f97316" />
+    <rect x="170" y="65" width="65" height="10" rx="5" fill="#fb923c" />
+    <rect x="170" y="83" width="80" height="8" rx="4" fill="#fed7aa" />
+    <rect x="170" y="99" width="48" height="8" rx="4" fill="#ffedd5" />
+</svg>

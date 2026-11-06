@@ -3,93 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about ExamMate AI's mission to democratize competitive exam preparation through authentic mock test simulations and diagnostic telemetry.">
+    <meta name="description" content="ExamMate AI is an all-in-one platform for competitive examination aspirants, combining high-quality practice, smart analytics, and AI-powered learning support.">
     <meta name="author" content="ExamMate AI Team">
-    <title>About Us &amp; Platform Mission — ExamMate AI</title>
+    <title>About Us — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ====================================================================== -->
-    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
     <header>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td align="left" valign="middle">
-                    <a href="index.html">
-                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
+                    <a href="index.html" aria-label="ExamMate AI Home">
+                        <img src="images/logo.svg" alt="ExamMate AI" width="220" height="48">
                     </a>
                 </td>
+                <td align="center" valign="middle">
+                    <nav aria-label="Main Navigation">
+                        <a href="index.html">Home</a>
+                        <a href="exams.html">Exams</a>
+                        <a href="mock-test.html">Mock Tests</a>
+                        <a href="question-bank.html">Question Bank</a>
+                        <a href="about.html" aria-current="page">About Us</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                </td>
                 <td align="right" valign="middle">
-                    <nav aria-label="Account Access">
-                        <a href="login.html">Login</a> &nbsp;|&nbsp;
-                        <a href="register.html"><strong>Register Free</strong></a>
+                    <nav aria-label="Account Access" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                        <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
+                        <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr>
-        <nav aria-label="Main Navigation">
-            <details>
-                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
-                <ul>
-                    <li><a href="exams.html">Exams</a></li>
-                    <li><a href="question-bank.html">Question Bank</a></li>
-                    <li><a href="mock-test.html">Mock Test</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="about.html" aria-current="page"><strong>About Us</strong></a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </details>
-        </nav>
-        <hr>
     </header>
 
     <!-- ====================================================================== -->
-    <!-- 2. MAIN CONTENT                                                        -->
+    <!-- 2. MAIN APPLICATION CONTENT                                            -->
     <!-- ====================================================================== -->
-    <main>
+    <main class="about-page-main">
 
-        <section id="mission">
-            <h1>Democratizing Competitive Exam Mastery</h1>
-            <p>
-                <strong>ExamMate AI</strong> was conceived by a passionate first-year Master of Computer Applications (MCA) student 
-                who recognized a critical gap in traditional competitive test preparation: students solve hundreds of questions 
-                without truly diagnosing <em>why</em> they make mistakes or <em>how</em> the psychological pressure of a ticking timer affects their score.
+        <!-- ================================================================== -->
+        <!-- SECTION 1: ABOUT HERO (TWO COLUMNS)                                -->
+        <!-- ================================================================== -->
+        <section class="about-hero-section" aria-label="About Hero">
+            <div class="about-hero-text">
+                <span class="pill-badge-purple">About ExamMate AI</span>
+                <h1 class="about-hero-title">
+                    Our Mission is to Make<br>
+                    Exam Preparation<br>
+                    Smarter and Easier
+                </h1>
+                <p class="about-hero-subtitle">
+                    ExamMate AI is an all-in-one platform for competitive examination aspirants, combining high-quality practice, smart analytics, and AI-powered learning support.
+                </p>
+                <div class="about-hero-ctas">
+                    <a href="exams.html" class="btn btn-pill-purple">
+                        <strong>Start Preparing &rarr;</strong>
+                    </a>
+                    <a href="exams.html" class="btn btn-pill-outline">
+                        Explore Exams
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Vector Illustration -->
+            <div class="about-hero-graphic" aria-hidden="true">
+                <img src="images/about-hero-illustration.svg" alt="" width="520" height="380">
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 2: WHO WE ARE & PLATFORM STATS                             -->
+        <!-- ================================================================== -->
+        <section id="who-we-are" class="who-we-are-section" aria-label="Who We Are">
+            <div class="who-text-col">
+                <h2>Who We Are</h2>
+                <p>
+                    ExamMate AI is a student-focused EdTech platform built to support aspirants of CUET, SSC, Banking, and other competitive examinations. We bring together quality study material, practice tests, and intelligent tools to help you prepare, practice, and perform better.
+                </p>
+            </div>
+
+            <div class="who-stats-row" aria-label="Platform Statistics">
+                <!-- Stat 1 -->
+                <div class="stat-counter-item">
+                    <span class="stat-counter-icon" aria-hidden="true">👥</span>
+                    <strong>10,000+</strong>
+                    <span>Aspirants</span>
+                </div>
+                <!-- Stat 2 -->
+                <div class="stat-counter-item">
+                    <span class="stat-counter-icon" aria-hidden="true">🗂️</span>
+                    <strong>5+</strong>
+                    <span>Exam Categories</span>
+                </div>
+                <!-- Stat 3 -->
+                <div class="stat-counter-item">
+                    <span class="stat-counter-icon" aria-hidden="true">📄</span>
+                    <strong>50,000+</strong>
+                    <span>Practice Questions</span>
+                </div>
+                <!-- Stat 4 -->
+                <div class="stat-counter-item">
+                    <span class="stat-counter-icon" aria-hidden="true">📈</span>
+                    <strong>95%</strong>
+                    <span>Student Satisfaction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 3: OUR MISSION & VISION (TWO BENTO CARDS)                  -->
+        <!-- ================================================================== -->
+        <section id="mission-vision" aria-label="Our Mission and Vision">
+            <div class="section-title-centered">
+                <h2>Our Mission &amp; Vision</h2>
+                <div class="title-underline-bar" aria-hidden="true"></div>
+            </div>
+
+            <div class="mission-vision-grid">
+                <!-- Card 1: Mission -->
+                <article class="mv-card mission">
+                    <div class="mv-icon-bubble" aria-hidden="true">🎯</div>
+                    <div class="mv-text">
+                        <h3>Our Mission</h3>
+                        <p>
+                            To provide a reliable, accessible, and intelligent preparation platform that helps every aspirant build confidence and achieve their exam goals.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card 2: Vision -->
+                <article class="mv-card vision">
+                    <div class="mv-icon-bubble" aria-hidden="true">👁️</div>
+                    <div class="mv-text">
+                        <h3>Our Vision</h3>
+                        <p>
+                            To become India's most trusted exam preparation platform, powered by technology and AI, for students across all competitive examinations.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 4: WHAT WE OFFER (4 HORIZONTAL CARDS)                      -->
+        <!-- ================================================================== -->
+        <section id="what-we-offer" aria-label="What We Offer">
+            <div class="section-title-centered">
+                <h2>What We Offer</h2>
+                <div class="title-underline-bar" aria-hidden="true"></div>
+            </div>
+
+            <div class="what-we-offer-grid">
+                <!-- Offer Card 1 -->
+                <article class="offer-card">
+                    <div class="offer-card-icon" aria-hidden="true">📋</div>
+                    <h3>Mock Tests</h3>
+                    <p>Real exam-like practice tests with detailed analysis</p>
+                </article>
+
+                <!-- Offer Card 2 -->
+                <article class="offer-card">
+                    <div class="offer-card-icon" aria-hidden="true">📖</div>
+                    <h3>Question Bank</h3>
+                    <p>A vast collection of curated questions</p>
+                </article>
+
+                <!-- Offer Card 3 -->
+                <article class="offer-card">
+                    <div class="offer-card-icon" aria-hidden="true">📊</div>
+                    <h3>Performance Tracking</h3>
+                    <p>Track your progress and identify areas to improve</p>
+                </article>
+
+                <!-- Offer Card 4 -->
+                <article class="offer-card">
+                    <div class="offer-card-icon" aria-hidden="true">🤖</div>
+                    <h3>AI Learning Support</h3>
+                    <p>Get explanations, doubt help, and smart practice (releasing soon)</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 5: DARK CTA BANNER                                         -->
+        <!-- ================================================================== -->
+        <section class="cta-banner-dark" aria-label="Call to Action">
+            <div class="cta-banner-left">
+                <div class="cta-banner-icon" aria-hidden="true">🎓</div>
+                <div class="cta-banner-text">
+                    <h3>Let's Build Your Success Together</h3>
+                    <p>Join ExamMate AI and take a smarter step towards your dream examination.</p>
+                </div>
+            </div>
+            <a href="#auth-modal" class="btn btn-pill-white">
+                <strong>Get Started &rarr;</strong>
+            </a>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 6: CONTACT & STUDENT SUPPORT DESK                          -->
+        <!-- ================================================================== -->
+        <section id="contact" aria-label="Contact and Support">
+            <div class="section-title-centered">
+                <h2>Contact &amp; Student Support Desk</h2>
+                <div class="title-underline-bar" aria-hidden="true"></div>
+            </div>
+            <p style="text-align: center; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-6) auto;">
+                Have a doubt regarding a question explanation, found an erratum in our mock tests, or experiencing an issue? Our academic support desk replies within 24 business hours.
             </p>
-            <hr>
-        </section>
 
-        <!-- THE PROBLEM & THE SOLUTION (TWO ARTICLES) -->
-        <section id="problem-solution">
-            <h2>The Challenge &amp; Our Engineering Philosophy</h2>
+            <!-- ACCESSIBLE CONTACT FORM -->
+            <form action="about.html#contact" method="post" aria-labelledby="contact" style="max-width: 720px; margin: 0 auto var(--space-8) auto;">
 
-            <article>
-                <h3>1. The Core Challenge Faced by Aspirants</h3>
-                <p>
-                    When preparing for university postgraduate entrance examinations like <strong>CUET PG (MCA &amp; Computer Science)</strong>, students confront three major hurdles:
+                <fieldset>
+                    <legend><strong>1. Student Details</strong></legend>
+
+                    <p>
+                        <label for="contact-name">Your Full Name *:</label><br>
+                        <input 
+                            type="text" 
+                            id="contact-name" 
+                            name="name" 
+                            placeholder="e.g. Birendra Kumar" 
+                            required 
+                            autocomplete="name"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="contact-email">Email Address *:</label><br>
+                        <input 
+                            type="email" 
+                            id="contact-email" 
+                            name="email" 
+                            placeholder="student@example.com" 
+                            required 
+                            autocomplete="email"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="candidate-id">Student Roll ID (If enrolled):</label><br>
+                        <input 
+                            type="text" 
+                            id="candidate-id" 
+                            name="candidate_id" 
+                            placeholder="EM-2026-MCA-8841"
+                        >
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>2. Message Specifics</strong></legend>
+
+                    <p>
+                        <label for="inquiry-category">Category of Inquiry *:</label><br>
+                        <select id="inquiry-category" name="category" required>
+                            <option value="" disabled selected>-- Select an Inquiry Category --</option>
+                            <option value="question-errata">Question Key or Explanation Correction</option>
+                            <option value="test-glitch">Mock Test Simulator Technical Issue</option>
+                            <option value="account-help">Login / OTP Assistance</option>
+                            <option value="syllabus-request">Request Additional Exam Syllabus</option>
+                            <option value="feedback">General Platform Feedback &amp; Suggestions</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="subject-line">Subject Line *:</label><br>
+                        <input 
+                            type="text" 
+                            id="subject-line" 
+                            name="subject" 
+                            placeholder="Brief summary of your query" 
+                            required
+                        >
+                    </p>
+
+                    <p>
+                        <label for="message-body">Detailed Message or Question Description *:</label><br>
+                        <textarea 
+                            id="message-body" 
+                            name="message" 
+                            rows="5" 
+                            cols="50" 
+                            placeholder="Please provide full details, including question number and exam title if reporting an issue..." 
+                            required
+                        ></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="send-copy" name="send_copy" value="yes" checked>
+                        <label for="send-copy">Send a copy of this correspondence to my email address</label>
+                    </p>
+                </fieldset>
+
+                <p style="text-align: center; margin-top: var(--space-4);">
+                    <button type="submit" class="btn btn-pill-purple"><strong>Transmit Support Inquiry &rarr;</strong></button>
+                    <button type="reset" class="btn btn-pill-outline">Clear Form</button>
                 </p>
-                <ul>
-                    <li><strong>Timer Anxiety:</strong> Difficulty pacing through 75&ndash;100 questions within rigid 60&ndash;105 minute constraints.</li>
-                    <li><strong>Opaque Solutions:</strong> Answer keys that provide only the option letter (e.g. "Ans: B") without explaining the conceptual fallacy of options A, C, and D.</li>
-                    <li><strong>Lack of Targeted Recall:</strong> Repeating the exact same conceptual mistakes week after week.</li>
-                </ul>
-            </article>
 
-            <article>
-                <h3>2. The ExamMate AI Solution</h3>
-                <p>
-                    Our platform addresses these bottlenecks through three grounded pillars:
-                </p>
-                <ul>
-                    <li><strong>Authentic Testing Simulator:</strong> A high-fidelity exam engine matching official question palettes, color codes, and negative-marking ratios.</li>
-                    <li><strong>Step-by-Step Rationale:</strong> Every single problem is paired with a derivation, shortcut technique, and pitfall warning.</li>
-                    <li><strong>Mistake Notebook:</strong> Native spaced repetition telemetry that surfaces your weak topics for structured review.</li>
-                </ul>
-            </article>
-            <hr>
+            </form>
+
+            <!-- DIRECT EDITORIAL DESK COORDINATES -->
+            <div style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-lg); padding: var(--space-5); max-width: 720px; margin: 0 auto; text-align: center;">
+                <h3 style="margin-top: 0; font-size: var(--font-size-base); color: var(--color-text-primary);">Academic Editorial Desk Coordinates</h3>
+                <address style="font-style: normal; font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6;">
+                    <strong>ExamMate AI Platform</strong> &bull; Department of Academic Systems<br>
+                    Email Support: <a href="mailto:support@exammate.ai">support@exammate.ai</a> &bull; Editorial: <a href="mailto:editor@exammate.ai">editor@exammate.ai</a><br>
+                    Working Hours: Monday to Saturday, 09:00 AM &ndash; 06:00 PM IST &bull; Campus Landmark: New Delhi, India
+                </address>
+            </div>
+
         </section>
-
 
     </main>
 
@@ -97,18 +327,62 @@
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
     <footer>
-        <hr>
-        <nav aria-label="Footer Navigation">
-            <p>
-                &copy; 2026 ExamMate AI Platform. Built with dedication for competitive exam aspirants. &nbsp;|&nbsp;
-                <a href="index.html">Home</a> &nbsp;|&nbsp;
-                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
-                <a href="question-bank.html">Questions</a> &nbsp;|&nbsp;
-                <a href="contact.html">Contact Us</a>
-            </p>
-        </nav>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top">
+                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+                </td>
+                <td align="center" valign="top">
+                    <nav aria-label="Footer Quick Links">
+                        <p><strong>Quick Navigation:</strong></p>
+                        <a href="exams.html">Exams</a> |
+                        <a href="question-bank.html">Question Bank</a> |
+                        <a href="mock-test.html">Mock Test</a> |
+                        <a href="dashboard.html">Dashboard</a> |
+                        <a href="about.html">About Us</a> |
+                        <a href="about.html#contact">Contact Support</a>
+                    </nav>
+                </td>
+                <td align="right" valign="top">
+                    <address>
+                        <strong>Need Assistance?</strong><br>
+                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                        Location: New Delhi, India
+                    </address>
+                </td>
+            </tr>
+        </table>
     </footer>
+
+    <!-- ====================================================================== -->
+    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
+    <!-- ====================================================================== -->
+    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
+        <div class="auth-modal-card">
+            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+            <div class="auth-modal-header">
+                <h2 id="modal-title">Sign In / Register</h2>
+                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
+            </div>
+            <form action="dashboard.html" method="get">
+                <div class="auth-form-group">
+                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
+                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
+                </div>
+                <div class="auth-form-group">
+                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
+                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
+                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
+                </div>
+                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
+                    <strong>Verify OTP &amp; Continue &rarr;</strong>
+                </button>
+                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
-

@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=about.html#contact">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reach out to the ExamMate AI support and academic editorial team. Report question discrepancies, request technical assistance, or share platform feedback.">
+    <meta name="description" content="Reach out to the ExamMate AI support and academic editorial team.">
     <meta name="author" content="ExamMate AI Team">
     <title>Contact &amp; Student Support — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ====================================================================== -->
-    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
     <header>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -20,173 +22,93 @@
                         <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
                     </a>
                 </td>
+                <td align="center" valign="middle">
+                    <nav aria-label="Main Navigation">
+                        <a href="exams.html">Exams</a>
+                        <a href="question-bank.html">Question Bank</a>
+                        <a href="mock-test.html">Mock Test</a>
+                        <a href="dashboard.html">Dashboard</a>
+                        <a href="about.html">About</a>
+                        <a href="about.html#contact" aria-current="page">Contact</a>
+                    </nav>
+                </td>
                 <td align="right" valign="middle">
                     <nav aria-label="Account Access">
-                        <a href="login.html">Login</a> &nbsp;|&nbsp;
-                        <a href="register.html"><strong>Register Free</strong></a>
+                        <a href="#auth-modal"><button type="button"><strong>Login / Register</strong></button></a>
                     </nav>
                 </td>
             </tr>
         </table>
-        <hr>
-        <nav aria-label="Main Navigation">
-            <details>
-                <summary title="Menu"><big><strong>&#9776;</strong></big></summary>
-                <ul>
-                    <li><a href="exams.html">Exams</a></li>
-                    <li><a href="question-bank.html">Question Bank</a></li>
-                    <li><a href="mock-test.html">Mock Test</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html" aria-current="page"><strong>Contact</strong></a></li>
-                </ul>
-            </details>
-        </nav>
-        <hr>
     </header>
 
-    <!-- ====================================================================== -->
-    <!-- 2. MAIN CONTENT & SUPPORT FORM                                         -->
-    <!-- ====================================================================== -->
     <main>
-
-        <section id="contact-intro">
-            <h1>Contact ExamMate AI Support</h1>
-            <p>
-                Have a doubt regarding a question explanation, found an erratum in our mock tests, or experiencing an issue? 
-                Our student support desk typically replies within 24 business hours.
-            </p>
-            <hr>
+        <section style="text-align: center; padding: var(--space-12) 0;">
+            <h1>Redirecting to Contact Section...</h1>
+            <p>Contact and Student Support is now integrated inside our About section.</p>
+            <p><a href="about.html#contact" class="btn btn-pill-green"><strong>Go to Contact Section in About &rarr;</strong></a></p>
         </section>
-
-        <!-- ACCESSIBLE CONTACT FORM -->
-        <section id="support-form-section">
-            <h2>Submit an Inquiry or Report an Issue</h2>
-
-            <form action="contact.html" method="post" aria-labelledby="contact-heading">
-
-                <fieldset>
-                    <legend><strong>1. Student Details</strong></legend>
-
-                    <p>
-                        <label for="contact-name">Your Full Name *:</label><br>
-                        <input 
-                            type="text" 
-                            id="contact-name" 
-                            name="name" 
-                            placeholder="e.g. Birendra Kumar" 
-                            required 
-                            autocomplete="name"
-                        >
-                    </p>
-
-                    <p>
-                        <label for="contact-email">Email Address *:</label><br>
-                        <input 
-                            type="email" 
-                            id="contact-email" 
-                            name="email" 
-                            placeholder="student@example.com" 
-                            required 
-                            autocomplete="email"
-                        >
-                    </p>
-
-                    <p>
-                        <label for="candidate-id">Student Roll ID (If enrolled):</label><br>
-                        <input 
-                            type="text" 
-                            id="candidate-id" 
-                            name="candidate_id" 
-                            placeholder="EM-2026-MCA-8841"
-                        >
-                    </p>
-                </fieldset>
-
-                <fieldset>
-                    <legend><strong>2. Message Specifics</strong></legend>
-
-                    <p>
-                        <label for="inquiry-category">Category of Inquiry *:</label><br>
-                        <select id="inquiry-category" name="category" required>
-                            <option value="" disabled selected>-- Select an Inquiry Category --</option>
-                            <option value="question-errata">Question Key or Explanation Correction</option>
-                            <option value="test-glitch">Mock Test Simulator Technical Issue</option>
-                            <option value="account-help">Login / Password Reset Assistance</option>
-                            <option value="syllabus-request">Request Additional Exam Syllabus</option>
-                            <option value="feedback">General Platform Feedback &amp; Suggestions</option>
-                        </select>
-                    </p>
-
-                    <p>
-                        <label for="subject-line">Subject Line *:</label><br>
-                        <input 
-                            type="text" 
-                            id="subject-line" 
-                            name="subject" 
-                            placeholder="Brief summary of your query" 
-                            required
-                        >
-                    </p>
-
-                    <p>
-                        <label for="message-body">Detailed Message or Question Description *:</label><br>
-                        <textarea 
-                            id="message-body" 
-                            name="message" 
-                            rows="6" 
-                            cols="50" 
-                            placeholder="Please provide full details, including question number and exam title if reporting an issue..." 
-                            required
-                        ></textarea>
-                    </p>
-
-                    <p>
-                        <input type="checkbox" id="send-copy" name="send_copy" value="yes" checked>
-                        <label for="send-copy">Send a copy of this correspondence to my email address</label>
-                    </p>
-                </fieldset>
-
-                <p>
-                    <button type="submit"><strong>Transmit Support Inquiry &rarr;</strong></button>
-                    <button type="reset">Clear Form</button>
-                </p>
-
-            </form>
-            <hr>
-        </section>
-
-        <!-- DIRECT COMMUNICATION & PHYSICAL ADDRESS -->
-        <section id="office-coordinates">
-            <h2>Academic Editorial Desk Coordinates</h2>
-
-            <address>
-                <strong>ExamMate AI Platform</strong><br>
-                Department of Computer Applications &amp; Academic Systems<br>
-                Email Support: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
-                Editorial Inquiries: <a href="mailto:editor@exammate.ai">editor@exammate.ai</a><br>
-                Working Hours: Monday to Saturday, 09:00 AM &ndash; 06:00 PM IST
-            </address>
-        </section>
-
     </main>
 
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
     <footer>
-        <hr>
-        <nav aria-label="Footer Navigation">
-            <p>
-                &copy; 2026 ExamMate AI Learning Systems. All rights reserved. &nbsp;|&nbsp;
-                <a href="index.html">Home</a> &nbsp;|&nbsp;
-                <a href="about.html">About Us</a> &nbsp;|&nbsp;
-                <a href="exams.html">Exams</a> &nbsp;|&nbsp;
-                <a href="dashboard.html">Dashboard</a>
-            </p>
-        </nav>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td align="left" valign="top">
+                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+                </td>
+                <td align="center" valign="top">
+                    <nav aria-label="Footer Quick Links">
+                        <p><strong>Quick Navigation:</strong></p>
+                        <a href="exams.html">Exams</a> |
+                        <a href="question-bank.html">Question Bank</a> |
+                        <a href="mock-test.html">Mock Test</a> |
+                        <a href="dashboard.html">Dashboard</a> |
+                        <a href="about.html">About Us</a> |
+                        <a href="about.html#contact">Contact Support</a>
+                    </nav>
+                </td>
+                <td align="right" valign="top">
+                    <address>
+                        <strong>Need Assistance?</strong><br>
+                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                        Location: New Delhi, India
+                    </address>
+                </td>
+            </tr>
+        </table>
     </footer>
+
+    <!-- ====================================================================== -->
+    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
+    <!-- ====================================================================== -->
+    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
+        <div class="auth-modal-card">
+            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+            <div class="auth-modal-header">
+                <h3 id="modal-title">Sign In / Register</h3>
+                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
+            </div>
+            <form action="dashboard.html" method="get">
+                <div class="auth-form-group">
+                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
+                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
+                </div>
+                <div class="auth-form-group">
+                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
+                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
+                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
+                </div>
+                <button type="submit" class="btn btn-pill-green auth-submit-btn">
+                    <strong>Verify OTP &amp; Continue &rarr;</strong>
+                </button>
+                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
-
