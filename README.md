@@ -1,6 +1,6 @@
-# ExamMate AI — Modern Student Learning & Career Platform
+# ExamMate AI — Modern Career & Placement Preparation Platform
 
-An intelligent, student-centric learning and career platform designed for **Software Development & Campus Placements** alongside premier competitive examinations like **CUET PG MCA, SSC, and Banking**.
+An intelligent, student-centric learning and career platform designed for **Software Development, Data Analytics, and Campus Placements**. Build skills, build projects, and get placed.
 
 ---
 
@@ -17,8 +17,8 @@ ai-exam-preparation/
 │   ├── dashboard.html         # 4. Student Dashboard ("What Should I Do Next?")
 │   ├── exams.html             # 5. Career Paths & Learning Tracks Catalog
 │   ├── resources.html         # 6. Learning Resources, Notes & Cheat-Sheets
-│   ├── question-bank.html     # 7. Practice & Question Bank with Step-by-Step Derivations
-│   ├── mock-test.html         # 8. Timed Mock Examination Simulator Console
+│   ├── question-bank.html     # 7. Practice & Coding Question Bank (DSA, Web, SQL)
+│   ├── mock-test.html         # 8. Timed Technical Assessment Simulator Console
 │   ├── performance.html       # 9. Performance & Progress Telemetry
 │   ├── career-prep.html       # 10. Practical Projects, ATS Resume & Interview Hub
 │   ├── profile.html           # 11. Profile & Goal Settings Page
@@ -30,8 +30,7 @@ ai-exam-preparation/
 │   │   └── style.css          # Master Stylesheet Orchestrator
 │   ├── js/                    # Lightweight Vanilla JavaScript (Zero Dependencies)
 │   │   ├── theme.js           # Dark / Light Mode Switcher & LocalStorage Sync
-│   │   ├── dashboard.js       # Dynamic Schedule & Telemetry Handlers
-│   │   └── question-bank.js   # Filter & Search Script
+│   │   └── dashboard.js       # Dynamic Schedule, Views & Telemetry Handlers
 │   └── images/                # Vector SVG Assets & Visual Diagrams
 │
 └── docs/                      # Architectural & Learning Documentation
@@ -48,11 +47,11 @@ ai-exam-preparation/
 2. **About Us (`about.html`)**: Mission, vision, core academic standards, team coordinates at Jawaharlal Nehru University (JNU), New Delhi.
 3. **Registration & Login (`register.html`, `login.html`)**: Streamlined onboarding with goal track selection, input validation, and password security.
 4. **Student Dashboard (`dashboard.html`)**: Central workspace answering *"What should I do next?"*, syllabus donut ring, active SDE track, and today's plan checklist.
-5. **Career Paths & Learning Tracks (`exams.html`)**: 6 structured learning tracks (Software Development, Data Analytics, Placement Aptitude, CUET PG MCA, SSC CGL, Banking PO).
+5. **Career Paths & Learning Tracks (`exams.html`)**: 3 structured learning tracks (Software Developer, Data Analyst, Data Scientist) with roadmap milestones.
 6. **Learning Resources (`resources.html`)**: Curated study notes, formula sheets, cheat-sheets, and downloadable blueprints by difficulty.
-7. **Question Bank (`question-bank.html`)**: Multi-parameter question browsing with instant interactive answers and detailed derivations.
-8. **Mock Assessments (`mock-test.html`)**: Timed full-length CBT test simulator with question palette and official negative marking.
-9. **Performance & Progress (`performance.html`)**: Telemetry insights, topic-wise accuracy breakdown, and weak-area smart alerts (e.g. Graph Traversal).
+7. **Coding Practice (`question-bank.html`)**: Multi-parameter question browsing (DSA, Web Dev, SQL, Aptitude) with instant test cases and optimal solutions.
+8. **Assessments & Mocks (`mock-test.html`)**: Timed technical assessment simulator with question palette and score breakdown.
+9. **Performance & Progress (`performance.html`)**: Telemetry insights, topic-wise accuracy breakdown, and weak-area smart alerts.
 10. **Projects, Resume & Interview Prep (`career-prep.html`)**: Industry portfolio projects, 5-point ATS resume checklist, and technical/HR interview drills.
 11. **Profile & Settings (`profile.html`)**: Student info, primary career track selector, daily study targets, and account controls.
 12. **Contact & Support (`contact.html`)**: Ticket submission form, direct email (`situsavvy1111@gmail.com`), location at JNU New Delhi, and FAQ accordion.
@@ -97,4 +96,4 @@ python3 -m http.server 8080 --directory frontend/
 
 ## 📄 License & Attribution
 
-Developed with academic dedication for competitive examination aspirants. &copy; 2026 ExamMate AI Team. All rights reserved.
+Developed with academic dedication for career and placement preparation students. &copy; 2026 ExamMate AI Team. All rights reserved.

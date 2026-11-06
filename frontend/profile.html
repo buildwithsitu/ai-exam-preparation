@@ -183,6 +183,28 @@
                     </form>
                 </section>
 
+                <!-- Form 4: Notification Preferences -->
+                <section id="notifications" class="card" style="padding: var(--space-6);" aria-labelledby="heading-notifications">
+                    <h2 id="heading-notifications" style="font-size: 1.3rem; margin-bottom: var(--space-4);">Notification Preferences</h2>
+                    <form action="profile.html" method="get" style="display: flex; flex-direction: column; gap: var(--space-3);">
+                        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+                            <input type="checkbox" name="notify_daily" checked>
+                            <span>Daily Practice Reminders &amp; Streaks</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+                            <input type="checkbox" name="notify_jobs" checked>
+                            <span>New Placement &amp; Internship Openings</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+                            <input type="checkbox" name="notify_mock" checked>
+                            <span>Weekly Assessment Scorecard Reports</span>
+                        </label>
+                        <div style="margin-top: var(--space-2);">
+                            <button type="submit" class="btn btn-pill-purple">Save Notification Settings</button>
+                        </div>
+                    </form>
+                </section>
+
             </div>
 
         </div>
@@ -221,35 +243,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL                                                 -->
-    <!-- ====================================================================== -->
-    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
-        <div class="auth-modal-card">
-            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
-            <div class="auth-modal-header">
-                <h2 id="modal-title">Sign In / Register</h2>
-                <p>Enter your Gmail address to access your learning space.</p>
-            </div>
-            <form action="dashboard.html" method="get">
-                <div class="auth-form-group">
-                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
-                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
-                </div>
-                <div class="auth-form-group">
-                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
-                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
-                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
-                </div>
-                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
-                    <strong>Verify OTP &amp; Continue &rarr;</strong>
-                </button>
-                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
-            </form>
-        </div>
-    </div>
 
 </body>
 </html>

@@ -69,7 +69,7 @@
                     <div class="track-icon-bubble" aria-hidden="true">📧</div>
                     <span class="track-badge">Email Us</span>
                 </div>
-                <h3>Direct Email Support</h3>
+                <h2>Direct Email Support</h2>
                 <p>For urgent academic inquiries, bug reports, and account help:</p>
                 <p style="font-size: 0.95rem; margin: 0;">
                     <a href="mailto:situsavvy1111@gmail.com" style="color: var(--color-brand-primary); font-weight: bold;">situsavvy1111@gmail.com</a><br>
@@ -82,7 +82,7 @@
                     <div class="track-icon-bubble" aria-hidden="true">📍</div>
                     <span class="track-badge" style="background-color: #DBEAFE; color: #1D4ED8;">Location</span>
                 </div>
-                <h3>Academic Headquarters</h3>
+                <h2>Academic Headquarters</h2>
                 <p>Engineered and maintained by students &amp; scholars:</p>
                 <p style="font-size: 0.95rem; font-weight: bold; margin: 0; color: var(--color-text-primary);">
                     Jawaharlal Nehru University (JNU)<br>
@@ -95,7 +95,7 @@
                     <div class="track-icon-bubble" aria-hidden="true">🌐</div>
                     <span class="track-badge" style="background-color: #FEF3C7; color: #B45309;">Connect</span>
                 </div>
-                <h3>Social &amp; Networks</h3>
+                <h2>Social &amp; Networks</h2>
                 <p>Follow updates, student discussions, and dev logs:</p>
                 <p style="display: flex; gap: var(--space-3); margin: 0; align-items: center;">
                     <a href="https://www.linkedin.com/in/buildwithsitu/" target="_blank" rel="noopener noreferrer" class="btn btn-pill-outline btn-sm">LinkedIn &rarr;</a>
@@ -207,35 +207,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL                                                 -->
-    <!-- ====================================================================== -->
-    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
-        <div class="auth-modal-card">
-            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
-            <div class="auth-modal-header">
-                <h2 id="modal-title">Sign In / Register</h2>
-                <p>Enter your Gmail address to access your learning space.</p>
-            </div>
-            <form action="dashboard.html" method="get">
-                <div class="auth-form-group">
-                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
-                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
-                </div>
-                <div class="auth-form-group">
-                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
-                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
-                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
-                </div>
-                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
-                    <strong>Verify OTP &amp; Continue &rarr;</strong>
-                </button>
-                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
-            </form>
-        </div>
-    </div>
 
 </body>
 </html>

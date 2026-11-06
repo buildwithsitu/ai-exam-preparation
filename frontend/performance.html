@@ -70,21 +70,21 @@
         </section>
 
         <!-- "What Should I Do Next?" Telemetry Alert -->
-        <article class="weak-area-card" aria-label="Weak Area Priority Action">
+        <article class="weak-area-card" id="weak-areas" aria-label="Weak Area Priority Action">
             <div class="weak-area-content">
                 <span style="font-size: 0.72rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.04em; color: #B45309;">⚠️ Priority Study Alert &bull; Answers: What should I do next?</span>
-                <h3 style="margin: 0.2rem 0;">Focus Needed: Graph Traversal (BFS &amp; DFS)</h3>
+                <h2 style="margin: 0.2rem 0; font-size: 1.15rem; font-weight: bold;">Focus Needed: Graph Traversal (BFS &amp; DFS)</h2>
                 <p>Your practice accuracy on Graph Traversal is currently <strong>42%</strong> (target: 75%). Improving this single topic will raise your overall algorithmic mastery by ~6%.</p>
             </div>
             <div style="flex-shrink: 0;">
-                <a href="question-bank.html#featured-drill" class="btn btn-pill-purple">Drill Graph Questions &rarr;</a>
+                <a href="question-bank.html" class="btn btn-pill-purple">Drill Graph Questions &rarr;</a>
             </div>
         </article>
 
         <!-- ================================================================== -->
         <!-- SECTION 1: TOP-LEVEL KPI TELEMETRY                                 -->
         <!-- ================================================================== -->
-        <section class="telemetry-row-grid" aria-label="Key Performance Indicators">
+        <section class="telemetry-row-grid" id="all" aria-label="Key Performance Indicators">
             <div class="telemetry-stat-card">
                 <div class="telemetry-icon-box" style="background-color: #EDE9FE; color: var(--color-brand-primary);" aria-hidden="true">🎯</div>
                 <div>
@@ -269,35 +269,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL                                                 -->
-    <!-- ====================================================================== -->
-    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
-        <div class="auth-modal-card">
-            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
-            <div class="auth-modal-header">
-                <h2 id="modal-title">Sign In / Register</h2>
-                <p>Enter your Gmail address to access your learning space.</p>
-            </div>
-            <form action="dashboard.html" method="get">
-                <div class="auth-form-group">
-                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
-                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
-                </div>
-                <div class="auth-form-group">
-                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
-                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
-                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
-                </div>
-                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
-                    <strong>Verify OTP &amp; Continue &rarr;</strong>
-                </button>
-                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
-            </form>
-        </div>
-    </div>
 
 </body>
 </html>

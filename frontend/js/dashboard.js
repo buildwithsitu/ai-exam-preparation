@@ -12,21 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
     const viewPanels = document.querySelectorAll('.dash-view-panel');
 
-    const viewMap = {
-        'dashboard': 'view-dashboard',
-        'career': 'view-career',
-        'learn': 'view-learn',
-        'practice': 'view-practice',
-        'projects': 'view-projects',
-        'interviews': 'view-interviews',
-        'resume': 'view-resume',
-        'jobs': 'view-jobs',
-        'progress': 'view-progress',
-        'settings': 'view-settings'
-    };
+    const validViews = ['dashboard', 'career', 'learn', 'practice', 'projects', 'interviews', 'resume', 'jobs', 'progress', 'settings'];
 
     function switchView(viewKey) {
-        const targetViewId = viewMap[viewKey] || 'view-dashboard';
+        const targetViewId = validViews.includes(viewKey) ? viewKey : 'dashboard';
         const targetPanel = document.getElementById(targetViewId);
 
         if (!targetPanel) return;
@@ -59,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const href = link.getAttribute('href');
             if (href && href.startsWith('#')) {
                 const key = href.substring(1);
-                if (viewMap[key]) {
+                if (validViews.includes(key)) {
                     e.preventDefault();
                     history.pushState(null, '', href);
                     switchView(key);
@@ -71,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle back/forward navigation or initial hash
     function handleHashChange() {
         const hash = window.location.hash.replace('#', '') || 'dashboard';
-        if (viewMap[hash]) {
+        if (validViews.includes(hash)) {
             switchView(hash);
         } else {
             switchView('dashboard');
@@ -113,10 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    setupFilterPills('#view-learn .filter-pills-bar', '.course-row-item', 'data-cat');
-    setupFilterPills('#view-practice .filter-pills-bar', '.topic-stat-card', 'data-cat');
-    setupFilterPills('#view-projects .filter-pills-bar', '.project-row-item', 'data-cat');
-    setupFilterPills('#view-jobs .filter-pills-bar', '.job-listing-item', 'data-cat');
+    setupFilterPills('#learn .filter-pills-bar', '.course-row-item', 'data-cat');
+    setupFilterPills('#practice .filter-pills-bar', '.topic-stat-card', 'data-cat');
+    setupFilterPills('#projects .filter-pills-bar', '.project-row-item', 'data-cat');
+    setupFilterPills('#jobs .filter-pills-bar', '.job-listing-item', 'data-cat');
 
     // --------------------------------------------------------------------------
     // 3. TASK CHECKLIST INTERACTIONS (View 1 & View 7)

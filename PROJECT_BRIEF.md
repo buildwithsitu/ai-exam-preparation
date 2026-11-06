@@ -4,14 +4,15 @@
 I am a beginner developer (MCA 1st year). I am building this project to LEARN, not just to ship. You are my mentor and pair-programmer, not an autopilot.
 
 ## 2. Product
-ExamMate AI is an exam preparation platform. First exam: CUET PG (more exams added later).
+ExamMate AI is a modern career and placement preparation platform for tech roles (Software Development, Data Analytics, Data Science).
 Student journey:
 1. Visit website -> register / login
-2. Choose exam -> choose subject
-3. Practice questions (instant answer + explanation)
-4. Take timed mock tests
-5. Submit -> see score, correct/incorrect answers, explanations
-6. Later: AI tutor (doubts, hints, quiz generation)
+2. Choose career path (Software Developer, Data Analyst, Data Scientist)
+3. Learn structured concepts & study materials (Learning Hub)
+4. Practice coding problems (DSA, Web Dev, SQL, Aptitude)
+5. Build portfolio projects & prepare ATS resume
+6. Practice technical & HR mock interviews and assessments
+7. Track placement progress and apply to job opportunities
 
 ## 3. Tech stack (do not change without asking me)
 - Next.js (App Router) + TypeScript

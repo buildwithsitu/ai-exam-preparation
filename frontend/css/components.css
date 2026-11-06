@@ -2319,6 +2319,7 @@ footer a:hover {
     color: var(--color-brand-primary);
 }
 
+.track-card h2,
 .track-card h3 {
     font-size: 1.22rem;
     font-weight: var(--font-weight-bold);
@@ -2844,6 +2845,7 @@ footer a:hover {
     flex: 1;
 }
 
+.course-info-meta h2,
 .course-info-meta h3 {
     font-size: 1.05rem;
     font-weight: var(--font-weight-bold);
