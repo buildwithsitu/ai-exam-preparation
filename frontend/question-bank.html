@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore CUET Question Bank with chapter-wise and topic-wise practice questions, detailed step-by-step solutions, and previous year papers.">
+    <meta name="description" content="Improve your problem-solving skills with real interview coding questions, topic-wise practice, and difficulty metrics on ExamMate AI.">
     <meta name="author" content="ExamMate AI Team">
-    <title>CUET Question Bank — ExamMate AI</title>
+    <title>Coding Practice — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
         (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
     </script>
     <script src="js/theme.js" defer></script>
-    <script src="js/question-bank.js" defer></script>
 </head>
 <body>
 
@@ -29,419 +28,211 @@
 
             <nav class="header-nav" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="about.html">About Us</a>
-                <a href="about.html#contact">Contact</a>
+                <a href="exams.html">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html" class="active" aria-current="page">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html">About</a>
             </nav>
 
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                <a href="dashboard.html" class="btn btn-pill-outline btn-sm">Dashboard &rarr;</a>
-                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+                <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
+                    🔔
+                    <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
+                </button>
+                <a href="profile.html" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
             </div>
         </div>
     </header>
 
     <!-- ====================================================================== -->
-    <!-- 2. MAIN QUESTION BANK WORKSPACE                                        -->
+    <!-- 2. MAIN APPLICATION CONTENT: CODING PRACTICE                           -->
     <!-- ====================================================================== -->
-    <main id="main-content" class="qb-page-main">
+    <main id="main-content">
 
-        <!-- ================================================================== -->
-        <!-- BANNER: PURPLE HERO HEADER WITH BREADCRUMB & GRAPHIC               -->
-        <!-- ================================================================== -->
-        <section class="qb-hero-banner" aria-label="Question Bank Overview">
-            <div class="qb-banner-left">
-                <!-- Breadcrumb -->
-                <nav class="qb-breadcrumb-nav" aria-label="Breadcrumb">
-                    <a href="index.html">Home</a> &rsaquo; 
-                    <a href="dashboard.html">Dashboard</a> &rsaquo; 
-                    <a href="question-bank.html">Question Bank</a> &rsaquo; 
-                    <span>CUET</span>
-                </nav>
+        <!-- Intro Section -->
+        <section style="margin: var(--space-8) 0 var(--space-6) 0;">
+            <h1 style="font-size: 2.2rem; font-weight: 800; margin: 0 0 0.35rem 0; letter-spacing: -0.02em;">Coding Practice</h1>
+            <p style="color: var(--color-text-secondary); font-size: 1rem; margin: 0;">
+                Improve your problem-solving skills with real interview questions.
+            </p>
+        </section>
 
-                <div class="qb-banner-content-flex">
-                    <!-- Square Graduation Cap Emblem -->
-                    <div class="qb-cap-emblem-bubble" aria-hidden="true">🎓</div>
-                    
-                    <div class="qb-banner-text-stack">
-                        <h1>CUET Question Bank</h1>
-                        <p>
-                            Practice chapter-wise and topic-wise questions for CUET (UG/PG) with detailed solutions, previous year questions, and difficulty levels.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Vector Graphic (Books, Laptop with test screen & pens) -->
-            <div class="qb-banner-graphic" aria-hidden="true">
-                <img src="images/qb-hero-graphic.svg" alt="" width="460" height="260">
+        <!-- Category Tabs (Screen 7 Exact Tabs) -->
+        <section style="margin-bottom: var(--space-6);" aria-label="Problem Categories">
+            <div class="filter-pills-bar" style="margin-bottom: 0;">
+                <button type="button" class="filter-pill active">Coding Problems</button>
+                <button type="button" class="filter-pill">Topic-wise</button>
+                <button type="button" class="filter-pill">Company-wise</button>
+                <button type="button" class="filter-pill">Contests</button>
             </div>
         </section>
 
-        <!-- ================================================================== -->
-        <!-- TOOLBAR: EXAM TOGGLE PILLS & GLOBAL SEARCH BAR                     -->
-        <!-- ================================================================== -->
-        <section class="qb-toolbar-row" aria-label="Exam Selection and Search">
-            <!-- Left: CUET UG / PG Toggle -->
-            <div class="qb-exam-toggle-group" role="tablist" aria-label="Select Target Stream">
-                <button type="button" class="qb-toggle-pill active" data-stream="ug" role="tab" aria-selected="true">CUET (UG)</button>
-                <button type="button" class="qb-toggle-pill inactive" data-stream="pg" role="tab" aria-selected="false">CUET (PG &bull; MCA)</button>
+        <!-- 4 KPI Difficulty Cards Row (Screen 7 Exact Layout) -->
+        <section class="coding-diff-row" aria-label="Problem Counts by Difficulty">
+
+            <div class="coding-diff-card">
+                <div class="diff-icon-box" aria-hidden="true" style="background-color: #ECFDF5; color: #059669;">
+                    ⚡
+                </div>
+                <div>
+                    <strong>Easy</strong>
+                    <span>420 Problems</span>
+                </div>
             </div>
 
-            <!-- Right: Search Input Box -->
-            <form class="qb-search-container-box" id="qb-search-form" onsubmit="return false;" role="search">
-                <span style="color: var(--color-text-muted); margin-right: 0.5rem;" aria-hidden="true">🔍</span>
-                <input 
-                    type="search" 
-                    id="qb-search-input" 
-                    name="q" 
-                    placeholder="Search CUET subjects, topics or chapters..." 
-                    aria-label="Search questions, topics or chapters"
-                >
-                <button type="button" id="qb-search-btn" class="qb-search-submit-btn">Search</button>
-            </form>
+            <div class="coding-diff-card">
+                <div class="diff-icon-box" aria-hidden="true" style="background-color: #FFFBEB; color: #D97706;">
+                    ⚠️
+                </div>
+                <div>
+                    <strong>Medium</strong>
+                    <span>680 Problems</span>
+                </div>
+            </div>
+
+            <div class="coding-diff-card">
+                <div class="diff-icon-box" aria-hidden="true" style="background-color: #FEF2F2; color: #DC2626;">
+                    📈
+                </div>
+                <div>
+                    <strong>Hard</strong>
+                    <span>280 Problems</span>
+                </div>
+            </div>
+
+            <div class="coding-diff-card">
+                <div class="diff-icon-box" aria-hidden="true" style="background-color: #EDE9FE; color: #5B3CE8;">
+                    🎯
+                </div>
+                <div>
+                    <strong>All</strong>
+                    <span>1,380 Problems</span>
+                </div>
+            </div>
+
         </section>
 
-        <!-- ================================================================== -->
-        <!-- MAIN CONTENT: FILTER SIDEBAR & SUBJECT CARDS GRID                  -->
-        <!-- ================================================================== -->
-        <div class="qb-content-layout">
+        <!-- Recommended Problems For You (Screen 7 List Items) -->
+        <section style="margin-bottom: var(--space-8);" aria-label="Recommended Coding Problems">
+            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--space-4);">Recommended Problems for You</h2>
 
-            <!-- -------------------------------------------------------------- -->
-            <!-- LEFT: FILTER QUESTIONS SIDEBAR                                 -->
-            <!-- -------------------------------------------------------------- -->
-            <aside class="qb-filter-sidebar" aria-label="Filter Questions">
-                <div class="filter-sidebar-title">
-                    <span aria-hidden="true">⏚</span>
-                    <span>Filter Questions</span>
-                </div>
-
-                <form id="qb-filter-form" onsubmit="return false;">
-                    <!-- Filter Group 1: Subject Category -->
-                    <div class="filter-group-block">
-                        <div class="filter-group-header-row">
-                            <strong>Subject Category</strong>
-                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
-                        </div>
-                        <div class="filter-items-stack">
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="all" checked>
-                                <span>All Categories</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="general">
-                                <span>General Test (Sec III)</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="english">
-                                <span>English Language (Sec IA)</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="science">
-                                <span>Sciences &amp; Math (Sec II)</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="commerce">
-                                <span>Commerce &amp; Economics</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="cs">
-                                <span>Core MCA &amp; Computer Sci</span>
-                            </label>
-                        </div>
+            <!-- Problem 1: Two Sum -->
+            <div class="problem-row-item">
+                <div class="problem-name-flex">
+                    <span class="problem-code-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <strong style="font-size: 0.98rem; color: var(--color-text-primary);">Two Sum</strong>
+                    <div style="display: flex; gap: 0.4rem; margin-left: var(--space-2);">
+                        <span class="career-role-tag">Array</span>
+                        <span class="career-role-tag">Hashing</span>
                     </div>
-
-                    <!-- Filter Group 2: Difficulty Level -->
-                    <div class="filter-group-block">
-                        <div class="filter-group-header-row">
-                            <strong>Difficulty Level</strong>
-                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
-                        </div>
-                        <div class="filter-items-stack">
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="easy" checked>
-                                <span class="badge-diff easy">Easy</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="medium" checked>
-                                <span class="badge-diff medium">Medium</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="hard" checked>
-                                <span class="badge-diff hard">Hard</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Filter Group 3: Question Type -->
-                    <div class="filter-group-block">
-                        <div class="filter-group-header-row">
-                            <strong>Question Type</strong>
-                            <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
-                        </div>
-                        <div class="filter-items-stack">
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="type" value="all" checked>
-                                <span>All Question Types</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="type" value="mcq">
-                                <span>NTA MCQ (Single Correct)</span>
-                            </label>
-                            <label class="filter-check-option">
-                                <input type="checkbox" name="type" value="pyq">
-                                <span>Previous Year Papers (PYQ)</span>
-                            </label>
-                        </div>
-                    </div>
-                </form>
-            </aside>
-
-            <!-- -------------------------------------------------------------- -->
-            <!-- RIGHT: EXPLORE SUBJECTS CARDS GRID                             -->
-            <!-- -------------------------------------------------------------- -->
-            <section class="qb-cards-area" aria-label="Subject Question Banks">
-                
-                <div class="qb-section-intro">
-                    <h2>Explore CUET Question Bank (UG)</h2>
-                    <p>Practice from subject-wise collections, chapter-wise sets, and official NTA syllabus blueprints.</p>
                 </div>
-
-                <!-- Subject Cards Grid -->
-                <div class="qb-cards-grid">
-
-                    <!-- ====================================================== -->
-                    <!-- CUET UG SUBJECT CARDS                                  -->
-                    <!-- ====================================================== -->
-
-                    <!-- UG Card 1: General Test -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="general">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble general" aria-hidden="true">📊</div>
-                            <div class="qb-card-title-group">
-                                <h3>General Test</h3>
-                                <span>16 Chapters &bull; Section III</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Quantitative Aptitude &bull; Logical Reasoning &bull; Current Affairs &bull; Numerical Ability &bull; Analytical Logic
-                        </p>
-                        <a href="mock-test.html#section-math" class="qb-practice-cta-btn">Practice General Test &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 2: English -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="english">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble english" aria-hidden="true">📖</div>
-                            <div class="qb-card-title-group">
-                                <h3>English Language</h3>
-                                <span>12 Chapters &bull; Section IA</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Reading Comprehension &bull; Grammar Rules &bull; Vocabulary &bull; Verbal Ability &bull; Sentence Rearrangement
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice English &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 3: Mathematics -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="science">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble math" aria-hidden="true">&#960;</div>
-                            <div class="qb-card-title-group">
-                                <h3>Mathematics</h3>
-                                <span>15 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Algebra &bull; Calculus &bull; Probability Distributions &bull; Vectors &bull; 3D Coordinate Geometry &bull; Matrices
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Mathematics &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 4: Physics -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="science">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚛️</div>
-                            <div class="qb-card-title-group">
-                                <h3>Physics</h3>
-                                <span>14 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Mechanics &bull; Electrostatics &bull; Optics &bull; Thermodynamics &bull; Wave Theory &bull; Modern Physics
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Physics &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 5: Chemistry -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="science">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble chemistry" aria-hidden="true">⚗️</div>
-                            <div class="qb-card-title-group">
-                                <h3>Chemistry</h3>
-                                <span>14 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Organic Mechanisms &bull; Chemical Kinetics &bull; Inorganic &bull; Coordination Compounds &bull; Biomolecules
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Chemistry &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 6: Biology -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="science">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble biology" aria-hidden="true">🍃</div>
-                            <div class="qb-card-title-group">
-                                <h3>Biology</h3>
-                                <span>12 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Genetics &bull; Ecology &bull; Molecular Basis &bull; Human Physiology &bull; Reproduction &bull; Biotechnology
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Biology &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 7: Economics -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="commerce">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble economics" aria-hidden="true">📈</div>
-                            <div class="qb-card-title-group">
-                                <h3>Economics</h3>
-                                <span>10 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Microeconomics &bull; Macroeconomics &bull; National Income &bull; Money &amp; Banking &bull; Indian Economy
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Economics &rarr;</a>
-                    </article>
-
-                    <!-- UG Card 8: Accountancy -->
-                    <article class="qb-subject-card" data-stream="ug" data-category="commerce">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble accountancy" aria-hidden="true">🪙</div>
-                            <div class="qb-card-title-group">
-                                <h3>Accountancy</h3>
-                                <span>10 Chapters &bull; Domain II</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Partnership Accounting &bull; Company Financials &bull; Cash Flow Statements &bull; Ratio Analysis &bull; Dissolution
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Accountancy &rarr;</a>
-                    </article>
-
-                    <!-- ====================================================== -->
-                    <!-- CUET PG (MCA & SCIENCE SCQP09) SUBJECT CARDS           -->
-                    <!-- ====================================================== -->
-
-                    <!-- PG Card 1: Computer Science & DSA -->
-                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble general" aria-hidden="true">💻</div>
-                            <div class="qb-card-title-group">
-                                <h3>SCQP09: Computer Science</h3>
-                                <span>18 Chapters &bull; Core MCA</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Data Structures &bull; Graph Algorithms &bull; Operating Systems &bull; C / C++ Concepts &bull; DBMS Fundamentals
-                        </p>
-                        <a href="mock-test.html#active-question-console" class="qb-practice-cta-btn">Launch MCA Simulator &rarr;</a>
-                    </article>
-
-                    <!-- PG Card 2: Discrete Mathematics -->
-                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble math" aria-hidden="true">📐</div>
-                            <div class="qb-card-title-group">
-                                <h3>SCQP09: Discrete Math</h3>
-                                <span>14 Chapters &bull; Core MCA</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Set Theory &bull; Relations &amp; Functions &bull; Combinatorics &bull; Graph Theory &bull; Recurrence Relations
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Discrete Math &rarr;</a>
-                    </article>
-
-                    <!-- PG Card 3: Probability & Statistics -->
-                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble economics" aria-hidden="true">🎲</div>
-                            <div class="qb-card-title-group">
-                                <h3>SCQP09: Probability &amp; Stats</h3>
-                                <span>10 Chapters &bull; Core MCA</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Axioms of Probability &bull; Random Variables &bull; Binomial &amp; Poisson &bull; Bayes Theorem &bull; Sampling
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Probability &rarr;</a>
-                    </article>
-
-                    <!-- PG Card 4: Digital Systems & Logic -->
-                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚡</div>
-                            <div class="qb-card-title-group">
-                                <h3>SCQP09: Digital Logic</h3>
-                                <span>8 Chapters &bull; Core MCA</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Boolean Algebra &bull; Logic Gates &bull; Karnaugh Maps &bull; Flip-Flops &bull; Sequential Circuits &bull; Memory
-                        </p>
-                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Digital Logic &rarr;</a>
-                    </article>
-
+                <div>
+                    <a href="#modal-two-sum" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary); padding: 0.35rem 1rem;">
+                        <strong>Solve &rarr;</strong>
+                    </a>
                 </div>
+            </div>
 
-                <!-- ========================================================== -->
-                <!-- INTERACTIVE CONCEPTUAL PRACTICE DRILL                      -->
-                <!-- ========================================================== -->
-                <section id="featured-drill" class="card" style="padding: var(--space-6); margin-top: var(--space-4);" aria-label="Featured Conceptual Problem Drill">
-                    <h3 style="margin-top: 0; font-size: 1.15rem; color: var(--color-text-primary);">
-                        Featured Conceptual Problem: Mathematics &amp; Calculus
-                    </h3>
-                    <p><strong>Question ID: CUET-MATH-2026-084</strong> &bull; Level: <span class="badge-diff medium">Medium</span> &bull; <em>Select an option to test your answer:</em></p>
-                    <p>
-                        Evaluate the definite improper integral: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em> &middot; <em>e</em><sup>&minus;2x</sup> <em>dx</em>.
-                    </p>
+            <!-- Problem 2: Valid Parentheses -->
+            <div class="problem-row-item">
+                <div class="problem-name-flex">
+                    <span class="problem-code-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <strong style="font-size: 0.98rem; color: var(--color-text-primary);">Valid Parentheses</strong>
+                    <div style="display: flex; gap: 0.4rem; margin-left: var(--space-2);">
+                        <span class="career-role-tag">Stack</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="#modal-valid-parentheses" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary); padding: 0.35rem 1rem;">
+                        <strong>Solve &rarr;</strong>
+                    </a>
+                </div>
+            </div>
 
-                    <!-- Interactive Radio Form -->
-                    <form id="featured-drill-form" onsubmit="return false;">
-                        <p><label><input type="radio" name="math_q1" value="A"> <strong>(A)</strong> 1/2</label></p>
-                        <p><label><input type="radio" name="math_q1" value="B"> <strong>(B)</strong> 1/4</label></p>
-                        <p><label><input type="radio" name="math_q1" value="C"> <strong>(C)</strong> 1/8</label></p>
-                        <p><label><input type="radio" name="math_q1" value="D"> <strong>(D)</strong> Diverges</label></p>
-                    </form>
+            <!-- Problem 3: Merge Intervals -->
+            <div class="problem-row-item">
+                <div class="problem-name-flex">
+                    <span class="problem-code-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <strong style="font-size: 0.98rem; color: var(--color-text-primary);">Merge Intervals</strong>
+                    <div style="display: flex; gap: 0.4rem; margin-left: var(--space-2);">
+                        <span class="career-role-tag">Array</span>
+                        <span class="career-role-tag">Sorting</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="#modal-merge-intervals" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary); padding: 0.35rem 1rem;">
+                        <strong>Solve &rarr;</strong>
+                    </a>
+                </div>
+            </div>
 
-                    <!-- Dynamic Feedback Message Box -->
-                    <div id="drill-feedback-box" class="drill-feedback" role="alert" aria-live="polite"></div>
+            <!-- Problem 4: Longest Substring Without Repeating Characters -->
+            <div class="problem-row-item">
+                <div class="problem-name-flex">
+                    <span class="problem-code-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <strong style="font-size: 0.98rem; color: var(--color-text-primary);">Longest Substring Without Repeating Characters</strong>
+                    <div style="display: flex; gap: 0.4rem; margin-left: var(--space-2);">
+                        <span class="career-role-tag">Sliding Window</span>
+                        <span class="career-role-tag">String</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="#modal-longest-substr" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary); padding: 0.35rem 1rem;">
+                        <strong>Solve &rarr;</strong>
+                    </a>
+                </div>
+            </div>
 
-                    <details id="drill-details" style="margin-top: var(--space-4); background-color: var(--color-brand-soft); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-brand-soft-border);">
-                        <summary style="font-weight: 700; color: var(--color-brand-primary); cursor: pointer;">
-                            Click to View Step-by-Step Derivation &amp; Correct Option
-                        </summary>
-                        <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--color-text-primary); line-height: 1.6;">
-                            <p><strong>Correct Answer: B) 1/4</strong></p>
-                            <p>
-                                <em>Derivation:</em> Using the standard Gamma function identity: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em><sup><em>n</em>&minus;1</sup> <em>e</em><sup>&minus;&alpha;<em>x</em></sup> <em>dx</em> = &Gamma;(<em>n</em>) / &alpha;<sup><em>n</em></sup>.
-                                Here <em>n</em> = 2 and &alpha; = 2.
-                                Therefore, &Gamma;(2) / 2<sup>2</sup> = 1! / 4 = <strong>1/4</strong>.
-                            </p>
-                        </div>
-                    </details>
-                </section>
+            <!-- Problem 5: Lowest Common Ancestor in Binary Tree -->
+            <div class="problem-row-item">
+                <div class="problem-name-flex">
+                    <span class="problem-code-icon" aria-hidden="true">&lt;/&gt;</span>
+                    <strong style="font-size: 0.98rem; color: var(--color-text-primary);">Lowest Common Ancestor in Binary Tree</strong>
+                    <div style="display: flex; gap: 0.4rem; margin-left: var(--space-2);">
+                        <span class="career-role-tag">Tree</span>
+                        <span class="career-role-tag">Recursion</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="#modal-lca" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary); padding: 0.35rem 1rem;">
+                        <strong>Solve &rarr;</strong>
+                    </a>
+                </div>
+            </div>
 
-            </section>
+        </section>
 
-        </div>
+        <!-- Step-by-Step Code Solver Detail Modal / Expandable Preview -->
+        <section class="card" style="padding: var(--space-6); margin-bottom: var(--space-8);" id="modal-two-sum">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4);">
+                <div>
+                    <div style="display: inline-flex; align-items: center; gap: 0.4rem; background-color: #ECFDF5; color: #059669; font-weight: bold; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-pill); margin-bottom: 0.3rem;">
+                        <span>Easy</span> &bull; <span>Optimal Time: O(N)</span>
+                    </div>
+                    <h3 style="font-size: 1.25rem; margin: 0;">Featured Problem: Two Sum</h3>
+                </div>
+                <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Solution verified! All test cases passed.')">Run Test Cases ▶</button>
+            </div>
+
+            <p style="font-size: 0.92rem; color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>. You may assume that each input would have exactly one solution.
+            </p>
+
+            <div style="background-color: var(--color-bg-subtle); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); padding: var(--space-4); margin-bottom: var(--space-4);">
+                <strong style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem;">Python Optimal Solution (Hash Map):</strong>
+                <pre style="margin: 0; background: none; border: none; padding: 0; font-size: 0.88rem; overflow-x: auto;"><code>def twoSum(nums: list[int], target: int) -> list[int]:
+    seen = {}  # val -> index
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return [seen[complement], i]
+        seen[num] = i
+    return []</code></pre>
+            </div>
+        </section>
 
     </main>
 
@@ -451,19 +242,21 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col brand-col">
-                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p><strong>ExamMate AI</strong> &mdash; Modern Career &amp; Placement Preparation Platform.</p>
                 <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
             </div>
             <nav class="footer-col nav-col" aria-label="Footer Quick Links">
                 <p><strong>Quick Navigation:</strong></p>
                 <div class="footer-links-wrap">
                     <a href="index.html">Home</a> &bull;
-                    <a href="exams.html">Exams</a> &bull;
-                    <a href="question-bank.html">Question Bank</a> &bull;
-                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
                     <a href="dashboard.html">Dashboard</a> &bull;
-                    <a href="about.html">About Us</a> &bull;
-                    <a href="about.html#contact">Contact Support</a>
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
                 </div>
             </nav>
             <div class="footer-col contact-col">
@@ -475,35 +268,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
-    <!-- ====================================================================== -->
-    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
-        <div class="auth-modal-card">
-            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
-            <div class="auth-modal-header">
-                <h2 id="modal-title">Sign In / Register</h2>
-                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
-            </div>
-            <form action="dashboard.html" method="get">
-                <div class="auth-form-group">
-                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
-                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
-                </div>
-                <div class="auth-form-group">
-                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
-                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
-                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
-                </div>
-                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
-                    <strong>Verify OTP &amp; Continue &rarr;</strong>
-                </button>
-                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
-            </form>
-        </div>
-    </div>
 
 </body>
 </html>

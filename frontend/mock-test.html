@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Authentic online mock examination interface simulating official competitive exam formats, timers, question palettes, and negative marking schemes.">
+    <meta name="description" content="Attempt authentic full-length technical placement online assessments (OA) and coding mock tests with timed simulators, sectional navigation, and scorecards.">
     <meta name="author" content="ExamMate AI Team">
-    <title>Live Mock Test Simulator — ExamMate AI</title>
+    <title>SDE Technical Mock Assessment #1 — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
         (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
@@ -28,15 +28,21 @@
 
             <nav class="header-nav" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="about.html">About Us</a>
-                <a href="about.html#contact">Contact</a>
+                <a href="exams.html">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html">About</a>
             </nav>
 
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                <a href="dashboard.html" class="btn btn-pill-outline btn-sm">Dashboard &rarr;</a>
-                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+                <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
+                    🔔
+                    <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
+                </button>
+                <a href="profile.html" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
             </div>
         </div>
     </header>
@@ -47,13 +53,13 @@
     <main id="main-content">
         <!-- EXAM CONSOLE INTRO & TIMER METADATA -->
         <section id="exam-console-meta">
-            <h1>CUET PG MCA &mdash; Full Mock Examination Simulator</h1>
-            <p>Candidate: <strong>Birendra Kumar (Roll: CUET-2026-8841)</strong> &nbsp;|&nbsp; <a href="dashboard.html"><strong>&times; Exit to Dashboard</strong></a></p>
+            <h1>SDE Technical Placement Simulator #1 &mdash; Full-Length Online Assessment</h1>
+            <p>Candidate: <strong>Situ (ID: SDE-2026-JNU)</strong> &nbsp;|&nbsp; <a href="dashboard.html"><strong>&times; Exit to Dashboard</strong></a></p>
             
             <!-- TEST METADATA BAR -->
             <section aria-label="Test Information Bar">
                 <p>
-                    <strong>Test Name:</strong> CUET PG MCA Full Mock Test #1 | 
+                    <strong>Test Name:</strong> SDE-1 Technical Placement Assessment #1 | 
                     <strong>Language:</strong> English | 
                     <strong>Status:</strong> <mark>In Progress</mark>
                 </p>
@@ -68,8 +74,9 @@
             <nav aria-label="Test Sections">
                 <p>Sections:</p>
                 <ul>
-                    <li><a href="#section-math"><strong>[Active] Section A: Mathematics &amp; Statistics</strong> (25 Questions)</a></li>
-                    <li><a href="#section-cs">Section B: Computer Science &amp; DSA (50 Questions)</a></li>
+                    <li><a href="#section-dsa"><strong>[Active] Section A: Data Structures &amp; Algorithms</strong> (20 Questions)</a></li>
+                    <li><a href="#section-core-cs">Section B: System Design, OS &amp; Databases (15 Questions)</a></li>
+                    <li><a href="#section-aptitude">Section C: Quantitative &amp; Logical Aptitude (10 Questions)</a></li>
                 </ul>
             </nav>
             <hr>
@@ -205,19 +212,21 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col brand-col">
-                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p><strong>ExamMate AI</strong> &mdash; Modern Learning &amp; Career Preparation Platform.</p>
                 <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
             </div>
             <nav class="footer-col nav-col" aria-label="Footer Quick Links">
                 <p><strong>Quick Navigation:</strong></p>
                 <div class="footer-links-wrap">
                     <a href="index.html">Home</a> &bull;
-                    <a href="exams.html">Exams</a> &bull;
-                    <a href="question-bank.html">Question Bank</a> &bull;
-                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
                     <a href="dashboard.html">Dashboard</a> &bull;
-                    <a href="about.html">About Us</a> &bull;
-                    <a href="about.html#contact">Contact Support</a>
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
                 </div>
             </nav>
             <div class="footer-col contact-col">

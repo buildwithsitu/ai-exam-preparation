@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed performance telemetry, topic-wise accuracy breakdown, weak-area detection, and actionable study recommendations on ExamMate AI.">
+    <meta name="author" content="ExamMate AI Team">
+    <title>Performance &amp; Progress Analytics — ExamMate AI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+    <script src="js/theme.js" defer></script>
+</head>
+<body>
+
+    <!-- Skip Link for Keyboard Accessibility (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ====================================================================== -->
+    <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
+    <!-- ====================================================================== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="ExamMate AI Home">
+                <img src="images/logo.svg" alt="ExamMate AI" width="180" height="40">
+            </a>
+
+            <nav class="header-nav" aria-label="Main Navigation">
+                <a href="index.html">Home</a>
+                <a href="exams.html">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html">About</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
+                <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
+                    🔔
+                    <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
+                </button>
+                <a href="profile.html" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN APPLICATION CONTENT                                            -->
+    <!-- ====================================================================== -->
+    <main id="main-content">
+
+        <!-- Header Introduction -->
+        <section class="card" style="padding: var(--space-8); margin-bottom: var(--space-8); text-align: center;">
+            <span class="hero-pill-badge" style="margin-bottom: var(--space-3); display: inline-flex;">
+                <span aria-hidden="true">📊</span>
+                <span>Actionable Learning Telemetry</span>
+            </span>
+            <h1 style="font-size: 2.2rem; margin-bottom: var(--space-3);">Performance &amp; Progress Insights</h1>
+            <p style="max-width: 760px; margin: 0 auto var(--space-4) auto; color: var(--color-text-secondary); font-size: 1.05rem;">
+                Scores are only useful when they tell you what to study next. Review your accuracy trends, identify weak topics, and track improvement over time.
+            </p>
+
+            <div class="filter-pills-bar" style="justify-content: center; margin-bottom: 0;">
+                <a href="#all" class="filter-pill active">Overall Telemetry</a>
+                <a href="#topics" class="filter-pill">Topic Breakdown</a>
+                <a href="#weak-areas" class="filter-pill">Weak Areas (2)</a>
+                <a href="#history" class="filter-pill">Attempt History</a>
+            </div>
+        </section>
+
+        <!-- "What Should I Do Next?" Telemetry Alert -->
+        <article class="weak-area-card" aria-label="Weak Area Priority Action">
+            <div class="weak-area-content">
+                <span style="font-size: 0.72rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.04em; color: #B45309;">⚠️ Priority Study Alert &bull; Answers: What should I do next?</span>
+                <h3 style="margin: 0.2rem 0;">Focus Needed: Graph Traversal (BFS &amp; DFS)</h3>
+                <p>Your practice accuracy on Graph Traversal is currently <strong>42%</strong> (target: 75%). Improving this single topic will raise your overall algorithmic mastery by ~6%.</p>
+            </div>
+            <div style="flex-shrink: 0;">
+                <a href="question-bank.html#featured-drill" class="btn btn-pill-purple">Drill Graph Questions &rarr;</a>
+            </div>
+        </article>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 1: TOP-LEVEL KPI TELEMETRY                                 -->
+        <!-- ================================================================== -->
+        <section class="telemetry-row-grid" aria-label="Key Performance Indicators">
+            <div class="telemetry-stat-card">
+                <div class="telemetry-icon-box" style="background-color: #EDE9FE; color: var(--color-brand-primary);" aria-hidden="true">🎯</div>
+                <div>
+                    <strong>76.4%</strong>
+                    <span>Overall Accuracy (↗ 4.2%)</span>
+                </div>
+            </div>
+
+            <div class="telemetry-stat-card">
+                <div class="telemetry-icon-box" style="background-color: #DCFCE7; color: #166534;" aria-hidden="true">📝</div>
+                <div>
+                    <strong>126</strong>
+                    <span>Questions Solved (96 Correct)</span>
+                </div>
+            </div>
+
+            <div class="telemetry-stat-card">
+                <div class="telemetry-icon-box" style="background-color: #FEF3C7; color: #B45309;" aria-hidden="true">⚡</div>
+                <div>
+                    <strong>1m 24s</strong>
+                    <span>Avg Time / Question</span>
+                </div>
+            </div>
+
+            <div class="telemetry-stat-card">
+                <div class="telemetry-icon-box" style="background-color: #DBEAFE; color: #1D4ED8;" aria-hidden="true">🔥</div>
+                <div>
+                    <strong>7 Days</strong>
+                    <span>Consistent Study Streak</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 2: TOPIC-WISE ACCURACY BREAKDOWN                           -->
+        <!-- ================================================================== -->
+        <section class="card" id="topics" style="padding: var(--space-6); margin-bottom: var(--space-8);" aria-label="Topic-wise Performance">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); flex-wrap: wrap; gap: var(--space-2);">
+                <div>
+                    <h2 style="margin: 0 0 0.2rem 0;">Topic-Wise Accuracy Breakdown</h2>
+                    <p style="color: var(--color-text-secondary); margin: 0; font-size: 0.9rem;">Benchmarked against technical placement hiring benchmarks.</p>
+                </div>
+                <span class="track-badge" style="background-color: #EDE9FE; color: var(--color-brand-primary);">Goal: SDE &amp; Placement 2026</span>
+            </div>
+
+            <!-- Topic 1 -->
+            <div style="margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                    <strong>Full-Stack Web &amp; API Architecture</strong>
+                    <span style="color: var(--color-correct); font-weight: bold;">85% &bull; Mastered</span>
+                </div>
+                <div style="height: 10px; background-color: var(--color-bg-subtle); border-radius: var(--radius-pill); overflow: hidden;">
+                    <div style="width: 85%; height: 100%; background-color: var(--color-correct); border-radius: var(--radius-pill);"></div>
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div style="margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                    <strong>Database Systems &amp; SQL Querying</strong>
+                    <span style="color: var(--color-brand-primary); font-weight: bold;">78% &bull; Proficient</span>
+                </div>
+                <div style="height: 10px; background-color: var(--color-bg-subtle); border-radius: var(--radius-pill); overflow: hidden;">
+                    <div style="width: 78%; height: 100%; background-color: var(--color-brand-primary); border-radius: var(--radius-pill);"></div>
+                </div>
+            </div>
+
+            <!-- Topic 3 -->
+            <div style="margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                    <strong>Data Structures &amp; Algorithms (Core DSA)</strong>
+                    <span style="color: var(--color-brand-primary); font-weight: bold;">72% &bull; Proficient (Graphs Weak)</span>
+                </div>
+                <div style="height: 10px; background-color: var(--color-bg-subtle); border-radius: var(--radius-pill); overflow: hidden;">
+                    <div style="width: 72%; height: 100%; background-color: var(--color-brand-primary); border-radius: var(--radius-pill);"></div>
+                </div>
+            </div>
+
+            <!-- Topic 4 -->
+            <div style="margin-bottom: var(--space-4);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                    <strong>Placement Aptitude &amp; Quantitative Speed</strong>
+                    <span style="color: #D97706; font-weight: bold;">68% &bull; Needs Speed Math Revision</span>
+                </div>
+                <div style="height: 10px; background-color: var(--color-bg-subtle); border-radius: var(--radius-pill); overflow: hidden;">
+                    <div style="width: 68%; height: 100%; background-color: #D97706; border-radius: var(--radius-pill);"></div>
+                </div>
+            </div>
+
+            <!-- Topic 5 -->
+            <div style="margin-bottom: var(--space-2);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.3rem;">
+                    <strong>Graph Traversal &amp; Dynamic Programming</strong>
+                    <span style="color: #DC2626; font-weight: bold;">42% &bull; Weak Area (Action Required)</span>
+                </div>
+                <div style="height: 10px; background-color: var(--color-bg-subtle); border-radius: var(--radius-pill); overflow: hidden;">
+                    <div style="width: 42%; height: 100%; background-color: #DC2626; border-radius: var(--radius-pill);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================== -->
+        <!-- SECTION 3: RECENT ASSESSMENT ATTEMPTS HISTORY                      -->
+        <!-- ================================================================== -->
+        <section class="card" id="history" style="padding: var(--space-6); margin-bottom: var(--space-8);" aria-label="Recent Attempts History">
+            <h2>Recent Assessment History</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Review time logs and question-by-question derivations for your recent mock tests:</p>
+
+            <div style="overflow-x: auto;">
+                <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse; border-color: var(--color-border-subtle);">
+                    <thead style="background-color: var(--color-bg-subtle);">
+                        <tr>
+                            <th scope="col" style="text-align: left;">Date</th>
+                            <th scope="col" style="text-align: left;">Assessment Name</th>
+                            <th scope="col" style="text-align: left;">Score / Marks</th>
+                            <th scope="col" style="text-align: left;">Accuracy</th>
+                            <th scope="col" style="text-align: left;">Time Spent</th>
+                            <th scope="col" style="text-align: left;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nov 05, 2026</td>
+                            <td><strong>SDE Technical Placement Mock #1</strong></td>
+                            <td>224 / 300 (Top 5%)</td>
+                            <td><span style="color: var(--color-correct); font-weight: bold;">82%</span></td>
+                            <td>88 mins</td>
+                            <td><a href="mock-test.html" style="color: var(--color-brand-primary); font-weight: bold;">Review Solutions &rarr;</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nov 04, 2026</td>
+                            <td><strong>SDE Algorithms &amp; DP Sectional</strong></td>
+                            <td>18 / 20</td>
+                            <td><span style="color: var(--color-correct); font-weight: bold;">90%</span></td>
+                            <td>24 mins</td>
+                            <td><a href="question-bank.html" style="color: var(--color-brand-primary); font-weight: bold;">Review Errata &rarr;</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nov 02, 2026</td>
+                            <td><strong>Quantitative Aptitude Sprint #4</strong></td>
+                            <td>14 / 20</td>
+                            <td><span style="color: #D97706; font-weight: bold;">70%</span></td>
+                            <td>18 mins</td>
+                            <td><a href="question-bank.html" style="color: var(--color-brand-primary); font-weight: bold;">Review Mistakes &rarr;</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====================================================================== -->
+    <!-- 3. FOOTER                                                              -->
+    <!-- ====================================================================== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col brand-col">
+                <p><strong>ExamMate AI</strong> &mdash; Modern Learning &amp; Career Preparation Platform.</p>
+                <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+            </div>
+            <nav class="footer-col nav-col" aria-label="Footer Quick Links">
+                <p><strong>Quick Navigation:</strong></p>
+                <div class="footer-links-wrap">
+                    <a href="index.html">Home</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
+                    <a href="dashboard.html">Dashboard</a> &bull;
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
+                </div>
+            </nav>
+            <div class="footer-col contact-col">
+                <address>
+                    <strong>Need Assistance?</strong><br>
+                    Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                    Location: New Delhi, India
+                </address>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====================================================================== -->
+    <!-- 4. PURE CSS AUTH MODAL                                                 -->
+    <!-- ====================================================================== -->
+    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
+        <div class="auth-modal-card">
+            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
+            <div class="auth-modal-header">
+                <h2 id="modal-title">Sign In / Register</h2>
+                <p>Enter your Gmail address to access your learning space.</p>
+            </div>
+            <form action="dashboard.html" method="get">
+                <div class="auth-form-group">
+                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
+                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
+                </div>
+                <div class="auth-form-group">
+                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
+                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
+                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
+                </div>
+                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
+                    <strong>Verify OTP &amp; Continue &rarr;</strong>
+                </button>
+                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

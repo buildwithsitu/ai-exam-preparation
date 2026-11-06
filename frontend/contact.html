@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reach out to the ExamMate AI support and academic editorial team.">
+    <meta name="description" content="Reach out to the ExamMate AI support and academic editorial team. Report problems, request track assistance, or share feedback.">
     <meta name="author" content="ExamMate AI Team">
     <title>Contact &amp; Student Support — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
@@ -28,35 +28,149 @@
 
             <nav class="header-nav" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="about.html">About Us</a>
-                <a href="about.html#contact" class="active" aria-current="page">Contact</a>
+                <a href="exams.html">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html">About</a>
             </nav>
 
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
-                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+                <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
+                    🔔
+                    <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
+                </button>
+                <a href="profile.html" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
             </div>
         </div>
     </header>
 
+    <!-- ====================================================================== -->
+    <!-- 2. MAIN APPLICATION CONTENT                                            -->
+    <!-- ====================================================================== -->
     <main id="main-content">
-        <section class="card" style="text-align: center; padding: var(--space-12) var(--space-6); max-width: 720px; margin: var(--space-8) auto;">
-            <h1>Student Support &amp; Editorial Desk</h1>
-            <p>Our dedicated academic desk answers queries regarding exam patterns, question derivations, and errata.</p>
-            <p style="margin: var(--space-6) 0;">
-                <a href="about.html#contact" class="btn btn-pill-purple">
-                    <strong>Open Support Form in About Us &rarr;</strong>
-                </a>
+
+        <!-- Header Introduction -->
+        <section class="card" style="padding: var(--space-8); margin-bottom: var(--space-8); text-align: center;">
+            <span class="hero-pill-badge" style="margin-bottom: var(--space-3); display: inline-flex;">
+                <span aria-hidden="true">💬</span>
+                <span>Open Communication &amp; Honest Support</span>
+            </span>
+            <h1 style="font-size: 2.2rem; margin-bottom: var(--space-3);">Contact &amp; Student Support Desk</h1>
+            <p style="max-width: 760px; margin: 0 auto; color: var(--color-text-secondary); font-size: 1.05rem;">
+                Need help navigating your learning path, found an erratum in a practice question, or have feedback for our platform team? We are here to listen and assist.
             </p>
-            <hr>
-            <address style="font-style: normal; font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6;">
-                <strong>Direct Coordinates:</strong><br>
-                Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a> &bull; Editorial: <a href="mailto:editor@exammate.ai">editor@exammate.ai</a><br>
-                Hours: Monday &ndash; Saturday, 09:00 AM &ndash; 06:00 PM IST &bull; New Delhi, India
-            </address>
         </section>
+
+        <!-- Direct Coordinates (3 Cards Row) -->
+        <section class="telemetry-row-grid" aria-label="Direct Contact Channels" style="margin-bottom: var(--space-8);">
+            <div class="track-card">
+                <div class="track-card-header">
+                    <div class="track-icon-bubble" aria-hidden="true">📧</div>
+                    <span class="track-badge">Email Us</span>
+                </div>
+                <h3>Direct Email Support</h3>
+                <p>For urgent academic inquiries, bug reports, and account help:</p>
+                <p style="font-size: 0.95rem; margin: 0;">
+                    <a href="mailto:situsavvy1111@gmail.com" style="color: var(--color-brand-primary); font-weight: bold;">situsavvy1111@gmail.com</a><br>
+                    <a href="mailto:support@exammate.ai" style="color: var(--color-text-secondary); font-size: 0.85rem;">support@exammate.ai</a>
+                </p>
+            </div>
+
+            <div class="track-card">
+                <div class="track-card-header">
+                    <div class="track-icon-bubble" aria-hidden="true">📍</div>
+                    <span class="track-badge" style="background-color: #DBEAFE; color: #1D4ED8;">Location</span>
+                </div>
+                <h3>Academic Headquarters</h3>
+                <p>Engineered and maintained by students &amp; scholars:</p>
+                <p style="font-size: 0.95rem; font-weight: bold; margin: 0; color: var(--color-text-primary);">
+                    Jawaharlal Nehru University (JNU)<br>
+                    <span style="font-size: 0.85rem; color: var(--color-text-secondary); font-weight: normal;">New Delhi &ndash; 110067, India</span>
+                </p>
+            </div>
+
+            <div class="track-card">
+                <div class="track-card-header">
+                    <div class="track-icon-bubble" aria-hidden="true">🌐</div>
+                    <span class="track-badge" style="background-color: #FEF3C7; color: #B45309;">Connect</span>
+                </div>
+                <h3>Social &amp; Networks</h3>
+                <p>Follow updates, student discussions, and dev logs:</p>
+                <p style="display: flex; gap: var(--space-3); margin: 0; align-items: center;">
+                    <a href="https://www.linkedin.com/in/buildwithsitu/" target="_blank" rel="noopener noreferrer" class="btn btn-pill-outline btn-sm">LinkedIn &rarr;</a>
+                    <a href="https://www.instagram.com/is_situ/" target="_blank" rel="noopener noreferrer" class="btn btn-pill-outline btn-sm">Instagram &rarr;</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Support Ticket & Feedback Form -->
+        <section class="card" style="padding: var(--space-8); margin-bottom: var(--space-8);" aria-labelledby="form-heading">
+            <h2 id="form-heading" style="margin-bottom: var(--space-2);">Send Us a Message or Report an Issue</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6);">Fill out the form below. We typically respond within 24 to 48 hours.</p>
+
+            <form action="contact.html" method="post" style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 680px;">
+                <div>
+                    <label for="contact-name"><strong>Your Name *:</strong></label><br>
+                    <input type="text" id="contact-name" name="name" placeholder="Aarav Sharma" required style="width: 100%;">
+                </div>
+
+                <div>
+                    <label for="contact-email"><strong>Your Email Address *:</strong></label><br>
+                    <input type="email" id="contact-email" name="email" placeholder="student@gmail.com" required style="width: 100%;">
+                </div>
+
+                <div>
+                    <label for="contact-category"><strong>Inquiry Category *:</strong></label><br>
+                    <select id="contact-category" name="category" required style="width: 100%;">
+                        <option value="track-guidance">Learning Track or Career Guidance</option>
+                        <option value="errata">Question or Solution Correction (Errata)</option>
+                        <option value="technical">Technical Bug or Website Issue</option>
+                        <option value="feedback">Feature Request or Platform Feedback</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="contact-subject"><strong>Subject Line *:</strong></label><br>
+                    <input type="text" id="contact-subject" name="subject" placeholder="Brief summary of your query" required style="width: 100%;">
+                </div>
+
+                <div>
+                    <label for="contact-msg"><strong>Message Details *:</strong></label><br>
+                    <textarea id="contact-msg" name="message" rows="5" placeholder="Please describe your question or issue in detail..." required style="width: 100%;"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-pill-purple">
+                        <strong>Send Message &rarr;</strong>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Frequently Asked Questions (FAQ) -->
+        <section class="card" style="padding: var(--space-6); margin-bottom: var(--space-8);" aria-label="Frequently Asked Questions">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">Answers to common questions about ExamMate AI:</p>
+
+            <article class="faq-item-card">
+                <h3>How do I change my target learning path or career goal?</h3>
+                <p>Navigate to your <a href="profile.html#track-goals" style="color: var(--color-brand-primary); font-weight: bold;">Profile &amp; Settings</a> page. Under the &ldquo;Target Career Goal&rdquo; section, choose your new track (e.g. Software Development, Data Analytics, or Full-Stack Web) and click &ldquo;Update Target Track&rdquo;. Your dashboard roadmap and recommendations will immediately adapt.</p>
+            </article>
+
+            <article class="faq-item-card">
+                <h3>Is ExamMate AI completely free for students?</h3>
+                <p>Yes. All learning paths, study resources, question banks, and timed mock tests on ExamMate AI are open and 100% free for students. We believe high-quality education should be accessible without paywalls.</p>
+            </article>
+
+            <article class="faq-item-card">
+                <h3>How are question derivations and answers verified?</h3>
+                <p>All questions are peer-reviewed against official syllabus blueprints and standard academic references. If you spot an error, simply use the form above to submit an erratum report, and our academic desk will verify and update it.</p>
+            </article>
+        </section>
+
     </main>
 
     <!-- ====================================================================== -->
@@ -65,41 +179,47 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col brand-col">
-                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p><strong>ExamMate AI</strong> &mdash; Modern Learning &amp; Career Preparation Platform.</p>
                 <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
             </div>
             <nav class="footer-col nav-col" aria-label="Footer Quick Links">
                 <p><strong>Quick Navigation:</strong></p>
                 <div class="footer-links-wrap">
                     <a href="index.html">Home</a> &bull;
-                    <a href="exams.html">Exams</a> &bull;
-                    <a href="question-bank.html">Question Bank</a> &bull;
-                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
                     <a href="dashboard.html">Dashboard</a> &bull;
-                    <a href="about.html">About Us</a> &bull;
-                    <a href="about.html#contact">Contact Support</a>
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
                 </div>
             </nav>
             <div class="footer-col contact-col">
                 <address>
                     <strong>Need Assistance?</strong><br>
-                    Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
-                    Location: New Delhi, India
+                    Email: <a href="mailto:situsavvy1111@gmail.com">situsavvy1111@gmail.com</a><br>
+                    Location: JNU, New Delhi, India<br>
+                    <span class="footer-social-wrap" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2);">
+                        <a href="https://www.linkedin.com/in/buildwithsitu/" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-primary); font-weight: var(--font-weight-medium);">LinkedIn</a> &bull;
+                        <a href="https://www.instagram.com/is_situ/" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-primary); font-weight: var(--font-weight-medium);">Instagram</a>
+                    </span>
                 </address>
             </div>
         </div>
     </footer>
 
     <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
+    <!-- 4. PURE CSS AUTH MODAL                                                 -->
     <!-- ====================================================================== -->
     <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
         <div class="auth-modal-card">
             <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
             <div class="auth-modal-header">
-                <h3 id="modal-title">Sign In / Register</h3>
-                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
+                <h2 id="modal-title">Sign In / Register</h2>
+                <p>Enter your Gmail address to access your learning space.</p>
             </div>
             <form action="dashboard.html" method="get">
                 <div class="auth-form-group">

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personalized student learning analytics, weekly study telemetry, syllabus completion progress, and interactive study schedule for CUET aspirants.">
+    <meta name="description" content="Personalized student placement dashboard on ExamMate AI — learning progress, career roadmaps, coding practice, projects, interview prep, resume builder, and job telemetry.">
     <meta name="author" content="ExamMate AI Team">
-    <title>Student Learning Dashboard — ExamMate AI</title>
+    <title>Student Dashboard — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
         (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
@@ -21,535 +21,1001 @@
     <div class="dashboard-app-wrapper">
 
         <!-- ================================================================== -->
-        <!-- 1. LEFT SIDEBAR NAVIGATION                                         -->
+        <!-- 1. LEFT SIDEBAR NAVIGATION (Dark Navy #120E2C)                     -->
         <!-- ================================================================== -->
         <aside class="dashboard-sidebar" aria-label="Dashboard Navigation">
             <div>
                 <!-- Brand Logo -->
                 <div class="sidebar-brand">
                     <a href="index.html" aria-label="ExamMate AI Home">
-                        <img src="images/logo.svg" alt="ExamMate AI" width="160" height="38">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                        <span>ExamMate AI</span>
                     </a>
                 </div>
 
-                <!-- Main Menu Links -->
+                <!-- Main Menu Links (Exact Order Matching Mockup) -->
                 <nav class="sidebar-nav-menu" aria-label="Dashboard Main Navigation">
                     <ul>
                         <li>
-                            <a href="dashboard.html" class="active" aria-current="page">
-                                <span class="sidebar-menu-icon" aria-hidden="true">▦</span>
-                                <span>Overview</span>
+                            <a href="#dashboard" class="sidebar-nav-link active" data-view="view-dashboard" aria-current="page">
+                                <span class="sidebar-menu-icon" aria-hidden="true">🏠</span>
+                                <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="mock-test.html">
-                                <span class="sidebar-menu-icon" aria-hidden="true">⏱️</span>
-                                <span>Mock Tests</span>
+                            <a href="#career" class="sidebar-nav-link" data-view="view-career">
+                                <span class="sidebar-menu-icon" aria-hidden="true">🧭</span>
+                                <span>Career Path</span>
                             </a>
                         </li>
                         <li>
-                            <a href="question-bank.html">
+                            <a href="#learn" class="sidebar-nav-link" data-view="view-learn">
                                 <span class="sidebar-menu-icon" aria-hidden="true">📖</span>
-                                <span>Question Bank</span>
+                                <span>Learn</span>
                             </a>
                         </li>
                         <li>
-                            <a href="exams.html">
-                                <span class="sidebar-menu-icon" aria-hidden="true">📚</span>
-                                <span>Exams &amp; Syllabus</span>
+                            <a href="#practice" class="sidebar-nav-link" data-view="view-practice">
+                                <span class="sidebar-menu-icon" aria-hidden="true">💻</span>
+                                <span>Practice</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#schedule">
-                                <span class="sidebar-menu-icon" aria-hidden="true">📅</span>
-                                <span>Study Schedule</span>
+                            <a href="#projects" class="sidebar-nav-link" data-view="view-projects">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📁</span>
+                                <span>Projects</span>
                             </a>
                         </li>
                         <li>
-                            <a href="about.html#contact">
-                                <span class="sidebar-menu-icon" aria-hidden="true">💬</span>
-                                <span>Doubt Support</span>
+                            <a href="#interviews" class="sidebar-nav-link" data-view="view-interviews">
+                                <span class="sidebar-menu-icon" aria-hidden="true">👥</span>
+                                <span>Interviews</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#resume" class="sidebar-nav-link" data-view="view-resume">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📄</span>
+                                <span>Resume</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#jobs" class="sidebar-nav-link" data-view="view-jobs">
+                                <span class="sidebar-menu-icon" aria-hidden="true">💼</span>
+                                <span>Jobs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#progress" class="sidebar-nav-link" data-view="view-progress">
+                                <span class="sidebar-menu-icon" aria-hidden="true">📈</span>
+                                <span>Progress</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#settings" class="sidebar-nav-link" data-view="view-settings">
+                                <span class="sidebar-menu-icon" aria-hidden="true">⚙️</span>
+                                <span>Settings</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
             </div>
 
-            <!-- Bottom CUET Ranker Series Card -->
-            <div class="sidebar-premium-box">
-                <div class="premium-illustration-wrap" aria-hidden="true">
-                    <img src="images/premium-student.svg" alt="" width="80" height="65">
-                </div>
-                <h2 class="premium-heading">CUET Ranker Series</h2>
-                <p class="premium-caption">10 Full-Length Timed Mocks, NTA Percentile Predictor &amp; Formula Sheets.</p>
-                <a href="mock-test.html" class="btn btn-pill-dark premium-btn">
-                    <strong>Explore Mocks 👑</strong>
-                </a>
+            <!-- Footer mini attribution -->
+            <div style="padding: 0.5rem; font-size: 0.72rem; color: #6B7280; text-align: center;">
+                ExamMate AI &bull; Situ (JNU)
             </div>
         </aside>
 
         <!-- ================================================================== -->
-        <!-- 2. MAIN VIEWPORT (TOPBAR & WORKSPACE GRID)                         -->
+        <!-- 2. MAIN VIEWPORT (TOPBAR & DYNAMIC VIEW PANELS)                    -->
         <!-- ================================================================== -->
         <div class="dashboard-main-viewport">
 
-            <!-- Topbar Header -->
+            <!-- Persistent Topbar Header -->
             <header class="dashboard-topbar">
-                <div class="topbar-greeting">
-                    <h1>Good morning, Aarav! 👋</h1>
-                    <p>CUET PG MCA (SCQP09) &bull; Target Examination: 2026</p>
-                    <div class="demo-mode-badge" role="status">
-                        <span aria-hidden="true">📊</span>
-                        <span><strong>Demo Preview Mode</strong> &mdash; Showing sample CUET student telemetry</span>
+                <div style="display: flex; align-items: center; gap: var(--space-3); margin-left: auto;">
+                    <div class="hub-search-box">
+                        <span class="search-icon" aria-hidden="true">🔍</span>
+                        <input type="search" id="dash-global-search" placeholder="Search anything..." aria-label="Search dashboard">
                     </div>
-                </div>
-
-                <!-- Global Search Form -->
-                <form class="topbar-search-form" action="question-bank.html" method="get" role="search">
-                    <div class="topbar-search-box">
-                        <span aria-hidden="true">🔍</span>
-                        <input type="search" name="q" placeholder="Search CUET topics, formulas, PYQs..." aria-label="Search CUET topics and formulas">
-                    </div>
-                </form>
-
-                <!-- Right Notifications & Profile Access -->
-                <div class="topbar-right-controls">
                     <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                    <button type="button" class="bell-notification-btn" aria-label="Notifications (1 Unread)">
+                    <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
                         🔔
-                        <span class="bell-dot-indicator" aria-hidden="true"></span>
+                        <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
                     </button>
-                    <a href="#auth-modal" class="user-profile-summary-pill" aria-label="User Account">
-                        <div class="avatar-badge-wrap">
-                            <img src="images/avatar-user.svg" alt="Aarav Sharma Profile" width="40" height="40">
-                            <span class="online-green-dot" aria-hidden="true"></span>
-                        </div>
-                        <span class="chevron-down" aria-hidden="true">▾</span>
-                    </a>
+                    <a href="#settings" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
                 </div>
             </header>
 
-            <!-- Workspace Grid (Primary Feed + Right Utility Panel) -->
-            <main id="main-dashboard" class="dashboard-workspace-grid">
+            <!-- Main Dynamic Workspace Grid -->
+            <main id="main-dashboard" style="padding: var(--space-6);">
 
-                <!-- ---------------------------------------------------------- -->
-                <!-- LEFT FEED COLUMN                                           -->
-                <!-- ---------------------------------------------------------- -->
-                <div class="dashboard-feed-col">
-
-                    <!-- Quick Hub: One-Click Practice Launcher -->
-                    <section class="quick-hub-banner" aria-label="Quick Hub Learning Modules">
-                        <div class="quick-hub-title">
-                            <span aria-hidden="true">⚡</span>
-                            <span><strong>Quick Hub:</strong> Open test &amp; practice modules</span>
+                <!-- ========================================================== -->
+                <!-- VIEW 1: DASHBOARD (HOME)                                   -->
+                <!-- ========================================================== -->
+                <div id="view-dashboard" class="dash-view-panel active">
+                    
+                    <!-- Greeting Header -->
+                    <section class="dash-page-header">
+                        <div>
+                            <h1 class="dash-page-title">Dashboard</h1>
+                            <div style="font-size: 1.15rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.2rem;">
+                                Welcome back, Situ! 👋
+                            </div>
+                            <p class="dash-page-subtitle">Keep learning, building, and get placed.</p>
                         </div>
-                        <div class="quick-hub-links">
-                            <a href="question-bank.html" class="quick-hub-btn purple">
-                                <span aria-hidden="true">📖</span>
-                                <span>Question Bank</span>
-                            </a>
-                            <a href="mock-test.html" class="quick-hub-btn orange">
-                                <span aria-hidden="true">⏱️</span>
-                                <span>Mock Tests</span>
-                            </a>
-                            <a href="exams.html" class="quick-hub-btn green">
-                                <span aria-hidden="true">📚</span>
-                                <span>Exams &amp; Syllabus</span>
-                            </a>
+                        <div>
+                            <span class="dash-role-badge">
+                                <span aria-hidden="true">&lt;/&gt;</span>
+                                <span>Software Developer</span>
+                            </span>
                         </div>
                     </section>
 
-                    <!-- Row 1: Analytics (Activity Bar Chart + Progress Ring) -->
-                    <section class="analytics-cards-row" aria-label="Activity and Progress Analytics">
-
-                        <!-- Card 1: Your Learning Activity -->
-                        <article class="dash-card activity-card">
-                            <div class="dash-card-header">
-                                <h2>Your Learning Activity</h2>
-                                <select class="dash-dropdown-select" aria-label="Filter timeframe">
-                                    <option>This Week</option>
-                                    <option>Last Week</option>
-                                    <option>This Month</option>
-                                </select>
-                            </div>
-
-                            <div class="activity-metric-meta">
-                                <p class="trend-badge-green">↗ 12% more than last week</p>
-                                <p class="stat-headline">
-                                    <strong>18.6</strong>
-                                    <span>Hours spent</span>
-                                </p>
-                            </div>
-
-                            <!-- Pure CSS Bar Chart (Thu Highlighted) -->
-                            <div class="bar-chart-visual" aria-label="Hours spent per day this week">
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 32%;" title="Mon: 2.4 Hours"></div>
-                                    <span class="bar-day-label">Mon</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 42%;" title="Tue: 3.2 Hours"></div>
-                                    <span class="bar-day-label">Tue</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 52%;" title="Wed: 4.0 Hours"></div>
-                                    <span class="bar-day-label">Wed</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill highlight" style="height: 94%;" title="Thu: 7.2 Hours (Peak Activity)"></div>
-                                    <span class="bar-day-label">Thu</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 48%;" title="Fri: 3.6 Hours"></div>
-                                    <span class="bar-day-label">Fri</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 36%;" title="Sat: 2.8 Hours"></div>
-                                    <span class="bar-day-label">Sat</span>
-                                </div>
-                                <div class="bar-column">
-                                    <div class="bar-fill" style="height: 24%;" title="Sun: 1.8 Hours"></div>
-                                    <span class="bar-day-label">Sun</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 2: Learning Progress Donut -->
-                        <article class="dash-card progress-card">
-                            <div class="dash-card-header">
-                                <h2>Syllabus Mastery</h2>
-                                <select class="dash-dropdown-select" aria-label="Filter progress scope">
-                                    <option>Overall CUET (SCQP09)</option>
-                                    <option>Mathematics &amp; Statistics</option>
-                                    <option>Computer Science &amp; DSA</option>
-                                    <option>General Test</option>
-                                </select>
-                            </div>
-
-                            <!-- Circular Donut Ring -->
-                            <div class="donut-chart-container">
-                                <div class="donut-visual-ring" aria-label="68% of CUET syllabus completed">
-                                    <div class="donut-inner-circle">
-                                        <span class="donut-percent-num">68%</span>
-                                        <span class="donut-percent-label">Covered</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Status Breakdown Counts -->
-                            <div class="progress-status-list">
-                                <div class="status-row">
-                                    <div class="status-info">
-                                        <span class="status-icon-bubble purple" aria-hidden="true">🔖</span>
-                                        <span><strong>24</strong> Chapters Mastered</span>
-                                    </div>
-                                    <a href="question-bank.html" class="status-details-link">Details &rarr;</a>
-                                </div>
-
-                                <div class="status-row">
-                                    <div class="status-info">
-                                        <span class="status-icon-bubble orange" aria-hidden="true">♾️</span>
-                                        <span><strong>8</strong> In Progress</span>
-                                    </div>
-                                    <a href="mock-test.html" class="status-details-link">Details &rarr;</a>
-                                </div>
-
-                                <div class="status-row">
-                                    <div class="status-info">
-                                        <span class="status-icon-bubble green" aria-hidden="true">🎓</span>
-                                        <span><strong>6</strong> Upcoming</span>
-                                    </div>
-                                    <a href="exams.html" class="status-details-link">Details &rarr;</a>
-                                </div>
-                            </div>
-                        </article>
-
-                    </section>
-
-                    <!-- Row 2: Continue Learning Section -->
-                    <section class="continue-learning-card" aria-label="Continue Learning Modules">
-                        <div class="continue-header-controls">
-                            <h2>Continue Learning</h2>
-                            <div class="pagination-controls-row">
-                                <a href="question-bank.html" class="view-all-link">View All</a>
-                                <div class="arrow-nav-group">
-                                    <button type="button" class="arrow-circle-btn" aria-label="Previous Courses">&lsaquo;</button>
-                                    <button type="button" class="arrow-circle-btn" aria-label="Next Courses">&rsaquo;</button>
-                                </div>
+                    <!-- 4 KPI Stat Cards Row -->
+                    <section class="dashboard-stats-grid" aria-label="Key Performance Indicators">
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon teal" aria-hidden="true">📊</div>
+                            <div>
+                                <div class="stat-kpi-val">56%</div>
+                                <div class="stat-kpi-label">Overall Progress</div>
                             </div>
                         </div>
 
-                        <!-- Tab Filters -->
-                        <div class="filter-tab-pills" role="tablist">
-                            <button type="button" class="filter-tab-btn active" role="tab" aria-selected="true">All</button>
-                            <button type="button" class="filter-tab-btn" role="tab" aria-selected="false">In Progress</button>
-                            <button type="button" class="filter-tab-btn" role="tab" aria-selected="false">Completed</button>
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon purple" aria-hidden="true">&lt;/&gt;</div>
+                            <div>
+                                <div class="stat-kpi-val">24</div>
+                                <div class="stat-kpi-label">Practice Done</div>
+                            </div>
                         </div>
 
-                        <!-- 3 CUET Subject Cards -->
-                        <div class="course-cards-row">
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon indigo" aria-hidden="true">📦</div>
+                            <div>
+                                <div class="stat-kpi-val">3</div>
+                                <div class="stat-kpi-label">Projects Built</div>
+                            </div>
+                        </div>
 
-                            <!-- Module 1 -->
-                            <article class="course-card-item" data-status="in-progress">
-                                <div class="course-banner-container">
-                                    <img src="images/course-uiux.svg" alt="General Test: Quant &amp; Reasoning" width="320" height="180">
-                                    <span class="course-progress-badge">75%</span>
-                                </div>
-                                <div class="course-card-body">
-                                    <h3>General Test: Quant &amp; Logic</h3>
-                                    <div class="course-instructor-meta">
-                                        <div class="instructor-portrait-info">
-                                            <span style="font-size: 0.9rem;" aria-hidden="true">📊</span>
-                                            <span>CUET UG &amp; PG</span>
-                                        </div>
-                                        <span>14 Chapters</span>
-                                    </div>
-                                    <a href="question-bank.html" class="course-card-action-btn">Practice in Question Bank &rarr;</a>
-                                </div>
-                            </article>
-
-                            <!-- Module 2 -->
-                            <article class="course-card-item" data-status="in-progress">
-                                <div class="course-banner-container">
-                                    <img src="images/course-dsa.svg" alt="SCQP09: Data Structures &amp; Algorithms" width="320" height="180">
-                                    <span class="course-progress-badge">40%</span>
-                                </div>
-                                <div class="course-card-body">
-                                    <h3>SCQP09: Data Structures &amp; Algorithms</h3>
-                                    <div class="course-instructor-meta">
-                                        <div class="instructor-portrait-info">
-                                            <span style="font-size: 0.9rem;" aria-hidden="true">💻</span>
-                                            <span>Core MCA Domain</span>
-                                        </div>
-                                        <span>18 Chapters</span>
-                                    </div>
-                                    <a href="question-bank.html" class="course-card-action-btn">Practice in Question Bank &rarr;</a>
-                                </div>
-                            </article>
-
-                            <!-- Module 3 -->
-                            <article class="course-card-item" data-status="completed">
-                                <div class="course-banner-container">
-                                    <img src="images/course-js.svg" alt="Discrete Mathematics &amp; Probability" width="320" height="180">
-                                    <span class="course-progress-badge" style="background-color: var(--color-correct);">100%</span>
-                                </div>
-                                <div class="course-card-body">
-                                    <h3>Discrete Mathematics &amp; Logic</h3>
-                                    <div class="course-instructor-meta">
-                                        <div class="instructor-portrait-info">
-                                            <span style="font-size: 0.9rem;" aria-hidden="true">📐</span>
-                                            <span>Higher Mathematics</span>
-                                        </div>
-                                        <span>12 Chapters</span>
-                                    </div>
-                                    <a href="mock-test.html" class="course-card-action-btn">Attempt Sectional Mock &rarr;</a>
-                                </div>
-                            </article>
-
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon orange" aria-hidden="true">🔥</div>
+                            <div>
+                                <div class="stat-kpi-val">15</div>
+                                <div class="stat-kpi-label">Days Streak</div>
+                            </div>
                         </div>
                     </section>
 
-                    <!-- Row 3: Quick Stats (4 Horizontal Cards) -->
-                    <section class="quick-stats-row" aria-label="Student Quick Stats">
-                        <div class="quick-stat-box">
-                            <div class="stat-bubble-icon purple" aria-hidden="true">📚</div>
-                            <div class="stat-text-stack">
-                                <strong>12</strong>
-                                <span>Topics Enrolled</span>
+                    <!-- 2-Column Section: Your Learning Progress & Next Task -->
+                    <section class="dashboard-split-row" aria-label="Learning Progress and Next Tasks">
+                        
+                        <!-- Left: Your Learning Progress -->
+                        <div class="dashboard-card">
+                            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-5);">Your Learning Progress</h2>
+                            
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>Web Development</span>
+                                    <span class="dash-prog-percent">72%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 72%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>DSA</span>
+                                    <span class="dash-prog-percent">40%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 40%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>JavaScript</span>
+                                    <span class="dash-prog-percent">60%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 60%;"></div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="quick-stat-box">
-                            <div class="stat-bubble-icon green" aria-hidden="true">🎯</div>
-                            <div class="stat-text-stack">
-                                <strong>126</strong>
-                                <span>Questions Solved</span>
-                            </div>
-                        </div>
-
-                        <div class="quick-stat-box">
-                            <div class="stat-bubble-icon orange" aria-hidden="true">🕒</div>
-                            <div class="stat-text-stack">
-                                <strong>48h</strong>
-                                <span>Total Study Time</span>
-                            </div>
-                        </div>
-
-                        <div class="quick-stat-box">
-                            <div class="stat-bubble-icon blue" aria-hidden="true">🔥</div>
-                            <div class="stat-text-stack">
-                                <strong>7</strong>
-                                <span>Day Streak</span>
-                            </div>
+                        <!-- Right: Next Task -->
+                        <div class="dashboard-card">
+                            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-5);">Next Task</h2>
+                            <ul class="task-checklist">
+                                <li class="task-checklist-item">
+                                    <input type="checkbox" id="task-home-1" class="task-checkbox">
+                                    <label for="task-home-1" style="cursor: pointer;">Solve 5 DSA problems</label>
+                                </li>
+                                <li class="task-checklist-item">
+                                    <input type="checkbox" id="task-home-2" class="task-checkbox">
+                                    <label for="task-home-2" style="cursor: pointer;">Complete React module</label>
+                                </li>
+                                <li class="task-checklist-item">
+                                    <input type="checkbox" id="task-home-3" class="task-checkbox">
+                                    <label for="task-home-3" style="cursor: pointer;">Update your project</label>
+                                </li>
+                            </ul>
                         </div>
                     </section>
 
                 </div>
 
-                <!-- ---------------------------------------------------------- -->
-                <!-- RIGHT UTILITY PANEL                                        -->
-                <!-- ---------------------------------------------------------- -->
-                <aside class="dashboard-right-panel" aria-label="Student Profile and Daily Schedule">
-
-                    <!-- 1. Student Profile Card -->
-                    <article class="user-profile-hero-card">
-                        <div class="user-profile-cover-banner" aria-hidden="true"></div>
-                        <div class="user-profile-avatar-anchor">
-                            <img src="images/avatar-user.svg" alt="Aarav Sharma Profile Photo" width="64" height="64">
+                <!-- ========================================================== -->
+                <!-- VIEW 2: CAREER PATHS                                       -->
+                <!-- ========================================================== -->
+                <div id="view-career" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Career Paths</h2>
+                            <p class="dash-page-subtitle">Choose your goal and follow a structured roadmap.</p>
                         </div>
-                        <h3>Aarav Sharma</h3>
-                        <p class="user-academic-role">CUET PG MCA 2026 Aspirant</p>
-                        <span class="level-star-badge">⭐ Target: Top 100 Rank</span>
-                    </article>
+                    </section>
 
-                    <!-- 2. Mini Calendar Widget -->
-                    <article class="calendar-widget-card" aria-label="Study Calendar">
-                        <div class="calendar-month-header">
-                            <button type="button" class="calendar-arrow-btn" aria-label="Previous Month">&lsaquo;</button>
-                            <h4>November 2026</h4>
-                            <button type="button" class="calendar-arrow-btn" aria-label="Next Month">&rsaquo;</button>
+                    <section class="career-roles-grid" aria-label="Available Career Roles">
+                        <!-- Role 1: Software Developer -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true">&lt;/&gt;</div>
+                                <h3 class="career-role-title">Software Developer</h3>
+                                <p class="career-role-desc">Build web, full-stack and real-world applications.</p>
+                                <div class="career-role-tags">
+                                    <span class="career-role-tag">DSA</span>
+                                    <span class="career-role-tag">Web</span>
+                                    <span class="career-role-tag">DevOps</span>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#learn" class="btn btn-pill-purple" style="width: 100%; justify-content: center;">
+                                    <strong>Continue &rarr;</strong>
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- Role 2: Data Analyst -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true" style="background-color: #E6FFFA; color: #0D9488;">📊</div>
+                                <h3 class="career-role-title">Data Analyst</h3>
+                                <p class="career-role-desc">Work with data, analyze insights and make decisions.</p>
+                                <div class="career-role-tags">
+                                    <span class="career-role-tag">Python</span>
+                                    <span class="career-role-tag">SQL</span>
+                                    <span class="career-role-tag">Power BI</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-outline" style="width: 100%; justify-content: center; border-color: var(--color-brand-primary); color: var(--color-brand-primary);">
+                                    <strong>Choose Path</strong>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Role 3: Data Scientist -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true" style="background-color: #EEF2FF; color: #4F46E5;">🧠</div>
+                                <h3 class="career-role-title">Data Scientist</h3>
+                                <p class="career-role-desc">Learn ML, build models and solve real problems.</p>
+                                <div class="career-role-tags">
+                                    <span class="career-role-tag">Python</span>
+                                    <span class="career-role-tag">ML</span>
+                                    <span class="career-role-tag">AI</span>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-outline" style="width: 100%; justify-content: center; border-color: var(--color-brand-primary); color: var(--color-brand-primary);">
+                                    <strong>Choose Path</strong>
+                                </button>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 3: LEARNING HUB                                       -->
+                <!-- ========================================================== -->
+                <div id="view-learn" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Learning Hub</h2>
+                            <p class="dash-page-subtitle">Structured courses to build industry-ready skills.</p>
                         </div>
+                    </section>
 
-                        <div class="calendar-days-grid">
-                            <span class="cal-weekday">M</span>
-                            <span class="cal-weekday">T</span>
-                            <span class="cal-weekday">W</span>
-                            <span class="cal-weekday">T</span>
-                            <span class="cal-weekday">F</span>
-                            <span class="cal-weekday">S</span>
-                            <span class="cal-weekday">S</span>
+                    <!-- Filter Tabs -->
+                    <div class="filter-pills-bar" style="margin-bottom: var(--space-5);">
+                        <button type="button" class="filter-pill active" data-cat="all">All</button>
+                        <button type="button" class="filter-pill" data-cat="web">Web Development</button>
+                        <button type="button" class="filter-pill" data-cat="programming">Programming</button>
+                        <button type="button" class="filter-pill" data-cat="db">DB &amp; SQL</button>
+                        <button type="button" class="filter-pill" data-cat="ai">AI &amp; ML</button>
+                        <button type="button" class="filter-pill" data-cat="tools">Tools</button>
+                    </div>
 
-                            <!-- Week 1 -->
-                            <span class="cal-date muted">26</span>
-                            <span class="cal-date muted">27</span>
-                            <span class="cal-date muted">28</span>
-                            <span class="cal-date muted">29</span>
-                            <span class="cal-date muted">30</span>
-                            <span class="cal-date">1</span>
-                            <span class="cal-date">2</span>
-
-                            <!-- Week 2 -->
-                            <span class="cal-date">3</span>
-                            <span class="cal-date">4</span>
-                            <span class="cal-date">5</span>
-                            <span class="cal-date">6</span>
-                            <span class="cal-date">7</span>
-                            <span class="cal-date">8</span>
-                            <span class="cal-date">9</span>
-
-                            <!-- Week 3 -->
-                            <span class="cal-date">10</span>
-                            <span class="cal-date">11</span>
-                            <span class="cal-date">12</span>
-                            <span class="cal-date">13</span>
-                            <span class="cal-date">14</span>
-                            <span class="cal-date">15</span>
-                            <span class="cal-date">16</span>
-
-                            <!-- Week 4 (Day 20 Highlighted: Mock Test 1) -->
-                            <span class="cal-date">17</span>
-                            <span class="cal-date">18</span>
-                            <span class="cal-date">19</span>
-                            <span class="cal-date active-day" aria-current="date" title="Mock Test Day">20</span>
-                            <span class="cal-date">21</span>
-                            <span class="cal-date">22</span>
-                            <span class="cal-date">23</span>
-                        </div>
-                    </article>
-
-                    <!-- 3. Today's Plan Checklist -->
-                    <article class="todays-plan-card">
-                        <div class="plan-header-row">
-                            <h3>Today's Plan</h3>
-                            <button type="button" class="add-plan-icon-btn" aria-label="Add new plan item">+</button>
-                        </div>
-
-                        <div class="plan-checklist">
-                            <label class="plan-check-item">
-                                <input type="checkbox" name="plan1">
-                                <span class="plan-item-label">
-                                    <strong>Solve 25 Calculus PYQs</strong>
-                                    <span>10:00 AM &ndash; 11:30 AM</span>
-                                </span>
-                            </label>
-
-                            <label class="plan-check-item done">
-                                <input type="checkbox" name="plan2" checked>
-                                <span class="plan-item-label">
-                                    <strong>General Test Reasoning Quiz #4</strong>
-                                    <span>01:00 PM &ndash; 02:00 PM</span>
-                                </span>
-                            </label>
-
-                            <label class="plan-check-item">
-                                <input type="checkbox" name="plan3">
-                                <span class="plan-item-label">
-                                    <strong>Revise OS Memory Management</strong>
-                                    <span>03:30 PM &ndash; 04:30 PM</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <a href="#schedule" class="full-schedule-link">View Full Schedule &rarr;</a>
-                    </article>
-
-                    <!-- 4. Achievements Card -->
-                    <article class="achievements-widget-card">
-                        <div class="achieve-header-row">
-                            <h3>Achievements</h3>
-                            <a href="#achievements" class="view-all-link">View All</a>
-                        </div>
-
-                        <div class="achieve-body-flex">
-                            <div class="achieve-medal-bubble" aria-hidden="true">🏅</div>
-                            <div class="achieve-meta-text">
-                                <strong>Top 10% in Mock #1</strong>
-                                <p>98.4 Percentile in Mathematics Section</p>
+                    <!-- Course Rows List -->
+                    <section aria-label="Course Curriculum">
+                        <!-- Course 1 -->
+                        <div class="course-row-item" data-cat="web">
+                            <div class="course-row-left">
+                                <div class="course-badge-icon html" aria-hidden="true">🌐</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.2rem 0;">Web Development (HTML, CSS, JS)</h3>
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin: 0;">Build a strong foundation for web development.</p>
+                                </div>
+                            </div>
+                            <div class="course-row-right">
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <div class="dash-prog-track" style="width: 110px;">
+                                        <div class="dash-prog-bar" style="width: 72%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-brand-primary);">72%</span>
+                                </div>
+                                <button type="button" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary);">Continue</button>
                             </div>
                         </div>
 
-                        <div class="carousel-dots-indicator" aria-hidden="true">
-                            <span class="carousel-dot active"></span>
-                            <span class="carousel-dot"></span>
-                            <span class="carousel-dot"></span>
-                            <span class="carousel-dot"></span>
+                        <!-- Course 2 -->
+                        <div class="course-row-item" data-cat="web">
+                            <div class="course-row-left">
+                                <div class="course-badge-icon react" aria-hidden="true">⚛️</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.2rem 0;">React Development</h3>
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin: 0;">Learn React and build modern web apps.</p>
+                                </div>
+                            </div>
+                            <div class="course-row-right">
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <div class="dash-prog-track" style="width: 110px;">
+                                        <div class="dash-prog-bar" style="width: 40%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-brand-primary);">40%</span>
+                                </div>
+                                <button type="button" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary);">Continue</button>
+                            </div>
                         </div>
-                    </article>
 
-                </aside>
+                        <!-- Course 3 -->
+                        <div class="course-row-item" data-cat="programming">
+                            <div class="course-row-left">
+                                <div class="course-badge-icon python" aria-hidden="true">🐍</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.2rem 0;">Python for Developers</h3>
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin: 0;">Python fundamentals to real-world projects.</p>
+                                </div>
+                            </div>
+                            <div class="course-row-right">
+                                <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                    <div class="dash-prog-track" style="width: 110px;">
+                                        <div class="dash-prog-bar" style="width: 65%;"></div>
+                                    </div>
+                                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-brand-primary);">65%</span>
+                                </div>
+                                <button type="button" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary);">Continue</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 4: PRACTICE                                           -->
+                <!-- ========================================================== -->
+                <div id="view-practice" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Coding Practice</h2>
+                            <p class="dash-page-subtitle">Solve problems, improve logic, and get interview-ready.</p>
+                        </div>
+                    </section>
+
+                    <!-- Stream Switcher Pills -->
+                    <div class="filter-pills-bar" style="margin-bottom: var(--space-5);">
+                        <button type="button" class="filter-pill active" data-cat="all">DSA</button>
+                        <button type="button" class="filter-pill" data-cat="web">Web Dev</button>
+                        <button type="button" class="filter-pill" data-cat="sql">SQL</button>
+                        <button type="button" class="filter-pill" data-cat="aptitude">Aptitude</button>
+                    </div>
+
+                    <!-- 4 Stat Metric Cards -->
+                    <section class="dashboard-stats-grid" aria-label="Coding Problem Stats">
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon purple" aria-hidden="true">&lt;/&gt;</div>
+                            <div>
+                                <div class="stat-kpi-val">420</div>
+                                <div class="stat-kpi-label">Problems</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon teal" aria-hidden="true">✓</div>
+                            <div>
+                                <div class="stat-kpi-val">180</div>
+                                <div class="stat-kpi-label">Solved</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon orange" aria-hidden="true">📈</div>
+                            <div>
+                                <div class="stat-kpi-val">58%</div>
+                                <div class="stat-kpi-label">Accuracy</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon orange" aria-hidden="true">🔥</div>
+                            <div>
+                                <div class="stat-kpi-val">12</div>
+                                <div class="stat-kpi-label">Day Streak</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Practice by Topic (5 Horizontal Cards) -->
+                    <section style="margin-top: var(--space-6);" aria-label="Topics">
+                        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-3);">Practice by Topic</h3>
+                        
+                        <div class="practice-topics-row">
+                            <div class="topic-stat-card" data-cat="dsa">
+                                <div class="topic-icon-circle" style="background-color: #EDE9FE; color: #5B3CE8;" aria-hidden="true">📚</div>
+                                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">Arrays</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-text-secondary);">80 Q</span>
+                            </div>
+
+                            <div class="topic-stat-card" data-cat="dsa">
+                                <div class="topic-icon-circle" style="background-color: #EFF6FF; color: #2563EB;" aria-hidden="true">🔤</div>
+                                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">Strings</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-text-secondary);">65 Q</span>
+                            </div>
+
+                            <div class="topic-stat-card" data-cat="dsa">
+                                <div class="topic-icon-circle" style="background-color: #ECFDF5; color: #059669;" aria-hidden="true">🔢</div>
+                                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">Sorting</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-text-secondary);">40 Q</span>
+                            </div>
+
+                            <div class="topic-stat-card" data-cat="dsa">
+                                <div class="topic-icon-circle" style="background-color: #ECFEFF; color: #0891B2;" aria-hidden="true">🔍</div>
+                                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">Searching</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-text-secondary);">45 Q</span>
+                            </div>
+
+                            <div class="topic-stat-card" data-cat="dsa">
+                                <div class="topic-icon-circle" style="background-color: #EDE9FE; color: #7C3AED;" aria-hidden="true">#️⃣</div>
+                                <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.2rem;">Hashing</strong>
+                                <span style="font-size: 0.8rem; color: var(--color-text-secondary);">36 Q</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 5: PROJECTS                                           -->
+                <!-- ========================================================== -->
+                <div id="view-projects" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">My Projects</h2>
+                            <p class="dash-page-subtitle">Build real-world projects to showcase your skills.</p>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Creating new project workspace...')">+ New Project</button>
+                        </div>
+                    </section>
+
+                    <!-- Filter Tabs -->
+                    <div class="filter-pills-bar" style="margin-bottom: var(--space-5);">
+                        <button type="button" class="filter-pill active" data-cat="all">All</button>
+                        <button type="button" class="filter-pill" data-cat="web">Web Apps</button>
+                        <button type="button" class="filter-pill" data-cat="data">Data</button>
+                        <button type="button" class="filter-pill" data-cat="ai">AI/ML</button>
+                        <button type="button" class="filter-pill" data-cat="others">Others</button>
+                    </div>
+
+                    <!-- Project List Cards -->
+                    <section aria-label="Projects">
+                        <!-- Project 1 -->
+                        <div class="project-row-item" data-cat="web">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="project-thumb-box" style="background-color: #EDE9FE; color: #5B3CE8;" aria-hidden="true">
+                                    📱
+                                </div>
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: 0.2rem;">
+                                        <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Task Manager App</h3>
+                                        <span class="badge-pill-success">Completed</span>
+                                    </div>
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin: 0 0 0.4rem 0;">A full-stack task management application with user authentication.</p>
+                                    <div class="career-role-tags">
+                                        <span class="career-role-tag">React</span>
+                                        <span class="career-role-tag">Node.js</span>
+                                        <span class="career-role-tag">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0;">
+                                <a href="projects.html" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-border-subtle);">View</a>
+                                <button type="button" class="btn btn-pill-outline btn-sm" aria-label="Open project demo">↗</button>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="project-row-item" data-cat="data">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="project-thumb-box" style="background-color: #EFF6FF; color: #2563EB;" aria-hidden="true">
+                                    📊
+                                </div>
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: 0.2rem;">
+                                        <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0;">Data Analytics Dashboard</h3>
+                                        <span class="badge-pill-warning">In Progress</span>
+                                    </div>
+                                    <p style="font-size: 0.85rem; color: var(--color-text-secondary); margin: 0 0 0.4rem 0;">Interactive dashboard to analyze and visualize data.</p>
+                                    <div class="career-role-tags">
+                                        <span class="career-role-tag">Python</span>
+                                        <span class="career-role-tag">Streamlit</span>
+                                        <span class="career-role-tag">Pandas</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-2); flex-shrink: 0;">
+                                <a href="projects.html" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-border-subtle);">View</a>
+                                <button type="button" class="btn btn-pill-outline btn-sm" aria-label="Open project demo">↗</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 6: INTERVIEW PREPARATION                              -->
+                <!-- ========================================================== -->
+                <div id="view-interviews" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Interview Prep</h2>
+                            <p class="dash-page-subtitle">Practice technical, HR and behavioral interviews.</p>
+                        </div>
+                    </section>
+
+                    <!-- 3 Interview Action Cards Row -->
+                    <section class="career-roles-grid" aria-label="Interview Types">
+                        <!-- Technical -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true">&lt;/&gt;</div>
+                                <h3 class="career-role-title">Technical Interviews</h3>
+                                <p class="career-role-desc">DSA, system design and core concepts.</p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple" style="width: 100%; justify-content: center;" onclick="alert('Launching Technical Interview Practice drill...')">
+                                    <strong>Start Practice &rarr;</strong>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- HR -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true" style="background-color: #EDE9FE; color: #7C3AED;">👥</div>
+                                <h3 class="career-role-title">HR Interviews</h3>
+                                <p class="career-role-desc">Common HR questions, behavior and communication.</p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple" style="width: 100%; justify-content: center;" onclick="alert('Launching HR Behavioral Simulation...')">
+                                    <strong>Start Practice &rarr;</strong>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Mock Interviews -->
+                        <article class="career-role-card">
+                            <div>
+                                <div class="career-role-icon" aria-hidden="true" style="background-color: #EDE9FE; color: #5B3CE8;">🎓</div>
+                                <h3 class="career-role-title">Mock Interviews</h3>
+                                <p class="career-role-desc">Realistic interview experience with feedback.</p>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple" style="width: 100%; justify-content: center;" onclick="alert('Scheduling AI Mock Interview session...')">
+                                    <strong>Take a Mock &rarr;</strong>
+                                </button>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- Recent Practice Row -->
+                    <section style="margin-top: var(--space-6);" aria-label="Recent Practice History">
+                        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-3);">Recent Practice</h3>
+                        
+                        <div class="project-row-item">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="project-thumb-box" style="background-color: #EDE9FE; color: #5B3CE8;" aria-hidden="true">
+                                    📝
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 1rem; font-weight: 700; margin: 0 0 0.2rem 0;">DSA Mock Interview</h4>
+                                    <div style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.82rem; color: var(--color-text-secondary);">
+                                        <span>📅 Oct 30, 2026</span>
+                                        <span style="color: #059669; font-weight: 700;">Score: 78%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary);">View Report</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 7: RESUME BUILDER                                     -->
+                <!-- ========================================================== -->
+                <div id="view-resume" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Resume Builder</h2>
+                            <p class="dash-page-subtitle">Create a professional, ATS-friendly resume.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2-Column Split: Steps & Live Document Preview -->
+                    <section class="dashboard-split-row" aria-label="Resume Editor and Preview">
+                        <!-- Left: Steps Checklist -->
+                        <div class="dashboard-card">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-5);">Resume Checklist</h3>
+                            
+                            <ul style="list-style: none; padding: 0; margin: 0 0 var(--space-6) 0; display: flex; flex-direction: column; gap: var(--space-3);">
+                                <li style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.92rem; font-weight: 600;">
+                                    <span style="color: #059669; font-weight: 800;" aria-hidden="true">✓</span>
+                                    <span>Add Personal Details</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.92rem; font-weight: 600;">
+                                    <span style="color: #059669; font-weight: 800;" aria-hidden="true">✓</span>
+                                    <span>Add Education</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.92rem; font-weight: 600;">
+                                    <span style="color: #059669; font-weight: 800;" aria-hidden="true">✓</span>
+                                    <span>Add Skills</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.92rem; font-weight: 600;">
+                                    <span style="color: #059669; font-weight: 800;" aria-hidden="true">✓</span>
+                                    <span>Add Projects</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: var(--space-3); font-size: 0.92rem; color: var(--color-text-secondary);">
+                                    <span style="color: var(--color-text-muted);" aria-hidden="true">⚪</span>
+                                    <span>Review &amp; Download</span>
+                                </li>
+                            </ul>
+
+                            <div style="display: flex; gap: var(--space-3); flex-wrap: wrap;">
+                                <button type="button" class="btn btn-pill-outline btn-sm" style="border-color: var(--color-brand-primary); color: var(--color-brand-primary);" onclick="alert('Opening Resume Section Editor...')">Edit Resume</button>
+                                <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Generating and downloading ATS-friendly resume PDF for Situ Chandra...')">
+                                    <span>Download PDF</span>
+                                    <span aria-hidden="true">📥</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right: Live White Paper Document Preview -->
+                        <div class="resume-paper-preview">
+                            <div class="resume-header-preview">
+                                <h4 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.15rem 0;">Situ Chandra</h4>
+                                <div style="font-size: 0.85rem; color: #5B3CE8; font-weight: 700;">Software Developer</div>
+                                <div style="font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.2rem;">JNU, New Delhi &bull; situsavvy1111@gmail.com</div>
+                            </div>
+
+                            <!-- Skeleton Document Content -->
+                            <div style="margin-bottom: var(--space-4);">
+                                <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">Technical Skills</strong>
+                                <div class="resume-line-skeleton" style="width: 95%;"></div>
+                                <div class="resume-line-skeleton" style="width: 80%;"></div>
+                            </div>
+
+                            <div style="margin-bottom: var(--space-4);">
+                                <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">Experience &amp; Projects</strong>
+                                <div class="resume-line-skeleton" style="width: 98%;"></div>
+                                <div class="resume-line-skeleton" style="width: 90%;"></div>
+                                <div class="resume-line-skeleton" style="width: 75%;"></div>
+                            </div>
+
+                            <div>
+                                <strong style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.35rem;">Education</strong>
+                                <div class="resume-line-skeleton" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 8: JOBS & PLACEMENTS                                  -->
+                <!-- ========================================================== -->
+                <div id="view-jobs" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Job Opportunities</h2>
+                            <p class="dash-page-subtitle">Explore job and internship opportunities for freshers.</p>
+                        </div>
+                    </section>
+
+                    <!-- Filter Tabs -->
+                    <div class="filter-pills-bar" style="margin-bottom: var(--space-5);">
+                        <button type="button" class="filter-pill active" data-cat="all">All Jobs</button>
+                        <button type="button" class="filter-pill" data-cat="internship">Internships</button>
+                        <button type="button" class="filter-pill" data-cat="fresher">Fresher</button>
+                        <button type="button" class="filter-pill" data-cat="remote">Remote</button>
+                    </div>
+
+                    <!-- Job Listings List -->
+                    <section aria-label="Job Openings">
+                        <!-- Job 1: TCS -->
+                        <div class="job-listing-item" data-cat="fresher remote">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="job-logo-bubble" aria-hidden="true" style="color: #0284C7;">tcs</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.15rem 0;">Software Developer - Fresher</h3>
+                                    <div style="font-size: 0.82rem; color: var(--color-text-secondary); margin-bottom: 0.4rem;">Tata Consultancy Services</div>
+                                    <div class="career-role-tags">
+                                        <span class="career-role-tag">Fresher</span>
+                                        <span class="career-role-tag">Full-time</span>
+                                        <span class="career-role-tag">Remote</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Redirecting to application portal...')">Apply ↗</button>
+                            </div>
+                        </div>
+
+                        <!-- Job 2: Infosys -->
+                        <div class="job-listing-item" data-cat="internship">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="job-logo-bubble" aria-hidden="true" style="color: #0284C7; font-size: 0.8rem;">Infosys</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.15rem 0;">Data Analyst - Intern</h3>
+                                    <div style="font-size: 0.82rem; color: var(--color-text-secondary); margin-bottom: 0.4rem;">Infosys</div>
+                                    <div class="career-role-tags">
+                                        <span class="career-role-tag">Internship</span>
+                                        <span class="career-role-tag">0-1 Year</span>
+                                        <span class="career-role-tag">Hybrid</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Redirecting to application portal...')">Apply ↗</button>
+                            </div>
+                        </div>
+
+                        <!-- Job 3: Wipro -->
+                        <div class="job-listing-item" data-cat="fresher">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div class="job-logo-bubble" aria-hidden="true" style="color: #4338CA; font-size: 0.8rem;">wipro</div>
+                                <div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0 0 0.15rem 0;">Frontend Developer - Fresher</h3>
+                                    <div style="font-size: 0.82rem; color: var(--color-text-secondary); margin-bottom: 0.4rem;">Wipro</div>
+                                    <div class="career-role-tags">
+                                        <span class="career-role-tag">Fresher</span>
+                                        <span class="career-role-tag">Full-time</span>
+                                        <span class="career-role-tag">Bangalore</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-pill-purple btn-sm" onclick="alert('Redirecting to application portal...')">Apply ↗</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 9: PROGRESS & ANALYTICS                               -->
+                <!-- ========================================================== -->
+                <div id="view-progress" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">My Progress</h2>
+                            <p class="dash-page-subtitle">Track your learning, practice and placement readiness.</p>
+                        </div>
+                        <div>
+                            <select class="dash-dropdown-select" aria-label="Select Date Range" style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-pill); padding: 0.45rem 1rem; font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">
+                                <option>Last 30 Days</option>
+                                <option>Last 60 Days</option>
+                                <option>All Time</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- Top Metrics Row (5 Cards) -->
+                    <section class="progress-kpi-row" aria-label="Progress Metrics">
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon teal" aria-hidden="true">📊</div>
+                            <div>
+                                <div class="stat-kpi-val">56%</div>
+                                <div class="stat-kpi-label">Overall Progress</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon purple" aria-hidden="true">&lt;/&gt;</div>
+                            <div>
+                                <div class="stat-kpi-val">24</div>
+                                <div class="stat-kpi-label">Practice Done</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon indigo" aria-hidden="true">📁</div>
+                            <div>
+                                <div class="stat-kpi-val">3</div>
+                                <div class="stat-kpi-label">Projects</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon purple" aria-hidden="true">📝</div>
+                            <div>
+                                <div class="stat-kpi-val">2</div>
+                                <div class="stat-kpi-label">Mock Interviews</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-kpi-card">
+                            <div class="stat-kpi-icon orange" aria-hidden="true">🔥</div>
+                            <div>
+                                <div class="stat-kpi-val">15</div>
+                                <div class="stat-kpi-label">Days Streak</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2-Column Section: Topic-wise Performance & Progress Over Time Chart -->
+                    <section class="dashboard-split-row" aria-label="Performance Breakdown">
+                        <!-- Left: Topic-wise Performance -->
+                        <div class="dashboard-card">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-5);">Topic-wise Performance</h3>
+                            
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>DSA</span>
+                                    <span class="dash-prog-percent">62%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 62%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>Web Development</span>
+                                    <span class="dash-prog-percent">78%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 78%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>SQL</span>
+                                    <span class="dash-prog-percent">55%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 55%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="dash-prog-item">
+                                <div class="dash-prog-label-row">
+                                    <span>Python</span>
+                                    <span class="dash-prog-percent">70%</span>
+                                </div>
+                                <div class="dash-prog-track">
+                                    <div class="dash-prog-bar" style="width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Progress Over Time Graph -->
+                        <div class="dashboard-card">
+                            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: var(--space-4);">Progress Over Time</h3>
+                            
+                            <div style="display: flex; gap: var(--space-3); height: 180px; align-items: flex-end; padding-top: var(--space-2);">
+                                <!-- Y-Axis Labels -->
+                                <div style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; font-size: 0.72rem; color: var(--color-text-secondary); text-align: right; padding-right: 0.35rem;">
+                                    <span>100%</span>
+                                    <span>75%</span>
+                                    <span>50%</span>
+                                    <span>25%</span>
+                                    <span>0%</span>
+                                </div>
+
+                                <!-- SVG Line / Area Graph -->
+                                <div style="flex: 1; height: 100%; display: flex; flex-direction: column;">
+                                    <div style="flex: 1; border-left: 1px solid var(--color-border-subtle); border-bottom: 1px solid var(--color-border-subtle); position: relative;">
+                                        <svg viewBox="0 0 400 140" style="width: 100%; height: 100%; display: block;" preserveAspectRatio="none" aria-label="Progress growth curve">
+                                            <defs>
+                                                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35"/>
+                                                    <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Fill Area -->
+                                            <path d="M 0 120 Q 100 110, 150 70 T 300 40 T 400 20 L 400 140 L 0 140 Z" fill="url(#chartGrad)"/>
+                                            <!-- Growth Line -->
+                                            <path d="M 0 120 Q 100 110, 150 70 T 300 40 T 400 20" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round"/>
+                                            <!-- Data point dots -->
+                                            <circle cx="0" cy="120" r="4" fill="#7C3AED"/>
+                                            <circle cx="150" cy="70" r="4" fill="#7C3AED"/>
+                                            <circle cx="300" cy="40" r="4" fill="#7C3AED"/>
+                                            <circle cx="400" cy="20" r="5" fill="#5B3CE8"/>
+                                        </svg>
+                                    </div>
+                                    <!-- X-Axis Labels -->
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 0.4rem; padding-left: 0.5rem; padding-right: 0.5rem;">
+                                        <span>Week 1</span>
+                                        <span>Week 2</span>
+                                        <span>Week 3</span>
+                                        <span>Week 4</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- VIEW 10: SETTINGS / PROFILE                                -->
+                <!-- ========================================================== -->
+                <div id="view-settings" class="dash-view-panel">
+                    <section class="dash-page-header">
+                        <div>
+                            <h2 class="dash-page-title">Settings &amp; Preferences</h2>
+                            <p class="dash-page-subtitle">Manage your student profile, career goals, and account security.</p>
+                        </div>
+                    </section>
+
+                    <div class="dashboard-card" style="max-width: 640px;">
+                        <form action="#dashboard" method="get" style="display: flex; flex-direction: column; gap: var(--space-4);">
+                            <div>
+                                <label for="dash-prof-name"><strong>Full Name:</strong></label><br>
+                                <input type="text" id="dash-prof-name" value="Situ Chandra" class="auth-input-field" style="padding-left: 1rem;" required>
+                            </div>
+
+                            <div>
+                                <label for="dash-prof-email"><strong>Email Address:</strong></label><br>
+                                <input type="email" id="dash-prof-email" value="situsavvy1111@gmail.com" class="auth-input-field" style="padding-left: 1rem;" required>
+                            </div>
+
+                            <div>
+                                <label for="dash-prof-inst"><strong>College / University:</strong></label><br>
+                                <input type="text" id="dash-prof-inst" value="Jawaharlal Nehru University (JNU), New Delhi" class="auth-input-field" style="padding-left: 1rem;">
+                            </div>
+
+                            <div>
+                                <label for="dash-prof-role"><strong>Primary Career Goal:</strong></label><br>
+                                <select id="dash-prof-role" class="auth-input-field" style="padding-left: 1rem;">
+                                    <option selected>Software Developer (SDE)</option>
+                                    <option>Data Analyst</option>
+                                    <option>Data Scientist</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn-pill-purple" style="align-self: flex-start;" onclick="alert('Profile and goal preferences saved successfully!')">
+                                Save Preferences
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
             </main>
 
-        </div>
-
-    </div>
-
-    <!-- ====================================================================== -->
-    <!-- 4. PURE CSS AUTH MODAL (Gmail & OTP Popup Box)                          -->
-    <!-- ====================================================================== -->
-    <div id="auth-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <a href="#" class="modal-backdrop-dismiss" aria-label="Close modal dialog"></a>
-        <div class="auth-modal-card">
-            <a href="#" class="modal-close" aria-label="Close dialog">&times;</a>
-            <div class="auth-modal-header">
-                <h2 id="modal-title">Sign In / Register</h2>
-                <p>Enter your Gmail address to receive a 6-digit OTP verification code.</p>
-            </div>
-            <form action="dashboard.html" method="get">
-                <div class="auth-form-group">
-                    <label for="auth-gmail"><strong>Gmail Address:</strong></label>
-                    <input type="email" id="auth-gmail" name="gmail" placeholder="student@gmail.com" required pattern=".+@gmail\.com|.+@.+\..+">
-                </div>
-                <div class="auth-form-group">
-                    <label for="auth-otp"><strong>Enter 6-Digit OTP:</strong></label>
-                    <input type="text" id="auth-otp" name="otp" placeholder="e.g. 584920" maxlength="6" pattern="[0-9]{6}" required>
-                    <p class="auth-helper-text">Didn't receive code? <a href="#auth-modal">Resend OTP</a></p>
-                </div>
-                <button type="submit" class="btn btn-pill-purple auth-submit-btn">
-                    <strong>Verify OTP &amp; Continue &rarr;</strong>
-                </button>
-                <p class="auth-modal-footer">By continuing, you agree to ExamMate AI Terms of Service and Privacy Policy.</p>
-            </form>
         </div>
     </div>
 

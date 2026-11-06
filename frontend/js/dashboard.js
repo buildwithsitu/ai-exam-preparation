@@ -1,139 +1,162 @@
 /**
- * ExamMate AI — Student Dashboard Interactive Controller
- * Lightweight Vanilla JavaScript (Zero External Dependencies)
- * Handles: Course Tab Filtering, Daily Study Checklist, and Calendar Controls
+ * ExamMate AI — Student Dashboard View Router & Interactive Controller
+ * Pure Vanilla JavaScript (Zero External Dependencies)
+ * Handles: Instant View Switching for all 9 Pages, Hash Routing, and Filter Controls
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+
     // --------------------------------------------------------------------------
-    // 1. CONTINUE LEARNING: TAB FILTERING (All, In Progress, Completed)
+    // 1. ROUTER: SWITCH BETWEEN DASHBOARD VIEWS VIA SIDEBAR & HASH
     // --------------------------------------------------------------------------
-    const tabButtons = document.querySelectorAll('.filter-tab-btn');
-    const courseCards = document.querySelectorAll('.course-card-item');
+    const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
+    const viewPanels = document.querySelectorAll('.dash-view-panel');
 
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active button state
-            tabButtons.forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-selected', 'false');
-            });
-            btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
+    const viewMap = {
+        'dashboard': 'view-dashboard',
+        'career': 'view-career',
+        'learn': 'view-learn',
+        'practice': 'view-practice',
+        'projects': 'view-projects',
+        'interviews': 'view-interviews',
+        'resume': 'view-resume',
+        'jobs': 'view-jobs',
+        'progress': 'view-progress',
+        'settings': 'view-settings'
+    };
 
-            const filterType = btn.textContent.trim().toLowerCase(); // 'all', 'in progress', 'completed'
+    function switchView(viewKey) {
+        const targetViewId = viewMap[viewKey] || 'view-dashboard';
+        const targetPanel = document.getElementById(targetViewId);
 
-            courseCards.forEach(card => {
-                const status = (card.getAttribute('data-status') || '').toLowerCase();
-                if (filterType === 'all' || status === filterType) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
+        if (!targetPanel) return;
+
+        // 1. Hide all view panels and show the target
+        viewPanels.forEach(panel => {
+            panel.classList.remove('active');
+        });
+        targetPanel.classList.add('active');
+
+        // 2. Update active state on sidebar links
+        sidebarLinks.forEach(link => {
+            const linkView = link.getAttribute('data-view');
+            if (linkView === targetViewId) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.classList.remove('active');
+                link.removeAttribute('aria-current');
+            }
+        });
+
+        // 3. Scroll to top of viewport
+        window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Handle clicks on sidebar links
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                const key = href.substring(1);
+                if (viewMap[key]) {
+                    e.preventDefault();
+                    history.pushState(null, '', href);
+                    switchView(key);
                 }
-            });
+            }
         });
     });
 
-    // --------------------------------------------------------------------------
-    // 2. TODAY'S PLAN: INTERACTIVE TASK CHECKLIST
-    // --------------------------------------------------------------------------
-    const checklistItems = document.querySelectorAll('.plan-check-item');
-
-    checklistItems.forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        if (checkbox) {
-            checkbox.addEventListener('change', () => {
-                if (checkbox.checked) {
-                    item.classList.add('done');
-                } else {
-                    item.classList.remove('done');
-                }
-            });
+    // Handle back/forward navigation or initial hash
+    function handleHashChange() {
+        const hash = window.location.hash.replace('#', '') || 'dashboard';
+        if (viewMap[hash]) {
+            switchView(hash);
+        } else {
+            switchView('dashboard');
         }
-    });
+    }
 
-    // Add Plan Quick Prompt
-    const addPlanBtn = document.querySelector('.add-plan-icon-btn');
-    if (addPlanBtn) {
-        addPlanBtn.addEventListener('click', () => {
-            const taskText = prompt('Enter new CUET study goal or chapter to revise:');
-            if (taskText && taskText.trim() !== '') {
-                const checklistContainer = document.querySelector('.plan-checklist');
-                if (checklistContainer) {
-                    const newLabel = document.createElement('label');
-                    newLabel.className = 'plan-check-item';
-                    newLabel.innerHTML = `
-                        <input type="checkbox">
-                        <span class="plan-item-label">
-                            <strong>${escapeHtml(taskText.trim())}</strong>
-                            <span>Self-Paced Practice</span>
-                        </span>
-                    `;
-                    const newCheckbox = newLabel.querySelector('input[type="checkbox"]');
-                    newCheckbox.addEventListener('change', () => {
-                        newLabel.classList.toggle('done', newCheckbox.checked);
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange();
+
+    // --------------------------------------------------------------------------
+    // 2. INTERACTIVE FILTER PILLS (Learning Hub, Practice, Projects, Jobs)
+    // --------------------------------------------------------------------------
+    function setupFilterPills(containerSelector, itemSelector, dataAttr) {
+        const containers = document.querySelectorAll(containerSelector);
+        containers.forEach(container => {
+            const pills = container.querySelectorAll('.filter-pill');
+            const parentView = container.closest('.dash-view-panel');
+            if (!parentView) return;
+
+            const items = parentView.querySelectorAll(itemSelector);
+
+            pills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    pills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+
+                    const filterVal = pill.getAttribute(dataAttr) || pill.textContent.trim().toLowerCase();
+
+                    items.forEach(item => {
+                        const itemVal = (item.getAttribute(dataAttr) || '').toLowerCase();
+                        if (filterVal === 'all' || filterVal === 'all jobs' || itemVal.includes(filterVal)) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
                     });
-                    checklistContainer.appendChild(newLabel);
+                });
+            });
+        });
+    }
+
+    setupFilterPills('#view-learn .filter-pills-bar', '.course-row-item', 'data-cat');
+    setupFilterPills('#view-practice .filter-pills-bar', '.topic-stat-card', 'data-cat');
+    setupFilterPills('#view-projects .filter-pills-bar', '.project-row-item', 'data-cat');
+    setupFilterPills('#view-jobs .filter-pills-bar', '.job-listing-item', 'data-cat');
+
+    // --------------------------------------------------------------------------
+    // 3. TASK CHECKLIST INTERACTIONS (View 1 & View 7)
+    // --------------------------------------------------------------------------
+    const taskCheckboxes = document.querySelectorAll('.task-checkbox');
+    taskCheckboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+            const label = cb.closest('li') || cb.parentElement;
+            if (label) {
+                if (cb.checked) {
+                    label.style.textDecoration = 'line-through';
+                    label.style.opacity = '0.6';
+                } else {
+                    label.style.textDecoration = 'none';
+                    label.style.opacity = '1';
                 }
             }
         });
-    }
+    });
 
     // --------------------------------------------------------------------------
-    // 3. MINI CALENDAR MONTH NAVIGATION
+    // 4. GLOBAL SEARCH INPUT (Real-time Filter)
     // --------------------------------------------------------------------------
-    const monthHeader = document.querySelector('.calendar-month-header h4');
-    const calendarBtns = document.querySelectorAll('.calendar-arrow-btn');
-    const months = [
-        'January 2026', 'February 2026', 'March 2026', 'April 2026', 'May 2026', 'June 2026',
-        'July 2026', 'August 2026', 'September 2026', 'October 2026', 'November 2026', 'December 2026'
-    ];
-    let currentMonthIdx = 10; // November 2026 (0-indexed 10)
+    const searchInput = document.getElementById('dash-global-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const activePanel = document.querySelector('.dash-view-panel.active');
+            if (!activePanel) return;
 
-    if (monthHeader && calendarBtns.length === 2) {
-        // Prev Month
-        calendarBtns[0].addEventListener('click', () => {
-            if (currentMonthIdx > 0) {
-                currentMonthIdx--;
-                monthHeader.textContent = months[currentMonthIdx];
-            }
-        });
-        // Next Month
-        calendarBtns[1].addEventListener('click', () => {
-            if (currentMonthIdx < months.length - 1) {
-                currentMonthIdx++;
-                monthHeader.textContent = months[currentMonthIdx];
-            }
+            const searchableItems = activePanel.querySelectorAll('.course-row-item, .project-row-item, .job-listing-item, .career-path-box, .stat-kpi-card');
+            searchableItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (query === '' || text.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         });
     }
 
-    // --------------------------------------------------------------------------
-    // 4. LEARNING ACTIVITY: TIMEFRAME SELECTOR
-    // --------------------------------------------------------------------------
-    const timeframeSelect = document.querySelector('.dash-dropdown-select');
-    const statHours = document.querySelector('.stat-headline strong');
-    const trendBadge = document.querySelector('.trend-badge-green');
-
-    if (timeframeSelect && statHours && trendBadge) {
-        timeframeSelect.addEventListener('change', (e) => {
-            const val = e.target.value;
-            if (val === 'This Week') {
-                statHours.textContent = '18.6';
-                trendBadge.textContent = '↗ 12% more than last week';
-            } else if (val === 'Last Week') {
-                statHours.textContent = '16.4';
-                trendBadge.textContent = '↗ 8% more than target';
-            } else if (val === 'This Month') {
-                statHours.textContent = '74.2';
-                trendBadge.textContent = '↗ 18% monthly study surge';
-            }
-        });
-    }
-
-    // Helper: Escape HTML string to prevent XSS
-    function escapeHtml(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
 });

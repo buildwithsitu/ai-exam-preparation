@@ -1,6 +1,6 @@
-# ExamMate AI — Competitive Examination Preparation Platform
+# ExamMate AI — Modern Student Learning & Career Platform
 
-An intelligent, student-centric competitive examination preparation platform designed specifically for aspirants of **CUET (UG & PG)**, alongside upcoming support for SSC, Banking, and Railway examinations.
+An intelligent, student-centric learning and career platform designed for **Software Development & Campus Placements** alongside premier competitive examinations like **CUET PG MCA, SSC, and Banking**.
 
 ---
 
@@ -9,44 +9,62 @@ An intelligent, student-centric competitive examination preparation platform des
 ```
 ai-exam-preparation/
 │
-├── frontend/                  # Accessible HTML5/CSS3 Web Application
-│   ├── index.html             # Homepage with Hero, Marquee Sliders, & CTA
-│   ├── dashboard.html         # Student Learning Dashboard & Analytics
-│   ├── question-bank.html     # CUET UG/PG Question Bank with Subject Cards
-│   ├── exams.html             # Examination Catalog & Syllabus Blueprint
-│   ├── mock-test.html         # Timed Mock Examination Simulator Console
-│   ├── about.html             # Platform Mission, Vision, & Support Desk (#contact)
-│   ├── contact.html           # Dedicated Student Inquiry Forwarder
-│   ├── login.html             # Student Sign-In Portal
-│   ├── register.html          # Student Registration Portal
+├── frontend/                  # Modern, Accessible HTML5/CSS3 Web Application
+│   ├── index.html             # 1. Homepage (Hero, Benefits, Paths, How It Works)
+│   ├── about.html             # 2. About Us (Mission, Academic Standards, JNU Contacts)
+│   ├── login.html             # 3A. Student Login Page
+│   ├── register.html          # 3B. Free Student Registration Page
+│   ├── dashboard.html         # 4. Student Dashboard ("What Should I Do Next?")
+│   ├── exams.html             # 5. Career Paths & Learning Tracks Catalog
+│   ├── resources.html         # 6. Learning Resources, Notes & Cheat-Sheets
+│   ├── question-bank.html     # 7. Practice & Question Bank with Step-by-Step Derivations
+│   ├── mock-test.html         # 8. Timed Mock Examination Simulator Console
+│   ├── performance.html       # 9. Performance & Progress Telemetry
+│   ├── career-prep.html       # 10. Practical Projects, ATS Resume & Interview Hub
+│   ├── profile.html           # 11. Profile & Goal Settings Page
+│   ├── contact.html           # 12. Contact & Student Support Desk
 │   ├── css/                   # Modular Stylesheets (Tokens, Components, Dashboard)
+│   │   ├── variables.css      # CSS Design Tokens & Dark Mode Overrides
+│   │   ├── components.css     # Buttons, Cards, Modals, Navbar, Sliders
+│   │   ├── dashboard.css      # Activity Bar Charts, Donut Meters, Calendar
+│   │   └── style.css          # Master Stylesheet Orchestrator
+│   ├── js/                    # Lightweight Vanilla JavaScript (Zero Dependencies)
+│   │   ├── theme.js           # Dark / Light Mode Switcher & LocalStorage Sync
+│   │   ├── dashboard.js       # Dynamic Schedule & Telemetry Handlers
+│   │   └── question-bank.js   # Filter & Search Script
 │   └── images/                # Vector SVG Assets & Visual Diagrams
 │
-├── docs/                      # Architectural, requirement, and learning documentation
-│   ├── project-overview.md    # Product vision, problem statement, and goals
-│   ├── requirements.md        # Functional and non-functional specifications
-│   ├── architecture.md        # Platform architecture and data flow specs
-│   ├── technical-decisions.md # Architecture Decision Records (ADRs)
-│   └── learning-progress.md   # Step-by-step progress and implementation milestones
-│
-├── database/                  # PostgreSQL schema and Docker Compose definitions
-├── backend/                   # Backend API specifications and microservice stubs
-└── PROGRESS.md                # Real-time task tracking and implementation status
+└── docs/                      # Architectural & Learning Documentation
+    ├── architecture.md        # Platform architecture and data flow specs
+    ├── technical-decisions.md # Architecture Decision Records (ADRs)
+    └── learning-progress.md   # Step-by-step progress and implementation milestones
 ```
 
 ---
 
-## 🚀 Core Educational Features
+## 🚀 The 12 Platform Modules
 
-- **🎯 Authentic Mock Exam Simulator**: Replicates standard computer-based test (CBT) layouts with question palettes, timers, section switchers, and official negative marking schemes.
-- **📚 Curated CUET Question Bank**: Structured chapter-wise problem sets for CUET UG (General Test, English, Domains) and CUET PG (SCQP09 Computer Science & Mathematics).
-- **📊 Real-time Student Learning Telemetry**: Visual learning activity charts, syllabus completion rings, daily study checklists, and streak tracking.
-- **📱 Responsive, Accessible & Lightweight**: 100% pure HTML5/CSS3 architecture without heavy framework bloat, fully accessible (WCAG 2.1 AA) and deployable on GitHub Pages.
-- **🔐 Secure & Seamless Access**: Pure CSS modal authentication supporting Gmail verification and OTP workflows.
+1. **Homepage (`index.html`)**: Clear introduction, benefits slider, learning tracks overview, how-it-works progression, and authentication CTAs.
+2. **About Us (`about.html`)**: Mission, vision, core academic standards, team coordinates at Jawaharlal Nehru University (JNU), New Delhi.
+3. **Registration & Login (`register.html`, `login.html`)**: Streamlined onboarding with goal track selection, input validation, and password security.
+4. **Student Dashboard (`dashboard.html`)**: Central workspace answering *"What should I do next?"*, syllabus donut ring, active SDE track, and today's plan checklist.
+5. **Career Paths & Learning Tracks (`exams.html`)**: 6 structured learning tracks (Software Development, Data Analytics, Placement Aptitude, CUET PG MCA, SSC CGL, Banking PO).
+6. **Learning Resources (`resources.html`)**: Curated study notes, formula sheets, cheat-sheets, and downloadable blueprints by difficulty.
+7. **Question Bank (`question-bank.html`)**: Multi-parameter question browsing with instant interactive answers and detailed derivations.
+8. **Mock Assessments (`mock-test.html`)**: Timed full-length CBT test simulator with question palette and official negative marking.
+9. **Performance & Progress (`performance.html`)**: Telemetry insights, topic-wise accuracy breakdown, and weak-area smart alerts (e.g. Graph Traversal).
+10. **Projects, Resume & Interview Prep (`career-prep.html`)**: Industry portfolio projects, 5-point ATS resume checklist, and technical/HR interview drills.
+11. **Profile & Settings (`profile.html`)**: Student info, primary career track selector, daily study targets, and account controls.
+12. **Contact & Support (`contact.html`)**: Ticket submission form, direct email (`situsavvy1111@gmail.com`), location at JNU New Delhi, and FAQ accordion.
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technology & Design Principles
+
+- **100% Vanilla Web Stack**: Pure HTML5, CSS3, and modern Vanilla JS (zero external runtime dependencies, 100% GitHub Pages static hosting compatible).
+- **Dark / Light Mode**: Seamless theme switching with instant anti-FOUC script and CSS variable theming.
+- **Accessibility & Performance**: Semantic landmark tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`), keyboard skip links, single `<h1>` per page, and fully responsive across mobile, tablet, and desktop screens.
+
 
 | Layer | Technologies | Current Status |
 | :--- | :--- | :--- |

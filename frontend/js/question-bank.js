@@ -1,7 +1,7 @@
 /**
  * ExamMate AI — Question Bank Interactive Controller
  * Pure Vanilla JavaScript (Zero External Dependencies)
- * Handles: CUET UG / PG Stream Switching, Live Search, Subject Filtering, & Drill Validation
+ * Handles: Practice Stream Switching (DSA, Web, Aptitude, Core CS), Live Search, & Drill Validation
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,15 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('qb-search-input');
     const searchBtn = document.getElementById('qb-search-btn');
     const subjectCards = document.querySelectorAll('.qb-subject-card');
-    const sectionTitle = document.querySelector('.qb-section-intro h2');
-    const sectionDesc = document.querySelector('.qb-section-intro p');
-    const categoryCheckboxes = document.querySelectorAll('input[name="subject"]');
+    const sectionTitle = document.getElementById('qb-section-title') || document.querySelector('.qb-section-intro h2');
+    const sectionDesc = document.getElementById('qb-section-desc') || document.querySelector('.qb-section-intro p');
 
-    let activeStream = 'ug'; // Default stream
+    let activeStream = 'dsa'; // Default stream: DSA & Algorithms
 
     // --------------------------------------------------------------------------
-    // 1. STREAM SWITCHER (CUET UG vs CUET PG)
+    // 1. STREAM SWITCHER (DSA, Web, Aptitude, Core CS)
     // --------------------------------------------------------------------------
+    const streamInfo = {
+        'dsa': {
+            title: 'Explore Data Structures & Algorithms Question Sets',
+            desc: 'Practice pattern-based questions, time complexity derivations, and coding challenge drills.'
+        },
+        'web': {
+            title: 'Explore Web Architecture & Backend Systems Question Sets',
+            desc: 'API specifications, database queries, authentication flows, and scalable architecture patterns.'
+        },
+        'aptitude': {
+            title: 'Explore Campus Placement Aptitude & Logic Sets',
+            desc: 'Speed math drills, quantitative shortcuts, logical puzzles, and reasoning practice sets.'
+        },
+        'core': {
+            title: 'Explore Core Computer Science Fundamentals Sets',
+            desc: 'Operating systems, DBMS transactions, networking protocols, and object-oriented principles.'
+        }
+    };
+
     streamPills.forEach(pill => {
         pill.addEventListener('click', (e) => {
             e.preventDefault();
@@ -38,12 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
             pill.setAttribute('aria-selected', 'true');
 
             // Update Section Header
-            if (activeStream === 'ug') {
-                if (sectionTitle) sectionTitle.textContent = 'Explore CUET Question Bank (UG)';
-                if (sectionDesc) sectionDesc.textContent = 'Practice from subject-wise collections, chapter-wise sets, and official NTA syllabus blueprints.';
-            } else {
-                if (sectionTitle) sectionTitle.textContent = 'Explore CUET (PG & MCA) Question Bank';
-                if (sectionDesc) sectionDesc.textContent = 'Specialized question sets tailored for SCQP09 (MCA & Computer Science) and Master of Science entrance.';
+            if (streamInfo[activeStream]) {
+                if (sectionTitle) sectionTitle.textContent = streamInfo[activeStream].title;
+                if (sectionDesc) sectionDesc.textContent = streamInfo[activeStream].desc;
             }
 
             // Apply filter
@@ -56,32 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --------------------------------------------------------------------------
     function filterCards() {
         const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
-        
-        // Active categories
-        const checkedCategories = Array.from(categoryCheckboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.value);
-
-        const allowAllCategories = checkedCategories.includes('all') || checkedCategories.length === 0;
-
         let visibleCount = 0;
 
         subjectCards.forEach(card => {
             const cardStream = card.getAttribute('data-stream');
-            const cardCategory = card.getAttribute('data-category');
             const cardTitle = (card.querySelector('h3')?.textContent || '').toLowerCase();
             const cardTopics = (card.querySelector('.qb-card-topics-summary')?.textContent || '').toLowerCase();
 
             // Match stream
             const matchesStream = (cardStream === activeStream);
 
-            // Match category
-            const matchesCategory = allowAllCategories || checkedCategories.includes(cardCategory);
-
             // Match query
             const matchesQuery = query === '' || cardTitle.includes(query) || cardTopics.includes(query);
 
-            if (matchesStream && matchesCategory && matchesQuery) {
+            if (matchesStream && matchesQuery) {
                 card.style.display = 'flex';
                 visibleCount++;
             } else {
@@ -101,18 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 emptyState.style.gridColumn = '1 / -1';
                 emptyState.innerHTML = `
                     <p style="font-size: 1.5rem; margin-bottom: var(--space-2);" aria-hidden="true">🔍</p>
-                    <h3 style="margin-bottom: var(--space-2);">No matching subjects found</h3>
+                    <h3 style="margin-bottom: var(--space-2);">No matching technical topics found</h3>
                     <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
-                        Try adjusting your search query or reset the filters to explore all available CUET chapters.
+                        Try adjusting your search query or switch practice streams to explore all available modules.
                     </p>
-                    <button type="button" id="qb-reset-filters-btn" class="btn btn-pill-outline btn-sm">Reset Search &amp; Filters</button>
+                    <button type="button" id="qb-reset-filters-btn" class="btn btn-pill-outline btn-sm">Reset Search</button>
                 `;
                 const grid = document.querySelector('.qb-cards-grid');
                 if (grid) grid.appendChild(emptyState);
 
                 document.getElementById('qb-reset-filters-btn')?.addEventListener('click', () => {
                     if (searchInput) searchInput.value = '';
-                    categoryCheckboxes.forEach(cb => cb.checked = (cb.value === 'all'));
                     filterCards();
                 });
             }
@@ -130,23 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
         searchBtn.addEventListener('click', filterCards);
     }
 
-    // Bind Category Checkboxes
-    categoryCheckboxes.forEach(cb => {
-        cb.addEventListener('change', () => {
-            if (cb.value === 'all' && cb.checked) {
-                categoryCheckboxes.forEach(other => {
-                    if (other.value !== 'all') other.checked = false;
-                });
-            } else if (cb.checked) {
-                const allCb = Array.from(categoryCheckboxes).find(c => c.value === 'all');
-                if (allCb) allCb.checked = false;
-            }
-            filterCards();
-        });
-    });
-
     // --------------------------------------------------------------------------
-    // 3. INTERACTIVE CONCEPTUAL PRACTICE DRILL
+    // 3. INTERACTIVE TECHNICAL PRACTICE DRILL
     // --------------------------------------------------------------------------
     const drillForm = document.getElementById('featured-drill-form');
     const drillFeedback = document.getElementById('drill-feedback-box');
@@ -162,15 +149,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (radio.value === 'B') {
                     drillFeedback.className = 'drill-feedback correct';
                     drillFeedback.innerHTML = `
-                        <strong>✅ Correct Answer! Option B (1/4) is the right solution.</strong>
-                        <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem;">Great job! Using the standard Gamma function identity, &Gamma;(2) / 2<sup>2</sup> = 1/4.</p>
+                        <strong>✅ Correct Answer! Option B: O(n) time, O(n) space using a Hash Set is optimal.</strong>
+                        <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem;">Great job! Checking sequence starts with <code>set.contains(num - 1)</code> guarantees each element is processed in linear time.</p>
                     `;
                     if (drillDetails) drillDetails.open = true;
                 } else {
                     drillFeedback.className = 'drill-feedback incorrect';
                     drillFeedback.innerHTML = `
                         <strong>❌ Incorrect Option (${radio.value}).</strong>
-                        <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem;">Expand the derivation box below to see step-by-step Gamma function integration.</p>
+                        <p style="margin: 0.25rem 0 0 0; font-size: 0.85rem;">Expand the derivation box below to see how HashSet boundary lookups avoid sorting and achieve linear O(n) time.</p>
                     `;
                     if (drillDetails) drillDetails.open = true;
                 }

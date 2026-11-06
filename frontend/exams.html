@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore examination pattern, syllabus blueprints, and test structure for CUET PG.">
+    <meta name="description" content="Choose your tech career path on ExamMate AI — Software Developer, Data Analyst, Data Scientist. Follow structured roadmaps and get job-ready.">
     <meta name="author" content="ExamMate AI Team">
-    <title>Exams &amp; Subjects Catalog — ExamMate AI</title>
+    <title>Career Paths — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
     <script>
         (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
@@ -28,106 +28,149 @@
 
             <nav class="header-nav" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="about.html">About Us</a>
-                <a href="about.html#contact">Contact</a>
+                <a href="exams.html" class="active" aria-current="page">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html">About</a>
             </nav>
 
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                <a href="dashboard.html" class="btn btn-pill-outline btn-sm">Dashboard &rarr;</a>
-                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+                <button type="button" class="nav-bell-btn" aria-label="Notifications (1 Unread)">
+                    🔔
+                    <span class="bell-dot-indicator" aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #EF4444; border-radius: 50%;"></span>
+                </button>
+                <a href="profile.html" class="nav-avatar-circle" aria-label="Student Profile: Situ">S</a>
             </div>
         </div>
     </header>
 
     <!-- ====================================================================== -->
-    <!-- 2. MAIN CONTENT                                                        -->
+    <!-- 2. MAIN APPLICATION CONTENT                                            -->
     <!-- ====================================================================== -->
     <main id="main-content">
-        <section id="exams-intro">
-            <h1>Supported Competitive Examinations</h1>
-            <p>
-                ExamMate AI provides domain-calibrated question sets and authentic full-length simulators tailored to official university testing schemes.
-            </p>
 
-            <!-- Jump Navigation -->
-            <nav aria-label="Jump to Examination">
-                <p>Jump to examination syllabus:</p>
-                <ul>
-                    <li><a href="#cuet-pg">CUET PG (MCA &amp; Computer Science)</a></li>
-                    <li><a href="#exam-comparison">Exam Format &amp; Marking Scheme</a></li>
-                </ul>
-            </nav>
-            <hr>
+        <!-- Centered Intro Header -->
+        <section style="text-align: center; margin: var(--space-8) 0 var(--space-6) 0;">
+            <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: var(--space-2); letter-spacing: -0.02em;">Choose Your Career Path</h1>
+            <p style="color: var(--color-text-secondary); font-size: 1.05rem; margin: 0 auto; max-width: 600px;">
+                Select a role, follow a structured roadmap, and get job-ready.
+            </p>
         </section>
 
-        <!-- EXAM: CUET PG -->
-        <article id="cuet-pg">
-            <h2>CUET PG &mdash; Common University Entrance Test (Postgraduate)</h2>
-            <p><strong>Target Aspirants:</strong> MCA, M.Sc Computer Science, and Central University Postgraduate Candidates.</p>
-            
-            <dl>
-                <dt><strong>Test Duration:</strong></dt>
-                <dd>105 Minutes (1 Hour 45 Minutes)</dd>
+        <!-- 3 Primary Role Cards (Screen 5 Mockup Exact Layout) -->
+        <section class="career-roles-grid" aria-label="Career Path Options">
 
-                <dt><strong>Total Questions:</strong></dt>
-                <dd>75 Domain-Specific Multiple Choice Questions (MCQs)</dd>
+            <!-- Role 1: Software Developer -->
+            <article class="career-role-card" id="software-dev">
+                <div>
+                    <div class="career-role-icon" aria-hidden="true">&lt;/&gt;</div>
+                    <h2 class="career-role-title">Software Developer</h2>
+                    <p class="career-role-desc">
+                        Build full-stack applications, solve real problems, and prepare for developer roles.
+                    </p>
+                    <div class="career-role-tags">
+                        <span class="career-role-tag">DSA</span>
+                        <span class="career-role-tag">Web Dev</span>
+                        <span class="career-role-tag">Projects</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="resources.html?path=sde" class="btn btn-pill-purple" style="width: 100%; justify-content: center;">
+                        <strong>Choose Path &rarr;</strong>
+                    </a>
+                </div>
+            </article>
 
-                <dt><strong>Marking Scheme:</strong></dt>
-                <dd>+4 Marks for each correct answer; &minus;1 Mark for each incorrect attempt (Negative Marking).</dd>
-            </dl>
+            <!-- Role 2: Data Analyst -->
+            <article class="career-role-card" id="data-analyst">
+                <div>
+                    <div class="career-role-icon" aria-hidden="true" style="background-color: #E6FFFA; color: #0D9488;">📊</div>
+                    <h2 class="career-role-title">Data Analyst</h2>
+                    <p class="career-role-desc">
+                        Work with data, find insights, and build a career in analytics.
+                    </p>
+                    <div class="career-role-tags">
+                        <span class="career-role-tag">Python</span>
+                        <span class="career-role-tag">SQL</span>
+                        <span class="career-role-tag">Power BI</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="resources.html?path=data-analyst" class="btn btn-pill-outline" style="width: 100%; justify-content: center; border-color: var(--color-brand-primary); color: var(--color-brand-primary);">
+                        <strong>Choose Path &rarr;</strong>
+                    </a>
+                </div>
+            </article>
 
-            <h3>Core Syllabus Modules:</h3>
-            <ul>
-                <li><strong>Mathematics:</strong> Set Theory, Coordinate Geometry, Calculus, Probability, Linear Algebra.</li>
-                <li><strong>Data Structures &amp; Algorithms:</strong> Arrays, Stacks, Queues, Binary Trees, Graphs, Sorting &amp; Searching Complexity.</li>
-                <li><strong>Computer Architecture &amp; OS:</strong> Memory hierarchy, Process management, Boolean Algebra, Logic Gates.</li>
-                <li><strong>Database Management:</strong> Relational Model, SQL queries, Normalization, ER diagrams.</li>
-            </ul>
+            <!-- Role 3: Data Scientist -->
+            <article class="career-role-card" id="data-scientist">
+                <div>
+                    <div class="career-role-icon" aria-hidden="true" style="background-color: #EEF2FF; color: #4F46E5;">🗄️</div>
+                    <h2 class="career-role-title">Data Scientist</h2>
+                    <p class="career-role-desc">
+                        Learn data, machine learning, and build real-world AI projects.
+                    </p>
+                    <div class="career-role-tags">
+                        <span class="career-role-tag">Python</span>
+                        <span class="career-role-tag">ML</span>
+                        <span class="career-role-tag">Projects</span>
+                    </div>
+                </div>
+                <div>
+                    <a href="resources.html?path=data-scientist" class="btn btn-pill-outline" style="width: 100%; justify-content: center; border-color: var(--color-brand-primary); color: var(--color-brand-primary);">
+                        <strong>Choose Path &rarr;</strong>
+                    </a>
+                </div>
+            </article>
 
-            <p>
-                <a href="mock-test.html"><strong>Take CUET PG Mock Test &rarr;</strong></a> | 
-                <a href="question-bank.html#cuet-q1">Browse CUET PG Questions</a>
-            </p>
-            <hr>
-        </article>
+        </section>
 
-        <!-- TABULAR COMPARISON / DETAILS -->
-        <section id="exam-comparison">
-            <h2>Exam Format &amp; Marking Scheme</h2>
-            <p>Official examination structure for CUET PG:</p>
+        <!-- Detailed Syllabus Breakdown & Milestones -->
+        <section class="card" style="padding: var(--space-6); margin-bottom: var(--space-8);">
+            <div style="margin-bottom: var(--space-4);">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem;">Roadmap Milestones &amp; Preparation Timelines</h3>
+                <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin: 0;">Each track is structured into progressive phases from fundamentals to mock interviews.</p>
+            </div>
 
-            <table border="1" cellpadding="8" cellspacing="0">
-                <caption><strong>CUET PG Examination Scheme</strong></caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Exam Name</th>
-                        <th scope="col">Level</th>
-                        <th scope="col">Duration</th>
-                        <th scope="col">Total Questions</th>
-                        <th scope="col">Positive Marks</th>
-                        <th scope="col">Negative Penalty</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>CUET PG (MCA)</strong></td>
-                        <td>Postgraduate</td>
-                        <td>105 Mins</td>
-                        <td>75</td>
-                        <td>+4.00</td>
-                        <td>&minus;1.00 (25%)</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="6">
-                            <em>Note: All calculations follow the official notification guidelines published by the National Testing Agency (NTA).</em>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+            <div style="overflow-x: auto;">
+                <table border="1" style="width: 100%; font-size: 0.9rem;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Role Track</th>
+                            <th scope="col">Phase 1: Foundations</th>
+                            <th scope="col">Phase 2: Core Skills</th>
+                            <th scope="col">Phase 3: Portfolio Projects</th>
+                            <th scope="col">Phase 4: Interview Ready</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Software Developer</strong></td>
+                            <td>Python / Java Basics &amp; Git</td>
+                            <td>Data Structures, Algorithms, DBMS</td>
+                            <td>Full Stack Web App (React + Node.js)</td>
+                            <td>DSA Mock Interviews &amp; System Design</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Analyst</strong></td>
+                            <td>Excel Mastery &amp; Statistics</td>
+                            <td>SQL Queries, Joins &amp; Window Functions</td>
+                            <td>Power BI / Tableau Interactive Dashboard</td>
+                            <td>Case Studies, Product Metrics &amp; SQL OA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Scientist</strong></td>
+                            <td>Linear Algebra, Python (NumPy, Pandas)</td>
+                            <td>Scikit-learn, Feature Engineering, EDA</td>
+                            <td>End-to-End ML Pipeline with Streamlit</td>
+                            <td>ML Architecture, Math &amp; Take-Home Tasks</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
     </main>
@@ -138,19 +181,21 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col brand-col">
-                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p><strong>ExamMate AI</strong> &mdash; Modern Career &amp; Placement Preparation Platform.</p>
                 <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
             </div>
             <nav class="footer-col nav-col" aria-label="Footer Quick Links">
                 <p><strong>Quick Navigation:</strong></p>
                 <div class="footer-links-wrap">
                     <a href="index.html">Home</a> &bull;
-                    <a href="exams.html">Exams</a> &bull;
-                    <a href="question-bank.html">Question Bank</a> &bull;
-                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
                     <a href="dashboard.html">Dashboard</a> &bull;
-                    <a href="about.html">About Us</a> &bull;
-                    <a href="about.html#contact">Contact Support</a>
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
                 </div>
             </nav>
             <div class="footer-col contact-col">
@@ -162,7 +207,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 </html>

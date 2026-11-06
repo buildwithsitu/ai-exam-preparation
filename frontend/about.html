@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ExamMate AI is an all-in-one platform for competitive examination aspirants, combining high-quality practice, smart analytics, and AI-powered learning support.">
+    <meta name="description" content="ExamMate AI is an all-in-one platform for software engineering and placement aspirants, combining algorithmic practice, portfolio projects, and smart analytics.">
     <meta name="author" content="ExamMate AI Team">
     <title>About Us — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
@@ -28,15 +28,18 @@
 
             <nav class="header-nav" aria-label="Main Navigation">
                 <a href="index.html">Home</a>
-                <a href="dashboard.html">Dashboard</a>
-                <a href="about.html" class="active" aria-current="page">About Us</a>
-                <a href="#contact">Contact</a>
+                <a href="exams.html">Career Paths</a>
+                <a href="resources.html">Learn</a>
+                <a href="question-bank.html">Practice</a>
+                <a href="projects.html">Projects</a>
+                <a href="career-prep.html">Placement</a>
+                <a href="about.html" class="active" aria-current="page">About</a>
             </nav>
 
             <div class="header-actions">
                 <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
-                <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
-                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+                <a href="login.html" class="btn btn-pill-outline btn-sm">Log In</a>
+                <a href="register.html" class="btn btn-pill-purple btn-sm">Sign Up</a>
             </div>
         </div>
     </header>
@@ -47,110 +50,62 @@
     <main id="main-content" class="about-page-main">
 
         <!-- ================================================================== -->
-        <!-- SECTION 1: ABOUT HERO (TWO COLUMNS)                                -->
+        <!-- SECTION 1: ABOUT HERO (TWO COLUMNS AS IN DESIGN MOCKUP)            -->
         <!-- ================================================================== -->
         <section class="about-hero-section" aria-label="About Hero">
             <div class="about-hero-text">
-                <span class="pill-badge-purple">About ExamMate AI</span>
-                <h1 class="about-hero-title">
-                    Our Mission is to Make<br>
-                    Exam Preparation<br>
-                    Smarter and Easier
+                <h1 class="about-hero-title" style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--space-3);">
+                    About ExamMate AI
                 </h1>
-                <p class="about-hero-subtitle">
-                    ExamMate AI is an all-in-one platform for competitive examination aspirants, combining high-quality practice, smart analytics, and AI-powered learning support.
+                <p class="about-hero-subtitle" style="font-size: 1.05rem; line-height: 1.6; color: var(--color-text-secondary); max-width: 520px;">
+                    A placement-focused learning platform that helps students gain in-demand skills, build real projects, prepare for interviews, and become job-ready.
                 </p>
-                <div class="about-hero-ctas">
-                    <a href="exams.html" class="btn btn-pill-purple">
-                        <strong>Start Preparing &rarr;</strong>
-                    </a>
-                    <a href="exams.html" class="btn btn-pill-outline">
-                        Explore Exams
-                    </a>
-                </div>
             </div>
 
-            <!-- Hero Vector Illustration -->
+            <!-- Hero Vector Illustration: Laptop with </>, books, and leaves -->
             <div class="about-hero-graphic" aria-hidden="true">
                 <img src="images/about-hero-illustration.svg" alt="" width="520" height="380">
             </div>
         </section>
 
         <!-- ================================================================== -->
-        <!-- SECTION 2: WHO WE ARE & CORE ACADEMIC STANDARDS                    -->
+        <!-- SECTION 2: 3 PILLAR CARDS (MISSION, VISION, APPROACH)              -->
         <!-- ================================================================== -->
-        <section id="who-we-are" class="who-we-are-section" aria-label="Who We Are and Academic Standards">
-            <div class="who-text-col">
-                <h2>Who We Are</h2>
-                <p>
-                    ExamMate AI is an open, student-focused preparation platform engineered specifically for competitive examination aspirants. Founded by computer science scholars and competitive test rankers, our mission is to eliminate costly paywalls and provide authentic, distraction-free preparation strictly grounded in official university testing blueprints.
-                </p>
-            </div>
+        <section id="mission-vision" style="margin-bottom: var(--space-8);" aria-label="Our Mission, Vision, and Approach">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);">
+                
+                <!-- Card 1: Our Mission -->
+                <article class="card" style="padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-border-subtle); display: flex; flex-direction: column; gap: var(--space-3);">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-lg); background: #FAF8FF; border: 1px solid #EDE9FE; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--color-brand-primary);" aria-hidden="true">🎯</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--color-text-primary);">Our Mission</h2>
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0; line-height: 1.55;">
+                        To provide a practical and structured learning path to help students get placed.
+                    </p>
+                </article>
 
-            <div class="who-stats-row" aria-label="Academic Standards">
-                <!-- Standard 1 -->
-                <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">🎯</span>
-                    <strong>NTA CUET</strong>
-                    <span>Syllabus Aligned</span>
-                </div>
-                <!-- Standard 2 -->
-                <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">⏱️</span>
-                    <strong>105-Min</strong>
-                    <span>Timed Simulators</span>
-                </div>
-                <!-- Standard 3 -->
-                <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">📝</span>
-                    <strong>Step-by-Step</strong>
-                    <span>Verified Derivations</span>
-                </div>
-                <!-- Standard 4 -->
-                <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">💡</span>
-                    <strong>100% Free</strong>
-                    <span>Open Student Resource</span>
-                </div>
+                <!-- Card 2: Our Vision -->
+                <article class="card" style="padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-border-subtle); display: flex; flex-direction: column; gap: var(--space-3);">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-lg); background: #FAF8FF; border: 1px solid #EDE9FE; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--color-brand-primary);" aria-hidden="true">👁️</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--color-text-primary);">Our Vision</h2>
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0; line-height: 1.55;">
+                        To become a trusted platform for career preparation and placement readiness.
+                    </p>
+                </article>
+
+                <!-- Card 3: Our Approach -->
+                <article class="card" style="padding: var(--space-6); border-radius: var(--radius-xl); border: 1px solid var(--color-border-subtle); display: flex; flex-direction: column; gap: var(--space-3);">
+                    <div style="width: 44px; height: 44px; border-radius: var(--radius-lg); background: #FAF8FF; border: 1px solid #EDE9FE; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--color-brand-primary);" aria-hidden="true">🥞</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: var(--color-text-primary);">Our Approach</h2>
+                    <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0; line-height: 1.55;">
+                        Learn &rarr; Practice &rarr; Build &rarr; Prepare &rarr; Apply with a hands-on and industry-relevant approach.
+                    </p>
+                </article>
+
             </div>
         </section>
 
         <!-- ================================================================== -->
-        <!-- SECTION 3: OUR MISSION & VISION (TWO BENTO CARDS)                  -->
-        <!-- ================================================================== -->
-        <section id="mission-vision" aria-label="Our Mission and Vision">
-            <div class="section-title-centered">
-                <h2>Our Mission &amp; Vision</h2>
-                <div class="title-underline-bar" aria-hidden="true"></div>
-            </div>
-
-            <div class="mission-vision-grid">
-                <!-- Card 1: Mission -->
-                <article class="mv-card mission">
-                    <div class="mv-icon-bubble" aria-hidden="true">🎯</div>
-                    <div class="mv-text">
-                        <h3>Our Mission</h3>
-                        <p>
-                            To provide an accessible, rigorous, and intelligent examination simulator that enables every student—regardless of coaching access or geography—to master official exam blueprints, track their learning telemetry, and conquer their dream university admission.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Card 2: Vision -->
-                <article class="mv-card vision">
-                    <div class="mv-icon-bubble" aria-hidden="true">👁️</div>
-                    <div class="mv-text">
-                        <h3>Our Vision</h3>
-                        <p>
-                            To build India's most transparent and trusted open exam preparation ecosystem, leveraging technology to replace high-stress commercial coaching with structured, active conceptual mastery.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- ================================================================== -->
-        <!-- SECTION 4: WHAT WE OFFER (4 HORIZONTAL CARDS)                      -->
+        <!-- SECTION 4: WHAT WE OFFER (FOUR BENTO CARDS)                        -->
         <!-- ================================================================== -->
         <section id="what-we-offer" aria-label="What We Offer">
             <div class="section-title-centered">
@@ -162,15 +117,15 @@
                 <!-- Offer Card 1 -->
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">📋</div>
-                    <h3>Mock Tests</h3>
-                    <p>Authentic full-length CBT simulators with official negative marking and real exam countdowns.</p>
+                    <h3>Placement Mocks</h3>
+                    <p>Authentic full-length online assessment (OA) simulators with timed sections and scorecards.</p>
                 </article>
 
                 <!-- Offer Card 2 -->
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">📖</div>
-                    <h3>Question Bank</h3>
-                    <p>Chapter-wise conceptual problems mapped directly to official NTA CUET syllabus blueprints.</p>
+                    <h3>Technical Question Bank</h3>
+                    <p>Chapter-wise conceptual problems mapped directly to technical interviews and coding drills.</p>
                 </article>
 
                 <!-- Offer Card 3 -->
@@ -184,7 +139,7 @@
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">🤖</div>
                     <h3>AI Learning Support</h3>
-                    <p>Step-by-step mathematical derivations, conceptual hints, and mistake analysis (planned for Phase 8).</p>
+                    <p>Step-by-step algorithmic derivations, conceptual hints, and mistake analysis.</p>
                 </article>
             </div>
         </section>
@@ -329,19 +284,21 @@
     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col brand-col">
-                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p><strong>ExamMate AI</strong> &mdash; Modern Learning &amp; Career Preparation Platform.</p>
                 <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
             </div>
             <nav class="footer-col nav-col" aria-label="Footer Quick Links">
                 <p><strong>Quick Navigation:</strong></p>
                 <div class="footer-links-wrap">
                     <a href="index.html">Home</a> &bull;
-                    <a href="exams.html">Exams</a> &bull;
-                    <a href="question-bank.html">Question Bank</a> &bull;
-                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="exams.html">Career Paths</a> &bull;
+                    <a href="resources.html">Learn</a> &bull;
+                    <a href="question-bank.html">Practice</a> &bull;
+                    <a href="projects.html">Projects</a> &bull;
+                    <a href="career-prep.html">Placement</a> &bull;
                     <a href="dashboard.html">Dashboard</a> &bull;
-                    <a href="about.html">About Us</a> &bull;
-                    <a href="about.html#contact">Contact Support</a>
+                    <a href="about.html">About</a> &bull;
+                    <a href="contact.html">Contact</a>
                 </div>
             </nav>
             <div class="footer-col contact-col">
