@@ -194,6 +194,26 @@ body.dashboard-body footer {
     margin: var(--space-1) 0 0 0;
 }
 
+/* Demo Mode Preview Badge */
+.demo-mode-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background-color: #FEF3C7;
+    border: 1px solid #FDE68A;
+    color: #92400E;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.72rem;
+    font-weight: var(--font-weight-medium);
+    margin-top: var(--space-2);
+}
+
+.demo-mode-badge strong {
+    font-weight: var(--font-weight-bold);
+    color: #78350F;
+}
+
 .topbar-search-form {
     flex: 1;
     max-width: 400px;
@@ -319,7 +339,7 @@ body.dashboard-body footer {
 .analytics-cards-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-5);
+    gap: var(--space-6);
 }
 
 .dash-card {
@@ -593,7 +613,7 @@ body.dashboard-body footer {
 }
 
 .course-card-item {
-    background: #ffffff;
+    background: var(--color-bg-surface);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border-subtle);
     overflow: hidden;
@@ -1055,4 +1075,103 @@ body.dashboard-body footer {
     .quick-stats-row {
         grid-template-columns: 1fr;
     }
+}
+
+/* ========================================================================== */
+/* QUICK HUB ACCESS BANNER & COURSE ACTION BUTTONS                            */
+/* ========================================================================== */
+.quick-hub-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    margin-bottom: var(--space-4);
+}
+
+.quick-hub-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.quick-hub-title strong {
+    color: var(--color-text-primary);
+}
+
+.quick-hub-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.quick-hub-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.38rem 0.85rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.quick-hub-btn.purple {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-primary);
+    border-color: #E0D7FE;
+}
+.quick-hub-btn.purple:hover {
+    background: var(--color-brand-primary);
+    color: #ffffff;
+}
+
+.quick-hub-btn.orange {
+    background: #FFF7ED;
+    color: #C2410C;
+    border-color: #FED7AA;
+}
+.quick-hub-btn.orange:hover {
+    background: #EA580C;
+    color: #ffffff;
+}
+
+.quick-hub-btn.green {
+    background: #ECFDF5;
+    color: #047857;
+    border-color: #A7F3D0;
+}
+.quick-hub-btn.green:hover {
+    background: #059669;
+    color: #ffffff;
+}
+
+.course-card-action-btn {
+    display: block;
+    margin-top: var(--space-3);
+    padding: 0.4rem var(--space-2);
+    text-align: center;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-brand-soft);
+    color: var(--color-brand-primary);
+    font-size: 0.76rem;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border: 1px solid #E0D7FE;
+    transition: all var(--transition-fast);
+}
+
+.course-card-action-btn:hover {
+    background-color: var(--color-brand-primary);
+    color: #ffffff;
 }

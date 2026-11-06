@@ -103,9 +103,57 @@
   - Implemented pure CSS `:target` auth popup modal prompting for Gmail and 6-digit OTP verification with backdrop dismiss.
   - Dark rounded pill buttons (`.btn-pill-dark`) matching the reference design.
   - Vector SVG logo color-harmonized with light-green emerald gradient.
+  - Completed Milestone 1 (Project Cleanup, Architecture & Design System Unification):
+    - Resolved git merge conflict marker in `README.md` and aligned documentation with CUET preparation platform vision.
+    - Standardized `.site-header` across all 8 public pages replacing rigid layout tables with mobile-responsive semantic flexbox.
+    - Standardized `.site-footer` across all pages with responsive 3-column layout collapsing cleanly on mobile.
+    - Added WCAG 2.1 AA compliant skip links (`.skip-link` & `id="main-content"`) for keyboard accessibility.
+    - Synchronized unified navigation links (`Home`, `Exams`, `Question Bank`, `Mock Tests`, `Dashboard`, `About Us`, `Contact`) with active state tracking.
+    - Cleaned up legacy `btn-pill-green` residues in HTML and aligned with Royal Purple brand tokens.
+    - Removed disorienting meta-refresh from `contact.html` in favor of a clean, accessible support desk forwarder.
+  - Completed Milestone 2 (Homepage & About Us Refinement):
+    - Added responsive media queries for `.slider-blur-container` adjusting blur width on mobile devices (reduced from 140px to 40px on tablets and 20px on mobile viewports) so card contents remain fully visible.
+    - Adjusted mobile card widths for `.why-card`, `.popular-exam-card`, and `.how-step-card` to eliminate horizontal clipping.
+    - Completely removed unverified marketing statistics (`10,000+ Aspirants`, `50,000+ Practice Questions`, `5+ Categories`, `95% Satisfaction`) from `about.html`.
+    - Replaced with genuine academic standards: *NTA CUET Syllabus Aligned*, *105-Min Timed Simulators*, *Step-by-Step Verified Derivations*, and *100% Free Open Student Resource*.
+    - Refined mission, vision, and offer descriptions to focus transparently on open CUET preparation without hype.
+  - Completed Milestone 3 (CUET Student Dashboard Realignment):
+    - Replaced generic foreign bootcamp student persona (*Archie Schmidt*) with a realistic CUET aspirant (*Aarav Sharma &bull; CUET PG MCA 2026 Aspirant*).
+    - Added prominent `[Demo Preview Mode]` badge signaling sample telemetry transparently to users.
+    - Removed unrelated web development courses (*UI/UX Design, JavaScript Essentials, React Basics*) and replaced them with genuine CUET domains (*General Test: Quant & Logic, SCQP09 Data Structures & Algorithms, Discrete Mathematics*).
+    - Aligned daily study checklist with authentic CUET tasks (*Calculus PYQs, Reasoning Quiz, OS Memory Management*).
+    - Updated calendar to academic test season (*November 2026* with Day 20 test date highlight).
+    - Created lightweight vanilla JS controller (`frontend/js/dashboard.js`) enabling interactive course tab filtering (*All / In Progress / Completed*), interactive study checklist toggle, dynamic task prompt, and month navigation.
+  - Completed Milestone 4 (CUET Question Bank & Navigation Wiring):
+    - Replaced unverified question counts (`5,200+`, `4,500+`, etc.) with authentic NTA syllabus chapter counts (`16 Chapters • Section III`, `18 Chapters • Core MCA SCQP09`, etc.).
+    - Created responsive stream switching between CUET (UG) and CUET (PG & MCA) powered by vanilla JS (`frontend/js/question-bank.js`).
+    - Added dedicated SCQP09 cards (*Data Structures & Algorithms, Discrete Mathematics & Logic, Digital Logic & Architecture, Operating Systems & Networks*).
+    - Implemented live real-time topic/subject search and category filtering with auto-rendered empty state and reset button.
+    - Wired interactive practice drill with instant client-side option validation and step-by-step Gamma function mathematical derivation.
+  - Completed Header Streamlining & Dashboard Hub Architecture:
+    - Cleaned public site header navigation (`Home`, `Dashboard`, `About Us`, `Contact`), removing `Exams`, `Question Bank`, and `Mock Tests` from landing headers to eliminate clutter.
+    - Centralized all educational test and practice tools into the Student Dashboard (`frontend/dashboard.html`).
+    - Added a prominent, responsive "⚡ Quick Hub" launcher bar (`Question Bank`, `Mock Tests`, `Exams & Syllabus`) in the main dashboard feed.
+    - Added direct one-click practice and quiz launch buttons to Continue Learning course cards.
+    - Fixed duplicate closing tags in `dashboard.html`.
+  - Completed Dark Mode & Light Mode Theme Engine:
+    - Defined comprehensive Midnight Obsidian & Royal Indigo palette in `frontend/css/variables.css` under `[data-theme="dark"]` selector.
+    - Upgraded surfaces, cards, modals, sliders, and form controls to CSS custom properties.
+    - Created lightweight vanilla JS theme controller (`frontend/js/theme.js`) supporting `localStorage` persistence, OS `prefers-color-scheme` fallback, and dynamic multi-button sync.
+    - Added inline FOUC prevention scripts to `<head>` and accessible `.theme-toggle-btn` switches across all 9 pages.
+  - Completed Element Overlap Elimination & Multi-Block Gap Standardization:
+    - Restored missing `--space-5: 1.25rem` (20px) design token in `frontend/css/variables.css`, immediately fixing collapsed gaps in 23 layout containers.
+    - Standardized `.slider-track` gap to `1.75rem` (28px) ensuring clean, distinct separation between all continuous slides.
+    - Reduced `.slider-blur-container` edge overlay width from `140px` down to `50px` with a gentle 4% edge mask, eliminating text occlusion as cards slide.
+    - Expanded `.how-step-card` min-width to `310px` with `flex: 1; min-width: 0;` on `.how-step-text` to eliminate cramped text wrapping.
+    - Added `white-space: nowrap;` to `.popular-exam-card span` and enforced generous 20px–24px gaps across Dashboard, Question Bank, and About page grids.
+  - Completed About Us Footer Contact Coordinates Update:
+    - Updated `frontend/about.html` footer contact section to `situsavvy1111@gmail.com`.
+    - Added `JNU` to location (`JNU, New Delhi, India`).
+    - Added live LinkedIn (`buildwithsitu`) and Instagram (`is_situ`) profile links with secure `target="_blank"` and `rel="noopener noreferrer"`.
 - **Active Module:** **Module 2 — The CSS Box Model & Component Layouts**.
 
 ---
 
 ## ⏭️ Next Step
-- Student reviews the live homepage sliding carousels, Question Bank, About Us with integrated Contact, and the LumiLearn-inspired dashboard in the browser.
+- Final Project Verification & User Review for all Priority Milestones (Homepage, Dashboard, About Us, Question Bank, Dark/Light Mode, and Cross-Platform Accessibility).

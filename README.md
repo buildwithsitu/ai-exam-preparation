@@ -1,9 +1,6 @@
-<<<<<<< HEAD >>>>>>>>
-# ai-exam-preparation
-=======
-# AI Exam Preparation Platform
+# ExamMate AI — Competitive Examination Preparation Platform
 
-An intelligent, adaptive exam preparation platform engineered to personalize learning, simulate competitive exams (e.g., GATE CS, GRE, Engineering Entrance), and reinforce conceptual mastery using domain-grounded Retrieval-Augmented Generation (RAG).
+An intelligent, student-centric competitive examination preparation platform designed specifically for aspirants of **CUET (UG & PG)**, alongside upcoming support for SSC, Banking, and Railway examinations.
 
 ---
 
@@ -12,63 +9,74 @@ An intelligent, adaptive exam preparation platform engineered to personalize lea
 ```
 ai-exam-preparation/
 │
-├── docs/                      # Architectural, requirement, and project documentation
-|   |── AI_requirments.md      # What the AI need.
-│   ├── project-overview.md    # Vision, problem statement, personas, and KPIs
-│   ├── requirements.md        # Functional and non-functional specifications (SRS)
-│   └── architecture.md        # System design, data flow, tech stack, and API specs
+├── frontend/                  # Accessible HTML5/CSS3 Web Application
+│   ├── index.html             # Homepage with Hero, Marquee Sliders, & CTA
+│   ├── dashboard.html         # Student Learning Dashboard & Analytics
+│   ├── question-bank.html     # CUET UG/PG Question Bank with Subject Cards
+│   ├── exams.html             # Examination Catalog & Syllabus Blueprint
+│   ├── mock-test.html         # Timed Mock Examination Simulator Console
+│   ├── about.html             # Platform Mission, Vision, & Support Desk (#contact)
+│   ├── contact.html           # Dedicated Student Inquiry Forwarder
+│   ├── login.html             # Student Sign-In Portal
+│   ├── register.html          # Student Registration Portal
+│   ├── css/                   # Modular Stylesheets (Tokens, Components, Dashboard)
+│   └── images/                # Vector SVG Assets & Visual Diagrams
 │
-├── frontend/                  # Next.js / React web application and mock exam simulator
-├── backend/                   # FastAPI application (Auth, Exam Engine, RAG, AI Tutor)
-├── database/                  # PostgreSQL schemas, migrations, and vector store scripts
-└── README.md                  # Project root overview and setup guidelines
+├── docs/                      # Architectural, requirement, and learning documentation
+│   ├── project-overview.md    # Product vision, problem statement, and goals
+│   ├── requirements.md        # Functional and non-functional specifications
+│   ├── architecture.md        # Platform architecture and data flow specs
+│   ├── technical-decisions.md # Architecture Decision Records (ADRs)
+│   └── learning-progress.md   # Step-by-step progress and implementation milestones
+│
+├── database/                  # PostgreSQL schema and Docker Compose definitions
+├── backend/                   # Backend API specifications and microservice stubs
+└── PROGRESS.md                # Real-time task tracking and implementation status
 ```
 
 ---
 
-## 🚀 Key Features
+## 🚀 Core Educational Features
 
-- **🎯 Authentic Mock Exam Simulator**: Replicates standard competitive test layouts with question palettes, timers, negative marking schemes, and on-screen scientific calculators.
-- **🤖 Syllabus-Grounded AI Tutor**: Context-aware RAG pipeline indexing standard reference materials and previous year papers with citations and anti-hallucination guardrails.
-- **📝 Multi-Format Question Generation**: AI-driven generation of Multiple Choice (MCQ), Multiple Select (MSQ), and Numerical Answer Type (NAT) questions calibrated by difficulty.
-- **🔄 Spaced Repetition (SM-2) & Mistake Notebook**: Automatically logs incorrect attempts and schedules targeted recall drills at optimal memory intervals.
-- **📊 Granular Mastery Analytics**: Real-time radar charts and topic heatmaps pinpointing knowledge gaps and time sinks.
-- **📐 Mathematical & Code Support**: Native support for $\LaTeX$ typesetting and syntax-highlighted code blocks.
-
----
-
-## 🛠️ Recommended Tech Stack
-
-| Tier | Technologies |
-| :--- | :--- |
-| **Frontend** | Next.js 15 (React 19), TypeScript, Tailwind CSS, |
-| **Backend** | Python, FastAPI, LangChain / LlamaIndex |
-| **Database** | PostgreSQL, |
-| **AI / Embeddings** | Gemini 2.5  |
-| **DevOps & Infra** | Docker, GitHub Actions |
+- **🎯 Authentic Mock Exam Simulator**: Replicates standard computer-based test (CBT) layouts with question palettes, timers, section switchers, and official negative marking schemes.
+- **📚 Curated CUET Question Bank**: Structured chapter-wise problem sets for CUET UG (General Test, English, Domains) and CUET PG (SCQP09 Computer Science & Mathematics).
+- **📊 Real-time Student Learning Telemetry**: Visual learning activity charts, syllabus completion rings, daily study checklists, and streak tracking.
+- **📱 Responsive, Accessible & Lightweight**: 100% pure HTML5/CSS3 architecture without heavy framework bloat, fully accessible (WCAG 2.1 AA) and deployable on GitHub Pages.
+- **🔐 Secure & Seamless Access**: Pure CSS modal authentication supporting Gmail verification and OTP workflows.
 
 ---
 
-## Environment Setup
+## 🛠️ Technology Stack
+
+| Layer | Technologies | Current Status |
+| :--- | :--- | :--- |
+| **Frontend** | HTML5, CSS3 (Modern Flexbox/Grid, CSS Custom Properties), Vanilla JS | **Active & Production-Ready** |
+| **Deployment** | GitHub Pages / Static Web Hosting | **Compatible** |
+| **Backend (Phase 2)** | Python (FastAPI / Supabase Auth) | Specification Ready |
+| **Database (Phase 2)** | PostgreSQL / Supabase | Schema Ready (`database/schema.sql`) |
+
+---
+
+## 💻 Local Development Setup
+
+To preview and develop the frontend locally:
+
 ```bash
-# Clone or navigate to the repository
+# Clone the repository
+git clone https://github.com/your-username/ai-exam-preparation.git
 cd ai-exam-preparation
 
-# Start database and cache services
-cd database
-docker compose up -d
+# Open the frontend in any web browser
+# On Linux:
+xdg-open frontend/index.html
 
-# Set up and launch backend
-cd ../backend
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-
-# Set up and launch frontend
-cd ../frontend
-npm install
-npm run dev
+# Or serve via Python simple HTTP server:
+python3 -m http.server 8080 --directory frontend/
+# Then open http://localhost:8080 in your browser
 ```
 
 ---
+
+## 📄 License & Attribution
+
+Developed with academic dedication for competitive examination aspirants. &copy; 2026 ExamMate AI Team. All rights reserved.

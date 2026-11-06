@@ -88,6 +88,7 @@
     --space-2: 0.5rem;   /* 8px */
     --space-3: 0.75rem;  /* 12px */
     --space-4: 1rem;     /* 16px */
+    --space-5: 1.25rem;  /* 20px */
     --space-6: 1.5rem;   /* 24px */
     --space-8: 2rem;     /* 32px */
     --space-10: 2.5rem;  /* 40px */
@@ -116,4 +117,46 @@
        ---------------------------------------------------------------------- */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   8. DARK MODE COLOR TOKENS (Midnight Obsidian & Royal Indigo Theme)
+   ========================================================================== */
+[data-theme="dark"] {
+    /* Canvas & Surface Tokens */
+    --color-bg-app: #0B0A14;                 /* Deep Midnight Obsidian Canvas */
+    --color-bg-surface: #151324;             /* Dark Slate / Indigo Card Surface */
+    --color-bg-subtle: #1F1B36;              /* Elevated Surface / Form Input */
+    --color-bg-mint: #252042;                /* Soft Dark Tint */
+
+    /* Brand Tokens in Dark Mode */
+    --color-brand-primary: #7C3AED;          /* Vibrant Violet (Enhanced contrast) */
+    --color-brand-primary-hover: #9061F9;    /* Lighter Purple on hover */
+    --color-brand-soft: #251D4A;             /* Dark Lavender Accent */
+    --color-brand-soft-border: #443778;      /* Dark Lavender Border */
+
+    /* Secondary Blue & Cyan in Dark Mode */
+    --color-brand-blue: #3B82F6;
+    --color-brand-blue-soft: #1E293B;
+    --color-brand-blue-border: #334155;
+
+    /* Dark Neutral & Button Tokens */
+    --color-btn-dark: #1F1B36;
+    --color-btn-dark-hover: #2D274E;
+
+    /* High-Contrast Text Tokens */
+    --color-text-primary: #F8FAFC;           /* Crisp Pure White (18:1 contrast) */
+    --color-text-secondary: #94A3B8;         /* Soft Slate Gray */
+    --color-text-muted: #64748B;             /* Muted Metadata */
+    --color-text-inverted: #0B0A14;          /* Dark text for inverted surfaces */
+
+    /* Borders & Hairlines in Dark Mode */
+    --color-border-subtle: #2A2446;          /* Clean Dark Border */
+    --color-border-strong: #3F3765;          /* Strong Dark Border */
+    --color-border-focus: #7C3AED;           /* Purple Glow */
+
+    /* Elevation Shadows in Dark Mode */
+    --shadow-flat: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-floating: 0 16px 32px -6px rgba(0, 0, 0, 0.6), 0 6px 12px -2px rgba(0, 0, 0, 0.4);
 }

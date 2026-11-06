@@ -7,45 +7,45 @@
     <meta name="author" content="ExamMate AI Team">
     <title>CUET Question Bank — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/question-bank.js" defer></script>
 </head>
 <body>
+
+    <!-- Skip Link for Keyboard Accessibility (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ====================================================================== -->
     <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
-    <header>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="middle">
-                    <a href="index.html" aria-label="ExamMate AI Home">
-                        <img src="images/logo.svg" alt="ExamMate AI" width="220" height="48">
-                    </a>
-                </td>
-                <td align="center" valign="middle">
-                    <nav aria-label="Main Navigation">
-                        <a href="index.html">Home</a>
-                        <a href="exams.html">Exams &#9662;</a>
-                        <a href="mock-test.html">Mock Tests</a>
-                        <a href="question-bank.html" aria-current="page">Question Bank</a>
-                        <a href="about.html">About Us</a>
-                        <a href="about.html#contact">Contact</a>
-                    </nav>
-                </td>
-                <td align="right" valign="middle">
-                    <nav aria-label="Account Access" style="display: inline-flex; align-items: center; gap: var(--space-2);">
-                        <a href="question-bank.html" class="btn btn-pill-outline btn-sm" aria-label="Search questions" style="padding: 0.45rem 0.65rem;">🔍</a>
-                        <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
-                        <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="ExamMate AI Home">
+                <img src="images/logo.svg" alt="ExamMate AI" width="180" height="40">
+            </a>
+
+            <nav class="header-nav" aria-label="Main Navigation">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About Us</a>
+                <a href="about.html#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
+                <a href="dashboard.html" class="btn btn-pill-outline btn-sm">Dashboard &rarr;</a>
+                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+            </div>
+        </div>
     </header>
 
     <!-- ====================================================================== -->
     <!-- 2. MAIN QUESTION BANK WORKSPACE                                        -->
     <!-- ====================================================================== -->
-    <main class="qb-page-main">
+    <main id="main-content" class="qb-page-main">
 
         <!-- ================================================================== -->
         <!-- BANNER: PURPLE HERO HEADER WITH BREADCRUMB & GRAPHIC               -->
@@ -55,6 +55,7 @@
                 <!-- Breadcrumb -->
                 <nav class="qb-breadcrumb-nav" aria-label="Breadcrumb">
                     <a href="index.html">Home</a> &rsaquo; 
+                    <a href="dashboard.html">Dashboard</a> &rsaquo; 
                     <a href="question-bank.html">Question Bank</a> &rsaquo; 
                     <span>CUET</span>
                 </nav>
@@ -84,21 +85,21 @@
         <section class="qb-toolbar-row" aria-label="Exam Selection and Search">
             <!-- Left: CUET UG / PG Toggle -->
             <div class="qb-exam-toggle-group" role="tablist" aria-label="Select Target Stream">
-                <a href="question-bank.html" class="qb-toggle-pill active" role="tab" aria-selected="true">CUET (UG)</a>
-                <a href="question-bank.html" class="qb-toggle-pill inactive" role="tab" aria-selected="false">CUET (PG)</a>
+                <button type="button" class="qb-toggle-pill active" data-stream="ug" role="tab" aria-selected="true">CUET (UG)</button>
+                <button type="button" class="qb-toggle-pill inactive" data-stream="pg" role="tab" aria-selected="false">CUET (PG &bull; MCA)</button>
             </div>
 
             <!-- Right: Search Input Box -->
-            <form class="qb-search-container-box" action="question-bank.html" method="get" role="search">
+            <form class="qb-search-container-box" id="qb-search-form" onsubmit="return false;" role="search">
                 <span style="color: var(--color-text-muted); margin-right: 0.5rem;" aria-hidden="true">🔍</span>
                 <input 
                     type="search" 
                     id="qb-search-input" 
                     name="q" 
-                    placeholder="Search questions, topics or chapters..." 
+                    placeholder="Search CUET subjects, topics or chapters..." 
                     aria-label="Search questions, topics or chapters"
                 >
-                <button type="submit" class="qb-search-submit-btn">Search</button>
+                <button type="button" id="qb-search-btn" class="qb-search-submit-btn">Search</button>
             </form>
         </section>
 
@@ -116,29 +117,37 @@
                     <span>Filter Questions</span>
                 </div>
 
-                <form action="question-bank.html" method="get">
-                    <!-- Filter Group 1: Subject -->
+                <form id="qb-filter-form" onsubmit="return false;">
+                    <!-- Filter Group 1: Subject Category -->
                     <div class="filter-group-block">
                         <div class="filter-group-header-row">
-                            <strong>Subject</strong>
+                            <strong>Subject Category</strong>
                             <span class="filter-toggle-caret" aria-hidden="true">&#9652;</span>
                         </div>
                         <div class="filter-items-stack">
                             <label class="filter-check-option">
                                 <input type="checkbox" name="subject" value="all" checked>
-                                <span>All Subjects</span>
+                                <span>All Categories</span>
                             </label>
                             <label class="filter-check-option">
                                 <input type="checkbox" name="subject" value="general">
-                                <span>General Test</span>
+                                <span>General Test (Sec III)</span>
                             </label>
                             <label class="filter-check-option">
                                 <input type="checkbox" name="subject" value="english">
-                                <span>English</span>
+                                <span>English Language (Sec IA)</span>
                             </label>
                             <label class="filter-check-option">
-                                <input type="checkbox" name="subject" value="domain">
-                                <span>Domain Subjects</span>
+                                <input type="checkbox" name="subject" value="science">
+                                <span>Sciences &amp; Math (Sec II)</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="commerce">
+                                <span>Commerce &amp; Economics</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="subject" value="cs">
+                                <span>Core MCA &amp; Computer Sci</span>
                             </label>
                         </div>
                     </div>
@@ -151,15 +160,15 @@
                         </div>
                         <div class="filter-items-stack">
                             <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="easy">
+                                <input type="checkbox" name="diff" value="easy" checked>
                                 <span class="badge-diff easy">Easy</span>
                             </label>
                             <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="medium">
+                                <input type="checkbox" name="diff" value="medium" checked>
                                 <span class="badge-diff medium">Medium</span>
                             </label>
                             <label class="filter-check-option">
-                                <input type="checkbox" name="diff" value="hard">
+                                <input type="checkbox" name="diff" value="hard" checked>
                                 <span class="badge-diff hard">Hard</span>
                             </label>
                         </div>
@@ -174,11 +183,15 @@
                         <div class="filter-items-stack">
                             <label class="filter-check-option">
                                 <input type="checkbox" name="type" value="all" checked>
-                                <span>All Types</span>
+                                <span>All Question Types</span>
                             </label>
                             <label class="filter-check-option">
                                 <input type="checkbox" name="type" value="mcq">
-                                <span>MCQ (Single Correct)</span>
+                                <span>NTA MCQ (Single Correct)</span>
+                            </label>
+                            <label class="filter-check-option">
+                                <input type="checkbox" name="type" value="pyq">
+                                <span>Previous Year Papers (PYQ)</span>
                             </label>
                         </div>
                     </div>
@@ -192,153 +205,226 @@
                 
                 <div class="qb-section-intro">
                     <h2>Explore CUET Question Bank (UG)</h2>
-                    <p>Practice from subject-wise question collections, chapter-wise sets, and CUET previous year papers.</p>
+                    <p>Practice from subject-wise collections, chapter-wise sets, and official NTA syllabus blueprints.</p>
                 </div>
 
-                <!-- 8 Subject Cards Grid (4 Columns x 2 Rows) -->
+                <!-- Subject Cards Grid -->
                 <div class="qb-cards-grid">
 
-                    <!-- Card 1: General Test -->
-                    <article class="qb-subject-card">
+                    <!-- ====================================================== -->
+                    <!-- CUET UG SUBJECT CARDS                                  -->
+                    <!-- ====================================================== -->
+
+                    <!-- UG Card 1: General Test -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="general">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble general" aria-hidden="true">📊</div>
                             <div class="qb-card-title-group">
                                 <h3>General Test</h3>
-                                <span>5,200+ Questions</span>
+                                <span>16 Chapters &bull; Section III</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Reasoning &bull; GK &bull; Current Affairs &bull; Quantitative Aptitude &bull; Logic
+                            Quantitative Aptitude &bull; Logical Reasoning &bull; Current Affairs &bull; Numerical Ability &bull; Analytical Logic
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="mock-test.html#section-math" class="qb-practice-cta-btn">Practice General Test &rarr;</a>
                     </article>
 
-                    <!-- Card 2: English -->
-                    <article class="qb-subject-card">
+                    <!-- UG Card 2: English -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="english">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble english" aria-hidden="true">📖</div>
                             <div class="qb-card-title-group">
-                                <h3>English</h3>
-                                <span>3,800+ Questions</span>
+                                <h3>English Language</h3>
+                                <span>12 Chapters &bull; Section IA</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Reading &bull; Grammar &bull; Vocabulary &bull; Comprehension &bull; Verbal Ability
+                            Reading Comprehension &bull; Grammar Rules &bull; Vocabulary &bull; Verbal Ability &bull; Sentence Rearrangement
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice English &rarr;</a>
                     </article>
 
-                    <!-- Card 3: Physics -->
-                    <article class="qb-subject-card">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚛️</div>
-                            <div class="qb-card-title-group">
-                                <h3>Physics</h3>
-                                <span>4,500+ Questions</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Mechanics &bull; Electricity &bull; Optics &bull; Thermodynamics &bull; Modern Physics
-                        </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
-                    </article>
-
-                    <!-- Card 4: Chemistry -->
-                    <article class="qb-subject-card">
-                        <div class="qb-card-header-flex">
-                            <div class="qb-card-icon-bubble chemistry" aria-hidden="true">⚗️</div>
-                            <div class="qb-card-title-group">
-                                <h3>Chemistry</h3>
-                                <span>4,400+ Questions</span>
-                            </div>
-                        </div>
-                        <p class="qb-card-topics-summary">
-                            Organic &bull; Inorganic &bull; Physical &bull; Coordination &bull; Biomolecules
-                        </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
-                    </article>
-
-                    <!-- Card 5: Mathematics -->
-                    <article class="qb-subject-card">
+                    <!-- UG Card 3: Mathematics -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="science">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble math" aria-hidden="true">&#960;</div>
                             <div class="qb-card-title-group">
                                 <h3>Mathematics</h3>
-                                <span>5,000+ Questions</span>
+                                <span>15 Chapters &bull; Domain II</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Algebra &bull; Calculus &bull; Probability &bull; Vectors &bull; Coordinate Geometry
+                            Algebra &bull; Calculus &bull; Probability Distributions &bull; Vectors &bull; 3D Coordinate Geometry &bull; Matrices
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Mathematics &rarr;</a>
                     </article>
 
-                    <!-- Card 6: Biology -->
-                    <article class="qb-subject-card">
+                    <!-- UG Card 4: Physics -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="science">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚛️</div>
+                            <div class="qb-card-title-group">
+                                <h3>Physics</h3>
+                                <span>14 Chapters &bull; Domain II</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Mechanics &bull; Electrostatics &bull; Optics &bull; Thermodynamics &bull; Wave Theory &bull; Modern Physics
+                        </p>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Physics &rarr;</a>
+                    </article>
+
+                    <!-- UG Card 5: Chemistry -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="science">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble chemistry" aria-hidden="true">⚗️</div>
+                            <div class="qb-card-title-group">
+                                <h3>Chemistry</h3>
+                                <span>14 Chapters &bull; Domain II</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Organic Mechanisms &bull; Chemical Kinetics &bull; Inorganic &bull; Coordination Compounds &bull; Biomolecules
+                        </p>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Chemistry &rarr;</a>
+                    </article>
+
+                    <!-- UG Card 6: Biology -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="science">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble biology" aria-hidden="true">🍃</div>
                             <div class="qb-card-title-group">
                                 <h3>Biology</h3>
-                                <span>4,200+ Questions</span>
+                                <span>12 Chapters &bull; Domain II</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Cell Biology &bull; Genetics &bull; Ecology &bull; Human Physiology &bull; Biotechnology
+                            Genetics &bull; Ecology &bull; Molecular Basis &bull; Human Physiology &bull; Reproduction &bull; Biotechnology
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Biology &rarr;</a>
                     </article>
 
-                    <!-- Card 7: Economics -->
-                    <article class="qb-subject-card">
+                    <!-- UG Card 7: Economics -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="commerce">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble economics" aria-hidden="true">📈</div>
                             <div class="qb-card-title-group">
                                 <h3>Economics</h3>
-                                <span>3,600+ Questions</span>
+                                <span>10 Chapters &bull; Domain II</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Microeconomics &bull; Macroeconomics &bull; Statistics &bull; Indian Economy
+                            Microeconomics &bull; Macroeconomics &bull; National Income &bull; Money &amp; Banking &bull; Indian Economy
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Economics &rarr;</a>
                     </article>
 
-                    <!-- Card 8: Accountancy -->
-                    <article class="qb-subject-card">
+                    <!-- UG Card 8: Accountancy -->
+                    <article class="qb-subject-card" data-stream="ug" data-category="commerce">
                         <div class="qb-card-header-flex">
                             <div class="qb-card-icon-bubble accountancy" aria-hidden="true">🪙</div>
                             <div class="qb-card-title-group">
                                 <h3>Accountancy</h3>
-                                <span>3,200+ Questions</span>
+                                <span>10 Chapters &bull; Domain II</span>
                             </div>
                         </div>
                         <p class="qb-card-topics-summary">
-                            Accounting &bull; Financial Statements &bull; Management &bull; Analysis
+                            Partnership Accounting &bull; Company Financials &bull; Cash Flow Statements &bull; Ratio Analysis &bull; Dissolution
                         </p>
-                        <a href="mock-test.html" class="qb-practice-cta-btn">Practice Now &rarr;</a>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Accountancy &rarr;</a>
+                    </article>
+
+                    <!-- ====================================================== -->
+                    <!-- CUET PG (MCA & SCIENCE SCQP09) SUBJECT CARDS           -->
+                    <!-- ====================================================== -->
+
+                    <!-- PG Card 1: Computer Science & DSA -->
+                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble general" aria-hidden="true">💻</div>
+                            <div class="qb-card-title-group">
+                                <h3>SCQP09: Computer Science</h3>
+                                <span>18 Chapters &bull; Core MCA</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Data Structures &bull; Graph Algorithms &bull; Operating Systems &bull; C / C++ Concepts &bull; DBMS Fundamentals
+                        </p>
+                        <a href="mock-test.html#active-question-console" class="qb-practice-cta-btn">Launch MCA Simulator &rarr;</a>
+                    </article>
+
+                    <!-- PG Card 2: Discrete Mathematics -->
+                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble math" aria-hidden="true">📐</div>
+                            <div class="qb-card-title-group">
+                                <h3>SCQP09: Discrete Math</h3>
+                                <span>14 Chapters &bull; Core MCA</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Set Theory &bull; Relations &amp; Functions &bull; Combinatorics &bull; Graph Theory &bull; Recurrence Relations
+                        </p>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Discrete Math &rarr;</a>
+                    </article>
+
+                    <!-- PG Card 3: Probability & Statistics -->
+                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble economics" aria-hidden="true">🎲</div>
+                            <div class="qb-card-title-group">
+                                <h3>SCQP09: Probability &amp; Stats</h3>
+                                <span>10 Chapters &bull; Core MCA</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Axioms of Probability &bull; Random Variables &bull; Binomial &amp; Poisson &bull; Bayes Theorem &bull; Sampling
+                        </p>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Probability &rarr;</a>
+                    </article>
+
+                    <!-- PG Card 4: Digital Systems & Logic -->
+                    <article class="qb-subject-card" data-stream="pg" data-category="cs" style="display: none;">
+                        <div class="qb-card-header-flex">
+                            <div class="qb-card-icon-bubble physics" aria-hidden="true">⚡</div>
+                            <div class="qb-card-title-group">
+                                <h3>SCQP09: Digital Logic</h3>
+                                <span>8 Chapters &bull; Core MCA</span>
+                            </div>
+                        </div>
+                        <p class="qb-card-topics-summary">
+                            Boolean Algebra &bull; Logic Gates &bull; Karnaugh Maps &bull; Flip-Flops &bull; Sequential Circuits &bull; Memory
+                        </p>
+                        <a href="#featured-drill" class="qb-practice-cta-btn">Practice Digital Logic &rarr;</a>
                     </article>
 
                 </div>
 
                 <!-- ========================================================== -->
-                <!-- ZERO-JS EXPANDABLE CONCEPTUAL PRACTICE DRILL               -->
+                <!-- INTERACTIVE CONCEPTUAL PRACTICE DRILL                      -->
                 <!-- ========================================================== -->
-                <section class="card" style="padding: var(--space-6); margin-top: var(--space-4);" aria-label="Sample Practice Question">
+                <section id="featured-drill" class="card" style="padding: var(--space-6); margin-top: var(--space-4);" aria-label="Featured Conceptual Problem Drill">
                     <h3 style="margin-top: 0; font-size: 1.15rem; color: var(--color-text-primary);">
                         Featured Conceptual Problem: Mathematics &amp; Calculus
                     </h3>
-                    <p><strong>Question ID: CUET-MATH-2026-084</strong> &bull; Level: <span class="badge-diff medium">Medium</span></p>
+                    <p><strong>Question ID: CUET-MATH-2026-084</strong> &bull; Level: <span class="badge-diff medium">Medium</span> &bull; <em>Select an option to test your answer:</em></p>
                     <p>
-                        Evaluate the definite integral: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em> &middot; <em>e</em><sup>&minus;2x</sup> <em>dx</em>.
+                        Evaluate the definite improper integral: &int;<sub>0</sub><sup>&infin;</sup> <em>x</em> &middot; <em>e</em><sup>&minus;2x</sup> <em>dx</em>.
                     </p>
-                    <form action="mock-test.html" method="get">
-                        <p><label><input type="radio" name="math_q1" value="A"> A) 1/2</label></p>
-                        <p><label><input type="radio" name="math_q1" value="B"> B) 1/4</label></p>
-                        <p><label><input type="radio" name="math_q1" value="C"> C) 1/8</label></p>
-                        <p><label><input type="radio" name="math_q1" value="D"> D) Diverges</label></p>
+
+                    <!-- Interactive Radio Form -->
+                    <form id="featured-drill-form" onsubmit="return false;">
+                        <p><label><input type="radio" name="math_q1" value="A"> <strong>(A)</strong> 1/2</label></p>
+                        <p><label><input type="radio" name="math_q1" value="B"> <strong>(B)</strong> 1/4</label></p>
+                        <p><label><input type="radio" name="math_q1" value="C"> <strong>(C)</strong> 1/8</label></p>
+                        <p><label><input type="radio" name="math_q1" value="D"> <strong>(D)</strong> Diverges</label></p>
                     </form>
 
-                    <details style="margin-top: var(--space-4); background-color: var(--color-brand-soft); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-brand-soft-border);">
+                    <!-- Dynamic Feedback Message Box -->
+                    <div id="drill-feedback-box" class="drill-feedback" role="alert" aria-live="polite"></div>
+
+                    <details id="drill-details" style="margin-top: var(--space-4); background-color: var(--color-brand-soft); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-brand-soft-border);">
                         <summary style="font-weight: 700; color: var(--color-brand-primary); cursor: pointer;">
                             Click to View Step-by-Step Derivation &amp; Correct Option
                         </summary>
@@ -362,33 +448,32 @@
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
-    <footer>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="top">
-                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
-                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
-                </td>
-                <td align="center" valign="top">
-                    <nav aria-label="Footer Quick Links">
-                        <p><strong>Quick Navigation:</strong></p>
-                        <a href="exams.html">Exams</a> |
-                        <a href="question-bank.html">Question Bank</a> |
-                        <a href="mock-test.html">Mock Test</a> |
-                        <a href="dashboard.html">Dashboard</a> |
-                        <a href="about.html">About Us</a> |
-                        <a href="about.html#contact">Contact Support</a>
-                    </nav>
-                </td>
-                <td align="right" valign="top">
-                    <address>
-                        <strong>Need Assistance?</strong><br>
-                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
-                        Location: New Delhi, India
-                    </address>
-                </td>
-            </tr>
-        </table>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col brand-col">
+                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+            </div>
+            <nav class="footer-col nav-col" aria-label="Footer Quick Links">
+                <p><strong>Quick Navigation:</strong></p>
+                <div class="footer-links-wrap">
+                    <a href="index.html">Home</a> &bull;
+                    <a href="exams.html">Exams</a> &bull;
+                    <a href="question-bank.html">Question Bank</a> &bull;
+                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="dashboard.html">Dashboard</a> &bull;
+                    <a href="about.html">About Us</a> &bull;
+                    <a href="about.html#contact">Contact Support</a>
+                </div>
+            </nav>
+            <div class="footer-col contact-col">
+                <address>
+                    <strong>Need Assistance?</strong><br>
+                    Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                    Location: New Delhi, India
+                </address>
+            </div>
+        </div>
     </footer>
 
     <!-- ====================================================================== -->

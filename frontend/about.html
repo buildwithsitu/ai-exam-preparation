@@ -7,44 +7,44 @@
     <meta name="author" content="ExamMate AI Team">
     <title>About Us — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+    <script src="js/theme.js" defer></script>
 </head>
 <body>
+
+    <!-- Skip Link for Keyboard Accessibility (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- ====================================================================== -->
     <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
-    <header>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="middle">
-                    <a href="index.html" aria-label="ExamMate AI Home">
-                        <img src="images/logo.svg" alt="ExamMate AI" width="220" height="48">
-                    </a>
-                </td>
-                <td align="center" valign="middle">
-                    <nav aria-label="Main Navigation">
-                        <a href="index.html">Home</a>
-                        <a href="exams.html">Exams</a>
-                        <a href="mock-test.html">Mock Tests</a>
-                        <a href="question-bank.html">Question Bank</a>
-                        <a href="about.html" aria-current="page">About Us</a>
-                        <a href="#contact">Contact</a>
-                    </nav>
-                </td>
-                <td align="right" valign="middle">
-                    <nav aria-label="Account Access" style="display: inline-flex; align-items: center; gap: var(--space-2);">
-                        <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
-                        <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="ExamMate AI Home">
+                <img src="images/logo.svg" alt="ExamMate AI" width="180" height="40">
+            </a>
+
+            <nav class="header-nav" aria-label="Main Navigation">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html" class="active" aria-current="page">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
+                <a href="#auth-modal" class="btn btn-pill-outline btn-sm">Log In</a>
+                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+            </div>
+        </div>
     </header>
 
     <!-- ====================================================================== -->
     <!-- 2. MAIN APPLICATION CONTENT                                            -->
     <!-- ====================================================================== -->
-    <main class="about-page-main">
+    <main id="main-content" class="about-page-main">
 
         <!-- ================================================================== -->
         <!-- SECTION 1: ABOUT HERO (TWO COLUMNS)                                -->
@@ -77,40 +77,40 @@
         </section>
 
         <!-- ================================================================== -->
-        <!-- SECTION 2: WHO WE ARE & PLATFORM STATS                             -->
+        <!-- SECTION 2: WHO WE ARE & CORE ACADEMIC STANDARDS                    -->
         <!-- ================================================================== -->
-        <section id="who-we-are" class="who-we-are-section" aria-label="Who We Are">
+        <section id="who-we-are" class="who-we-are-section" aria-label="Who We Are and Academic Standards">
             <div class="who-text-col">
                 <h2>Who We Are</h2>
                 <p>
-                    ExamMate AI is a student-focused EdTech platform built to support aspirants of CUET, SSC, Banking, and other competitive examinations. We bring together quality study material, practice tests, and intelligent tools to help you prepare, practice, and perform better.
+                    ExamMate AI is an open, student-focused preparation platform engineered specifically for competitive examination aspirants. Founded by computer science scholars and competitive test rankers, our mission is to eliminate costly paywalls and provide authentic, distraction-free preparation strictly grounded in official university testing blueprints.
                 </p>
             </div>
 
-            <div class="who-stats-row" aria-label="Platform Statistics">
-                <!-- Stat 1 -->
+            <div class="who-stats-row" aria-label="Academic Standards">
+                <!-- Standard 1 -->
                 <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">👥</span>
-                    <strong>10,000+</strong>
-                    <span>Aspirants</span>
+                    <span class="stat-counter-icon" aria-hidden="true">🎯</span>
+                    <strong>NTA CUET</strong>
+                    <span>Syllabus Aligned</span>
                 </div>
-                <!-- Stat 2 -->
+                <!-- Standard 2 -->
                 <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">🗂️</span>
-                    <strong>5+</strong>
-                    <span>Exam Categories</span>
+                    <span class="stat-counter-icon" aria-hidden="true">⏱️</span>
+                    <strong>105-Min</strong>
+                    <span>Timed Simulators</span>
                 </div>
-                <!-- Stat 3 -->
+                <!-- Standard 3 -->
                 <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">📄</span>
-                    <strong>50,000+</strong>
-                    <span>Practice Questions</span>
+                    <span class="stat-counter-icon" aria-hidden="true">📝</span>
+                    <strong>Step-by-Step</strong>
+                    <span>Verified Derivations</span>
                 </div>
-                <!-- Stat 4 -->
+                <!-- Standard 4 -->
                 <div class="stat-counter-item">
-                    <span class="stat-counter-icon" aria-hidden="true">📈</span>
-                    <strong>95%</strong>
-                    <span>Student Satisfaction</span>
+                    <span class="stat-counter-icon" aria-hidden="true">💡</span>
+                    <strong>100% Free</strong>
+                    <span>Open Student Resource</span>
                 </div>
             </div>
         </section>
@@ -131,7 +131,7 @@
                     <div class="mv-text">
                         <h3>Our Mission</h3>
                         <p>
-                            To provide a reliable, accessible, and intelligent preparation platform that helps every aspirant build confidence and achieve their exam goals.
+                            To provide an accessible, rigorous, and intelligent examination simulator that enables every student—regardless of coaching access or geography—to master official exam blueprints, track their learning telemetry, and conquer their dream university admission.
                         </p>
                     </div>
                 </article>
@@ -142,7 +142,7 @@
                     <div class="mv-text">
                         <h3>Our Vision</h3>
                         <p>
-                            To become India's most trusted exam preparation platform, powered by technology and AI, for students across all competitive examinations.
+                            To build India's most transparent and trusted open exam preparation ecosystem, leveraging technology to replace high-stress commercial coaching with structured, active conceptual mastery.
                         </p>
                     </div>
                 </article>
@@ -163,28 +163,28 @@
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">📋</div>
                     <h3>Mock Tests</h3>
-                    <p>Real exam-like practice tests with detailed analysis</p>
+                    <p>Authentic full-length CBT simulators with official negative marking and real exam countdowns.</p>
                 </article>
 
                 <!-- Offer Card 2 -->
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">📖</div>
                     <h3>Question Bank</h3>
-                    <p>A vast collection of curated questions</p>
+                    <p>Chapter-wise conceptual problems mapped directly to official NTA CUET syllabus blueprints.</p>
                 </article>
 
                 <!-- Offer Card 3 -->
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">📊</div>
                     <h3>Performance Tracking</h3>
-                    <p>Track your progress and identify areas to improve</p>
+                    <p>Weekly study telemetry, section completion rings, and topic-wise accuracy insights.</p>
                 </article>
 
                 <!-- Offer Card 4 -->
                 <article class="offer-card">
                     <div class="offer-card-icon" aria-hidden="true">🤖</div>
                     <h3>AI Learning Support</h3>
-                    <p>Get explanations, doubt help, and smart practice (releasing soon)</p>
+                    <p>Step-by-step mathematical derivations, conceptual hints, and mistake analysis (planned for Phase 8).</p>
                 </article>
             </div>
         </section>
@@ -326,33 +326,36 @@
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
-    <footer>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="top">
-                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
-                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
-                </td>
-                <td align="center" valign="top">
-                    <nav aria-label="Footer Quick Links">
-                        <p><strong>Quick Navigation:</strong></p>
-                        <a href="exams.html">Exams</a> |
-                        <a href="question-bank.html">Question Bank</a> |
-                        <a href="mock-test.html">Mock Test</a> |
-                        <a href="dashboard.html">Dashboard</a> |
-                        <a href="about.html">About Us</a> |
-                        <a href="about.html#contact">Contact Support</a>
-                    </nav>
-                </td>
-                <td align="right" valign="top">
-                    <address>
-                        <strong>Need Assistance?</strong><br>
-                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
-                        Location: New Delhi, India
-                    </address>
-                </td>
-            </tr>
-        </table>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col brand-col">
+                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+            </div>
+            <nav class="footer-col nav-col" aria-label="Footer Quick Links">
+                <p><strong>Quick Navigation:</strong></p>
+                <div class="footer-links-wrap">
+                    <a href="index.html">Home</a> &bull;
+                    <a href="exams.html">Exams</a> &bull;
+                    <a href="question-bank.html">Question Bank</a> &bull;
+                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="dashboard.html">Dashboard</a> &bull;
+                    <a href="about.html">About Us</a> &bull;
+                    <a href="about.html#contact">Contact Support</a>
+                </div>
+            </nav>
+            <div class="footer-col contact-col">
+                <address>
+                    <strong>Need Assistance?</strong><br>
+                    Email: <a href="mailto:situsavvy1111@gmail.com">situsavvy1111@gmail.com</a><br>
+                    Location: JNU, New Delhi, India<br>
+                    <span class="footer-social-wrap" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-2);">
+                        <a href="https://www.linkedin.com/in/buildwithsitu/" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-primary); font-weight: var(--font-weight-medium);">LinkedIn</a> &bull;
+                        <a href="https://www.instagram.com/is_situ/" target="_blank" rel="noopener noreferrer" style="color: var(--color-brand-primary); font-weight: var(--font-weight-medium);">Instagram</a>
+                    </span>
+                </address>
+            </div>
+        </div>
     </footer>
 
     <!-- ====================================================================== -->

@@ -7,46 +7,44 @@
     <meta name="author" content="ExamMate AI Team">
     <title>Exams &amp; Subjects Catalog — ExamMate AI</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        (function(){const t=localStorage.getItem('exammate_theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+    <script src="js/theme.js" defer></script>
 </head>
 <body>
 
+    <!-- Skip Link for Keyboard Accessibility (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ====================================================================== -->
-    <!-- 1. HEADER & GLOBAL NAVIGATION                                         -->
-    <!-- ====================================================================== -->
-        <!-- ====================================================================== -->
     <!-- 1. STICKY GLOBAL HEADER & INLINE NAVBAR                                -->
     <!-- ====================================================================== -->
-    <header>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="middle">
-                    <a href="index.html">
-                        <img src="images/logo.svg" alt="ExamMate AI — Home" width="220" height="48">
-                    </a>
-                </td>
-                <td align="center" valign="middle">
-                    <nav aria-label="Main Navigation">
-                        <a href="exams.html" aria-current="page">Exams</a>
-                        <a href="question-bank.html">Question Bank</a>
-                        <a href="mock-test.html">Mock Test</a>
-                        <a href="dashboard.html">Dashboard</a>
-                        <a href="about.html">About</a>
-                        <a href="about.html#contact">Contact</a>
-                    </nav>
-                </td>
-                <td align="right" valign="middle">
-                    <nav aria-label="Account Access">
-                        <a href="#auth-modal"><button type="button"><strong>Login / Register</strong></button></a>
-                    </nav>
-                </td>
-            </tr>
-        </table>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-logo" aria-label="ExamMate AI Home">
+                <img src="images/logo.svg" alt="ExamMate AI" width="180" height="40">
+            </a>
+
+            <nav class="header-nav" aria-label="Main Navigation">
+                <a href="index.html">Home</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About Us</a>
+                <a href="about.html#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="theme-toggle-btn" aria-label="Toggle dark or light mode" title="Switch theme">🌙</button>
+                <a href="dashboard.html" class="btn btn-pill-outline btn-sm">Dashboard &rarr;</a>
+                <a href="#auth-modal" class="btn btn-pill-purple btn-sm">Sign Up</a>
+            </div>
+        </div>
     </header>
 
     <!-- ====================================================================== -->
     <!-- 2. MAIN CONTENT                                                        -->
     <!-- ====================================================================== -->
-    <main>
+    <main id="main-content">
         <section id="exams-intro">
             <h1>Supported Competitive Examinations</h1>
             <p>
@@ -137,37 +135,32 @@
     <!-- ====================================================================== -->
     <!-- 3. FOOTER                                                              -->
     <!-- ====================================================================== -->
-    
-    <!-- ====================================================================== -->
-    <!-- 3. FOOTER                                                              -->
-    <!-- ====================================================================== -->
-    <footer>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-                <td align="left" valign="top">
-                    <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
-                    <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
-                </td>
-                <td align="center" valign="top">
-                    <nav aria-label="Footer Quick Links">
-                        <p><strong>Quick Navigation:</strong></p>
-                        <a href="exams.html">Exams</a> |
-                        <a href="question-bank.html">Question Bank</a> |
-                        <a href="mock-test.html">Mock Test</a> |
-                        <a href="dashboard.html">Dashboard</a> |
-                        <a href="about.html">About Us</a> |
-                        <a href="about.html#contact">Contact Support</a>
-                    </nav>
-                </td>
-                <td align="right" valign="top">
-                    <address>
-                        <strong>Need Assistance?</strong><br>
-                        Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
-                        Location: New Delhi, India
-                    </address>
-                </td>
-            </tr>
-        </table>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col brand-col">
+                <p><strong>ExamMate AI</strong> &mdash; Modern Competitive Exam Preparation.</p>
+                <p>&copy; 2026 ExamMate AI. All rights reserved.</p>
+            </div>
+            <nav class="footer-col nav-col" aria-label="Footer Quick Links">
+                <p><strong>Quick Navigation:</strong></p>
+                <div class="footer-links-wrap">
+                    <a href="index.html">Home</a> &bull;
+                    <a href="exams.html">Exams</a> &bull;
+                    <a href="question-bank.html">Question Bank</a> &bull;
+                    <a href="mock-test.html">Mock Tests</a> &bull;
+                    <a href="dashboard.html">Dashboard</a> &bull;
+                    <a href="about.html">About Us</a> &bull;
+                    <a href="about.html#contact">Contact Support</a>
+                </div>
+            </nav>
+            <div class="footer-col contact-col">
+                <address>
+                    <strong>Need Assistance?</strong><br>
+                    Email: <a href="mailto:support@exammate.ai">support@exammate.ai</a><br>
+                    Location: New Delhi, India
+                </address>
+            </div>
+        </div>
     </footer>
 
 
