@@ -67,29 +67,36 @@ ai-exam-preparation/
 
 | Layer | Technologies | Current Status |
 | :--- | :--- | :--- |
-| **Frontend** | HTML5, CSS3 (Modern Flexbox/Grid, CSS Custom Properties), Vanilla JS | **Active & Production-Ready** |
-| **Deployment** | GitHub Pages / Static Web Hosting | **Compatible** |
-| **Backend (Phase 2)** | Python (FastAPI / Supabase Auth) | Specification Ready |
-| **Database (Phase 2)** | PostgreSQL / Supabase | Schema Ready (`database/schema.sql`) |
+| **Frontend** | React 18, TypeScript, Vite, Tailwind CSS, React Router | **Active & Production-Ready** |
+| **Static Reference** | Pure Semantic HTML5, CSS3 Tokens, Vanilla JS (`frontend-static/`) | Preserved & Validated |
+| **Backend (Later)** | Python, Flask, REST API | Specification Ready |
+| **Database (Later)** | PostgreSQL | Specification Ready |
+| **AI Integration (Future)** | LLM API, RAG Pipeline | Specification Ready |
 
 ---
 
 ## 💻 Local Development Setup
 
-To preview and develop the frontend locally:
+To run the Vite + React frontend locally:
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/ai-exam-preparation.git
-cd ai-exam-preparation
+cd frontend
 
-# Open the frontend in any web browser
-# On Linux:
-xdg-open frontend/index.html
+# Install dependencies (if not already installed)
+npm install
 
-# Or serve via Python simple HTTP server:
-python3 -m http.server 8080 --directory frontend/
-# Then open http://localhost:8080 in your browser
+# Start Vite live development server (hot module reload)
+npm run dev
+
+# Or build production static bundle
+npm run build
+```
+
+To view the standalone pure HTML5 prototype without Node.js:
+
+```bash
+python3 -m http.server 8080 --directory frontend-static/
+# Open http://localhost:8080 in your browser
 ```
 
 ---

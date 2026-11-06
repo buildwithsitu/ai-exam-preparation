@@ -15,11 +15,21 @@ Student journey:
 7. Track placement progress and apply to job opportunities
 
 ## 3. Tech stack (do not change without asking me)
-- Next.js (App Router) + TypeScript
-- Tailwind CSS
-- Supabase (PostgreSQL + Auth)
-- Vercel for deploy, GitHub for code
-- AI API only in Phase 8, and only called from the server
+- Frontend:
+  - React
+  - TypeScript
+  - Vite
+  - Tailwind CSS
+  - React Router
+- Backend (later):
+  - Python
+  - Flask
+  - REST API
+- Database (later):
+  - PostgreSQL
+- AI Integration (future):
+  - LLM API
+  - RAG (Retrieval-Augmented Generation)
 
 ## 4. Phases (strict order, one at a time)
 1. Design + homepage (static, no database)

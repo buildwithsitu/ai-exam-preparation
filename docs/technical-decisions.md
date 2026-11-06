@@ -259,3 +259,22 @@
      - *Popular Exams:* Brisk flow (20s).
      - *How It Works:* Gentle steady cadence (32s).
 - **Outcome:** High-end, dynamic edtech landing page feel with soft edge blurring, pause-on-hover accessibility, zero layout shifts, and 100% WCAG 2.1 AA/AAA compliance.
+
+## Decision 023: Architecture Adoption — React, Vite, TypeScript, Tailwind CSS, Flask REST API, PostgreSQL & RAG
+- **Date:** 2026-11-07
+- **Status:** Approved
+- **Context:** Transition from initial pure HTML/CSS prototyping phase to modern, production-grade scalable tech stack.
+- **Decision:**
+  1. **Frontend:** React + TypeScript + Vite + Tailwind CSS + React Router.
+     - Vite offers sub-second HMR and clean single-page app (SPA) bundle generation without SSR complexity.
+     - React Router enables client-side routing matching our 12 platform routes seamlessly.
+     - Tailwind CSS maps directly to our established design tokens (`--color-brand-primary: #5B3CE8`, `--color-brand-dark: #120E2C`, etc.).
+  2. **Backend (Phase 2):** Python + Flask + REST API.
+     - Lightweight, modular Python backend with Flask Blueprints for auth, syllabus, practice, mock test, and telemetry.
+     - Seamless integration with Python's AI/data science ecosystem.
+  3. **Database (Phase 2):** PostgreSQL.
+     - Relational integrity for user profiles, practice attempts, question metadata, and roadmaps.
+     - Native support for `pgvector` extension for vector embeddings.
+  4. **AI Integration (Phase 3):** LLM API + RAG (Retrieval-Augmented Generation).
+     - Context-aware doubt clearing, step-by-step code hints, and interactive mock interview simulation using student notes and verified solutions.
+- **Outcome:** Established unified technical target architecture preserving our 14-page visual design system and clean data flow.

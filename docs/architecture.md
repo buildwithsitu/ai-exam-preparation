@@ -1,84 +1,71 @@
-# System Architecture & Technical Design
+# System Architecture & Technical Design — ExamMate AI
 
 ## 1. High-Level Architecture Overview
 
-The **AI Exam Preparation Platform** employs a modern, decoupled microservices/modular monolith architecture designed for high availability, low-latency test simulations, and high-throughput AI orchestration.
+The **ExamMate AI** platform employs a modern decoupled architecture featuring a high-performance **Vite + React SPA**, a lightweight **Python/Flask REST API**, a relational **PostgreSQL** database, and an **LLM + RAG** intelligence layer.
 
 ```mermaid
 flowchart TD
-    subgraph ClientLayer["Client Layer (Frontend)"]
-        WebClient["Next.js Web App\n(React 19 / TypeScript / Tailwind)"]
-        ExamConsole["Exam Engine\n(Stateful Test Runner)"]
-        AITutorUI["AI Tutor & Chat Console\n(SSE Streaming)"]
-        AnalyticsUI["Analytics & Mistake Notebook\n(Recharts / KaTeX)"]
+    subgraph ClientLayer["Frontend Layer (React + Vite + TypeScript)"]
+        WebApp["React 18/19 SPA\n(Vite + TypeScript + Tailwind CSS)"]
+        Router["React Router\n(Client-Side Route Management)"]
+        CodingConsole["Practice & Coding Console\n(Monaco / Code Runner)"]
+        DashboardUI["Student Dashboard & Telemetry\n(Interactive Analytics)"]
     end
 
-    subgraph APILayer["API Gateway & Reverse Proxy"]
-        NginxGateway["NGINX / Cloudflare Gateway\n(Rate Limiting & SSL Termination)"]
+    subgraph APILayer["Backend Layer (Python + Flask)"]
+        FlaskServer["Flask Application Server\n(REST API / Modular Blueprints)"]
+        AuthBP["Auth Blueprint\n(JWT Authentication & Registration)"]
+        CareerBP["Career & Syllabus Blueprint\n(Roadmaps, Resources, Topics)"]
+        PracticeBP["Practice & Quiz Blueprint\n(Coding Problems, Test Cases)"]
+        TelemetryBP["Telemetry & Progress Blueprint\n(Accuracy, Milestones)"]
+        AIBP["AI & RAG Blueprint\n(Socratic Hints, Mock Interviewer)"]
     end
 
-    subgraph ServiceLayer["Application Backend (FastAPI / Python)"]
-        AuthService["Auth & RBAC Service\n(JWT & OAuth2)"]
-        ExamService["Exam & Scoring Engine\n(Timer, State, Result Analysis)"]
-        SyllabusService["Syllabus & Bank Service\n(Hierarchical Taxonomy)"]
-        AIEngine["AI Orchestration Engine\n(LangChain / LlamaIndex)"]
-        AnalyticsService["Analytics & Spaced Repetition\n(SM-2 Algorithm)"]
+    subgraph DataLayer["Database Layer (PostgreSQL)"]
+        PostgresDB[("PostgreSQL 16\n(Users, Attempts, Roadmaps, Questions)")]
+        PGVector[("pgvector Extension\n(Syllabus & Problem Embeddings)")]
     end
 
-    subgraph AILayer["AI & RAG Pipeline"]
-        LLMProvider["LLM API\n(Gemini 2.5 / OpenAI GPT-4o)"]
-        EmbeddingEngine["Embeddings Model\n(Text-Embedding-3 / BGE-Large)"]
-        DocumentParser["Document Ingestion\n(PyPDF / Unstructured / OCR)"]
+    subgraph AILayer["AI Integration Layer (LLM & RAG)"]
+        RAGPipeline["RAG Engine\n(Hybrid Vector Search + Chunk Retrieval)"]
+        LLMProvider["LLM API\n(Gemini API / Claude / OpenAI)"]
     end
 
-    subgraph DataLayer["Storage & Cache Layer"]
-        PostgresDB[("Primary Database\n(PostgreSQL 16)")]
-        VectorStore[("Vector Store\n(pgvector / Qdrant)")]
-        RedisCache[("Cache & Message Broker\n(Redis 7)")]
-        ObjectStore[("Object Storage\n(MinIO / AWS S3)")]
-    end
+    WebApp --> Router
+    Router --> CodingConsole
+    Router --> DashboardUI
 
-    WebClient --> NginxGateway
-    ExamConsole --> NginxGateway
-    AITutorUI --> NginxGateway
-    AnalyticsUI --> NginxGateway
+    WebApp --> FlaskServer
+    FlaskServer --> AuthBP
+    FlaskServer --> CareerBP
+    FlaskServer --> PracticeBP
+    FlaskServer --> TelemetryBP
+    FlaskServer --> AIBP
 
-    NginxGateway --> AuthService
-    NginxGateway --> ExamService
-    NginxGateway --> SyllabusService
-    NginxGateway --> AIEngine
-    NginxGateway --> AnalyticsService
+    AuthBP --> PostgresDB
+    CareerBP --> PostgresDB
+    PracticeBP --> PostgresDB
+    TelemetryBP --> PostgresDB
 
-    AIEngine --> LLMProvider
-    AIEngine --> EmbeddingEngine
-    DocumentParser --> EmbeddingEngine
-
-    ExamService --> PostgresDB
-    SyllabusService --> PostgresDB
-    AnalyticsService --> PostgresDB
-
-    EmbeddingEngine --> VectorStore
-    AIEngine --> VectorStore
-
-    ExamService --> RedisCache
-    AIEngine --> RedisCache
-    DocumentParser --> ObjectStore
+    AIBP --> RAGPipeline
+    RAGPipeline --> PGVector
+    RAGPipeline --> LLMProvider
 ```
 
 ---
 
-## 2. Tech Stack Recommendations
+## 2. Tech Stack Specification
 
 | Component | Technology | Rationale |
 | :--- | :--- | :--- |
-| **Frontend Framework** | **Next.js 15+ (React 19, TypeScript)** | High performance, Server-Side Rendering (SSR) for syllabus/SEO, App Router, rapid layout composition. |
-| **Styling & UI Kit** | **Tailwind CSS + shadcn/ui** | Clean, accessible, highly customizable component library with built-in dark/light mode. |
-| **Formula & Code Rendering** | **KaTeX + PrismJS / Monaco** | Ultra-fast LaTeX mathematical formula typesetting and code syntax highlighting. |
-| **Backend Framework** | **FastAPI (Python 3.12)** | Asynchronous high-performance web framework; native interoperability with AI/ML, NumPy, LangChain, and PyTorch. |
-| **Relational Database** | **PostgreSQL 16** | Robust ACID compliance for user accounts, exams, questions, and test attempt submissions. |
-| **Vector Database** | **pgvector (or Qdrant)** | Vector similarity search for RAG over syllabus textbooks and PYQs. |
-| **Cache & Task Queue** | **Redis 7 + Celery / ARQ** | Fast session state storage, test attempt synchronization, rate limiting, and background document parsing. |
-| **Object Storage** | **S3-compatible (MinIO / AWS S3)** | Storage for textbook PDFs, diagram images, and exported test reports. |
+| **Frontend Framework** | **React + TypeScript + Vite** | Instant HMR, ultra-fast build times, typed safety, modern component-driven development. |
+| **Routing** | **React Router (v6/v7)** | Robust client-side routing across all platform modules (`/`, `/learn`, `/practice`, `/dashboard`, etc.). |
+| **Styling & Design System**| **Tailwind CSS** | Utility-first styling mapping directly to our Royal Purple (`#5B3CE8`) and Dark Navy (`#120E2C`) tokens. |
+| **Backend Framework** | **Python + Flask (REST API)** | Lightweight, highly readable, modular blueprints; direct compatibility with Python data science & AI libraries. |
+| **Database** | **PostgreSQL 16** | ACID-compliant relational storage for user accounts, progress, question banks, and job trackers. |
+| **Vector Extension** | **pgvector** | Seamless vector similarity search integrated directly inside PostgreSQL for RAG pipelines. |
+| **AI Integration** | **LLM API + RAG** | Socratic explanations, code review hints, and realistic HR/technical mock interview evaluations. |
 
 ---
 
@@ -88,19 +75,19 @@ flowchart TD
 sequenceDiagram
     autonumber
     actor Student
-    participant Frontend as Web App (Client)
-    participant Backend as FastAPI Server
-    participant VectorDB as Vector Store (pgvector)
-    participant LLM as LLM Engine (Gemini / GPT)
+    participant Frontend as React Client (Vite + TS)
+    participant Backend as Flask REST API
+    participant VectorDB as PostgreSQL (pgvector)
+    participant LLM as LLM API (Gemini / Claude)
 
-    Student->>Frontend: Enters doubt on Question / Topic
-    Frontend->>Backend: POST /api/v1/ai/tutor/query (prompt, topic_id, context)
-    Backend->>VectorDB: Query embeddings (hybrid dense + sparse BM25 search)
-    VectorDB-->>Backend: Top-k syllabus chunks + textbook references
-    Backend->>LLM: Formulate system prompt (Context + Question + Socratic instruction)
-    LLM-->>Backend: Stream token chunks (SSE)
-    Backend-->>Frontend: Server-Sent Events (SSE) data stream
-    Frontend-->>Student: Renders real-time markdown + LaTeX response
+    Student->>Frontend: Requests hint or explanation for coding problem
+    Frontend->>Backend: POST /api/v1/ai/explain (problem_id, user_code, query)
+    Backend->>VectorDB: Query problem context & optimal patterns
+    VectorDB-->>Backend: Return relevant algorithmic patterns & edge cases
+    Backend->>LLM: Prompt with Problem + Student Attempt + Retrieved Context
+    LLM-->>Backend: Stream Socratic guidance (without leaking direct solution)
+    Backend-->>Frontend: JSON / SSE stream response
+    Frontend-->>Student: Displays formatted Markdown & interactive code feedback
 ```
 
 ---

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380" role="img" aria-label="Student preparing for exams with ExamMate AI">
+  <defs>
+    <!-- Soft purple glow backdrop -->
+    <radialGradient id="haloGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ede9fe" stop-opacity="0.85" />
+      <stop offset="70%" stop-color="#f5f3ff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="purpleHoodie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#5b3ce8" />
+    </linearGradient>
+    <linearGradient id="bulbGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="100%" stop-color="#eab308" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Halo -->
+  <circle cx="340" cy="190" r="170" fill="url(#haloGlow)" />
+
+  <!-- Botanical Plant / Leaves on left -->
+  <path d="M260 280 C 240 240, 260 200, 280 180 C 275 220, 280 250, 260 280 Z" fill="#86efac" />
+  <path d="M280 280 C 295 230, 280 200, 265 190 C 285 210, 290 245, 280 280 Z" fill="#4ade80" />
+
+  <!-- Botanical Plant on right -->
+  <path d="M470 280 C 490 230, 480 190, 460 170 C 475 210, 465 245, 470 280 Z" fill="#86efac" />
+  <path d="M485 280 C 510 240, 495 210, 480 200 C 495 220, 500 250, 485 280 Z" fill="#4ade80" />
+
+  <!-- Exam Checklist Floating Card -->
+  <g transform="translate(290, 90)">
+    <rect width="90" height="95" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(0,0,0,0.06))" />
+    <!-- Check 1 -->
+    <circle cx="22" cy="24" r="8" fill="#dcfce7" />
+    <path d="M18 24 L21 27 L26 21" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="36" y="21" width="40" height="6" rx="3" fill="#cbd5e1" />
+    <!-- Check 2 -->
+    <circle cx="22" cy="48" r="8" fill="#dcfce7" />
+    <path d="M18 48 L21 51 L26 45" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="36" y="45" width="40" height="6" rx="3" fill="#cbd5e1" />
+    <!-- Check 3 -->
+    <circle cx="22" cy="72" r="8" fill="#dcfce7" />
+    <path d="M18 72 L21 75 L26 69" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="36" y="69" width="32" height="6" rx="3" fill="#cbd5e1" />
+  </g>
+
+  <!-- Glowing Yellow Lightbulb (Top Right) -->
+  <g transform="translate(425, 60)">
+    <circle cx="20" cy="20" r="18" fill="url(#bulbGlow)" filter="drop-shadow(0 0 12px rgba(250, 204, 21, 0.7))" />
+    <!-- Bulb socket -->
+    <rect x="15" y="37" width="10" height="7" rx="2" fill="#94a3b8" />
+    <!-- Rays -->
+    <line x1="20" y1="-3" x2="20" y2="-9" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="38" y1="4" x2="43" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="43" y1="20" x2="49" y2="20" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="2" y1="4" x2="-3" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="-3" y1="20" x2="-9" y2="20" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Stack of Textbooks on Desk (Bottom Left) -->
+  <g transform="translate(255, 235)">
+    <!-- Book 1 (Blue) -->
+    <rect x="0" y="32" width="65" height="12" rx="3" fill="#3b82f6" />
+    <rect x="5" y="34" width="55" height="2" fill="#ffffff" opacity="0.6" />
+    <rect x="0" y="44" width="68" height="5" rx="1" fill="#e2e8f0" />
+    <!-- Book 2 (Light Cyan) -->
+    <rect x="4" y="16" width="60" height="11" rx="3" fill="#06b6d4" />
+    <rect x="8" y="18" width="50" height="2" fill="#ffffff" opacity="0.6" />
+    <rect x="4" y="27" width="62" height="4" rx="1" fill="#e2e8f0" />
+    <!-- Book 3 (Purple top) -->
+    <rect x="8" y="2" width="54" height="10" rx="3" fill="#8b5cf6" />
+    <rect x="12" y="4" width="44" height="2" fill="#ffffff" opacity="0.6" />
+    <rect x="8" y="12" width="56" height="3" rx="1" fill="#e2e8f0" />
+  </g>
+
+  <!-- Desk Surface -->
+  <line x1="250" y1="290" x2="480" y2="290" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Student Character Sitting -->
+  <!-- Body / Purple Hoodie -->
+  <path d="M370 170 C 350 170, 345 200, 345 290 L 470 290 C 470 200, 465 170, 445 170 Z" fill="url(#purpleHoodie)" />
+  <!-- Hoodie Strings -->
+  <line x1="395" y1="205" x2="395" y2="235" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+  <line x1="415" y1="205" x2="415" y2="235" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Head & Face -->
+  <circle cx="405" cy="148" r="28" fill="#fed7aa" />
+  <!-- Cheerful Facial Features -->
+  <!-- Eyes -->
+  <circle cx="395" cy="146" r="2.5" fill="#1e293b" />
+  <circle cx="415" cy="146" r="2.5" fill="#1e293b" />
+  <!-- Smile -->
+  <path d="M397 156 Q 405 163, 413 156" stroke="#ea580c" stroke-width="2" fill="none" stroke-linecap="round" />
+  <!-- Rosy cheeks -->
+  <circle cx="390" cy="154" r="3.5" fill="#fca5a5" opacity="0.6" />
+  <circle cx="420" cy="154" r="3.5" fill="#fca5a5" opacity="0.6" />
+
+  <!-- Hair (Black Curly / Modern) -->
+  <path d="M375 140 C 375 115, 435 115, 435 140 C 445 130, 440 105, 415 105 C 385 105, 365 120, 375 140 Z" fill="#1e293b" />
+  <circle cx="382" cy="122" r="9" fill="#1e293b" />
+  <circle cx="398" cy="115" r="10" fill="#1e293b" />
+  <circle cx="418" cy="118" r="10" fill="#1e293b" />
+
+  <!-- Hands / Arms typing on keyboard -->
+  <path d="M355 240 C 365 270, 385 285, 410 280" stroke="url(#purpleHoodie)" stroke-width="22" stroke-linecap="round" fill="none" />
+  <path d="M455 240 C 445 270, 425 285, 400 280" stroke="url(#purpleHoodie)" stroke-width="22" stroke-linecap="round" fill="none" />
+  <circle cx="405" cy="280" r="10" fill="#fed7aa" />
+
+  <!-- Laptop (Dark Slate with Graduation Cap Logo) -->
+  <g transform="translate(310, 215)">
+    <!-- Screen Back -->
+    <polygon points="10,5 85,5 95,75 0,75" fill="#334155" />
+    <polygon points="12,7 83,7 92,73 3,73" fill="#1e293b" />
+    <!-- Graduation Cap Emblem on Laptop Lid -->
+    <path d="M47 30 L60 37 L47 44 L34 37 Z" fill="#ffffff" opacity="0.9" />
+    <path d="M38 40 L38 46 C38 49 56 49 56 46 L56 40" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.9" />
+    <!-- Laptop Base / Keyboard deck -->
+    <polygon points="-5,75 100,75 95,80 -10,80" fill="#64748b" />
+  </g>
+</svg>
+

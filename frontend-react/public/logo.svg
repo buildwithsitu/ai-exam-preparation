@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="ExamMate AI Logo">
+  <defs>
+    <linearGradient id="emPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#5B3CE8" />
+    </linearGradient>
+  </defs>
+  <!-- Icon Badge (Purple Rounded Square with Graduation Cap) -->
+  <rect x="2" y="4" width="40" height="40" rx="10" fill="url(#emPurpleGrad)" />
+  <!-- Academic Graduation Cap Symbol inside badge -->
+  <path d="M22 13 L34 19 L22 25 L10 19 Z" fill="#ffffff" />
+  <path d="M14 21.5 L14 28 C14 31 30 31 30 28 L30 21.5" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" />
+  <circle cx="34" cy="22" r="1.5" fill="#facc15" />
+  <line x1="34" y1="23.5" x2="34" y2="29" stroke="#facc15" stroke-width="1.5" stroke-linecap="round" />
+  <!-- Brand Text -->
+  <text x="52" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" fill="#0f172a" letter-spacing="-0.5">ExamMate</text>
+  <!-- AI Pill Badge -->
+  <rect x="170" y="12" width="38" height="24" rx="6" fill="#f3f0ff" stroke="#5B3CE8" stroke-width="1.5" />
+  <text x="189" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#5B3CE8" text-anchor="middle">AI</text>
+</svg>

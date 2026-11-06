@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420" role="img" aria-label="Student preparing on laptop with ExamMate AI floating badges">
+  <defs>
+    <!-- Soft warm studio backdrop -->
+    <radialGradient id="roomBackdrop" cx="60%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ede9fe" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#f5f3ff" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#312e81" />
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#312e81" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Backdrop -->
+  <rect width="560" height="420" fill="url(#roomBackdrop)" rx="20" />
+
+  <!-- Window Frame in Background (Subtle) -->
+  <g opacity="0.4" stroke="#c4b5fd" stroke-width="1.5" fill="none">
+    <rect x="420" y="20" width="120" height="180" rx="8" />
+    <line x1="480" y1="20" x2="480" y2="200" />
+    <line x1="420" y1="100" x2="540" y2="100" />
+    <!-- Plant Silhouette on window sill -->
+    <circle cx="510" cy="180" r="14" fill="#86efac" opacity="0.6" stroke="none" />
+    <circle cx="525" cy="175" r="12" fill="#4ade80" opacity="0.6" stroke="none" />
+  </g>
+
+  <!-- Desk Surface -->
+  <line x1="40" y1="360" x2="540" y2="360" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Pen Cup with Pens (Right) -->
+  <g transform="translate(480, 310)">
+    <rect x="0" y="20" width="28" height="30" rx="4" fill="#94a3b8" />
+    <line x1="6" y1="22" x2="2" y2="4" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" />
+    <line x1="14" y1="22" x2="14" y2="2" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="22" y1="22" x2="26" y2="6" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Stack of 4 Labeled Textbooks (Center-Left Desk) -->
+  <g transform="translate(240, 260)">
+    <!-- Book 4: Current Affairs (Purple) -->
+    <rect x="0" y="66" width="135" height="18" rx="4" fill="#3b2896" />
+    <text x="67" y="79" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Current Affairs</text>
+    <rect x="130" y="68" width="5" height="14" fill="#f8fafc" rx="1" />
+
+    <!-- Book 3: General Awareness (Light Orange) -->
+    <rect x="6" y="44" width="128" height="18" rx="4" fill="#ea580c" />
+    <text x="70" y="57" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">General Awareness</text>
+    <rect x="129" y="46" width="5" height="14" fill="#f8fafc" rx="1" />
+
+    <!-- Book 2: Reasoning (Soft Blue) -->
+    <rect x="12" y="22" width="120" height="18" rx="4" fill="#0284c7" />
+    <text x="72" y="35" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Reasoning</text>
+    <rect x="127" y="24" width="5" height="14" fill="#f8fafc" rx="1" />
+
+    <!-- Book 1: Aptitude (Emerald / Cyan) -->
+    <rect x="18" y="0" width="112" height="18" rx="4" fill="#059669" />
+    <text x="74" y="13" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Aptitude</text>
+    <rect x="125" y="2" width="5" height="14" fill="#f8fafc" rx="1" />
+  </g>
+
+  <!-- Student Character (Sitting & Typing) -->
+  <!-- Body (Dark Navy Hoodie) -->
+  <path d="M360 210 C 340 210, 335 250, 335 360 L 490 360 C 490 250, 485 210, 465 210 Z" fill="url(#hoodieGrad)" />
+  <!-- White Hoodie Drawstrings -->
+  <line x1="400" y1="240" x2="400" y2="280" stroke="#f8fafc" stroke-width="2" stroke-linecap="round" />
+  <line x1="425" y1="240" x2="425" y2="280" stroke="#f8fafc" stroke-width="2" stroke-linecap="round" />
+
+  <!-- White Over-Ear Headphones around neck -->
+  <path d="M380 185 C 375 220, 450 220, 445 185" stroke="#ffffff" stroke-width="10" stroke-linecap="round" fill="none" />
+  <rect x="365" y="180" width="18" height="26" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" />
+  <rect x="442" y="180" width="18" height="26" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" />
+
+  <!-- Student Head & Face -->
+  <circle cx="412" cy="155" r="30" fill="#fed7aa" />
+  <!-- Facial Features (Friendly, Focused Smile) -->
+  <circle cx="400" cy="152" r="2.5" fill="#1e293b" />
+  <circle cx="422" cy="152" r="2.5" fill="#1e293b" />
+  <path d="M402 165 Q 412 173, 422 165" stroke="#c2410c" stroke-width="2" fill="none" stroke-linecap="round" />
+  <!-- Eyebrows -->
+  <path d="M396 145 Q 402 142, 407 146" stroke="#1e293b" stroke-width="2" fill="none" stroke-linecap="round" />
+  <path d="M417 146 Q 422 142, 428 145" stroke="#1e293b" stroke-width="2" fill="none" stroke-linecap="round" />
+
+  <!-- Curly Black Hair (Indian Student style matching reference image) -->
+  <path d="M375 150 C 375 115, 445 115, 445 150 C 458 135, 450 100, 415 100 C 380 100, 365 125, 375 150 Z" fill="#0f172a" />
+  <circle cx="385" cy="125" r="12" fill="#0f172a" />
+  <circle cx="402" cy="115" r="14" fill="#0f172a" />
+  <circle cx="425" cy="118" r="13" fill="#0f172a" />
+  <circle cx="440" cy="132" r="11" fill="#0f172a" />
+  <circle cx="380" cy="142" r="9" fill="#0f172a" />
+
+  <!-- Hands / Arms typing -->
+  <path d="M350 280 C 360 320, 385 345, 415 340" stroke="url(#hoodieGrad)" stroke-width="24" stroke-linecap="round" fill="none" />
+  <path d="M475 280 C 465 320, 440 345, 410 340" stroke="url(#hoodieGrad)" stroke-width="24" stroke-linecap="round" fill="none" />
+  <circle cx="412" cy="342" r="10" fill="#fed7aa" />
+
+  <!-- Open Laptop with Graduation Cap Logo on Back -->
+  <g transform="translate(290, 250)">
+    <!-- Screen Display -->
+    <polygon points="12,5 112,5 122,95 0,95" fill="#334155" />
+    <polygon points="14,7 110,7 119,93 3,93" fill="#1e293b" />
+    <!-- Graduation Cap Emblem on Laptop Lid -->
+    <path d="M63 38 L80 47 L63 56 L46 47 Z" fill="#ffffff" opacity="0.95" />
+    <path d="M51 51 L51 60 C51 65 75 65 75 60 L75 51" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.95" />
+    <circle cx="80" cy="51" r="2" fill="#facc15" />
+    <line x1="80" y1="53" x2="80" y2="61" stroke="#facc15" stroke-width="1.8" stroke-linecap="round" />
+    <!-- Laptop Base / Keyboard -->
+    <polygon points="-8,95 130,95 125,102 -15,102" fill="#64748b" />
+  </g>
+
+  <!-- ==================================================================== -->
+  <!-- 3 FLOATING FEATURE BADGES (Matching Reference Image)                 -->
+  <!-- ==================================================================== -->
+
+  <!-- 1. Top Floating Badge: Mock Test (Full Length & Topic-wise) -->
+  <g transform="translate(18, 55)" filter="url(#softShadow)">
+    <rect width="195" height="54" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Purple Icon Bubble -->
+    <rect x="10" y="10" width="34" height="34" rx="10" fill="#ede9fe" />
+    <!-- Clipboard Icon -->
+    <rect x="19" y="17" width="16" height="20" rx="3" fill="#6d28d9" />
+    <rect x="22" y="15" width="10" height="4" rx="1" fill="#c4b5fd" />
+    <line x1="22" y1="24" x2="31" y2="24" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+    <line x1="22" y1="28" x2="29" y2="28" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Text -->
+    <text x="54" y="27" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#0f172a">Mock Test</text>
+    <text x="54" y="41" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#64748b">Full Length &amp; Topic-wise</text>
+  </g>
+
+  <!-- 2. Middle Floating Badge: Question Bank (50,000+ Questions) -->
+  <g transform="translate(2, 130)" filter="url(#softShadow)">
+    <rect width="190" height="54" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Purple Icon Bubble -->
+    <rect x="10" y="10" width="34" height="34" rx="10" fill="#f3f0ff" />
+    <!-- Open Book Icon -->
+    <path d="M18 20 C 23 18, 27 20, 27 33 C 27 33, 23 31, 18 33 Z" fill="#5b3ce8" />
+    <path d="M36 20 C 31 18, 27 20, 27 33 C 27 33, 31 31, 36 33 Z" fill="#7c3aed" />
+    <!-- Text -->
+    <text x="54" y="27" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#0f172a">Question Bank</text>
+    <text x="54" y="41" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#64748b">50,000+ Questions</text>
+  </g>
+
+  <!-- 3. Bottom Floating Badge: Performance (Track & Improve) -->
+  <g transform="translate(25, 205)" filter="url(#softShadow)">
+    <rect width="175" height="54" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Purple/Blue Icon Bubble -->
+    <rect x="10" y="10" width="34" height="34" rx="10" fill="#eff6ff" />
+    <!-- Bar Chart Icon -->
+    <rect x="17" y="28" width="5" height="12" rx="1.5" fill="#3b82f6" />
+    <rect x="24" y="22" width="5" height="18" rx="1.5" fill="#6366f1" />
+    <rect x="31" y="16" width="5" height="24" rx="1.5" fill="#7c3aed" />
+    <!-- Text -->
+    <text x="54" y="27" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#0f172a">Performance</text>
+    <text x="54" y="41" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#64748b">Track &amp; Improve</text>
+  </g>
+</svg>
+
