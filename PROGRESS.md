@@ -35,6 +35,7 @@ The student dashboard integrates all 9 views from the mockup into a single logic
 ---
 
 ## ✅ Quality & Verification Standards
+- **Cleaned Top Navigation**: Removed `Career Paths`, `Practice`, and `Projects` from the top header navigation across all pages (as they are seamlessly integrated inside the Student Dashboard sidebar), leaving a clean top navbar (`Home`, `Learn`, `Placement`, `Dashboard`, `About`).
 - **Zero Duplicate Elements**: All views share the single topbar and sidebar layout without duplicated headers or conflicting navigation.
 - **Instant Hash Routing**: Clicking any sidebar item or loading `dashboard.html#resume` instantly switches to the corresponding view with active tab highlighting.
 - **Zero Broken Links**: 100% verified cross-page navigation across all 14 pages.
