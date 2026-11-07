@@ -59,7 +59,7 @@ export const HomePage: React.FC = () => {
             <div className="relative w-full max-w-md">
               <div className="w-full aspect-[4/3] bg-gradient-to-tr from-brand-light to-white rounded-3xl p-6 shadow-xl border border-surface-border flex items-center justify-center overflow-hidden">
                 <img
-                  src="/home-hero-student.svg"
+                  src={`${import.meta.env.BASE_URL}home-hero-student.svg`}
                   alt="Student preparing for placement"
                   className="w-full h-full object-contain drop-shadow-md"
                 />

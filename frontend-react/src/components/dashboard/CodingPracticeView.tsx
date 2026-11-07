@@ -161,15 +161,15 @@ export const CodingPracticeView: React.FC = () => {
         <h3 className="font-bold text-sm text-content-primary">Recommended Problem Drills</h3>
         <div className="divide-y divide-gray-100">
           {problems.map((prob) => (
-            <div key={prob.id} className="py-3 flex items-center justify-between">
-              <div className="flex items-center gap-3">
+            <div key={prob.id} className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
                 <span className="text-xs font-bold text-gray-400">0{prob.id}</span>
                 <strong className="text-sm text-content-primary">{prob.title}</strong>
                 <span className="text-[11px] px-2 py-0.5 rounded bg-gray-100 text-content-secondary font-medium">
                   {prob.topic}
                 </span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-between gap-3 sm:justify-start">
                 <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
                   prob.diff === 'Easy' ? 'bg-emerald-50 text-emerald-600' : 'bg-amber-50 text-amber-600'
                 }`}>

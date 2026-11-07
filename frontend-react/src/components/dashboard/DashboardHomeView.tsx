@@ -20,7 +20,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
     <div className="space-y-8">
       
       {/* 4 Top KPI Stat Cards (Screen 1 in Mockup 2) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-4">
         
         <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-purple-50 text-brand-primary flex items-center justify-center font-bold text-xl shrink-0">

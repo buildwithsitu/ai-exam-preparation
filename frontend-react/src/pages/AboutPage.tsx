@@ -22,7 +22,7 @@ export const AboutPage: React.FC = () => {
         <div className="lg:col-span-5 flex justify-center">
           <div className="w-full max-w-sm aspect-[4/3] bg-gradient-to-br from-brand-light to-white rounded-3xl p-6 border border-surface-border shadow-lg flex items-center justify-center">
             <img
-              src="/about-hero-illustration.svg"
+              src={`${import.meta.env.BASE_URL}about-hero-illustration.svg`}
               alt="About ExamMate AI Illustration"
               className="w-full h-full object-contain"
             />

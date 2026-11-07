@@ -17,13 +17,13 @@ export const DashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   return (
-    <div className="flex flex-col md:flex-row min-h-[calc(100vh-4rem)]">
+    <div className="flex min-h-[calc(100vh-4rem)] flex-col lg:flex-row">
       
       {/* Dark Navy Sidebar */}
       <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Main Workspace Content Area */}
-      <main className="flex-1 bg-background-base p-6 lg:p-8 overflow-y-auto">
+      <main className="min-w-0 flex-1 overflow-y-auto bg-background-base p-4 sm:p-6 lg:p-8">
         
         {/* Top Header inside Dashboard */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">

@@ -1,211 +1,117 @@
-# System Architecture & Technical Design — ExamMate AI
+# ExamMate AI Architecture
 
-## 1. High-Level Architecture Overview
+## Product
 
-The **ExamMate AI** platform employs a modern decoupled architecture featuring a high-performance **Vite + React SPA**, a lightweight **Python/Flask REST API**, a relational **PostgreSQL** database, and an **LLM + RAG** intelligence layer.
+ExamMate AI is a student-focused platform for learning software development, practicing coding, building projects, preparing for interviews, and tracking placement progress.
 
-```mermaid
-flowchart TD
-    subgraph ClientLayer["Frontend Layer (React + Vite + TypeScript)"]
-        WebApp["React 18/19 SPA\n(Vite + TypeScript + Tailwind CSS)"]
-        Router["React Router\n(Client-Side Route Management)"]
-        CodingConsole["Practice & Coding Console\n(Monaco / Code Runner)"]
-        DashboardUI["Student Dashboard & Telemetry\n(Interactive Analytics)"]
-    end
+## Current implementation
 
-    subgraph APILayer["Backend Layer (Python + Flask)"]
-        FlaskServer["Flask Application Server\n(REST API / Modular Blueprints)"]
-        AuthBP["Auth Blueprint\n(JWT Authentication & Registration)"]
-        CareerBP["Career & Syllabus Blueprint\n(Roadmaps, Resources, Topics)"]
-        PracticeBP["Practice & Quiz Blueprint\n(Coding Problems, Test Cases)"]
-        TelemetryBP["Telemetry & Progress Blueprint\n(Accuracy, Milestones)"]
-        AIBP["AI & RAG Blueprint\n(Socratic Hints, Mock Interviewer)"]
-    end
+The **only frontend** is a React single-page application in `frontend-react/`. It is built with React 18, TypeScript, Vite, Tailwind CSS, and React Router 6. The current app contains the public pages and student dashboard views listed below.
 
-    subgraph DataLayer["Database Layer (PostgreSQL)"]
-        PostgresDB[("PostgreSQL 16\n(Users, Attempts, Roadmaps, Questions)")]
-        PGVector[("pgvector Extension\n(Syllabus & Problem Embeddings)")]
-    end
-
-    subgraph AILayer["AI Integration Layer (LLM & RAG)"]
-        RAGPipeline["RAG Engine\n(Hybrid Vector Search + Chunk Retrieval)"]
-        LLMProvider["LLM API\n(Gemini API / Claude / OpenAI)"]
-    end
-
-    WebApp --> Router
-    Router --> CodingConsole
-    Router --> DashboardUI
-
-    WebApp --> FlaskServer
-    FlaskServer --> AuthBP
-    FlaskServer --> CareerBP
-    FlaskServer --> PracticeBP
-    FlaskServer --> TelemetryBP
-    FlaskServer --> AIBP
-
-    AuthBP --> PostgresDB
-    CareerBP --> PostgresDB
-    PracticeBP --> PostgresDB
-    TelemetryBP --> PostgresDB
-
-    AIBP --> RAGPipeline
-    RAGPipeline --> PGVector
-    RAGPipeline --> LLMProvider
-```
-
----
-
-## 2. Tech Stack Specification
-
-| Component | Technology | Rationale |
-| :--- | :--- | :--- |
-| **Frontend Framework** | **React + TypeScript + Vite** | Instant HMR, ultra-fast build times, typed safety, modern component-driven development. |
-| **Routing** | **React Router (v6/v7)** | Robust client-side routing across all platform modules (`/`, `/learn`, `/practice`, `/dashboard`, etc.). |
-| **Styling & Design System**| **Tailwind CSS** | Utility-first styling mapping directly to our Royal Purple (`#5B3CE8`) and Dark Navy (`#120E2C`) tokens. |
-| **Backend Framework** | **Python + Flask (REST API)** | Lightweight, highly readable, modular blueprints; direct compatibility with Python data science & AI libraries. |
-| **Database** | **PostgreSQL 16** | ACID-compliant relational storage for user accounts, progress, question banks, and job trackers. |
-| **Vector Extension** | **pgvector** | Seamless vector similarity search integrated directly inside PostgreSQL for RAG pipelines. |
-| **AI Integration** | **LLM API + RAG** | Socratic explanations, code review hints, and realistic HR/technical mock interview evaluations. |
-
----
-
-## 3. RAG Pipeline Architecture
+There is no backend, database, production authentication, or AI integration yet. Login, registration, and dashboard data are frontend/demo experiences until those systems are built.
 
 ```mermaid
-sequenceDiagram
-    autonumber
-    actor Student
-    participant Frontend as React Client (Vite + TS)
-    participant Backend as Flask REST API
-    participant VectorDB as PostgreSQL (pgvector)
-    participant LLM as LLM API (Gemini / Claude)
-
-    Student->>Frontend: Requests hint or explanation for coding problem
-    Frontend->>Backend: POST /api/v1/ai/explain (problem_id, user_code, query)
-    Backend->>VectorDB: Query problem context & optimal patterns
-    VectorDB-->>Backend: Return relevant algorithmic patterns & edge cases
-    Backend->>LLM: Prompt with Problem + Student Attempt + Retrieved Context
-    LLM-->>Backend: Stream Socratic guidance (without leaking direct solution)
-    Backend-->>Frontend: JSON / SSE stream response
-    Frontend-->>Student: Displays formatted Markdown & interactive code feedback
+flowchart LR
+    Browser --> ReactApp["React SPA\nVite + TypeScript"]
+    ReactApp --> Pages["GitHub Pages\nStatic production build"]
+    ReactApp -. "future API integration" .-> Flask["Flask REST API"]
+    Flask -.-> PostgreSQL
+    Flask -. "future mentor features" .-> AI["LLM + retrieval"]
 ```
 
----
+## Frontend routes
 
-## 4. Database Schema Design (Entity-Relationship Overview)
+| Route | Page |
+| --- | --- |
+| `/` | Home |
+| `/about` | About |
+| `/login` | Login |
+| `/register` | Registration |
+| `/dashboard` | Student dashboard |
+| `/career-paths` | Career paths |
+| `/learn` | Learning hub |
+| `/practice` | Coding practice |
+| `/projects` | Projects |
+| `/placement` | Placement preparation |
+| `/assessment` | Assessments |
+| `/performance` | Progress and performance |
+| `/profile` | Profile settings |
+| `/contact` | Contact |
 
-```mermaid
-erDiagram
-    USERS ||--o{ TEST_ATTEMPTS : submits
-    USERS ||--o{ MISTAKE_LOGS : records
-    USERS ||--o{ CHAT_SESSIONS : conducts
-    
-    SYLLABUS_NODES ||--|{ SYLLABUS_NODES : parent_child
-    SYLLABUS_NODES ||--o{ QUESTIONS : contains
-    
-    TESTS ||--|{ TEST_QUESTIONS : includes
-    QUESTIONS ||--|{ TEST_QUESTIONS : maps_to
-    
-    TEST_ATTEMPTS ||--|{ TEST_ANSWERS : includes
-    TEST_QUESTIONS ||--|{ TEST_ANSWERS : answers
-    
-    QUESTIONS ||--o{ MISTAKE_LOGS : references
+The dashboard's responsive layout and views are implemented in `frontend-react/src/pages/DashboardPage.tsx` and `frontend-react/src/components/dashboard/`.
 
-    USERS {
-        uuid id PK
-        string email
-        string hashed_password
-        string role
-        jsonb target_exam_profile
-        timestamp created_at
-    }
+## Technology
 
-    SYLLABUS_NODES {
-        uuid id PK
-        uuid parent_id FK
-        string title
-        string slug
-        int level
-        int sequence_order
-    }
+| Layer | Current or planned technology |
+| --- | --- |
+| Frontend | React 18, TypeScript, Vite, Tailwind CSS, React Router 6 |
+| Backend (planned) | Python, Flask, REST API |
+| Database (planned) | PostgreSQL |
+| AI (planned) | LLM API with retrieval-augmented generation (RAG) |
 
-    QUESTIONS {
-        uuid id PK
-        uuid syllabus_node_id FK
-        string question_type
-        text content
-        jsonb options
-        jsonb correct_answer
-        text explanation
-        string difficulty
-        jsonb citations
-    }
+## Repository layout
 
-    TESTS {
-        uuid id PK
-        string title
-        string test_type
-        int duration_minutes
-        decimal total_marks
-        decimal negative_marking_factor
-        timestamp created_at
-    }
-
-    TEST_ATTEMPTS {
-        uuid id PK
-        uuid user_id FK
-        uuid test_id FK
-        decimal score_obtained
-        int time_spent_seconds
-        string status
-        timestamp started_at
-        timestamp completed_at
-    }
-
-    MISTAKE_LOGS {
-        uuid id PK
-        uuid user_id FK
-        uuid question_id FK
-        string error_type
-        int repetition_interval
-        timestamp next_review_date
-    }
+```text
+.
+├── .github/workflows/main.yml   # GitHub Pages build and deployment
+├── docs/architecture.md         # This document
+└── frontend-react/
+    ├── public/                  # Static images and icons
+    └── src/
+        ├── components/          # Shared UI and dashboard views
+        ├── pages/               # Route-level screens
+        └── types/               # Shared TypeScript types
 ```
 
----
+## Local development
 
-## 5. API Route Specification
+Run these commands from the repository root:
 
-### Authentication & User
-- `POST /api/v1/auth/register`: Create a new user account.
-- `POST /api/v1/auth/login`: Authenticate and issue JWT access/refresh tokens.
-- `GET /api/v1/auth/me`: Fetch authenticated user profile and exam targets.
+```bash
+cd frontend-react
+npm ci
+npm run dev
+```
 
-### Syllabus & Question Bank
-- `GET /api/v1/syllabus/tree`: Retrieve hierarchical syllabus tree.
-- `GET /api/v1/questions?topic_id={id}&difficulty={level}`: Fetch filtered questions.
-- `POST /api/v1/questions/generate`: Trigger AI generation of targeted questions by syllabus subtopic.
+Vite prints the local URL, normally `http://localhost:5173/`. Use Vite rather than a static “Go Live” server because the app uses TypeScript and JSX modules.
 
-### Mock Tests & Examination
-- `GET /api/v1/tests`: List available mock tests.
-- `POST /api/v1/tests/{id}/start`: Initialize a test attempt session, returning initial questions and timer token.
-- `PUT /api/v1/tests/attempts/{attempt_id}/save`: Autosave candidate response for question $k$.
-- `POST /api/v1/tests/attempts/{attempt_id}/submit`: Conclude test, compute marks, negative penalties, and percentile.
+Build and type-check the production app with:
 
-### AI Tutor & RAG
-- `POST /api/v1/ai/tutor/chat`: Stream Socratic explanations and step-by-step guidance.
-- `POST /api/v1/ai/explain-question`: Generate targeted breakdown for a missed question.
+```bash
+npm run build
+```
 
-### Analytics & Spaced Repetition
-- `GET /api/v1/analytics/dashboard`: Aggregate student mastery by subject and topic.
-- `GET /api/v1/analytics/mistakes`: Retrieve questions due for revision under the SM-2 spaced repetition schedule.
+## GitHub Pages deployment
 
----
+The workflow in `.github/workflows/main.yml` runs on pushes to `main` and manual dispatch:
 
-## 6. Security, Resilience & Scalability Measures
-1. **Deterministic Test State**: All test progress autosaves every 15 seconds to Redis; crashes or page reloads seamlessly recover the exact state without loss of time.
-2. **LLM Cost & Rate Guardrails**:
-   - Token usage budgeting per user tier.
-   - Semantic response caching in Redis for identical conceptual queries.
-3. **Containerized Microservices**: All tiers built as stateless Docker containers orchestrated via Docker Compose for local development and Kubernetes/Cloud Run for production.
+1. Installs the frontend dependencies with `npm ci`.
+2. Reads the Pages base path from `actions/configure-pages` and passes it to Vite.
+3. Builds the React app and copies `dist/index.html` to `dist/404.html` for client-side route fallback.
+4. Publishes `frontend-react/dist`.
+
+`BrowserRouter` and public asset URLs use Vite's `BASE_URL`, so both a repository subpath and a custom Pages domain are supported.
+
+## Planned service architecture
+
+When backend work begins, the browser app will call a Flask REST API. The API will own authentication, authorization, validation, and persistence; secrets must remain server-side.
+
+Planned service areas:
+
+- **Accounts and profiles:** registration, login, student profile, and career goals.
+- **Learning and career paths:** roadmaps, resources, and student progress.
+- **Practice and assessments:** questions, attempts, timed tests, and results.
+- **Analytics:** accuracy, milestones, and areas to review.
+- **AI mentor:** contextual hints, recommendations, and evaluation using approved learning content.
+
+PostgreSQL is the planned relational database. A vector-search extension may be added if the AI mentor requires retrieval over course materials. Neither the database nor API is implemented yet.
+
+## Development roadmap
+
+1. **Product foundation:** architecture, design system, React frontend, and core experience.
+2. **Functional platform:** authentication, student profiles, learning paths, practice, projects, and progress.
+3. **Backend and database:** Flask APIs, PostgreSQL, authorization, and data management.
+4. **AI integration:** ExamMate AI Mentor, personalized recommendations, and AI-based evaluation.
+5. **Business features:** subscriptions, payments, usage limits, and admin tools.
+6. **Launch:** beta testing, feedback, performance improvements, and public launch.
 
