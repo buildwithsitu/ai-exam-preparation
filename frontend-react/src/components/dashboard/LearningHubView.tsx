@@ -39,8 +39,8 @@ export const LearningHubView: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-black text-[#120E2C]">Learning Hub</h2>
-        <p className="text-sm text-gray-500 mt-1">Structured courses to build industry-ready skills.</p>
+        <h2 className="text-2xl font-black text-content-primary">Learning Hub</h2>
+        <p className="text-sm text-content-secondary mt-1">Structured courses to build industry-ready skills.</p>
       </div>
 
       {/* Filter Tabs */}
@@ -51,8 +51,8 @@ export const LearningHubView: React.FC = () => {
             onClick={() => setActiveFilter(cat)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
               activeFilter === cat
-                ? 'bg-[#5B3CE8] text-white shadow-sm'
-                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-brand-primary text-white shadow-sm'
+                : 'bg-surface-card text-content-secondary hover:bg-gray-100 border border-surface-border'
             }`}
           >
             {cat}
@@ -63,19 +63,19 @@ export const LearningHubView: React.FC = () => {
       {/* Course List */}
       <div className="space-y-4">
         {filteredCourses.map(course => (
-          <div key={course.id} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div key={course.id} className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4 flex-1">
               <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-2xl shrink-0">
                 {course.icon}
               </div>
               <div className="flex-1">
-                <h3 className="font-bold text-sm text-[#120E2C]">{course.title}</h3>
-                <p className="text-xs text-gray-500 mb-2">{course.desc}</p>
+                <h3 className="font-bold text-sm text-content-primary">{course.title}</h3>
+                <p className="text-xs text-content-secondary mb-2">{course.desc}</p>
                 <div className="flex items-center gap-3 max-w-md">
                   <div className="flex-1 bg-gray-100 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-[#5B3CE8] h-full rounded-full" style={{ width: `${course.progress}%` }} />
+                    <div className="bg-brand-primary h-full rounded-full" style={{ width: `${course.progress}%` }} />
                   </div>
-                  <span className="text-[11px] font-bold text-gray-500">{course.progress}%</span>
+                  <span className="text-[11px] font-bold text-content-secondary">{course.progress}%</span>
                 </div>
               </div>
             </div>

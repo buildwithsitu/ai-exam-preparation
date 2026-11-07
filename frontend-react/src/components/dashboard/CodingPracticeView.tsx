@@ -70,8 +70,8 @@ export const CodingPracticeView: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-black text-[#120E2C]">Coding Practice</h2>
-        <p className="text-sm text-gray-500 mt-1">Solve problems, improve logic, and get interview-ready.</p>
+        <h2 className="text-2xl font-black text-content-primary">Coding Practice</h2>
+        <p className="text-sm text-content-secondary mt-1">Solve problems, improve logic, and get interview-ready.</p>
       </div>
 
       {/* Stream Selector */}
@@ -82,8 +82,8 @@ export const CodingPracticeView: React.FC = () => {
             onClick={() => setActiveStream(st)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeStream === st
-                ? 'bg-[#5B3CE8] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-brand-primary text-white shadow-sm'
+                : 'bg-surface-card text-content-primary hover:bg-gray-100 border border-surface-border'
             }`}
           >
             {st}
@@ -93,50 +93,50 @@ export const CodingPracticeView: React.FC = () => {
 
       {/* 4 Stat Metrics (Mockup 2 Screen 4) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#5B3CE8] flex items-center justify-center font-bold text-sm">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-brand-primary flex items-center justify-center font-bold text-sm">
             &lt;/&gt;
           </div>
           <div>
-            <p className="text-xl font-black text-[#120E2C]">420</p>
-            <p className="text-xs text-gray-500">Problems</p>
+            <p className="text-xl font-black text-content-primary">420</p>
+            <p className="text-xs text-content-secondary">Problems</p>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm">
             ✓
           </div>
           <div>
-            <p className="text-xl font-black text-[#120E2C]">180</p>
-            <p className="text-xs text-gray-500">Solved</p>
+            <p className="text-xl font-black text-content-primary">180</p>
+            <p className="text-xs text-content-secondary">Solved</p>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm">
             📈
           </div>
           <div>
-            <p className="text-xl font-black text-[#120E2C]">58%</p>
-            <p className="text-xs text-gray-500">Accuracy</p>
+            <p className="text-xl font-black text-content-primary">58%</p>
+            <p className="text-xs text-content-secondary">Accuracy</p>
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-3">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm">
             🔥
           </div>
           <div>
-            <p className="text-xl font-black text-[#120E2C]">12</p>
-            <p className="text-xs text-gray-500">Day Streak</p>
+            <p className="text-xl font-black text-content-primary">12</p>
+            <p className="text-xs text-content-secondary">Day Streak</p>
           </div>
         </div>
       </div>
 
       {/* Practice by Topic (5 Horizontal Cards) */}
       <div>
-        <h3 className="font-bold text-sm text-gray-800 uppercase tracking-wider mb-3">Practice by Topic</h3>
+        <h3 className="font-bold text-sm text-content-primary uppercase tracking-wider mb-3">Practice by Topic</h3>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           {topics.map(t => (
             <div
@@ -144,28 +144,28 @@ export const CodingPracticeView: React.FC = () => {
               onClick={() => setActiveTopic(t.name)}
               className={`p-3.5 rounded-2xl border cursor-pointer transition-all flex flex-col items-center text-center ${
                 activeTopic === t.name
-                  ? 'border-[#5B3CE8] bg-[#EDE9FE]/40 text-[#5B3CE8] shadow-sm'
-                  : 'bg-white border-gray-100 hover:bg-gray-50 text-gray-800'
+                  ? 'border-brand-primary bg-brand-light/40 text-brand-primary shadow-sm'
+                  : 'bg-surface-card border-surface-border hover:bg-surface-subtle text-content-primary'
               }`}
             >
               <span className="text-xl mb-1">{t.icon}</span>
               <p className="font-bold text-xs">{t.name}</p>
-              <p className="text-[11px] text-gray-500">{t.count}</p>
+              <p className="text-[11px] text-content-secondary">{t.count}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Problem Rows */}
-      <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
-        <h3 className="font-bold text-sm text-[#120E2C]">Recommended Problem Drills</h3>
+      <div className="bg-surface-card p-6 rounded-2xl border border-surface-border shadow-sm space-y-4">
+        <h3 className="font-bold text-sm text-content-primary">Recommended Problem Drills</h3>
         <div className="divide-y divide-gray-100">
           {problems.map((prob) => (
             <div key={prob.id} className="py-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-gray-400">0{prob.id}</span>
-                <strong className="text-sm text-[#120E2C]">{prob.title}</strong>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-gray-100 text-gray-600 font-medium">
+                <strong className="text-sm text-content-primary">{prob.title}</strong>
+                <span className="text-[11px] px-2 py-0.5 rounded bg-gray-100 text-content-secondary font-medium">
                   {prob.topic}
                 </span>
               </div>
@@ -190,27 +190,27 @@ export const CodingPracticeView: React.FC = () => {
       {/* Live Solver Modal */}
       {activeModalProblem && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full space-y-4 shadow-2xl">
+          <div className="bg-surface-card rounded-3xl p-6 sm:p-8 max-w-2xl w-full space-y-4 shadow-2xl">
             <div className="flex justify-between items-start">
               <div>
                 <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
                   {activeModalProblem.diff} &bull; Optimal O(N)
                 </span>
-                <h3 className="text-xl font-black text-[#120E2C] mt-1.5">{activeModalProblem.title}</h3>
+                <h3 className="text-xl font-black text-content-primary mt-1.5">{activeModalProblem.title}</h3>
               </div>
               <button 
                 onClick={() => setActiveModalProblem(null)}
-                className="text-gray-400 hover:text-gray-600 text-lg font-bold"
+                className="text-gray-400 hover:text-content-secondary text-lg font-bold"
               >
                 &times;
               </button>
             </div>
 
-            <p className="text-xs text-gray-600 leading-relaxed">
+            <p className="text-xs text-content-secondary leading-relaxed">
               {activeModalProblem.desc}
             </p>
 
-            <div className="bg-[#120E2C] text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto">
+            <div className="bg-brand-ink text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto">
               <pre><code>{activeModalProblem.solution}</code></pre>
             </div>
 

@@ -60,27 +60,27 @@ export const CodingPracticePage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
       
       <div>
-        <h1 className="text-3xl sm:text-4xl font-black text-[#120E2C]">Coding Practice</h1>
-        <p className="text-gray-500 text-sm mt-1">Improve your problem-solving skills with real interview questions.</p>
+        <h1 className="text-3xl sm:text-4xl font-black text-content-primary">Coding Practice</h1>
+        <p className="text-content-secondary text-sm mt-1">Improve your problem-solving skills with real interview questions.</p>
       </div>
 
       {/* 4 Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm">
           <p className="text-xs font-bold text-emerald-600">Easy</p>
-          <p className="text-xl font-black text-[#120E2C]">420 Problems</p>
+          <p className="text-xl font-black text-content-primary">420 Problems</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm">
           <p className="text-xs font-bold text-amber-600">Medium</p>
-          <p className="text-xl font-black text-[#120E2C]">680 Problems</p>
+          <p className="text-xl font-black text-content-primary">680 Problems</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm">
           <p className="text-xs font-bold text-red-600">Hard</p>
-          <p className="text-xl font-black text-[#120E2C]">280 Problems</p>
+          <p className="text-xl font-black text-content-primary">280 Problems</p>
         </div>
-        <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
-          <p className="text-xs font-bold text-[#5B3CE8]">All Questions</p>
-          <p className="text-xl font-black text-[#120E2C]">1,380 Problems</p>
+        <div className="bg-surface-card p-4 rounded-2xl border border-surface-border shadow-sm">
+          <p className="text-xs font-bold text-brand-primary">All Questions</p>
+          <p className="text-xl font-black text-content-primary">1,380 Problems</p>
         </div>
       </div>
 
@@ -88,22 +88,22 @@ export const CodingPracticePage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Left List */}
-        <div className="lg:col-span-5 bg-white rounded-3xl border border-gray-100 shadow-sm p-6 space-y-3">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Recommended Problems</h2>
+        <div className="lg:col-span-5 bg-surface-card rounded-3xl border border-surface-border shadow-sm p-6 space-y-3">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-content-secondary mb-4">Recommended Problems</h2>
           <div className="divide-y divide-gray-100">
             {problems.map((prob) => (
               <div 
                 key={prob.id}
                 onClick={() => setSelectedProblem(prob.id)}
                 className={`py-3.5 px-3 rounded-xl cursor-pointer transition-colors flex items-center justify-between ${
-                  selectedProblem === prob.id ? 'bg-[#EDE9FE]' : 'hover:bg-gray-50'
+                  selectedProblem === prob.id ? 'bg-brand-light' : 'hover:bg-surface-subtle'
                 }`}
               >
                 <div>
-                  <h3 className="font-bold text-sm text-[#120E2C]">{prob.title}</h3>
+                  <h3 className="font-bold text-sm text-content-primary">{prob.title}</h3>
                   <div className="flex gap-1.5 mt-1">
                     {prob.tags.map(t => (
-                      <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-white/80 text-gray-600">
+                      <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded bg-surface-card/80 text-content-secondary">
                         {t}
                       </span>
                     ))}
@@ -120,13 +120,13 @@ export const CodingPracticePage: React.FC = () => {
         </div>
 
         {/* Right Active Problem Preview */}
-        <div className="lg:col-span-7 bg-white rounded-3xl border border-gray-100 shadow-sm p-6 sm:p-8 space-y-6">
+        <div className="lg:col-span-7 bg-surface-card rounded-3xl border border-surface-border shadow-sm p-6 sm:p-8 space-y-6">
           <div className="flex items-center justify-between">
             <div>
               <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">
                 {activeProblemObj.diff} &bull; Optimal O(N)
               </span>
-              <h2 className="text-2xl font-black text-[#120E2C] mt-2">{activeProblemObj.title}</h2>
+              <h2 className="text-2xl font-black text-content-primary mt-2">{activeProblemObj.title}</h2>
             </div>
             <button 
               onClick={() => alert('Test Cases Passed! 100% Correct.')}
@@ -136,11 +136,11 @@ export const CodingPracticePage: React.FC = () => {
             </button>
           </div>
 
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm text-content-secondary leading-relaxed">
             {activeProblemObj.desc}
           </p>
 
-          <div className="bg-[#120E2C] text-gray-100 rounded-2xl p-5 font-mono text-xs overflow-x-auto shadow-inner">
+          <div className="bg-brand-ink text-gray-100 rounded-2xl p-5 font-mono text-xs overflow-x-auto shadow-inner">
             <p className="text-gray-400 mb-2 font-sans font-semibold text-[11px]"># Python Optimal Hash Map Solution</p>
             <pre><code>{activeProblemObj.solution}</code></pre>
           </div>

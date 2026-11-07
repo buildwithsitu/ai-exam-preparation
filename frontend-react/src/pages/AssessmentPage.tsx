@@ -5,23 +5,23 @@ export const AssessmentPage: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-      <div className="flex items-center justify-between border-b border-gray-200 pb-4">
+      <div className="flex items-center justify-between border-b border-surface-border pb-4">
         <div>
-          <h1 className="text-2xl font-black text-[#120E2C]">DSA Technical Assessment</h1>
-          <p className="text-xs text-gray-500">Test Console &bull; Section A: Data Structures</p>
+          <h1 className="text-2xl font-black text-content-primary">DSA Technical Assessment</h1>
+          <p className="text-xs text-content-secondary">Test Console &bull; Section A: Data Structures</p>
         </div>
-        <div className="px-3.5 py-1.5 bg-[#EDE9FE] text-[#5B3CE8] font-mono text-sm font-bold rounded-full">
+        <div className="px-3.5 py-1.5 bg-brand-light text-brand-primary font-mono text-sm font-bold rounded-full">
           ⏱ 01h : 44m : 30s
         </div>
       </div>
 
-      <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-6">
+      <div className="bg-surface-card p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
         <div className="flex items-center justify-between text-xs font-bold text-gray-400">
           <span>Question 1 of 20</span>
           <span>Marking: +4 / -1</span>
         </div>
 
-        <p className="text-base text-gray-800 font-medium leading-relaxed">
+        <p className="text-base text-content-primary font-medium leading-relaxed">
           Consider a <strong>Max-Heap</strong> containing <em>n</em> distinct elements. What is the worst-case time complexity required to locate the maximum element and minimum element, respectively?
         </p>
 
@@ -35,10 +35,10 @@ export const AssessmentPage: React.FC = () => {
             <label
               key={opt.id}
               onClick={() => setSelectedOption(opt.id)}
-              className={`block p-4 rounded-xl border text-sm font-medium cursor-pointer transition-all ${
+              className={`block p-4 rounded-xl border text-sm font-medium cursor-pointer transition-all focus-within:ring-2 focus-within:ring-brand-primary ${
                 selectedOption === opt.id
-                  ? 'border-[#5B3CE8] bg-[#EDE9FE]/50 text-[#5B3CE8]'
-                  : 'border-gray-200 hover:bg-gray-50 text-gray-700'
+                  ? 'border-brand-primary bg-brand-light/50 text-brand-primary'
+                  : 'border-surface-border hover:bg-surface-subtle text-content-primary'
               }`}
             >
               <input
@@ -46,15 +46,15 @@ export const AssessmentPage: React.FC = () => {
                 name="option"
                 checked={selectedOption === opt.id}
                 onChange={() => setSelectedOption(opt.id)}
-                className="hidden"
+                className="sr-only"
               />
               <span>{opt.label}</span>
             </label>
           ))}
         </div>
 
-        <div className="flex justify-between items-center pt-6 border-t border-gray-100">
-          <button className="text-xs font-bold text-gray-500 hover:text-gray-800">Clear Response</button>
+        <div className="flex justify-between items-center pt-6 border-t border-surface-border">
+          <button className="text-xs font-bold text-content-secondary hover:text-content-primary">Clear Response</button>
           <button 
             onClick={() => alert('Answer recorded successfully!')}
             className="btn-pill-purple text-xs px-6 py-2.5"

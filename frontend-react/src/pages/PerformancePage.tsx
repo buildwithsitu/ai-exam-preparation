@@ -6,8 +6,8 @@ export const PerformancePage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
       <div>
-        <h1 className="text-3xl sm:text-4xl font-black text-[#120E2C]">Performance &amp; Progress Insights</h1>
-        <p className="text-gray-500 text-sm mt-1">Review your accuracy trends, identify weak topics, and track improvement over time.</p>
+        <h1 className="text-3xl sm:text-4xl font-black text-content-primary">Performance &amp; Progress Insights</h1>
+        <p className="text-content-secondary text-sm mt-1">Review your accuracy trends, identify weak topics, and track improvement over time.</p>
       </div>
 
       {/* Weak Area Priority Alert */}
@@ -20,8 +20,8 @@ export const PerformancePage: React.FC = () => {
             <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
               Priority Study Alert &bull; Answers: What should I do next?
             </span>
-            <h2 className="text-lg font-bold text-[#120E2C] mt-0.5">Focus Needed: Graph Traversal (BFS &amp; DFS)</h2>
-            <p className="text-xs text-gray-600 mt-1 max-w-xl">
+            <h2 className="text-lg font-bold text-content-primary mt-0.5">Focus Needed: Graph Traversal (BFS &amp; DFS)</h2>
+            <p className="text-xs text-content-secondary mt-1 max-w-xl">
               Your practice accuracy on Graph Traversal is currently <strong>42%</strong> (target: 75%). Improving this single topic will raise your overall mastery by ~6%.
             </p>
           </div>
@@ -34,25 +34,25 @@ export const PerformancePage: React.FC = () => {
 
       {/* KPI Metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-          <Target className="w-5 h-5 text-[#5B3CE8] mb-2" />
-          <p className="text-2xl font-black text-[#120E2C]">76.4%</p>
-          <p className="text-xs text-gray-500">Overall Accuracy (↗ 4.2%)</p>
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm">
+          <Target className="w-5 h-5 text-brand-primary mb-2" />
+          <p className="text-2xl font-black text-content-primary">76.4%</p>
+          <p className="text-xs text-content-secondary">Overall Accuracy (↗ 4.2%)</p>
         </div>
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm">
           <TrendingUp className="w-5 h-5 text-emerald-600 mb-2" />
-          <p className="text-2xl font-black text-[#120E2C]">124</p>
-          <p className="text-xs text-gray-500">Problems Solved</p>
+          <p className="text-2xl font-black text-content-primary">124</p>
+          <p className="text-xs text-content-secondary">Problems Solved</p>
         </div>
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm">
           <Award className="w-5 h-5 text-amber-600 mb-2" />
-          <p className="text-2xl font-black text-[#120E2C]">15 Days</p>
-          <p className="text-xs text-gray-500">Continuous Practice</p>
+          <p className="text-2xl font-black text-content-primary">15 Days</p>
+          <p className="text-xs text-content-secondary">Continuous Practice</p>
         </div>
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm">
           <Target className="w-5 h-5 text-blue-600 mb-2" />
-          <p className="text-2xl font-black text-[#120E2C]">5 Mocks</p>
-          <p className="text-xs text-gray-500">Technical Tests Completed</p>
+          <p className="text-2xl font-black text-content-primary">5 Mocks</p>
+          <p className="text-xs text-content-secondary">Technical Tests Completed</p>
         </div>
       </div>
     </div>

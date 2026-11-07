@@ -4,6 +4,7 @@
 - **Theme:** ExamMate AI Royal Purple / Indigo Palette (`--color-brand-primary: #5B3CE8`, `--color-brand-dark: #120E2C`, Tailwind custom tokens)
 - **Architecture Stack:** React 18, TypeScript, Vite, Tailwind CSS, React Router v6, Lucide Icons
 - **Status:** Complete, Audited & Built (`npm run build` passing in 3.5s with zero errors)
+- **Stage 1 UI Polish (2026-11-07):** Added mobile navigation, semantic color tokens, a not-found route, and accessible form labels/navigation states. Build and browser smoke checks passed.
 - **Static Prototype:** Safely archived and preserved in `frontend-static/`
 - **Architecture Reference:** [docs/architecture.md](file:///home/birendra/Documents/ai-exam-preparation/docs/architecture.md)
 - **Technical Decisions Log:** [docs/technical-decisions.md](file:///home/birendra/Documents/ai-exam-preparation/docs/technical-decisions.md)

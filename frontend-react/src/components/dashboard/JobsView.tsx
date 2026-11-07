@@ -42,8 +42,8 @@ export const JobsView: React.FC = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-black text-[#120E2C]">Job Opportunities</h2>
-        <p className="text-sm text-gray-500 mt-1">Explore job and internship opportunities for freshers.</p>
+        <h2 className="text-2xl font-black text-content-primary">Job Opportunities</h2>
+        <p className="text-sm text-content-secondary mt-1">Explore job and internship opportunities for freshers.</p>
       </div>
 
       {/* Filter Tabs */}
@@ -54,8 +54,8 @@ export const JobsView: React.FC = () => {
             onClick={() => setActiveFilter(filter)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeFilter === filter
-                ? 'bg-[#5B3CE8] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-brand-primary text-white shadow-sm'
+                : 'bg-surface-card text-content-primary hover:bg-gray-100 border border-surface-border'
             }`}
           >
             {filter}
@@ -66,18 +66,18 @@ export const JobsView: React.FC = () => {
       {/* Jobs List (Screen 8 in Mockup 2) */}
       <div className="space-y-4">
         {filteredJobs.map(job => (
-          <div key={job.id} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div key={job.id} className="bg-surface-card p-6 rounded-2xl border border-surface-border shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-[#5B3CE8] font-bold text-sm flex items-center justify-center shrink-0 uppercase tracking-wider">
+              <div className="w-12 h-12 rounded-xl bg-purple-50 text-brand-primary font-bold text-sm flex items-center justify-center shrink-0 uppercase tracking-wider">
                 {job.icon}
               </div>
               <div>
-                <h3 className="font-bold text-base text-[#120E2C]">{job.title}</h3>
-                <p className="text-xs text-gray-500 mb-2.5">{job.company}</p>
+                <h3 className="font-bold text-base text-content-primary">{job.title}</h3>
+                <p className="text-xs text-content-secondary mb-2.5">{job.company}</p>
                 <div className="flex flex-wrap gap-2">
                   {job.tags.map(t => (
-                    <span key={t} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-600">
+                    <span key={t} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-content-secondary">
                       {t}
                     </span>
                   ))}

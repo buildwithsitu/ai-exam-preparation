@@ -37,8 +37,8 @@ export const ProjectsView: React.FC = () => {
       {/* Header & New Project CTA */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-black text-[#120E2C]">My Projects</h2>
-          <p className="text-sm text-gray-500 mt-1">Build real-world projects to showcase your skills.</p>
+          <h2 className="text-2xl font-black text-content-primary">My Projects</h2>
+          <p className="text-sm text-content-secondary mt-1">Build real-world projects to showcase your skills.</p>
         </div>
         <button 
           onClick={() => alert('New project blueprint template opened!')}
@@ -57,8 +57,8 @@ export const ProjectsView: React.FC = () => {
             onClick={() => setActiveFilter(cat)}
             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
               activeFilter === cat
-                ? 'bg-[#5B3CE8] text-white shadow-sm'
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                ? 'bg-brand-primary text-white shadow-sm'
+                : 'bg-surface-card text-content-primary hover:bg-gray-100 border border-surface-border'
             }`}
           >
             {cat}
@@ -69,14 +69,14 @@ export const ProjectsView: React.FC = () => {
       {/* Projects Grid */}
       <div className="space-y-4">
         {filtered.map(proj => (
-          <div key={proj.id} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div key={proj.id} className="bg-surface-card p-6 rounded-2xl border border-surface-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-3xl shrink-0">
                 {proj.icon}
               </div>
               <div className="space-y-1.5">
                 <div className="flex items-center gap-3">
-                  <h3 className="font-bold text-base text-[#120E2C]">{proj.title}</h3>
+                  <h3 className="font-bold text-base text-content-primary">{proj.title}</h3>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                     proj.status === 'Completed' 
                       ? 'bg-emerald-50 text-emerald-700' 
@@ -85,10 +85,10 @@ export const ProjectsView: React.FC = () => {
                     {proj.status}
                   </span>
                 </div>
-                <p className="text-xs text-gray-600">{proj.desc}</p>
+                <p className="text-xs text-content-secondary">{proj.desc}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {proj.tags.map(t => (
-                    <span key={t} className="text-[10px] font-semibold px-2 py-0.5 bg-gray-100 text-gray-700 rounded">
+                    <span key={t} className="text-[10px] font-semibold px-2 py-0.5 bg-gray-100 text-content-primary rounded">
                       {t}
                     </span>
                   ))}
@@ -99,13 +99,13 @@ export const ProjectsView: React.FC = () => {
             <div className="flex items-center gap-3 shrink-0 self-end md:self-center">
               <button 
                 onClick={() => alert(`Opening ${proj.title} architecture specs...`)}
-                className="text-xs font-bold text-[#5B3CE8] hover:underline"
+                className="text-xs font-bold text-brand-primary hover:underline"
               >
                 View
               </button>
               <button 
                 onClick={() => alert(`Opening live repository link...`)}
-                className="p-2 rounded-lg bg-gray-50 text-gray-500 hover:text-gray-800"
+                className="p-2 rounded-lg bg-surface-subtle text-content-secondary hover:text-content-primary"
               >
                 <ExternalLink className="w-4 h-4" />
               </button>

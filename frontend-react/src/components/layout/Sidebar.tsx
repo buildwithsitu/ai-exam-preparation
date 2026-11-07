@@ -32,7 +32,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <aside className="w-64 bg-[#120E2C] text-white min-h-[calc(100vh-4rem)] flex flex-col p-4 shrink-0">
+    <aside className="w-64 bg-brand-ink text-white min-h-[calc(100vh-4rem)] flex flex-col p-4 shrink-0">
       
       {/* Brand in Sidebar */}
       <div className="flex items-center gap-2.5 px-3 py-3 mb-6">
@@ -48,11 +48,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
           return (
             <button
               key={item.id}
+              type="button"
               onClick={() => onTabChange(item.id)}
+              aria-pressed={isActive}
               className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 isActive
-                  ? 'bg-[#5B3CE8] text-white shadow-md'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                  ? 'bg-brand-primary text-white shadow-md'
+                  : 'text-gray-300 hover:bg-surface-card/10 hover:text-white'
               }`}
             >
               <Icon className="w-4 h-4 shrink-0" />
@@ -64,7 +66,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
 
       {/* Bottom Profile Pill */}
       <div className="mt-auto pt-4 border-t border-white/10 flex items-center gap-3 px-2">
-        <div className="w-9 h-9 rounded-full bg-[#5B3CE8] text-white flex items-center justify-center font-bold text-sm shrink-0">
+        <div className="w-9 h-9 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
           S
         </div>
         <div className="overflow-hidden">

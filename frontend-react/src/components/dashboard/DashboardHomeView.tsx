@@ -22,43 +22,43 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
       {/* 4 Top KPI Stat Cards (Screen 1 in Mockup 2) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-50 text-[#5B3CE8] flex items-center justify-center font-bold text-xl shrink-0">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
+          <div className="w-12 h-12 rounded-xl bg-purple-50 text-brand-primary flex items-center justify-center font-bold text-xl shrink-0">
             📊
           </div>
           <div>
-            <p className="text-2xl font-black text-[#120E2C]">56%</p>
-            <p className="text-xs text-gray-500 font-medium">Overall Progress</p>
+            <p className="text-2xl font-black text-content-primary">56%</p>
+            <p className="text-xs text-content-secondary font-medium">Overall Progress</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg shrink-0">
             &lt;/&gt;
           </div>
           <div>
-            <p className="text-2xl font-black text-[#120E2C]">24</p>
-            <p className="text-xs text-gray-500 font-medium">Practice Done</p>
+            <p className="text-2xl font-black text-content-primary">24</p>
+            <p className="text-xs text-content-secondary font-medium">Practice Done</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl shrink-0">
             🛠️
           </div>
           <div>
-            <p className="text-2xl font-black text-[#120E2C]">3</p>
-            <p className="text-xs text-gray-500 font-medium">Projects Built</p>
+            <p className="text-2xl font-black text-content-primary">3</p>
+            <p className="text-xs text-content-secondary font-medium">Projects Built</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center gap-4">
+        <div className="bg-surface-card p-5 rounded-2xl border border-surface-border shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl shrink-0">
             🔥
           </div>
           <div>
-            <p className="text-2xl font-black text-[#120E2C]">15</p>
-            <p className="text-xs text-gray-500 font-medium">Days Streak</p>
+            <p className="text-2xl font-black text-content-primary">15</p>
+            <p className="text-xs text-content-secondary font-medium">Days Streak</p>
           </div>
         </div>
 
@@ -68,10 +68,10 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Left: Your Learning Progress */}
-        <div className="lg:col-span-7 bg-white p-6 sm:p-7 rounded-2xl border border-gray-100 shadow-sm space-y-6">
+        <div className="lg:col-span-7 bg-surface-card p-6 sm:p-7 rounded-2xl border border-surface-border shadow-sm space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-bold text-base text-[#120E2C]">Your Learning Progress</h2>
-            <button onClick={() => onNavigate('learn')} className="text-xs font-bold text-[#5B3CE8] hover:underline">
+            <h2 className="font-bold text-base text-content-primary">Your Learning Progress</h2>
+            <button onClick={() => onNavigate('learn')} className="text-xs font-bold text-brand-primary hover:underline">
               View All Courses &rarr;
             </button>
           </div>
@@ -79,31 +79,31 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
           <div className="space-y-4">
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
-                <span className="text-gray-700">Web Development</span>
-                <span className="text-[#5B3CE8]">72%</span>
+                <span className="text-content-primary">Web Development</span>
+                <span className="text-brand-primary">72%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-[#5B3CE8] h-full rounded-full transition-all duration-500" style={{ width: '72%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '72%' }} />
               </div>
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
-                <span className="text-gray-700">DSA</span>
-                <span className="text-[#5B3CE8]">40%</span>
+                <span className="text-content-primary">DSA</span>
+                <span className="text-brand-primary">40%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-[#5B3CE8] h-full rounded-full transition-all duration-500" style={{ width: '40%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '40%' }} />
               </div>
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
-                <span className="text-gray-700">JavaScript</span>
-                <span className="text-[#5B3CE8]">60%</span>
+                <span className="text-content-primary">JavaScript</span>
+                <span className="text-brand-primary">60%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-[#5B3CE8] h-full rounded-full transition-all duration-500" style={{ width: '60%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '60%' }} />
               </div>
             </div>
           </div>
@@ -116,22 +116,22 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
         </div>
 
         {/* Right: Next Task */}
-        <div className="lg:col-span-5 bg-white p-6 sm:p-7 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between">
+        <div className="lg:col-span-5 bg-surface-card p-6 sm:p-7 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between">
           <div>
-            <h2 className="font-bold text-base text-[#120E2C] mb-4">Next Task</h2>
+            <h2 className="font-bold text-base text-content-primary mb-4">Next Task</h2>
             <div className="space-y-3">
               {tasks.map(task => (
                 <label 
                   key={task.id} 
-                  className="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:bg-gray-50/80 cursor-pointer transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-surface-border hover:bg-surface-subtle/80 cursor-pointer transition-colors"
                 >
                   <input
                     type="checkbox"
                     checked={task.done}
                     onChange={() => toggleTask(task.id)}
-                    className="w-4 h-4 rounded text-[#5B3CE8] focus:ring-[#5B3CE8]"
+                    className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary"
                   />
-                  <span className={`text-sm ${task.done ? 'line-through text-gray-400' : 'text-gray-700 font-medium'}`}>
+                  <span className={`text-sm ${task.done ? 'line-through text-gray-400' : 'text-content-primary font-medium'}`}>
                     {task.text}
                   </span>
                 </label>
@@ -139,7 +139,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             </div>
           </div>
 
-          <div className="pt-4 border-t border-gray-100 mt-4 text-xs text-gray-400">
+          <div className="pt-4 border-t border-surface-border mt-4 text-xs text-gray-400">
             Complete daily tasks to maintain your streak.
           </div>
         </div>

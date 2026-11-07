@@ -7,16 +7,24 @@ export default {
     extend: {
       colors: {
         brand: {
-          primary: '#5B3CE8',
-          hover: '#4A2ED6',
-          dark: '#120E2C',
-          light: '#EDE9FE',
-          subtle: '#F3F0FF',
+          primary: 'rgb(var(--color-brand-primary-rgb) / <alpha-value>)',
+          hover: 'var(--color-brand-hover)',
+          dark: 'var(--color-brand-ink)',
+          ink: 'var(--color-brand-ink)',
+          light: 'rgb(var(--color-brand-light-rgb) / <alpha-value>)',
+          subtle: 'var(--color-brand-subtle)',
+        },
+        content: {
+          primary: 'var(--color-content-primary)',
+          secondary: 'var(--color-content-secondary)',
+        },
+        background: {
+          base: 'var(--color-bg-base)',
         },
         surface: {
-          card: '#FFFFFF',
-          subtle: '#F8F9FA',
-          border: '#E2E8F0',
+          card: 'var(--color-surface-card)',
+          subtle: 'var(--color-surface-subtle)',
+          border: 'var(--color-surface-border)',
         }
       },
       borderRadius: {

@@ -5,8 +5,8 @@ export const CareerPathsPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
       <div className="text-center max-w-2xl mx-auto space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-black text-[#120E2C]">Choose Your Career Path</h1>
-        <p className="text-gray-500 text-base">Select a role, follow a structured roadmap, and get job-ready.</p>
+        <h1 className="text-3xl sm:text-4xl font-black text-content-primary">Choose Your Career Path</h1>
+        <p className="text-content-secondary text-base">Select a role, follow a structured roadmap, and get job-ready.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -33,16 +33,16 @@ export const CareerPathsPage: React.FC = () => {
             active: false,
           },
         ].map((role) => (
-          <div key={role.id} id={role.id} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div key={role.id} id={role.id} className="bg-surface-card p-8 rounded-3xl border border-surface-border shadow-sm flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-purple-50 text-[#5B3CE8] flex items-center justify-center font-bold text-xl">
+              <div className="w-12 h-12 rounded-2xl bg-purple-50 text-brand-primary flex items-center justify-center font-bold text-xl">
                 &lt;/&gt;
               </div>
-              <h2 className="text-2xl font-bold text-[#120E2C]">{role.title}</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">{role.desc}</p>
+              <h2 className="text-2xl font-bold text-content-primary">{role.title}</h2>
+              <p className="text-sm text-content-secondary leading-relaxed">{role.desc}</p>
               <div className="flex flex-wrap gap-2 pt-2">
                 {role.tags.map((t) => (
-                  <span key={t} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-gray-700 rounded-lg">
+                  <span key={t} className="text-xs font-semibold px-3 py-1 bg-gray-100 text-content-primary rounded-lg">
                     {t}
                   </span>
                 ))}
@@ -53,7 +53,7 @@ export const CareerPathsPage: React.FC = () => {
               <Link
                 to="/learn"
                 className={`w-full text-center py-2.5 rounded-full text-sm font-bold block transition-all ${
-                  role.active ? 'bg-[#5B3CE8] text-white shadow-sm' : 'border border-[#5B3CE8] text-[#5B3CE8] hover:bg-purple-50'
+                  role.active ? 'bg-brand-primary text-white shadow-sm' : 'border border-brand-primary text-brand-primary hover:bg-purple-50'
                 }`}
               >
                 Choose Path &rarr;

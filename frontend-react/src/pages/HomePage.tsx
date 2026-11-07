@@ -11,18 +11,18 @@ export const HomePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EDE9FE] text-[#5B3CE8] text-xs font-bold tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-light text-brand-primary text-xs font-bold tracking-wide">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Placement Preparation Platform</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#120E2C] tracking-tight leading-[1.15]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-content-primary tracking-tight leading-[1.15]">
               Build Skills,<br />
               Build Projects,<br />
-              <span className="text-[#5B3CE8]">Get Placed.</span>
+              <span className="text-brand-primary">Get Placed.</span>
             </h1>
 
-            <p className="text-lg text-gray-600 max-w-xl leading-relaxed">
+            <p className="text-lg text-content-secondary max-w-xl leading-relaxed">
               A structured, practical, and personalized platform to make you job-ready for top engineering and tech roles.
             </p>
 
@@ -37,7 +37,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* 5-Benefit Icon Strip (Screen 1 Mockup) */}
-            <div className="pt-8 border-t border-gray-200/80 grid grid-cols-2 sm:grid-cols-5 gap-3">
+            <div className="pt-8 border-t border-surface-border/80 grid grid-cols-2 sm:grid-cols-5 gap-3">
               {[
                 { title: 'Structured Learning', icon: '📚' },
                 { title: 'Coding Practice', icon: '💻' },
@@ -45,9 +45,9 @@ export const HomePage: React.FC = () => {
                 { title: 'Interview Prep', icon: '👥' },
                 { title: 'Placement Guidance', icon: '🚀' },
               ].map((item, idx) => (
-                <div key={idx} className="bg-white p-3 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center">
+                <div key={idx} className="bg-surface-card p-3 rounded-xl border border-surface-border shadow-sm flex flex-col items-center text-center">
                   <span className="text-xl mb-1">{item.icon}</span>
-                  <span className="text-xs font-bold text-gray-800 leading-tight">{item.title}</span>
+                  <span className="text-xs font-bold text-content-primary leading-tight">{item.title}</span>
                 </div>
               ))}
             </div>
@@ -57,7 +57,7 @@ export const HomePage: React.FC = () => {
           {/* Right Hero Illustration */}
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-md">
-              <div className="w-full aspect-[4/3] bg-gradient-to-tr from-[#EDE9FE] to-white rounded-3xl p-6 shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden">
+              <div className="w-full aspect-[4/3] bg-gradient-to-tr from-brand-light to-white rounded-3xl p-6 shadow-xl border border-surface-border flex items-center justify-center overflow-hidden">
                 <img
                   src="/home-hero-student.svg"
                   alt="Student preparing for placement"
@@ -73,8 +73,8 @@ export const HomePage: React.FC = () => {
       {/* Featured Career Paths */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <h2 className="text-3xl font-extrabold text-[#120E2C]">Choose Your Learning Direction</h2>
-          <p className="text-gray-500 mt-2">Follow structured roadmaps tailored for high-demand campus placement roles.</p>
+          <h2 className="text-3xl font-extrabold text-content-primary">Choose Your Learning Direction</h2>
+          <p className="text-content-secondary mt-2">Follow structured roadmaps tailored for high-demand campus placement roles.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -84,7 +84,7 @@ export const HomePage: React.FC = () => {
               desc: 'Build full-stack applications, master DSA, and prepare for high-impact developer roles.',
               tags: ['DSA', 'Web Dev', 'Projects'],
               link: '/career-paths#software-dev',
-              color: 'border-l-4 border-[#5B3CE8]',
+              color: 'border-l-4 border-brand-primary',
             },
             {
               title: 'Data Analyst',
@@ -101,13 +101,13 @@ export const HomePage: React.FC = () => {
               color: 'border-l-4 border-blue-500',
             },
           ].map((role, idx) => (
-            <div key={idx} className={`bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between ${role.color}`}>
+            <div key={idx} className={`bg-surface-card p-6 rounded-2xl border border-surface-border shadow-sm flex flex-col justify-between ${role.color}`}>
               <div>
-                <h3 className="font-bold text-xl text-[#120E2C] mb-2">{role.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{role.desc}</p>
+                <h3 className="font-bold text-xl text-content-primary mb-2">{role.title}</h3>
+                <p className="text-sm text-content-secondary mb-4">{role.desc}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {role.tags.map((t) => (
-                    <span key={t} className="text-xs font-semibold px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md">
+                    <span key={t} className="text-xs font-semibold px-2.5 py-1 bg-gray-100 text-content-primary rounded-md">
                       {t}
                     </span>
                   ))}
@@ -123,14 +123,14 @@ export const HomePage: React.FC = () => {
 
       {/* CTA Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#120E2C] text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+        <div className="bg-brand-ink text-white rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl sm:text-3xl font-extrabold">Ready to Accelerate Your Tech Career?</h3>
             <p className="text-gray-300 max-w-xl text-sm sm:text-base">
               Join ExamMate AI today and gain the algorithmic skills, portfolio projects, and interview confidence to land your dream offer.
             </p>
           </div>
-          <Link to="/register" className="btn-pill-purple bg-[#5B3CE8] text-white whitespace-nowrap px-8 py-3.5 text-base">
+          <Link to="/register" className="btn-pill-purple bg-brand-primary text-white whitespace-nowrap px-8 py-3.5 text-base">
             Get Started for Free &rarr;
           </Link>
         </div>

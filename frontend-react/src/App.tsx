@@ -17,11 +17,12 @@ import { AssessmentPage } from './pages/AssessmentPage';
 import { PerformancePage } from './pages/PerformancePage';
 import { ProfileSettingsPage } from './pages/ProfileSettingsPage';
 import { ContactPage } from './pages/ContactPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen bg-[#F8F9FA] text-[#120E2C]">
+      <div className="flex flex-col min-h-screen bg-background-base text-content-primary">
         <Navbar />
         <div className="flex-1">
           <Routes>
@@ -39,6 +40,7 @@ export const App: React.FC = () => {
             <Route path="/performance" element={<PerformancePage />} />
             <Route path="/profile" element={<ProfileSettingsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
         <Footer />
