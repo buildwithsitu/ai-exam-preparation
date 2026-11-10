@@ -6,9 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="ExamMate AI — Modern Career & Placement Preparation Platform for Tech Roles." />
     <title>ExamMate AI — Build Skills, Build Projects, Get Placed</title>
+    <script>
+      // When opened via VS Code Live Server (port 5500/5501) instead of Vite dev server (port 5173),
+      // automatically redirect to the compiled dist build so ExamMate AI runs immediately!
+      if (window.location.protocol.startsWith('http') && window.location.port !== '5173' && !window.location.pathname.includes('/dist/')) {
+        window.location.replace('./dist/index.html' + window.location.hash);
+      }
+    </script>
   </head>
   <body class="bg-background-base text-content-primary antialiased min-h-screen">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback displayed only if opened directly via file:// instead of running through Vite dev server -->
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; background: #0c091f; color: #ffffff; box-sizing: border-box;">
+        <div style="max-width: 560px; width: 100%; background: #161233; border: 1px solid #2d265a; border-radius: 24px; padding: 36px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+          
+          <div style="width: 56px; height: 56px; margin: 0 auto 16px; background: #5B3CE8; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 14px rgba(91, 60, 232, 0.4);">
+            🎓
+          </div>
+
+          <h1 style="font-size: 24px; font-weight: 900; margin: 0 0 10px; color: #ffffff; letter-spacing: -0.5px;">
+            ExamMate <span style="color: #7c5cfc;">AI</span>
+          </h1>
+
+          <p style="font-size: 14px; color: #a5a1c9; line-height: 1.6; margin: 0 0 24px;">
+            You are opening <code style="background: #231c4f; padding: 3px 8px; border-radius: 6px; color: #c4b5fd; font-size: 13px;">index.html</code> directly via file path. This is a modern React + TypeScript application that must be run through its local development server.
+          </p>
+
+          <div style="background: #0c091f; border: 1px solid #2d265a; border-radius: 16px; padding: 20px; text-align: left; margin-bottom: 24px;">
+            <p style="margin: 0 0 10px; font-size: 11px; font-weight: 800; color: #7c5cfc; text-transform: uppercase; letter-spacing: 0.5px;">
+              🚀 How to start the application:
+            </p>
+            <div style="background: #161233; border: 1px solid #2d265a; border-radius: 10px; padding: 12px 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 13px; color: #34d399; margin-bottom: 12px; user-select: all;">
+              npm run dev
+            </div>
+            <p style="margin: 0; font-size: 12px; color: #827da8;">
+              Or from the root directory: <code style="color: #c4b5fd;">./start.sh</code>
+            </p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+            <a 
+              href="http://localhost:5173" 
+              target="_blank" 
+              rel="noreferrer"
+              style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #5B3CE8; color: #ffffff; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 14px rgba(91, 60, 232, 0.4); transition: transform 0.2s;"
+            >
+              Open http://localhost:5173 &rarr;
+            </a>
+            <span style="font-size: 12px; color: #827da8;">
+              (Once the server is running, click the link above)
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,0 +1,15 @@
+{
+  "name": "exammate-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ExamMate AI — Tech Career & Placement Preparation Platform",
+  "scripts": {
+    "dev": "npm --prefix frontend-react run dev",
+    "start": "npm --prefix frontend-react run dev",
+    "build": "npm --prefix frontend-react run build",
+    "preview": "npm --prefix frontend-react run preview",
+    "backend": "test -x backend/venv/bin/python3 && backend/venv/bin/python3 backend/run.py || python3 backend/run.py",
+    "backend:test": "test -x backend/venv/bin/pytest && backend/venv/bin/pytest backend/tests || pytest backend/tests",
+    "fullstack": "./start.sh"
+  }
+}

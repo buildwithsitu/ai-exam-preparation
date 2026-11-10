@@ -1,16 +1,38 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { CheckCircle2, Lock, Mail, User } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Lock, Mail, User, Loader2 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export const RegisterPage: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [institution, setInstitution] = useState('');
+  const [track, setTrack] = useState('Software Developer');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { register } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/dashboard');
+    setErrorMessage('');
+    setIsSubmitting(true);
+
+    const result = await register({
+      name,
+      email,
+      password,
+      institution: institution || undefined,
+      track: track || undefined,
+    });
+    setIsSubmitting(false);
+
+    if (result.success) {
+      navigate('/dashboard');
+    } else {
+      setErrorMessage(result.error || 'Registration failed. Please check the details entered.');
+    }
   };
 
   return (
@@ -74,6 +96,13 @@ export const RegisterPage: React.FC = () => {
             </Link>
           </div>
 
+          {errorMessage && (
+            <div className="mb-5 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2.5">
+              <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="register-name" className="block text-xs font-bold uppercase tracking-wider text-content-primary mb-1.5">
@@ -136,11 +165,51 @@ export const RegisterPage: React.FC = () => {
               </div>
             </div>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div>
+                <label htmlFor="register-track" className="block text-xs font-bold uppercase tracking-wider text-content-primary mb-1">
+                  Target Track
+                </label>
+                <select
+                  id="register-track"
+                  value={track}
+                  onChange={(e) => setTrack(e.target.value)}
+                  className="w-full px-3 py-2 rounded-xl border border-surface-border text-xs bg-surface-card focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
+                >
+                  <option value="Software Developer">Software Developer</option>
+                  <option value="Data Analyst">Data Analyst</option>
+                  <option value="Data Scientist">Data Scientist</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="register-institution" className="block text-xs font-bold uppercase tracking-wider text-content-primary mb-1">
+                  College / University
+                </label>
+                <input
+                  id="register-institution"
+                  type="text"
+                  placeholder="e.g. JNU, New Delhi"
+                  value={institution}
+                  onChange={(e) => setInstitution(e.target.value)}
+                  className="w-full px-3 py-2 rounded-xl border border-surface-border text-xs focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
+                />
+              </div>
+            </div>
+
             <button
               type="submit"
-              className="w-full btn-pill-purple py-3 text-sm font-bold shadow-md hover:shadow-lg transition-all mt-2"
+              disabled={isSubmitting}
+              className="w-full btn-pill-purple py-3 text-sm font-bold shadow-md hover:shadow-lg transition-all mt-2 flex items-center justify-center gap-2"
             >
-              Create Account &rarr;
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Creating Account...</span>
+                </>
+              ) : (
+                <span>Create Account &rarr;</span>
+              )}
             </button>
 
             <p className="text-center text-xs text-content-secondary pt-2">

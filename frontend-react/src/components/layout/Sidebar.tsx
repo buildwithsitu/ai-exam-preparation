@@ -11,6 +11,7 @@ import {
   BarChart3, 
   Settings 
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 interface SidebarProps {
   activeTab: string;
@@ -18,6 +19,11 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
+  const { user } = useAuth();
+  const studentName = user?.name || 'Situ Chandra';
+  const studentTrack = user?.track || 'Software Dev Track';
+  const studentInitial = studentName.charAt(0).toUpperCase();
+
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'career', label: 'Career Path', icon: Compass },
@@ -67,11 +73,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
       {/* Bottom Profile Pill */}
       <div className="hidden lg:flex mt-auto pt-4 border-t border-white/10 items-center gap-3 px-2">
         <div className="w-9 h-9 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shrink-0">
-          S
+          {studentInitial}
         </div>
         <div className="overflow-hidden">
-          <p className="text-sm font-semibold truncate">Situ Chandra</p>
-          <p className="text-xs text-gray-400 truncate">Software Dev Track</p>
+          <p className="text-sm font-semibold truncate">{studentName}</p>
+          <p className="text-xs text-gray-400 truncate">{studentTrack}</p>
         </div>
       </div>
 

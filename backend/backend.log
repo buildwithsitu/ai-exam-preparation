@@ -1,0 +1,42 @@
+
+============================================================
+ 🚀 ExamMate AI Backend Server
+============================================================
+ ➜ Environment: development
+ ➜ Address:     http://0.0.0.0:5000
+ ➜ Health Check: http://0.0.0.0:5000/api/v1/health
+ ➜ Database:    sqlite:////home/birendra/Documents/ai-exam-preparation/backend/exammate_dev.db
+============================================================
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.102.19.98:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 676-239-500
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:21] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:31] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:31] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:31] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:31] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 21:30:47] "[35m[1mPOST /api/v1/auth/register HTTP/1.1[0m" 201 -
+127.0.0.1 - - [10/Nov/2026 21:31:38] "POST /api/v1/auth/logout HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 22:35:22] "POST /api/v1/student/progress/solve-problem HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 22:35:22] "POST /api/v1/student/progress/solve-problem HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 22:42:13] "POST /api/v1/student/progress/solve-problem HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 22:42:13] "POST /api/v1/student/progress/solve-problem HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 23:02:53] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 23:02:53] "GET /api/v1/health HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 23:02:53] "GET /api/v1/student/progress HTTP/1.1" 200 -
+127.0.0.1 - - [10/Nov/2026 23:02:53] "GET /api/v1/student/progress HTTP/1.1" 200 -

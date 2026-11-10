@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamMate AI — Tech Placement Platform</title>
+    <script>
+      // Automatically redirect VS Code Live Server (port 5500/5501) to the React application
+      if (window.location.protocol.startsWith('http') && window.location.port !== '5173') {
+        window.location.replace('/frontend-react/dist/index.html' + window.location.hash);
+      }
+    </script>
+    <meta http-equiv="refresh" content="0; url=/frontend-react/dist/index.html" />
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #0c091f;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding: 24px;
+      }
+      .card {
+        background: #161233;
+        border: 1px solid #2d265a;
+        border-radius: 24px;
+        padding: 36px;
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      }
+      .icon {
+        font-size: 42px;
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-size: 22px;
+        font-weight: 800;
+        margin: 0 0 10px;
+      }
+      p {
+        color: #a5a1c9;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+      .btn {
+        display: inline-block;
+        background: #5B3CE8;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 12px 28px;
+        border-radius: 9999px;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(91, 60, 232, 0.4);
+      }
+      .code-box {
+        background: #0c091f;
+        border: 1px solid #2d265a;
+        border-radius: 12px;
+        padding: 14px;
+        text-align: left;
+        margin-bottom: 20px;
+        font-family: monospace;
+        font-size: 13px;
+        color: #34d399;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="icon">🎓</div>
+      <h1>Launching ExamMate AI...</h1>
+      <p>Redirecting to the web application. If you are not redirected automatically within 2 seconds:</p>
+      
+      <a class="btn" href="/frontend-react/dist/index.html">Open ExamMate AI &rarr;</a>
+
+      <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #2d265a; text-align: left;">
+        <span style="font-size: 11px; font-weight: 700; color: #7c5cfc; text-transform: uppercase;">⚡ Tip for Developers:</span>
+        <p style="font-size: 12px; color: #827da8; margin: 6px 0 10px;">
+          For fast development with instant live reload, run this in your terminal:
+        </p>
+        <div class="code-box">npm run dev</div>
+      </div>
+    </div>
+  </body>
+</html>

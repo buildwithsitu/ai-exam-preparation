@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sidebar } from '../components/layout/Sidebar';
 import { Search } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 import { DashboardHomeView } from '../components/dashboard/DashboardHomeView';
 import { CareerPathsView } from '../components/dashboard/CareerPathsView';
@@ -15,6 +16,10 @@ import { SettingsView } from '../components/dashboard/SettingsView';
 
 export const DashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const { user } = useAuth();
+  const displayName = user ? user.name.split(' ')[0] : 'Situ';
+  const displayTrack = user?.track || 'Software Developer';
+  const displayInitial = (user?.name || 'Situ').charAt(0).toUpperCase();
 
   return (
     <div className="flex min-h-[calc(100vh-4rem)] flex-col lg:flex-row">
@@ -30,11 +35,11 @@ export const DashboardPage: React.FC = () => {
           <div>
             <div className="flex items-center gap-3">
               <h1 className="text-2xl sm:text-3xl font-black text-content-primary">
-                Welcome back, Situ! 👋
+                Welcome back, {displayName}! 👋
               </h1>
               <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-brand-light text-brand-primary text-xs font-bold rounded-full">
                 <span>&lt;/&gt;</span>
-                <span>Software Developer</span>
+                <span>{displayTrack}</span>
               </span>
             </div>
             <p className="text-sm text-content-secondary mt-1">
@@ -44,7 +49,7 @@ export const DashboardPage: React.FC = () => {
 
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-2.5" />
               <input
                 type="text"
                 placeholder="Search anything..."
@@ -52,7 +57,7 @@ export const DashboardPage: React.FC = () => {
               />
             </div>
             <div className="w-9 h-9 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm shadow-sm">
-              S
+              {displayInitial}
             </div>
           </div>
         </div>

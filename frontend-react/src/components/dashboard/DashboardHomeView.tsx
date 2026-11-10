@@ -1,24 +1,63 @@
-import React, { useState } from 'react';
-import { Play, CheckSquare, Sparkles, TrendingUp, Award, Flame } from 'lucide-react';
+import React from 'react';
+import { Database, RefreshCw, RotateCcw, Sparkles } from 'lucide-react';
+import { useStudentProgress } from '../../context/StudentProgressContext';
 
 interface DashboardHomeViewProps {
   onNavigate: (tabId: string) => void;
 }
 
 export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate }) => {
-  const [tasks, setTasks] = useState([
-    { id: 1, text: 'Solve 5 DSA problems', done: false },
-    { id: 2, text: 'Complete React module', done: false },
-    { id: 3, text: 'Update your resume', done: false },
-  ]);
-
-  const toggleTask = (id: number) => {
-    setTasks(prev => prev.map(t => t.id === id ? { ...t, done: !t.done } : t));
-  };
+  const { stats, backendConnected, isSyncing, toggleTask, resetAllProgress, loadDemoProgress } = useStudentProgress();
 
   return (
     <div className="space-y-8">
       
+      {/* Reset Progress Banner / Action Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-2xl bg-surface-card border border-surface-border">
+        <div className="flex flex-wrap items-center gap-3 text-xs text-content-secondary">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Student Progress Status: <strong>{stats.overallProgress}% Complete</strong></span>
+          </div>
+
+          <span className="text-gray-300">|</span>
+
+          {/* Backend PostgreSQL Live Sync Status */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-surface-subtle border border-surface-border">
+            <Database className={`w-3 h-3 ${backendConnected ? 'text-emerald-500' : 'text-amber-500'}`} />
+            <span className={backendConnected ? 'text-emerald-700' : 'text-amber-700'}>
+              {backendConnected ? 'PostgreSQL Synced' : 'Local Storage Mode'}
+            </span>
+            {isSyncing && (
+              <RefreshCw className="w-2.5 h-2.5 animate-spin text-brand-primary ml-1" />
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => {
+              if (window.confirm('Are you sure you want to reset all progress, streak, and completed tasks to 0?')) {
+                resetAllProgress();
+              }
+            }}
+            className="px-3 py-1.5 rounded-full border border-red-200 text-red-600 hover:bg-red-50 text-xs font-bold transition-colors flex items-center gap-1.5"
+            title="Reset all student metrics to 0"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset All Progress (0%)</span>
+          </button>
+          <button
+            onClick={loadDemoProgress}
+            className="px-3 py-1.5 rounded-full border border-surface-border text-content-secondary hover:bg-surface-subtle text-xs font-semibold transition-colors flex items-center gap-1.5"
+            title="Load sample mockup numbers for preview"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
+            <span>Load Demo Data</span>
+          </button>
+        </div>
+      </div>
+
       {/* 4 Top KPI Stat Cards (Screen 1 in Mockup 2) */}
       <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-4 gap-4">
         
@@ -27,7 +66,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             📊
           </div>
           <div>
-            <p className="text-2xl font-black text-content-primary">56%</p>
+            <p className="text-2xl font-black text-content-primary">{stats.overallProgress}%</p>
             <p className="text-xs text-content-secondary font-medium">Overall Progress</p>
           </div>
         </div>
@@ -37,7 +76,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             &lt;/&gt;
           </div>
           <div>
-            <p className="text-2xl font-black text-content-primary">24</p>
+            <p className="text-2xl font-black text-content-primary">{stats.practiceDone}</p>
             <p className="text-xs text-content-secondary font-medium">Practice Done</p>
           </div>
         </div>
@@ -47,7 +86,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             🛠️
           </div>
           <div>
-            <p className="text-2xl font-black text-content-primary">3</p>
+            <p className="text-2xl font-black text-content-primary">{stats.projectsBuilt}</p>
             <p className="text-xs text-content-secondary font-medium">Projects Built</p>
           </div>
         </div>
@@ -57,7 +96,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             🔥
           </div>
           <div>
-            <p className="text-2xl font-black text-content-primary">15</p>
+            <p className="text-2xl font-black text-content-primary">{stats.streakDays}</p>
             <p className="text-xs text-content-secondary font-medium">Days Streak</p>
           </div>
         </div>
@@ -80,30 +119,30 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
                 <span className="text-content-primary">Web Development</span>
-                <span className="text-brand-primary">72%</span>
+                <span className="text-brand-primary">{stats.webDevProgress}%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '72%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: `${stats.webDevProgress}%` }} />
               </div>
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
                 <span className="text-content-primary">DSA</span>
-                <span className="text-brand-primary">40%</span>
+                <span className="text-brand-primary">{stats.dsaProgress}%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '40%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: `${stats.dsaProgress}%` }} />
               </div>
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-bold mb-1.5">
                 <span className="text-content-primary">JavaScript</span>
-                <span className="text-brand-primary">60%</span>
+                <span className="text-brand-primary">{stats.jsProgress}%</span>
               </div>
               <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: '60%' }} />
+                <div className="bg-brand-primary h-full rounded-full transition-all duration-500" style={{ width: `${stats.jsProgress}%` }} />
               </div>
             </div>
           </div>
@@ -120,7 +159,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
           <div>
             <h2 className="font-bold text-base text-content-primary mb-4">Next Task</h2>
             <div className="space-y-3">
-              {tasks.map(task => (
+              {stats.tasks.map(task => (
                 <label 
                   key={task.id} 
                   className="flex items-center gap-3 p-3 rounded-xl border border-surface-border hover:bg-surface-subtle/80 cursor-pointer transition-colors"
@@ -140,7 +179,7 @@ export const DashboardHomeView: React.FC<DashboardHomeViewProps> = ({ onNavigate
           </div>
 
           <div className="pt-4 border-t border-surface-border mt-4 text-xs text-gray-400">
-            Complete daily tasks to maintain your streak.
+            Complete daily tasks to build your streak.
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -18,34 +18,40 @@ import { PerformancePage } from './pages/PerformancePage';
 import { ProfileSettingsPage } from './pages/ProfileSettingsPage';
 import { ContactPage } from './pages/ContactPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { AuthProvider } from './context/AuthContext';
+import { StudentProgressProvider } from './context/StudentProgressContext';
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <div className="flex flex-col min-h-screen bg-background-base text-content-primary">
-        <Navbar />
-        <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/career-paths" element={<CareerPathsPage />} />
-            <Route path="/learn" element={<LearningHubPage />} />
-            <Route path="/practice" element={<CodingPracticePage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/placement" element={<PlacementPage />} />
-            <Route path="/assessment" element={<AssessmentPage />} />
-            <Route path="/performance" element={<PerformancePage />} />
-            <Route path="/profile" element={<ProfileSettingsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <StudentProgressProvider>
+        <HashRouter>
+          <div className="flex flex-col min-h-screen bg-background-base text-content-primary">
+            <Navbar />
+            <div className="flex-1">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
+                <Route path="/career-paths" element={<CareerPathsPage />} />
+                <Route path="/learn" element={<LearningHubPage />} />
+                <Route path="/practice" element={<CodingPracticePage />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+                <Route path="/placement" element={<PlacementPage />} />
+                <Route path="/assessment" element={<AssessmentPage />} />
+                <Route path="/performance" element={<PerformancePage />} />
+                <Route path="/profile" element={<ProfileSettingsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </div>
+            <Footer />
+          </div>
+        </HashRouter>
+      </StudentProgressProvider>
+    </AuthProvider>
   );
 };
 

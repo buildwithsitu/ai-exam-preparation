@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { LogOut, Menu, User, X } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 export const Navbar: React.FC = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, isAuthenticated, logout } = useAuth();
 
   const navLinks = [
     { label: 'Home', path: '/' },
@@ -54,20 +56,45 @@ export const Navbar: React.FC = () => {
 
         {/* Auth CTA / User Controls */}
         <div className="flex items-center gap-3">
-          <Link
-            to="/login"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="hidden sm:inline-flex text-sm font-semibold text-content-primary hover:text-brand-primary px-3.5 py-1.5 transition-colors"
-          >
-            Log In
-          </Link>
-          <Link
-            to="/register"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="btn-pill-purple text-sm px-5 py-2"
-          >
-            Sign Up
-          </Link>
+          {isAuthenticated && user ? (
+            <div className="flex items-center gap-2.5">
+              <Link
+                to="/dashboard"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-subtle border border-surface-border hover:bg-surface-card transition-colors text-xs font-bold text-content-primary"
+              >
+                <div className="w-6 h-6 rounded-full bg-brand-primary text-white flex items-center justify-center text-[10px] font-black">
+                  {user.name.charAt(0).toUpperCase()}
+                </div>
+                <span className="hidden sm:inline-block max-w-[120px] truncate">{user.name}</span>
+              </Link>
+              <button
+                onClick={() => logout()}
+                title="Log out of account"
+                className="p-2 rounded-full text-content-secondary hover:text-red-600 hover:bg-red-50 transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hidden sm:inline-flex text-sm font-semibold text-content-primary hover:text-brand-primary px-3.5 py-1.5 transition-colors"
+              >
+                Log In
+              </Link>
+              <Link
+                to="/register"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="btn-pill-purple text-sm px-5 py-2"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
+
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-content-primary hover:bg-surface-subtle focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:hidden"

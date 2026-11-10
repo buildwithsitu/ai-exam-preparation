@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { CheckCircle2, Lock, Mail } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Lock, Mail, Loader2 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { login, loginOfflineDemo } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/dashboard');
+    setErrorMessage('');
+    setIsSubmitting(true);
+
+    const result = await login(email, password);
+    setIsSubmitting(false);
+
+    if (result.success) {
+      navigate('/dashboard');
+    } else {
+      setErrorMessage(result.error || 'Failed to sign in. Please verify your credentials.');
+    }
   };
 
   return (
@@ -73,6 +87,13 @@ export const LoginPage: React.FC = () => {
             </div>
           </div>
 
+          {errorMessage && (
+            <div className="mb-5 p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs flex items-center gap-2.5">
+              <AlertCircle className="w-4 h-4 shrink-0 text-red-500" />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label htmlFor="login-email" className="block text-xs font-bold uppercase tracking-wider text-content-primary mb-1.5">
@@ -116,9 +137,34 @@ export const LoginPage: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full btn-pill-purple py-3 text-sm font-bold shadow-md hover:shadow-lg transition-all"
+              disabled={isSubmitting}
+              className="w-full btn-pill-purple py-3 text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
             >
-              Log In to Workspace &rarr;
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Signing in...</span>
+                </>
+              ) : (
+                <span>Log In to Workspace &rarr;</span>
+              )}
+            </button>
+
+            <div className="relative flex py-1 items-center">
+              <div className="flex-grow border-t border-surface-border"></div>
+              <span className="flex-shrink mx-3 text-[11px] text-content-secondary uppercase font-bold tracking-wider">or</span>
+              <div className="flex-grow border-t border-surface-border"></div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                loginOfflineDemo();
+                navigate('/dashboard');
+              }}
+              className="w-full py-2.5 rounded-full border border-surface-border text-xs font-bold text-content-primary hover:bg-surface-subtle transition-colors flex items-center justify-center gap-2"
+            >
+              <span>Explore as Demo Student (Situ Chandra) &rarr;</span>
             </button>
 
             <p className="text-center text-xs text-content-secondary pt-2">

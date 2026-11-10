@@ -1,14 +1,9 @@
 import React from 'react';
 import { CheckCircle2, Circle, Download, Edit3 } from 'lucide-react';
+import { useStudentProgress } from '../../context/StudentProgressContext';
 
 export const ResumeBuilderView: React.FC = () => {
-  const steps = [
-    { title: 'Add Personal Details', completed: true },
-    { title: 'Add Education', completed: true },
-    { title: 'Add Skills', completed: true },
-    { title: 'Add Projects', completed: true },
-    { title: 'Review & Download', completed: false },
-  ];
+  const { stats, toggleResumeStep } = useStudentProgress();
 
   return (
     <div className="space-y-6">
@@ -21,17 +16,26 @@ export const ResumeBuilderView: React.FC = () => {
         
         {/* Left Steps Checklist */}
         <div className="lg:col-span-5 bg-surface-card p-6 sm:p-8 rounded-3xl border border-surface-border shadow-sm space-y-6">
-          <h3 className="font-bold text-sm uppercase tracking-wider text-content-secondary">Resume Checklist</h3>
+          <div className="flex items-center justify-between">
+            <h3 className="font-bold text-sm uppercase tracking-wider text-content-secondary">Resume Checklist</h3>
+            <span className="text-xs font-bold text-brand-primary">
+              {stats.resumeSteps.filter(s => s.completed).length} / {stats.resumeSteps.length} Done
+            </span>
+          </div>
           
           <div className="space-y-4">
-            {steps.map((step, idx) => (
-              <div key={idx} className="flex items-center gap-3">
+            {stats.resumeSteps.map((step, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => toggleResumeStep(idx)}
+                className="flex items-center gap-3 cursor-pointer p-1.5 rounded-xl hover:bg-surface-subtle transition-colors"
+              >
                 {step.completed ? (
                   <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                 ) : (
                   <Circle className="w-5 h-5 text-gray-300 shrink-0" />
                 )}
-                <span className={`text-sm font-semibold ${step.completed ? 'text-gray-900' : 'text-gray-400'}`}>
+                <span className={`text-sm font-semibold ${step.completed ? 'text-content-primary' : 'text-gray-400'}`}>
                   {step.title}
                 </span>
               </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useStudentProgress } from '../../context/StudentProgressContext';
 
 export const LearningHubView: React.FC = () => {
+  const { stats } = useStudentProgress();
   const [activeFilter, setActiveFilter] = useState('All');
 
   const categories = ['All', 'Web Development', 'Programming', 'DB & SQL', 'AI & ML', 'Tools'];
@@ -10,7 +12,7 @@ export const LearningHubView: React.FC = () => {
       id: 1,
       title: 'Web Development (HTML, CSS, JS)',
       desc: 'Build a strong foundation for web development.',
-      progress: 72,
+      progress: stats.webDevProgress,
       category: 'Web Development',
       icon: '🌐',
     },
@@ -18,7 +20,7 @@ export const LearningHubView: React.FC = () => {
       id: 2,
       title: 'React Development',
       desc: 'Learn React and build modern web apps.',
-      progress: 40,
+      progress: stats.reactProgress,
       category: 'Web Development',
       icon: '⚛️',
     },
@@ -26,7 +28,7 @@ export const LearningHubView: React.FC = () => {
       id: 3,
       title: 'Python for Developers',
       desc: 'Python fundamentals to real-world projects.',
-      progress: 65,
+      progress: stats.pythonProgress,
       category: 'Programming',
       icon: '🐍',
     },
