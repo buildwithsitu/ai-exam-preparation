@@ -57,11 +57,12 @@ def create_app(config_name: Optional[str] = None) -> Flask:
             "BaseModel": BaseModel,
         }
 
-    # 7. Auto-create tables in development/SQLite if not existing
-    with app.app_context():
-        try:
-            db.create_all()
-        except Exception as exc:
-            app.logger.debug("Auto db.create_all() note: %s", exc)
+    # Production schema changes are managed by Alembic migrations.
+    if app.config.get("ENV") != "production":
+        with app.app_context():
+            try:
+                db.create_all()
+            except Exception as exc:
+                app.logger.debug("Auto db.create_all() note: %s", exc)
 
     return app

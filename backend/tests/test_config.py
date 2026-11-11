@@ -1,3 +1,7 @@
+import pytest
+
+from app import create_app
+from app.extensions import db
 from app.config import (
     DevelopmentConfig,
     ProductionConfig,
@@ -55,6 +59,33 @@ def test_production_config(monkeypatch):
     assert cfg.ENV == "production"
     assert "postgresql+psycopg2://" in cfg.SQLALCHEMY_DATABASE_URI
     assert cfg.SQLALCHEMY_ENGINE_OPTIONS["pool_size"] == 10
+
+
+def test_production_app_leaves_schema_creation_to_migrations(monkeypatch):
+    monkeypatch.setenv("DATABASE_URL", "sqlite:///:memory:")
+    monkeypatch.setattr(ProductionConfig, "SQLALCHEMY_ENGINE_OPTIONS", {})
+    monkeypatch.setattr(
+        "app.db.create_all",
+        lambda: pytest.fail("Production startup must leave schema creation to migrations"),
+    )
+    create_app("production")
+
+
+def test_migrations_accept_schema_created_before_first_upgrade(monkeypatch, tmp_path):
+    database_path = tmp_path / "precreated.sqlite"
+    monkeypatch.setenv("DATABASE_URL", f"sqlite:///{database_path}")
+    monkeypatch.setattr(ProductionConfig, "SQLALCHEMY_ENGINE_OPTIONS", {})
+    app = create_app("production")
+
+    with app.app_context():
+        db.create_all()
+
+    result = app.test_cli_runner().invoke(args=["db", "upgrade"])
+    assert result.exit_code == 0, result.output
+
+    with app.app_context():
+        version = db.session.execute(db.text("SELECT version_num FROM alembic_version")).scalar_one()
+        assert version == "0003_password_hash"
 
 
 def test_get_config_factory():

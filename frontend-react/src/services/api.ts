@@ -7,7 +7,7 @@
 
 import { StudentProgressState } from '../context/StudentProgressContext';
 
-const API_BASE = '/api/v1';
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || '/api/v1').replace(/\/+$/, '');
 const AUTH_TOKEN_KEY = 'exammate_auth_token_v1';
 
 export interface HealthCheckResponse {

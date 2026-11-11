@@ -16,23 +16,28 @@ depends_on = None
 
 
 def upgrade():
-    op.create_table(
-        'users',
-        sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-        sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
-        sa.Column('updated_at', sa.DateTime(timezone=True), nullable=False),
-        sa.Column('name', sa.String(length=100), nullable=False),
-        sa.Column('email', sa.String(length=120), nullable=False),
-        sa.Column('institution', sa.String(length=150), nullable=False),
-        sa.Column('track', sa.String(length=50), nullable=False),
-        sa.Column('overall_progress', sa.Integer(), nullable=False, server_default='0'),
-        sa.Column('practice_done', sa.Integer(), nullable=False, server_default='0'),
-        sa.Column('projects_built', sa.Integer(), nullable=False, server_default='0'),
-        sa.Column('streak_days', sa.Integer(), nullable=False, server_default='0'),
-        sa.Column('is_active', sa.Boolean(), nullable=False, server_default='true'),
-        sa.PrimaryKeyConstraint('id')
-    )
-    op.create_index(op.f('ix_users_email'), 'users', ['email'], unique=True)
+    if not sa.inspect(op.get_bind()).has_table('users'):
+        op.create_table(
+            'users',
+            sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+            sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
+            sa.Column('updated_at', sa.DateTime(timezone=True), nullable=False),
+            sa.Column('name', sa.String(length=100), nullable=False),
+            sa.Column('email', sa.String(length=120), nullable=False),
+            sa.Column('institution', sa.String(length=150), nullable=False),
+            sa.Column('track', sa.String(length=50), nullable=False),
+            sa.Column('overall_progress', sa.Integer(), nullable=False, server_default='0'),
+            sa.Column('practice_done', sa.Integer(), nullable=False, server_default='0'),
+            sa.Column('projects_built', sa.Integer(), nullable=False, server_default='0'),
+            sa.Column('streak_days', sa.Integer(), nullable=False, server_default='0'),
+            sa.Column('is_active', sa.Boolean(), nullable=False, server_default='true'),
+            sa.PrimaryKeyConstraint('id')
+        )
+
+    indexes = {index['name'] for index in sa.inspect(op.get_bind()).get_indexes('users')}
+    email_index = op.f('ix_users_email')
+    if email_index not in indexes:
+        op.create_index(email_index, 'users', ['email'], unique=True)
 
 
 def downgrade():

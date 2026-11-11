@@ -16,7 +16,11 @@ depends_on = None
 
 
 def upgrade():
-    op.add_column('users', sa.Column('password_hash', sa.String(length=255), nullable=True))
+    existing_columns = {
+        column['name'] for column in sa.inspect(op.get_bind()).get_columns('users')
+    }
+    if 'password_hash' not in existing_columns:
+        op.add_column('users', sa.Column('password_hash', sa.String(length=255), nullable=True))
 
 
 def downgrade():
