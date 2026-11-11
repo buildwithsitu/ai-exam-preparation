@@ -5,6 +5,7 @@ import {
   apiLogin,
   apiLogout,
   apiRegister,
+  apiRegisterVerifyOtp,
   apiUpdateProfile,
   getStoredToken,
 } from '../services/api';
@@ -23,6 +24,7 @@ interface AuthContextType {
     institution?: string;
     track?: string;
   }) => Promise<{ success: boolean; error?: string }>;
+  verifyOtpAndRegister: (email: string, otp: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
   updateProfile: (payload: {
     name?: string;
@@ -118,6 +120,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   };
 
+  const verifyOtpAndRegister = async (email: string, otp: string) => {
+    setIsLoading(true);
+    const res = await apiRegisterVerifyOtp({ email, otp });
+    setIsLoading(false);
+    if (res.success && res.user && res.token) {
+      setUser(res.user);
+      setToken(res.token);
+      return { success: true };
+    }
+    return {
+      success: false,
+      error: res.error?.message || 'Verification failed. Please check the code entered.',
+    };
+  };
+
   const logout = async () => {
     await apiLogout();
     setUser(null);
@@ -152,6 +169,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         login,
         loginOfflineDemo,
         register,
+        verifyOtpAndRegister,
         logout,
         updateProfile,
       }}

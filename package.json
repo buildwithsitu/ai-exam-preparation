@@ -9,7 +9,7 @@
     "build": "npm --prefix frontend-react run build",
     "preview": "npm --prefix frontend-react run preview",
     "backend": "test -x backend/venv/bin/python3 && backend/venv/bin/python3 backend/run.py || python3 backend/run.py",
-    "backend:test": "test -x backend/venv/bin/pytest && backend/venv/bin/pytest backend/tests || pytest backend/tests",
+    "backend:test": "test -x backend/venv/bin/pytest && (cd backend && venv/bin/pytest tests) || (cd backend && pytest tests)",
     "fullstack": "./start.sh"
   }
 }

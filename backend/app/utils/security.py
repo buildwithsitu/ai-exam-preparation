@@ -78,6 +78,44 @@ def get_jwt_secret() -> str:
     return os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")
 
 
+def generate_otp(length: int = 6) -> str:
+    """
+    Generate a cryptographically secure numeric OTP using Python's secrets module.
+    Pads with leading zeroes to ensure exact length (e.g. '048291').
+    """
+    if length < 4:
+        length = 6
+    max_val = 10 ** length
+    code = secrets.randbelow(max_val)
+    return f"{code:0{length}d}"
+
+
+def hash_otp(otp: str) -> str:
+    """
+    Hash an OTP code using HMAC-SHA256 with server-side SECRET_KEY.
+    Ensures OTP is NEVER stored in plaintext in the database.
+    """
+    if not otp:
+        raise ValueError("OTP code cannot be empty.")
+    secret = get_jwt_secret().encode("utf-8")
+    clean_otp = otp.strip().encode("utf-8")
+    return hmac.new(secret, clean_otp, hashlib.sha256).hexdigest()
+
+
+def verify_otp(otp: str, stored_hash: str) -> bool:
+    """
+    Safely compare an entered OTP code against the stored HMAC-SHA256 hash
+    using constant-time comparison to prevent timing attacks.
+    """
+    if not otp or not stored_hash:
+        return False
+    try:
+        computed = hash_otp(otp)
+        return hmac.compare_digest(computed, stored_hash)
+    except Exception:
+        return False
+
+
 def _b64url_encode(data: bytes) -> str:
     return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
 

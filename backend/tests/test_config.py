@@ -85,7 +85,7 @@ def test_migrations_accept_schema_created_before_first_upgrade(monkeypatch, tmp_
 
     with app.app_context():
         version = db.session.execute(db.text("SELECT version_num FROM alembic_version")).scalar_one()
-        assert version == "0003_password_hash"
+        assert version == "0004_email_otp_challenges"
 
 
 def test_get_config_factory():

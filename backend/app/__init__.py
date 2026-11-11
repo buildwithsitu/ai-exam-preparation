@@ -3,7 +3,7 @@ from typing import Optional
 from flask import Flask, jsonify, redirect
 from app.config import get_config
 from app.extensions import cors, db, migrate
-from app.models import BaseModel, User
+from app.models import BaseModel, User, EmailOtpChallenge
 from app.routes import register_routes
 from app.utils.errors import register_error_handlers
 
@@ -24,7 +24,10 @@ def create_app(config_name: Optional[str] = None) -> Flask:
 
     # 2. Initialize extensions
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrations_dir = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "migrations"
+    )
+    migrate.init_app(app, db, directory=migrations_dir)
     cors.init_app(
         app,
         origins=app.config.get("CORS_ORIGINS", "*"),
@@ -55,6 +58,7 @@ def create_app(config_name: Optional[str] = None) -> Flask:
             "db": db,
             "User": User,
             "BaseModel": BaseModel,
+            "EmailOtpChallenge": EmailOtpChallenge,
         }
 
     # Production schema changes are managed by Alembic migrations.

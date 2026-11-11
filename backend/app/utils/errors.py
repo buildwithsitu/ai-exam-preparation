@@ -94,6 +94,11 @@ class ConflictError(APIError):
     code = "CONFLICT"
 
 
+class TooManyRequestsError(APIError):
+    status_code = 429
+    code = "TOO_MANY_REQUESTS"
+
+
 class ServiceUnavailableError(APIError):
     status_code = 503
     code = "SERVICE_UNAVAILABLE"
@@ -125,6 +130,11 @@ def register_error_handlers(app: Flask) -> None:
     def handle_422(error):
         message = getattr(error, "description", "Unprocessable Entity")
         return format_error_response("VALIDATION_ERROR", message, status_code=422)
+
+    @app.errorhandler(429)
+    def handle_429(error):
+        message = getattr(error, "description", "Too many requests. Please try again later.")
+        return format_error_response("TOO_MANY_REQUESTS", message, status_code=429)
 
     @app.errorhandler(500)
     def handle_500(error):

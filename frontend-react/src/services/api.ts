@@ -49,6 +49,19 @@ export interface AuthResponseData {
   };
 }
 
+export interface RequestOtpResponse {
+  success: boolean;
+  message?: string;
+  email?: string;
+  cooldownSeconds?: number;
+  expiresInMinutes?: number;
+  error?: {
+    code: string;
+    message: string;
+    details?: any;
+  };
+}
+
 export interface ApiResponse<T> {
   success: boolean;
   message?: string;
@@ -152,6 +165,81 @@ export async function apiRegister(payload: {
       error: {
         code: 'NETWORK_ERROR',
         message: 'Could not connect to backend server. Please run ./start.sh to launch the backend on port 5000.',
+      },
+    };
+  }
+}
+
+export async function apiRegisterRequestOtp(payload: {
+  name: string;
+  email: string;
+  password: string;
+  institution?: string;
+  track?: string;
+}): Promise<RequestOtpResponse> {
+  try {
+    const res = await fetch(`${API_BASE}/auth/register/request-otp`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+
+    const json = await safeJsonParse<RequestOtpResponse>(res);
+    if (!json) {
+      return {
+        success: false,
+        error: {
+          code: 'BACKEND_OFFLINE',
+          message: 'Backend API is currently offline. Please start the backend with ./start.sh or python backend/run.py',
+        },
+      };
+    }
+    return json;
+  } catch (err: any) {
+    return {
+      success: false,
+      error: {
+        code: 'NETWORK_ERROR',
+        message: 'Could not connect to backend server. Please verify your connection or run ./start.sh.',
+      },
+    };
+  }
+}
+
+export async function apiRegisterVerifyOtp(payload: {
+  email: string;
+  otp: string;
+}): Promise<AuthResponseData> {
+  try {
+    const res = await fetch(`${API_BASE}/auth/register/verify-otp`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(payload),
+    });
+
+    const json = await safeJsonParse<AuthResponseData>(res);
+    if (!json) {
+      return {
+        success: false,
+        error: {
+          code: 'BACKEND_OFFLINE',
+          message: 'Backend API is currently offline. Please start the backend with ./start.sh or python backend/run.py',
+        },
+      };
+    }
+
+    if (res.ok && json.token) {
+      setStoredToken(json.token);
+    }
+    return json;
+  } catch (err: any) {
+    return {
+      success: false,
+      error: {
+        code: 'NETWORK_ERROR',
+        message: 'Could not connect to backend server. Please verify your connection or run ./start.sh.',
       },
     };
   }

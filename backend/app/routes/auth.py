@@ -65,6 +65,51 @@ def register():
     )
 
 
+@auth_bp.route("/auth/register/request-otp", methods=["POST"])
+@validate_json(
+    required_fields=["name", "email", "password"],
+    field_types={"name": str, "email": str, "password": str},
+)
+def request_registration_otp():
+    """
+    Initiate registration by generating and emailing a 6-digit OTP.
+    Enforces validation, uniqueness, and a 60-second resend cooldown.
+    """
+    data = request.get_json()
+    result = AuthService.request_registration_otp(
+        name=data["name"],
+        email=data["email"],
+        password=data["password"],
+        institution=data.get("institution"),
+        track=data.get("track"),
+    )
+    return jsonify(result), 200
+
+
+@auth_bp.route("/auth/register/verify-otp", methods=["POST"])
+@validate_json(
+    required_fields=["email", "otp"],
+    field_types={"email": str, "otp": str},
+)
+def verify_registration_otp():
+    """
+    Verify single-use email OTP code and complete user account registration.
+    Sets HttpOnly session cookie and returns auth token.
+    """
+    data = request.get_json()
+    user, token, expires_at = AuthService.verify_registration_otp(
+        email=data["email"],
+        otp=data["otp"],
+    )
+    return create_auth_response(
+        user=user,
+        token=token,
+        expires_at=expires_at,
+        status_code=201,
+        message="Email verified and account registered successfully.",
+    )
+
+
 @auth_bp.route("/auth/login", methods=["POST"])
 @validate_json(
     required_fields=["email", "password"],
